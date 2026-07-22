@@ -122,6 +122,39 @@ try {
 
     await page.getByRole('searchbox').fill('a');
     await page.getByRole('button', { name: 'Show filters' }).click();
+    const filterPanel = page.locator('#filter-panel');
+    const filterScroller = filterPanel.locator(':scope > div');
+    const filterHeader = filterPanel.locator(':scope > header');
+    const clearFiltersButton = page.getByRole('button', { name: 'Clear filters', exact: true });
+    const filterHeaderBeforeScroll = await filterHeader.boundingBox();
+    const clearButtonBeforeScroll = await clearFiltersButton.boundingBox();
+    const filterPanelBox = await filterPanel.boundingBox();
+    assert(
+      filterHeaderBeforeScroll && clearButtonBeforeScroll && filterPanelBox,
+      'filter panel header and footer could not be measured',
+    );
+    assert(
+      Math.abs(
+        clearButtonBeforeScroll.y +
+          clearButtonBeforeScroll.height -
+          (filterPanelBox.y + filterPanelBox.height),
+      ) < 1,
+      'clear filters is not anchored to the bottom of the filter panel',
+    );
+    await filterScroller.evaluate((element) => {
+      element.scrollTop = element.scrollHeight;
+    });
+    const filterHeaderAfterScroll = await filterHeader.boundingBox();
+    const clearButtonAfterScroll = await clearFiltersButton.boundingBox();
+    assert(
+      clearButtonAfterScroll && Math.abs(clearButtonAfterScroll.y - clearButtonBeforeScroll.y) < 1,
+      'clear filters moved when the filter list scrolled',
+    );
+    assert(
+      filterHeaderAfterScroll &&
+        Math.abs(filterHeaderAfterScroll.y - filterHeaderBeforeScroll.y) < 1,
+      'filter header moved when the filter list scrolled',
+    );
     await audit(page, 'open filters');
     console.log('Filters checked.');
 

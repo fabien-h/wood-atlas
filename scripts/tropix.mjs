@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFile as execFileCallback } from 'node:child_process';
 import { promisify } from 'node:util';
+import sharp from 'sharp';
 
 const execFile = promisify(execFileCallback);
 
@@ -15,6 +16,11 @@ const outputPath = (language) => path.join(OUTPUT_DIR, `woods.generated.${langua
 const LEGACY_OUTPUT_PATH = path.join(OUTPUT_DIR, 'woods.generated.json');
 const PUBLIC_WOOD_DIR = path.join(ROOT, 'public', 'assets', 'woods');
 const TMP_IMAGE_DIR = path.join(ROOT, 'tmp', 'tropix-images');
+const GRAIN_IMAGE_SIZE = 400;
+const EXAMPLE_IMAGE_MAX_SIZE = 600;
+const WOOD_IMAGE_QUALITY = 70;
+const IMAGE_PIPELINE_VERSION = `grain-${GRAIN_IMAGE_SIZE}x${GRAIN_IMAGE_SIZE}-crop_example-max-${EXAMPLE_IMAGE_MAX_SIZE}_jpeg-q${WOOD_IMAGE_QUALITY}-v1`;
+const IMAGE_VERSION_PATH = path.join(PUBLIC_WOOD_DIR, '.image-version');
 const BASE_URL = 'https://tropix.cirad.fr';
 
 const LISTINGS = {
@@ -282,7 +288,7 @@ async function extract() {
   const frenchLinks = links.filter((link) => link.language === 'fr');
 
   await fsp.mkdir(OUTPUT_DIR, { recursive: true });
-  await fsp.mkdir(PUBLIC_WOOD_DIR, { recursive: true });
+  await prepareImageOutput();
   await fsp.mkdir(TMP_IMAGE_DIR, { recursive: true });
 
   const englishRecords = Array.from({ length: englishLinks.length });
@@ -1290,19 +1296,39 @@ async function extractImages(link, record) {
     for (const item of outputs) {
       const input = `${base}-${String(item.num).padStart(3, '0')}.png`;
       if (!(await fileExists(input))) continue;
-      await convertImage(input, item.output);
+      await convertImage(input, item.output, item.kind);
     }
   }
 
-  return outputs
-    .filter((item) => fs.existsSync(item.output))
-    .map((item) => ({
+  const published = [];
+  for (const item of outputs) {
+    if (!fs.existsSync(item.output)) continue;
+    const metadata = await sharp(item.output).metadata();
+    published.push({
       kind: item.kind,
       src: `/assets/woods/${record.id}/${item.fileName}`,
       alt: `${record.identity.displayName} ${labelForImageKind(item.kind, link.language)}`,
-      width: item.height > item.width ? item.height : item.width,
-      height: item.height > item.width ? item.width : item.height,
-    }));
+      width: metadata.width,
+      height: metadata.height,
+    });
+  }
+  return published;
+}
+
+async function prepareImageOutput() {
+  let currentVersion = '';
+  try {
+    currentVersion = (await fsp.readFile(IMAGE_VERSION_PATH, 'utf8')).trim();
+  } catch {
+    // A missing version marker means the existing images use an obsolete format.
+  }
+
+  if (currentVersion !== IMAGE_PIPELINE_VERSION) {
+    await fsp.rm(PUBLIC_WOOD_DIR, { recursive: true, force: true });
+  }
+
+  await fsp.mkdir(PUBLIC_WOOD_DIR, { recursive: true });
+  await fsp.writeFile(IMAGE_VERSION_PATH, `${IMAGE_PIPELINE_VERSION}\n`);
 }
 
 async function pdfImageList(pdfPath) {
@@ -1341,32 +1367,28 @@ function selectImages(images) {
   return [...grains, ...examples];
 }
 
-async function convertImage(input, output) {
+async function convertImage(input, output, kind) {
   await fsp.mkdir(path.dirname(output), { recursive: true });
-  try {
-    const rotate = await imageNeedsRotation(input);
-    const args = ['-s', 'format', 'jpeg', '-s', 'formatOptions', '82', '-Z', '1200'];
-    if (rotate) args.push('-r', '90');
-    args.push(input, '--out', output);
-    await execFile('sips', args, {
-      maxBuffer: 1024 * 1024 * 10,
+  const metadata = await sharp(input).metadata();
+  const pipeline = sharp(input);
+  if ((metadata.height ?? 0) > (metadata.width ?? 0) * 1.2) pipeline.rotate(90);
+  if (kind === 'example') {
+    pipeline.resize({
+      width: EXAMPLE_IMAGE_MAX_SIZE,
+      height: EXAMPLE_IMAGE_MAX_SIZE,
+      fit: 'inside',
+      withoutEnlargement: true,
     });
-  } catch {
-    await fsp.copyFile(input, output);
-  }
-}
-
-async function imageNeedsRotation(input) {
-  try {
-    const { stdout } = await execFile('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', input], {
-      maxBuffer: 1024 * 1024,
+  } else {
+    pipeline.resize(GRAIN_IMAGE_SIZE, GRAIN_IMAGE_SIZE, {
+      fit: 'cover',
+      position: 'centre',
     });
-    const width = Number(stdout.match(/pixelWidth:\s*(\d+)/)?.[1] ?? 0);
-    const height = Number(stdout.match(/pixelHeight:\s*(\d+)/)?.[1] ?? 0);
-    return height > width * 1.2;
-  } catch {
-    return false;
   }
+  await pipeline
+    .flatten({ background: '#fff' })
+    .jpeg({ quality: WOOD_IMAGE_QUALITY, mozjpeg: true })
+    .toFile(output);
 }
 
 function normalizeText(text) {

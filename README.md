@@ -51,4 +51,4 @@ The extraction script uses Poppler command-line tools:
 - `pdftotext`
 - `pdfimages`
 
-On macOS it also uses `sips` to normalize the extracted grain images. If `sips` is unavailable, the script falls back to copying the extracted image output.
+Image cropping, resizing, and JPEG conversion are handled cross-platform by `sharp`, installed with the project dependencies.

@@ -1,13 +1,15 @@
 .drawer {
   position: sticky;
   z-index: 20;
+  display: flex;
+  flex-direction: column;
   grid-column: 1;
   grid-row: 1;
   top: 0;
   align-self: start;
   width: 350px;
   height: 100dvh;
-  overflow: auto;
+  overflow: hidden;
   border-inline-end: 1px solid #000;
   background: #fff;
   opacity: 0;
@@ -36,11 +38,16 @@
 }
 
 .header {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 0 0 24px;
   border-bottom: 1px solid #000;
+  background: #fff;
 }
 .header h2 {
   margin: 0;
@@ -69,8 +76,13 @@
   color: #fff;
 }
 .stack {
+  flex: 1;
+  min-height: 0;
   display: grid;
   gap: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 .group {
   border-bottom: 1px solid #000;
@@ -150,6 +162,7 @@
   unicode-bidi: isolate;
 }
 .clearButton {
+  flex: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
