@@ -1,0 +1,232 @@
+{
+  "images": [
+    {
+      "woodId": "africa-ekki",
+      "kind": "flatSawn",
+      "sourceFile": "africa-ekki/tangential.jpg"
+    },
+    {
+      "woodId": "africa-ekki",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-ekki/radial.jpg"
+    },
+    {
+      "woodId": "africa-gombe-towe",
+      "kind": "flatSawn",
+      "sourceFile": "africa-gombe-towe/tangential.jpg"
+    },
+    {
+      "woodId": "africa-gombe-towe",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-gombe-towe/radial.jpg"
+    },
+    {
+      "woodId": "africa-guarea-black-bosse-fonce",
+      "kind": "flatSawn",
+      "sourceFile": "africa-guarea-black-bosse-fonce/tangential.jpg"
+    },
+    {
+      "woodId": "africa-guarea-black-bosse-fonce",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-guarea-black-bosse-fonce/radial.jpg"
+    },
+    {
+      "woodId": "africa-iroko",
+      "kind": "flatSawn",
+      "sourceFile": "africa-iroko/tangential.jpg"
+    },
+    {
+      "woodId": "africa-iroko",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-iroko/radial.jpg"
+    },
+    {
+      "woodId": "africa-moabi",
+      "kind": "flatSawn",
+      "sourceFile": "africa-moabi/tangential.jpg"
+    },
+    {
+      "woodId": "africa-moabi",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-moabi/radial.jpg"
+    },
+    {
+      "woodId": "africa-ohia",
+      "kind": "flatSawn",
+      "sourceFile": "africa-ohia/tangential.jpg"
+    },
+    {
+      "woodId": "africa-ohia",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-ohia/radial.jpg"
+    },
+    {
+      "woodId": "africa-tali-missanda",
+      "kind": "flatSawn",
+      "sourceFile": "africa-tali-missanda/tangential.jpg"
+    },
+    {
+      "woodId": "africa-tali-missanda",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-tali-missanda/radial.jpg"
+    },
+    {
+      "woodId": "america-ipe",
+      "kind": "flatSawn",
+      "sourceFile": "america-ipe/tangential.jpg"
+    },
+    {
+      "woodId": "america-ipe",
+      "kind": "quarterSawn",
+      "sourceFile": "america-ipe/radial.jpg"
+    },
+    {
+      "woodId": "america-purpleheart",
+      "kind": "flatSawn",
+      "sourceFile": "america-purpleheart/tangential.jpg"
+    },
+    {
+      "woodId": "america-purpleheart",
+      "kind": "quarterSawn",
+      "sourceFile": "america-purpleheart/radial.jpg"
+    },
+    {
+      "woodId": "asia-cryptomeria",
+      "kind": "flatSawn",
+      "sourceFile": "asia-cryptomeria/tangential.jpg"
+    },
+    {
+      "woodId": "asia-cryptomeria",
+      "kind": "quarterSawn",
+      "sourceFile": "asia-cryptomeria/radial.jpg"
+    },
+    {
+      "woodId": "temperate-cedar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-cedar/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-cedar",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-cedar/radial.jpg"
+    },
+    {
+      "woodId": "temperate-chestnut",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-chestnut/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-chestnut",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-chestnut/radial.jpg"
+    },
+    {
+      "woodId": "temperate-european-ash",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-european-ash/tangential.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fraxinus_excelsior_wood_tangent_section_1_beentree.jpg",
+      "creator": "Beentree",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "woodId": "temperate-european-ash",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-european-ash/radial.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fraxinus_excelsior_wood_ray_section_beentree.jpg",
+      "creator": "Beentree",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "woodId": "temperate-european-beech",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-european-beech/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-european-beech",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-european-beech/radial.jpg"
+    },
+    {
+      "woodId": "temperate-european-cherry",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-european-cherry/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-european-cherry",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-european-cherry/radial.jpg"
+    },
+    {
+      "woodId": "temperate-european-larch",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-european-larch/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-european-larch",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-european-larch/radial.jpg"
+    },
+    {
+      "woodId": "temperate-fir",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-fir/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-fir",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-fir/radial.jpg"
+    },
+    {
+      "woodId": "temperate-poplar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-poplar/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-poplar",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-poplar/radial.jpg"
+    },
+    {
+      "woodId": "temperate-scots-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-scots-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-scots-pine",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-scots-pine/radial.jpg"
+    },
+    {
+      "woodId": "temperate-spruce",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-spruce/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-spruce",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-spruce/radial.jpg"
+    },
+    {
+      "woodId": "temperate-sycamore",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-sycamore/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-sycamore",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-sycamore/radial.jpg"
+    },
+    {
+      "woodId": "temperate-western-red-cedar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-western-red-cedar/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-western-red-cedar",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-western-red-cedar/radial.jpg"
+    }
+  ]
+}

@@ -52,6 +52,73 @@ try {
     await audit(page, 'default table');
     console.log('Default table checked.');
 
+    await page.goto(`${origin}/?lang=en&q=Chestnut`);
+    await page.getByRole('button', { name: 'Open details for Chestnut', exact: true }).waitFor();
+    assert(
+      (await page.getByText('Castanea Sativa', { exact: true }).count()) === 0,
+      'the English table uses the Chestnut botanical name instead of its common name',
+    );
+    await page.goto(`${origin}/?lang=fr&q=Châtaignier`);
+    await page
+      .getByRole('button', { name: 'Ouvrir la fiche de Châtaignier', exact: true })
+      .waitFor();
+    assert(
+      (await page.getByText('Castanea Sativa', { exact: true }).count()) === 0,
+      'the French table uses the Chestnut botanical name instead of its common name',
+    );
+    console.log('Localized common names checked.');
+
+    await page.goto(`${origin}/?lang=en&q=Scots%20Pine`);
+    const scotsPineButton = page.getByRole('button', {
+      name: 'Open details for Scots Pine',
+      exact: true,
+    });
+    await scotsPineButton.waitFor();
+    const scotsPineThumbnail = scotsPineButton.locator('[style*="background-image"]');
+    assert(
+      (await scotsPineThumbnail.count()) === 1 &&
+        (await scotsPineThumbnail.getAttribute('style'))?.includes('/flat-sawn.jpg'),
+      'the Scots Pine flat-sawn image is missing from its table thumbnail',
+    );
+    await scotsPineButton.click();
+    const scotsPineDialog = page.getByRole('dialog');
+    await scotsPineDialog.waitFor();
+    assert(
+      (await scotsPineDialog.locator('figure').count()) === 2,
+      'Scots Pine does not have both manually sourced grain images',
+    );
+    assert(
+      (await scotsPineDialog.locator('img[src*="/example-"]').count()) === 1,
+      'the Scots Pine example image is missing from its dedicated section',
+    );
+    await page.getByRole('button', { name: 'Close detail' }).click();
+    await scotsPineDialog.waitFor({ state: 'hidden' });
+    console.log('Example image separation checked.');
+
+    await page.goto(`${origin}/?lang=en&q=European%20Ash`);
+    await page.getByRole('button', { name: 'Open details for European Ash', exact: true }).click();
+    const europeanAshDialog = page.getByRole('dialog');
+    await europeanAshDialog.waitFor();
+    assert(
+      (await europeanAshDialog.locator('figure').count()) === 2,
+      'European Ash does not have both manually sourced grain images',
+    );
+    assert(
+      (await europeanAshDialog.getByRole('link', { name: 'Beentree', exact: true }).count()) === 2,
+      'European Ash image creator credits are missing',
+    );
+    assert(
+      (await europeanAshDialog.getByRole('link', { name: 'CC BY-SA 4.0' }).count()) === 2,
+      'European Ash image licence credits are missing',
+    );
+    await audit(page, 'manual image credits');
+    await page.getByRole('button', { name: 'Close detail' }).click();
+    await europeanAshDialog.waitFor({ state: 'hidden' });
+    console.log('Manual image credits checked.');
+
+    await page.goto(`${origin}/?lang=en`);
+    await page.locator('tbody tr').first().waitFor();
+
     const aboutButton = page.getByRole('button', { name: 'About', exact: true });
     await aboutButton.click();
     const aboutDialog = page.getByRole('dialog', { name: 'About this atlas' });

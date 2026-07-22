@@ -16,6 +16,8 @@ const outputPath = (language) => path.join(OUTPUT_DIR, `woods.generated.${langua
 const LEGACY_OUTPUT_PATH = path.join(OUTPUT_DIR, 'woods.generated.json');
 const PUBLIC_WOOD_DIR = path.join(ROOT, 'public', 'assets', 'woods');
 const TMP_IMAGE_DIR = path.join(ROOT, 'tmp', 'tropix-images');
+const MANUAL_IMAGE_MANIFEST_PATH = path.join(ROOT, 'data', 'manual', 'wood-images.json');
+const MANUAL_IMAGE_SOURCE_DIR = path.join(ROOT, 'data', 'manual', 'wood-images');
 const GRAIN_IMAGE_SIZE = 400;
 const EXAMPLE_IMAGE_MAX_SIZE = 600;
 const WOOD_IMAGE_QUALITY = 70;
@@ -235,7 +237,7 @@ const LANGUAGE_CONFIG = {
 };
 
 function usage() {
-  console.log('Usage: node scripts/tropix.mjs <sync|extract|validate|all>');
+  console.log('Usage: node scripts/tropix.mjs <sync|extract|manual-images|validate|all>');
 }
 
 async function main() {
@@ -244,6 +246,8 @@ async function main() {
     await sync();
   } else if (command === 'extract') {
     await extract();
+  } else if (command === 'manual-images') {
+    await applyManualImagesToGeneratedDatabases();
   } else if (command === 'validate') {
     await validateGeneratedDatabases();
   } else if (command === 'all') {
@@ -357,6 +361,14 @@ async function extract() {
   );
 
   synchronizePairedMeasurements(englishRecords, frenchRecords);
+  const manualImages = await publishManualImages();
+  mergeManualImages(
+    [
+      { records: englishRecords, language: 'en' },
+      { records: frenchRecords, language: 'fr' },
+    ],
+    manualImages,
+  );
   for (const record of [...englishRecords, ...frenchRecords]) {
     record.extraction = qualityReport(record);
     record.searchText = makeSearchText(record);
@@ -402,9 +414,42 @@ async function extract() {
   console.log(
     `Validated ${validation.checkedValues} numeric values across ${validation.pairedRecords} bilingual records.`,
   );
+  console.log(`Published ${manualImages.length} manually sourced images.`);
+}
+
+async function applyManualImagesToGeneratedDatabases() {
+  const [englishDatabase, frenchDatabase] = await Promise.all([
+    fsp.readFile(outputPath('en'), 'utf8').then(JSON.parse),
+    fsp.readFile(outputPath('fr'), 'utf8').then(JSON.parse),
+  ]);
+  const manualImages = await publishManualImages();
+  mergeManualImages(
+    [
+      { records: englishDatabase.records, language: 'en' },
+      { records: frenchDatabase.records, language: 'fr' },
+    ],
+    manualImages,
+  );
+
+  for (const record of [...englishDatabase.records, ...frenchDatabase.records]) {
+    record.extraction = qualityReport(record);
+    record.searchText = makeSearchText(record);
+  }
+
+  const validation = validateDatabases(englishDatabase, frenchDatabase);
+  await Promise.all([
+    fsp.writeFile(outputPath('en'), JSON.stringify(englishDatabase, null, 2)),
+    fsp.writeFile(outputPath('fr'), JSON.stringify(frenchDatabase, null, 2)),
+    fsp.writeFile(LEGACY_OUTPUT_PATH, JSON.stringify(englishDatabase, null, 2)),
+  ]);
+  console.log(
+    `Published ${manualImages.length} manually sourced images and validated ` +
+      `${validation.checkedValues} numeric values across ${validation.pairedRecords} bilingual records.`,
+  );
 }
 
 async function validateGeneratedDatabases() {
+  await readManualImageManifest();
   const [englishDatabase, frenchDatabase] = await Promise.all([
     fsp.readFile(outputPath('en'), 'utf8').then(JSON.parse),
     fsp.readFile(outputPath('fr'), 'utf8').then(JSON.parse),
@@ -1264,6 +1309,153 @@ function parseWoodRecord(link, rawText) {
     },
     searchText: '',
   };
+}
+
+async function readManualImageManifest() {
+  const manifest = JSON.parse(await fsp.readFile(MANUAL_IMAGE_MANIFEST_PATH, 'utf8'));
+  if (!manifest || !Array.isArray(manifest.images)) {
+    throw new Error(`${MANUAL_IMAGE_MANIFEST_PATH} must contain an images array`);
+  }
+
+  const seen = new Set();
+  const registeredSourceFiles = new Set();
+  for (const [index, image] of manifest.images.entries()) {
+    const label = `manual image ${index + 1}`;
+    for (const key of ['woodId', 'kind', 'sourceFile']) {
+      if (typeof image?.[key] !== 'string' || !image[key].trim()) {
+        throw new Error(`${label} has an invalid ${key}`);
+      }
+    }
+    if (!['flatSawn', 'quarterSawn'].includes(image.kind)) {
+      throw new Error(`${label} has an unsupported kind: ${image.kind}`);
+    }
+    const expectedSourceFile = `${image.woodId}/${
+      image.kind === 'flatSawn' ? 'tangential.jpg' : 'radial.jpg'
+    }`;
+    if (image.sourceFile !== expectedSourceFile) {
+      throw new Error(`${label} must use the conventional source path ${expectedSourceFile}`);
+    }
+    const uniqueKey = `${image.woodId}|${image.kind}`;
+    if (seen.has(uniqueKey)) throw new Error(`${label} duplicates ${uniqueKey}`);
+    seen.add(uniqueKey);
+    if (registeredSourceFiles.has(image.sourceFile)) {
+      throw new Error(`${label} reuses ${image.sourceFile}`);
+    }
+    registeredSourceFiles.add(image.sourceFile);
+
+    const sourcePath = manualImageSourcePath(image.sourceFile);
+    await fsp.access(sourcePath);
+    const metadata = await sharp(sourcePath).metadata();
+    if (!metadata.width || !metadata.height) throw new Error(`${label} is not a readable image`);
+    if (metadata.format !== 'jpeg') throw new Error(`${label} must be a JPEG image`);
+
+    const creditKeys = ['sourceUrl', 'creator', 'license', 'licenseUrl'];
+    const providedCreditKeys = creditKeys.filter(
+      (key) => typeof image?.[key] === 'string' && image[key].trim(),
+    );
+    if (providedCreditKeys.length > 0 && providedCreditKeys.length !== creditKeys.length) {
+      throw new Error(`${label} must provide either all credit fields or none of them`);
+    }
+    if (providedCreditKeys.length > 0) {
+      for (const key of ['sourceUrl', 'licenseUrl']) {
+        const url = new URL(image[key]);
+        if (!['http:', 'https:'].includes(url.protocol)) {
+          throw new Error(`${label} has an unsupported ${key} protocol`);
+        }
+      }
+    }
+  }
+
+  const unregisteredSourceFiles = (await listManualImageSourceFiles()).filter(
+    (sourceFile) => !registeredSourceFiles.has(sourceFile),
+  );
+  if (unregisteredSourceFiles.length > 0) {
+    throw new Error(
+      `Manual image sources are missing from the manifest: ${unregisteredSourceFiles.join(', ')}`,
+    );
+  }
+  return manifest.images;
+}
+
+async function listManualImageSourceFiles(directory = MANUAL_IMAGE_SOURCE_DIR) {
+  const entries = await fsp.readdir(directory, { withFileTypes: true });
+  const files = await Promise.all(
+    entries.map(async (entry) => {
+      const entryPath = path.join(directory, entry.name);
+      if (entry.isDirectory()) return listManualImageSourceFiles(entryPath);
+      if (!/\.(?:jpe?g|png|webp)$/i.test(entry.name)) return [];
+      return [path.relative(MANUAL_IMAGE_SOURCE_DIR, entryPath).split(path.sep).join('/')];
+    }),
+  );
+  return files.flat().sort();
+}
+
+function manualImageSourcePath(sourceFile) {
+  const sourcePath = path.resolve(MANUAL_IMAGE_SOURCE_DIR, sourceFile);
+  const relativePath = path.relative(MANUAL_IMAGE_SOURCE_DIR, sourcePath);
+  if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
+    throw new Error(`Manual image source escapes its source directory: ${sourceFile}`);
+  }
+  return sourcePath;
+}
+
+async function publishManualImages() {
+  const images = await readManualImageManifest();
+  return Promise.all(
+    images.map(async (image) => {
+      const fileName = `${kebabCase(image.kind)}.jpg`;
+      const output = path.join(PUBLIC_WOOD_DIR, image.woodId, fileName);
+      await fsp.mkdir(path.dirname(output), { recursive: true });
+      await fsp.copyFile(manualImageSourcePath(image.sourceFile), output);
+      const metadata = await sharp(output).metadata();
+      return {
+        ...image,
+        src: `/assets/woods/${image.woodId}/${fileName}`,
+        width: metadata.width,
+        height: metadata.height,
+      };
+    }),
+  );
+}
+
+function mergeManualImages(databases, manualImages) {
+  const unmatched = new Set(manualImages.map((image) => `${image.woodId}|${image.kind}`));
+  for (const { records } of databases) {
+    const recordsById = new Map(records.map((record) => [record.id, record]));
+    for (const manualImage of manualImages) {
+      const record = recordsById.get(manualImage.woodId);
+      if (!record) continue;
+      unmatched.delete(`${manualImage.woodId}|${manualImage.kind}`);
+      const credit = manualImage.creator
+        ? {
+            creator: manualImage.creator,
+            sourceUrl: manualImage.sourceUrl,
+            license: manualImage.license,
+            licenseUrl: manualImage.licenseUrl,
+          }
+        : undefined;
+      const image = {
+        kind: manualImage.kind,
+        src: manualImage.src,
+        alt: '',
+        width: manualImage.width,
+        height: manualImage.height,
+        ...(credit ? { credit } : {}),
+      };
+      record.images = [...record.images.filter((item) => item.kind !== image.kind), image].sort(
+        (left, right) => imageKindOrder(left.kind) - imageKindOrder(right.kind),
+      );
+    }
+  }
+  if (unmatched.size > 0) {
+    throw new Error(`Manual images target unknown wood records: ${[...unmatched].join(', ')}`);
+  }
+}
+
+function imageKindOrder(kind) {
+  if (kind === 'flatSawn') return 0;
+  if (kind === 'quarterSawn') return 1;
+  return 2;
 }
 
 async function extractImages(link, record) {

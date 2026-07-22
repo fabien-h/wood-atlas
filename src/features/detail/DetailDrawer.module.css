@@ -118,6 +118,16 @@
   font-size: 0.8rem;
   padding: 10px;
 }
+.imageCredit {
+  display: block;
+  margin-top: 3px;
+  color: #ccc;
+  font-size: 0.733rem;
+}
+.imageCredit a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
 .section {
   border-bottom: 1px solid #000;
 }

@@ -39,6 +39,17 @@ export function buildSearchIndex(records: WoodRecord[]) {
   return new Map(records.map((wood) => [wood.id, buildSearchIndexEntry(wood.searchText)]));
 }
 
+export function primaryGrainImage(wood: WoodRecord) {
+  return (
+    wood.images.find((image) => image.kind === 'flatSawn') ??
+    wood.images.find((image) => image.kind === 'quarterSawn')
+  );
+}
+
+export function commonName(wood: WoodRecord) {
+  return wood.identity.primaryName || wood.identity.displayName;
+}
+
 export function woodMatches(
   wood: WoodRecord,
   normalizedQuery: string,
@@ -229,7 +240,7 @@ function isWithinEditDistance(source: string, target: string, maximum: number) {
 function sortValue(wood: WoodRecord, key: SortKey) {
   switch (key) {
     case 'name':
-      return wood.identity.displayName;
+      return commonName(wood);
     case 'region':
       return wood.origin.region;
     case 'density':

@@ -51,6 +51,12 @@ export interface WoodImage {
   alt: string;
   width?: number;
   height?: number;
+  credit?: {
+    creator: string;
+    sourceUrl: string;
+    license: string;
+    licenseUrl: string;
+  };
 }
 
 export interface SourcePdf {

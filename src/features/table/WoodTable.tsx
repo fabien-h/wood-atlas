@@ -1,5 +1,12 @@
 import { ArrowDown, ArrowUp, Check, ChevronRight } from 'lucide-react';
-import { formatMeasure, shortClass, type SortKey, type WoodSort } from '../../domain/woods';
+import {
+  commonName,
+  formatMeasure,
+  primaryGrainImage,
+  shortClass,
+  type SortKey,
+  type WoodSort,
+} from '../../domain/woods';
 import type { Translation } from '../../i18n';
 import type { WoodRecord } from '../../types/wood';
 import { RegionBadge } from '../../components/RegionBadge';
@@ -99,6 +106,8 @@ export function WoodTable({
           ) : (
             woods.map((wood) => {
               const selected = selectedIds.includes(wood.id);
+              const grainImage = primaryGrainImage(wood);
+              const name = commonName(wood);
               return (
                 <tr
                   className={activeId === wood.id ? styles.activeRow : ''}
@@ -110,8 +119,8 @@ export function WoodTable({
                       type="button"
                       className={`${styles.selectToggle} ${selected ? styles.selected : ''}`}
                       onClick={() => onSelect(wood.id)}
-                      title={`${copy.compare} ${wood.identity.displayName}`}
-                      aria-label={`${copy.compare} ${wood.identity.displayName}`}
+                      title={`${copy.compare} ${name}`}
+                      aria-label={`${copy.compare} ${name}`}
                       aria-pressed={selected}
                       disabled={!selected && selectedIds.length >= 5}
                     >
@@ -126,20 +135,20 @@ export function WoodTable({
                         event.stopPropagation();
                         onOpen(wood.id);
                       }}
-                      aria-label={`${copy.openWoodDetails} ${wood.identity.displayName}`}
-                      title={`${copy.openWoodDetails} ${wood.identity.displayName}`}
+                      aria-label={`${copy.openWoodDetails} ${name}`}
+                      title={`${copy.openWoodDetails} ${name}`}
                     >
-                      {wood.images[0] ? (
+                      {grainImage ? (
                         <span
                           className={styles.grainImage}
-                          style={{ backgroundImage: `url("${wood.images[0].src}")` }}
+                          style={{ backgroundImage: `url("${grainImage.src}")` }}
                           aria-hidden="true"
                         />
                       ) : (
                         <span className={styles.grainPlaceholder} aria-hidden="true" />
                       )}
                       <span className={styles.nameText}>
-                        <strong>{wood.identity.displayName}</strong>
+                        <strong>{name}</strong>
                         <span>{wood.identity.family ?? copy.unknownFamily}</span>
                       </span>
                       <ChevronRight className={styles.openIcon} size={16} aria-hidden="true" />

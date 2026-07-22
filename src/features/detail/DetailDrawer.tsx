@@ -11,7 +11,7 @@ import {
   isMeaningful,
 } from '../../domain/woods';
 import type { Translation } from '../../i18n';
-import type { NumericMeasure, WoodRecord } from '../../types/wood';
+import type { NumericMeasure, WoodImage, WoodRecord } from '../../types/wood';
 import styles from './DetailDrawer.module.css';
 
 interface DetailDrawerProps {
@@ -164,9 +164,10 @@ function DetailContent({
         <div className={styles.imagePair}>
           {grainImages.slice(0, 2).map((image) => (
             <figure key={image.src}>
-              <img src={image.src} alt={image.alt} />
+              <img src={image.src} alt={woodImageAlt(image, wood, copy)} />
               <figcaption>
-                {image.kind === 'flatSawn' ? copy.flatSawn : copy.quarterSawn}
+                <span>{image.kind === 'flatSawn' ? copy.flatSawn : copy.quarterSawn}</span>
+                <ImageCredit credit={image.credit} />
               </figcaption>
             </figure>
           ))}
@@ -395,12 +396,33 @@ function DetailContent({
         <DetailSection title={copy.example}>
           <div className={styles.exampleImages}>
             {exampleImages.map((image) => (
-              <img src={image.src} alt={image.alt} key={image.src} />
+              <img src={image.src} alt={woodImageAlt(image, wood, copy)} key={image.src} />
             ))}
           </div>
         </DetailSection>
       )}
     </>
+  );
+}
+
+function woodImageAlt(image: WoodImage, wood: WoodRecord, copy: Translation) {
+  const label =
+    image.kind === 'flatSawn'
+      ? copy.flatSawn
+      : image.kind === 'quarterSawn'
+        ? copy.quarterSawn
+        : copy.example;
+  return `${wood.identity.displayName} — ${label}`;
+}
+
+function ImageCredit({ credit }: { credit: WoodImage['credit'] }) {
+  if (!credit) return null;
+  return (
+    <span className={styles.imageCredit}>
+      <a href={credit.sourceUrl}>{credit.creator}</a>
+      {' · '}
+      <a href={credit.licenseUrl}>{credit.license}</a>
+    </span>
   );
 }
 

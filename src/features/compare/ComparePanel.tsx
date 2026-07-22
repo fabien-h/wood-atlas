@@ -1,5 +1,10 @@
 import { X } from 'lucide-react';
-import { durabilityScore, formatMeasure, winningIndexes } from '../../domain/woods';
+import {
+  durabilityScore,
+  formatMeasure,
+  primaryGrainImage,
+  winningIndexes,
+} from '../../domain/woods';
 import type { Translation } from '../../i18n';
 import type { WoodRecord } from '../../types/wood';
 import styles from './ComparePanel.module.css';
@@ -34,28 +39,31 @@ export function ComparePanel({
               <th scope="col">
                 <span className="sr-only">{copy.characteristic}</span>
               </th>
-              {woods.map((wood) => (
-                <th scope="col" key={wood.id}>
-                  <div className={styles.woodHeading}>
-                    {wood.images[0] && (
-                      <span
-                        className={styles.woodGrain}
-                        style={{ backgroundImage: `url("${wood.images[0].src}")` }}
-                        aria-hidden="true"
-                      />
-                    )}
-                    <span className={styles.woodName}>{wood.identity.displayName}</span>
-                    <button
-                      type="button"
-                      onClick={() => onRemove(wood.id)}
-                      title={`${copy.remove} ${wood.identity.displayName}`}
-                      aria-label={`${copy.remove} ${wood.identity.displayName}`}
-                    >
-                      <X size={14} aria-hidden="true" />
-                    </button>
-                  </div>
-                </th>
-              ))}
+              {woods.map((wood) => {
+                const grainImage = primaryGrainImage(wood);
+                return (
+                  <th scope="col" key={wood.id}>
+                    <div className={styles.woodHeading}>
+                      {grainImage && (
+                        <span
+                          className={styles.woodGrain}
+                          style={{ backgroundImage: `url("${grainImage.src}")` }}
+                          aria-hidden="true"
+                        />
+                      )}
+                      <span className={styles.woodName}>{wood.identity.displayName}</span>
+                      <button
+                        type="button"
+                        onClick={() => onRemove(wood.id)}
+                        title={`${copy.remove} ${wood.identity.displayName}`}
+                        aria-label={`${copy.remove} ${wood.identity.displayName}`}
+                      >
+                        <X size={14} aria-hidden="true" />
+                      </button>
+                    </div>
+                  </th>
+                );
+              })}
             </tr>
           </thead>
           <tbody>
