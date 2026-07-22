@@ -1,5 +1,5 @@
 import { ChevronDown, Search, X } from 'lucide-react';
-import type { RefObject } from 'react';
+import { useRef, type RefObject } from 'react';
 import type { ActiveFilterTag, Filters } from '../../domain/filters';
 import { appLanguages, translations, type Translation } from '../../i18n';
 import type { AppLanguage } from '../../types/wood';
@@ -34,6 +34,8 @@ export function WorkspaceHeader({
   onAboutOpen,
   filters,
 }: WorkspaceHeaderProps) {
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
   return (
     <header>
       <div className={styles.header}>
@@ -81,17 +83,36 @@ export function WorkspaceHeader({
           <span>{copy.filters}</span>
         </button>
 
-        <label className={styles.searchBox}>
-          <span className="sr-only">{copy.searchPlaceholder}</span>
+        <div className={styles.searchBox}>
+          <label className="sr-only" htmlFor="wood-search">
+            {copy.searchPlaceholder}
+          </label>
           <Search size={16} aria-hidden="true" />
           <input
+            ref={searchInputRef}
+            id="wood-search"
             type="search"
             value={query}
             onChange={(event) => onQueryChange(event.target.value)}
             placeholder={copy.searchPlaceholder}
             aria-label={copy.searchPlaceholder}
           />
-        </label>
+          {query.length > 0 && (
+            <button
+              type="button"
+              className={styles.clearSearch}
+              aria-label={copy.clearSearch}
+              title={copy.clearSearch}
+              onClick={() => {
+                onQueryChange('');
+                searchInputRef.current?.focus();
+              }}
+            >
+              <X size={15} aria-hidden="true" />
+              <span>{copy.clearSearch}</span>
+            </button>
+          )}
+        </div>
       </div>
 
       {activeFilterTags.length > 0 && (

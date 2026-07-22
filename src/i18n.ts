@@ -41,6 +41,7 @@ export interface Translation {
   atTwelvePercentMoisture: string;
   atlas: string;
   searchPlaceholder: string;
+  clearSearch: string;
   filters: string;
   showFilters: string;
   hideFilters: string;
@@ -235,6 +236,7 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     atTwelvePercentMoisture: '*: at 12% moisture content',
     atlas: 'Wood Atlas',
     searchPlaceholder: 'Search names, uses, countries…',
+    clearSearch: 'Clear search',
     filters: 'Filters',
     showFilters: 'Show filters',
     hideFilters: 'Hide filters',
@@ -406,6 +408,7 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     atTwelvePercentMoisture: '* : à 12 % d’humidité',
     atlas: 'Atlas des bois',
     searchPlaceholder: 'Rechercher un nom, un usage, un pays…',
+    clearSearch: 'Effacer la recherche',
     filters: 'Filtres',
     showFilters: 'Afficher les filtres',
     hideFilters: 'Masquer les filtres',

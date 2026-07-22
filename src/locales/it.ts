@@ -15,6 +15,7 @@ export const it = {
     'Tutti i dati sui legni di questo atlante provengono dalla banca dati Tropix e dall’unità di ricerca BioWooEB del CIRAD.',
   atlas: 'Atlante dei legni',
   searchPlaceholder: 'Cerca nomi, impieghi, paesi…',
+  clearSearch: 'Cancella ricerca',
   filters: 'Filtri',
   showFilters: 'Mostra filtri',
   hideFilters: 'Nascondi filtri',

@@ -14,6 +14,7 @@ export const de = {
     'Alle Holzdaten in diesem Atlas stammen aus der Tropix-Datenbank und von der CIRAD-Forschungseinheit BioWooEB.',
   atlas: 'Holzatlas',
   searchPlaceholder: 'Namen, Verwendungen, Länder durchsuchen…',
+  clearSearch: 'Suche löschen',
   filters: 'Filter',
   showFilters: 'Filter anzeigen',
   hideFilters: 'Filter ausblenden',

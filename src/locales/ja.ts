@@ -14,6 +14,7 @@ export const ja = {
     'この図鑑の木材データはすべて、TropixデータベースとCIRADのBioWooEB研究ユニットに由来します。',
   atlas: '木材図鑑',
   searchPlaceholder: '名称、用途、国名を検索…',
+  clearSearch: '検索をクリア',
   filters: '絞り込み',
   showFilters: '絞り込みを表示',
   hideFilters: '絞り込みを隠す',

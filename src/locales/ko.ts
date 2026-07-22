@@ -14,6 +14,7 @@ export const ko = {
     '이 도감의 모든 목재 데이터는 Tropix 데이터베이스와 CIRAD BioWooEB 연구팀에서 제공됩니다.',
   atlas: '목재 도감',
   searchPlaceholder: '이름, 용도, 국가 검색…',
+  clearSearch: '검색 지우기',
   filters: '필터',
   showFilters: '필터 표시',
   hideFilters: '필터 숨기기',

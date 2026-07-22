@@ -14,6 +14,7 @@ export const bn = {
     'এই অ্যাটলাসের সব কাঠের তথ্য Tropix ডেটাবেস এবং CIRAD-এর BioWooEB গবেষণা ইউনিট থেকে এসেছে।',
   atlas: 'কাঠের অ্যাটলাস',
   searchPlaceholder: 'নাম, ব্যবহার বা দেশ খুঁজুন…',
+  clearSearch: 'অনুসন্ধান মুছুন',
   filters: 'ফিল্টার',
   showFilters: 'ফিল্টার দেখান',
   hideFilters: 'ফিল্টার লুকান',

@@ -52,6 +52,20 @@ try {
     await audit(page, 'default table');
     console.log('Default table checked.');
 
+    const defaultSearch = page.getByRole('searchbox');
+    const clearSearchButton = page.getByRole('button', { name: 'Clear search', exact: true });
+    assert((await clearSearchButton.count()) === 0, 'clear search is visible for an empty query');
+    await defaultSearch.fill('Chestnut');
+    await clearSearchButton.waitFor();
+    await clearSearchButton.click();
+    assert((await defaultSearch.inputValue()) === '', 'clear search did not empty the query');
+    assert((await clearSearchButton.count()) === 0, 'clear search remains visible after clearing');
+    assert(
+      await defaultSearch.evaluate((element) => element === document.activeElement),
+      'focus was not restored to the search input after clearing',
+    );
+    console.log('Clear search checked.');
+
     await page.goto(`${origin}/?lang=en&q=Chestnut`);
     await page.getByRole('button', { name: 'Open details for Chestnut', exact: true }).waitFor();
     assert(

@@ -14,6 +14,7 @@ export const vi = {
     'Toàn bộ dữ liệu gỗ trong atlas này đến từ cơ sở dữ liệu Tropix và đơn vị nghiên cứu BioWooEB của CIRAD.',
   atlas: 'Atlas gỗ',
   searchPlaceholder: 'Tìm tên, công dụng, quốc gia…',
+  clearSearch: 'Xóa tìm kiếm',
   filters: 'Bộ lọc',
   showFilters: 'Hiện bộ lọc',
   hideFilters: 'Ẩn bộ lọc',

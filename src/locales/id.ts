@@ -14,6 +14,7 @@ export const id = {
     'Semua data kayu dalam atlas ini berasal dari basis data Tropix dan unit penelitian BioWooEB CIRAD.',
   atlas: 'Atlas Kayu',
   searchPlaceholder: 'Cari nama, kegunaan, negara…',
+  clearSearch: 'Hapus pencarian',
   filters: 'Filter',
   showFilters: 'Tampilkan filter',
   hideFilters: 'Sembunyikan filter',

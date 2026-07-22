@@ -134,19 +134,56 @@
   gap: 8px;
   width: 100%;
   height: 60px;
-  padding: 10px 12px;
+  padding: 0;
   color: var(--muted);
   border: none;
   background: #fff;
   cursor: text;
 }
 
+.searchBox > svg {
+  flex: 0 0 auto;
+  margin-inline-start: 12px;
+}
+
 .searchBox input {
   width: 100%;
+  height: 100%;
   min-width: 0;
+  padding-block: 10px;
   border: 0;
   background: transparent;
   color: var(--ink);
+}
+
+.searchBox input::-webkit-search-cancel-button {
+  display: none;
+  appearance: none;
+}
+
+.clearSearch {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 16px;
+  border: 0;
+  border-inline-start: 1px solid #000;
+  border-radius: 0;
+  background: #000;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 720;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.clearSearch:hover {
+  background: #fff;
+  color: #000;
 }
 
 .tags {
@@ -205,11 +242,23 @@
   }
 }
 
+@media (max-width: 479px) {
+  .clearSearch {
+    width: 44px;
+    padding: 0;
+  }
+
+  .clearSearch span {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .languageSelect select,
   .languageSelect svg,
   .aboutButton,
-  .filterToggle {
+  .filterToggle,
+  .clearSearch {
     transition: none;
   }
 }

@@ -14,6 +14,7 @@ export const hi = {
     'इस एटलस का सारा लकड़ी डेटा Tropix डेटाबेस और CIRAD की BioWooEB अनुसंधान इकाई से आता है।',
   atlas: 'लकड़ी एटलस',
   searchPlaceholder: 'नाम, उपयोग या देश खोजें…',
+  clearSearch: 'खोज साफ़ करें',
   filters: 'फ़िल्टर',
   showFilters: 'फ़िल्टर दिखाएँ',
   hideFilters: 'फ़िल्टर छिपाएँ',

@@ -14,6 +14,7 @@ export const ar = {
     'تأتي جميع بيانات الأخشاب في هذا الأطلس من قاعدة بيانات Tropix ووحدة أبحاث BioWooEB التابعة لـ CIRAD.',
   atlas: 'أطلس الأخشاب',
   searchPlaceholder: 'ابحث عن أسماء أو استخدامات أو بلدان…',
+  clearSearch: 'مسح البحث',
   filters: 'عوامل التصفية',
   showFilters: 'إظهار عوامل التصفية',
   hideFilters: 'إخفاء عوامل التصفية',

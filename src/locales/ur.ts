@@ -14,6 +14,7 @@ export const ur = {
     'اس اٹلس میں لکڑی کا تمام ڈیٹا Tropix ڈیٹا بیس اور CIRAD کے BioWooEB تحقیقی یونٹ سے آتا ہے۔',
   atlas: 'لکڑیوں کا اٹلس',
   searchPlaceholder: 'نام، استعمال یا ملک تلاش کریں…',
+  clearSearch: 'تلاش صاف کریں',
   filters: 'فلٹرز',
   showFilters: 'فلٹرز دکھائیں',
   hideFilters: 'فلٹرز چھپائیں',

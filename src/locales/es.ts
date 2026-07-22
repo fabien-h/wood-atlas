@@ -15,6 +15,7 @@ export const es = {
     'Todos los datos sobre maderas de este atlas proceden de la base de datos Tropix y de la unidad de investigación BioWooEB del CIRAD.',
   atlas: 'Atlas de maderas',
   searchPlaceholder: 'Buscar nombres, usos, países…',
+  clearSearch: 'Borrar búsqueda',
   filters: 'Filtros',
   showFilters: 'Mostrar filtros',
   hideFilters: 'Ocultar filtros',

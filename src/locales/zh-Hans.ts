@@ -13,6 +13,7 @@ export const zhHans = {
   aboutDataSources: '本图鉴中的所有木材数据均来自 Tropix 数据库和 CIRAD 的 BioWooEB 研究部门。',
   atlas: '木材图鉴',
   searchPlaceholder: '搜索名称、用途、国家…',
+  clearSearch: '清除搜索',
   filters: '筛选',
   showFilters: '显示筛选条件',
   hideFilters: '隐藏筛选条件',

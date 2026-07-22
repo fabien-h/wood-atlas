@@ -14,6 +14,7 @@ export const tr = {
     'Bu atlastaki tüm ahşap verileri Tropix veri tabanından ve CIRAD BioWooEB araştırma biriminden gelmektedir.',
   atlas: 'Ahşap Atlası',
   searchPlaceholder: 'İsim, kullanım alanı veya ülke ara…',
+  clearSearch: 'Aramayı temizle',
   filters: 'Filtreler',
   showFilters: 'Filtreleri göster',
   hideFilters: 'Filtreleri gizle',
