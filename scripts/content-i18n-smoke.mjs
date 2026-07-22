@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+import { categoryEntries, normalizeCategoryText } from './category-normalization.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SOURCE_DATABASE_PATH = path.join(ROOT, 'public/data/woods.generated.en.json');
@@ -28,9 +29,9 @@ const LOCALES = [
   'vi',
   'zh-Hans',
 ];
-const EXPECTED_UNIT_COUNT = 4_093;
+const EXPECTED_UNIT_COUNT = 4_040;
 const EXPECTED_RECORD_COUNT = 312;
-const EXPECTED_CONTEXT_COUNT = 30_167;
+const EXPECTED_CONTEXT_COUNT = 30_134;
 const OVERLAY_KEYS = new Set([
   'schemaVersion',
   'locale',
@@ -161,6 +162,7 @@ async function smokeLocale(locale, database, source, index, protectedSnapshotBef
   validateOverlay(locale, overlay, catalog, database, source, index);
 
   const localized = applyOverlay(database, overlay);
+  validateNormalizedCategories(localized.records, locale);
   const protectedSnapshotAfter = protectedSnapshot(localized);
   if (protectedSnapshotAfter !== protectedSnapshotBefore) {
     throw new Error('applying the overlay changes protected scientific/source fields');
@@ -248,6 +250,18 @@ function validateSourceAndManifest(databaseText, database, source) {
     woodIds.some((id) => typeof id !== 'string' || !id)
   ) {
     throw new Error('English source database has empty or duplicate wood ids');
+  }
+  validateNormalizedCategories(database.records, 'en');
+}
+
+function validateNormalizedCategories(records, locale) {
+  for (const record of records) {
+    for (const [recordPath, value] of categoryEntries(record)) {
+      if (typeof value !== 'string') continue;
+      if (value !== normalizeCategoryText(value, locale)) {
+        throw new Error(`${record.id}:${recordPath} is not normalized lowercase for ${locale}`);
+      }
+    }
   }
 }
 

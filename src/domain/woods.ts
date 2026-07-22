@@ -1,6 +1,6 @@
 import type { Translation } from '../i18n';
 import type { NumericMeasure, TextValue, WoodRecord } from '../types/wood';
-import type { Filters, RangeFilter } from './filters';
+import { normalizeFilterCategory, type Filters, type RangeFilter } from './filters';
 
 export type SortKey =
   | 'name'
@@ -62,14 +62,22 @@ export function woodMatches(
   )
     return false;
   if (!includesOrEmpty(filters.regions, wood.origin.region)) return false;
-  if (!includesOrEmpty(filters.colours, wood.appearance.colourReference.value)) return false;
-  if (!includesOrEmpty(filters.textures, wood.appearance.texture.value)) return false;
-  if (!includesOrEmpty(filters.grains, wood.appearance.grain.value)) return false;
-  if (!includesOrEmpty(filters.fungi, wood.durability.fungi.value)) return false;
-  if (!includesOrEmpty(filters.termites, wood.durability.termites.value)) return false;
-  if (!includesOrEmpty(filters.treatability, wood.durability.treatability.value)) return false;
-  if (!includesOrEmpty(filters.drying, wood.drying.rate.value)) return false;
-  if (filters.endUse && !wood.endUses.includes(filters.endUse)) return false;
+  if (!includesCategoryOrEmpty(filters.colours, wood.appearance.colourReference.value))
+    return false;
+  if (!includesCategoryOrEmpty(filters.textures, wood.appearance.texture.value)) return false;
+  if (!includesCategoryOrEmpty(filters.grains, wood.appearance.grain.value)) return false;
+  if (!includesCategoryOrEmpty(filters.fungi, wood.durability.fungi.value)) return false;
+  if (!includesCategoryOrEmpty(filters.termites, wood.durability.termites.value)) return false;
+  if (!includesCategoryOrEmpty(filters.treatability, wood.durability.treatability.value))
+    return false;
+  if (!includesCategoryOrEmpty(filters.drying, wood.drying.rate.value)) return false;
+  if (
+    filters.endUse &&
+    !wood.endUses.some(
+      (value) => normalizeFilterCategory(value) === normalizeFilterCategory(filters.endUse),
+    )
+  )
+    return false;
   if (filters.cites === 'listed' && wood.cites.listed !== true) return false;
   if (filters.cites === 'not-listed' && wood.cites.listed !== false) return false;
   if (filters.cites === 'unknown' && wood.cites.listed !== null) return false;
@@ -279,4 +287,11 @@ function rangeMatches(value: number | null, range: RangeFilter) {
 
 function includesOrEmpty(values: string[], value: string | null | undefined) {
   return values.length === 0 || (value ? values.includes(value) : false);
+}
+
+function includesCategoryOrEmpty(values: string[], value: string | null | undefined) {
+  if (values.length === 0) return true;
+  if (!value) return false;
+  const normalized = normalizeFilterCategory(value);
+  return values.some((item) => normalizeFilterCategory(item) === normalized);
 }

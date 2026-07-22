@@ -4,6 +4,12 @@ import { createHash } from 'node:crypto';
 import { mkdir, open, readFile, readdir, rename, rm } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+import {
+  FILTER_CATEGORY_SCOPES,
+  isRemovedSourceCategory,
+  normalizeCategoryText,
+  normalizedCategorySourceKey,
+} from './category-normalization.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SOURCE_DATABASE = path.join(ROOT, 'public/data/woods.generated.en.json');
@@ -103,6 +109,7 @@ try {
 }
 
 async function extractSourceManifest() {
+  const previousManifest = await readOptionalJsonFile(SOURCE_MANIFEST);
   const databaseText = await readFile(SOURCE_DATABASE, 'utf8');
   const database = parseJson(databaseText, relative(SOURCE_DATABASE));
   if (!Array.isArray(database.records)) {
@@ -147,11 +154,109 @@ async function extractSourceManifest() {
     units,
   };
 
+  const rebasedCatalogs = await planCatalogRebases(previousManifest, manifest);
   await atomicWriteJson(SOURCE_MANIFEST, manifest);
+  for (const { catalogPath, catalog } of rebasedCatalogs) {
+    await atomicWriteJson(catalogPath, catalog, false);
+  }
   console.log(
     `Extracted ${units.length.toLocaleString('en')} units across ${contextCount.toLocaleString('en')} contexts from ${woodIds.size.toLocaleString('en')} woods.`,
   );
   console.log(`Source manifest: ${relative(SOURCE_MANIFEST)} (${manifest.manifestHash})`);
+  if (rebasedCatalogs.length > 0) {
+    console.log(`Rebased and normalized ${rebasedCatalogs.length} locale catalogs.`);
+  }
+}
+
+async function planCatalogRebases(previousManifest, nextManifest) {
+  if (!previousManifest || previousManifest.manifestHash === nextManifest.manifestHash) return [];
+
+  const catalogPaths = await resolveCatalogs([]);
+  const previousById = new Map(previousManifest.units.map((unit) => [unit.id, unit]));
+  const previousCategories = Map.groupBy(
+    previousManifest.units.filter((unit) => FILTER_CATEGORY_SCOPES.has(unit.scope)),
+    (unit) => categoryKey(unit.scope, unit.source),
+  );
+  const plans = [];
+
+  for (const catalogPath of catalogPaths) {
+    const catalog = await readJsonFile(catalogPath);
+    const locale = catalog.locale;
+    assertLocale(locale);
+    if (catalog.sourceManifestHash !== previousManifest.manifestHash) {
+      throw new Error(
+        `${locale}: cannot rebase a catalog that does not match the previous source manifest`,
+      );
+    }
+
+    const translations = {};
+    const consumedIds = new Set();
+    for (const unit of nextManifest.units) {
+      const isCategory = FILTER_CATEGORY_SCOPES.has(unit.scope);
+      const candidates = isCategory
+        ? (previousCategories.get(categoryKey(unit.scope, unit.source)) ?? [])
+        : previousById.has(unit.id)
+          ? [previousById.get(unit.id)]
+          : [];
+      if (candidates.length === 0) {
+        throw new Error(`${locale}: cannot automatically rebase new unit ${unit.id}`);
+      }
+
+      for (const candidate of candidates) consumedIds.add(candidate.id);
+      const preferred = candidates.find((candidate) => candidate.id === unit.id) ?? candidates[0];
+      const translated = catalog.translations?.[preferred.id];
+      if (typeof translated !== 'string' || !translated.trim()) {
+        throw new Error(`${locale}: missing translation while rebasing ${unit.id}`);
+      }
+      translations[unit.id] = isCategory
+        ? normalizeCategoryTranslation(unit, translated, locale)
+        : translated;
+    }
+
+    const unconsumed = Object.keys(catalog.translations ?? {}).filter((id) => {
+      if (consumedIds.has(id)) return false;
+      const oldUnit = previousById.get(id);
+      return !oldUnit || !isRemovedSourceCategory(oldUnit.scope, oldUnit.source);
+    });
+    if (unconsumed.length > 0) {
+      throw new Error(
+        `${locale}: cannot automatically discard ${unconsumed.length} unrelated catalog units`,
+      );
+    }
+
+    plans.push({
+      catalogPath,
+      catalog: {
+        ...catalog,
+        sourceManifestHash: nextManifest.manifestHash,
+        translations,
+      },
+    });
+  }
+
+  return plans;
+}
+
+function categoryKey(scope, source) {
+  return `${scope}\u0000${normalizedCategorySourceKey(scope, source)}`;
+}
+
+function normalizeCategoryTranslation(unit, translated, locale) {
+  if (
+    locale === 'it' &&
+    unit.scope === 'appearance.grain.value' &&
+    unit.source === 'straight to entangled'
+  ) {
+    return 'da diritta a intricata';
+  }
+  const normalized = normalizeCategoryText(translated, locale);
+  if (
+    unit.scope === 'durability.fungi.value' &&
+    unit.source === 'class 1-3 - very durable to moderately durable'
+  ) {
+    return normalized.replace(/\s*[（(][^()（）]*[)）]\s*$/u, '');
+  }
+  return normalized;
 }
 
 function extractWood(wood, unitsById) {
@@ -256,7 +361,9 @@ async function compileCommand(arguments_) {
     let valueCount = 0;
 
     for (const unit of manifest.units) {
-      const translated = catalog.translations[unit.id];
+      const translated = FILTER_CATEGORY_SCOPES.has(unit.scope)
+        ? normalizeCategoryTranslation(unit, catalog.translations[unit.id], locale)
+        : catalog.translations[unit.id];
       for (const context of unit.contexts) {
         const record = (records[context.woodId] ??= {});
         if (Object.hasOwn(record, context.path) && record[context.path] !== translated) {
@@ -398,6 +505,13 @@ async function readAndValidateCatalog(catalogPath, manifest) {
       problems.push(`${unit.id}: translation is empty`);
       continue;
     }
+    if (
+      FILTER_CATEGORY_SCOPES.has(unit.scope) &&
+      translated !== normalizeCategoryText(translated, locale)
+    ) {
+      problems.push(`${unit.id}: filter category translation is not normalized lowercase`);
+      continue;
+    }
     const targetTokens = extractProtectedTokens(translated, unit.protectedTokens);
     if (!sameTokenMultiset(unit.protectedTokens, targetTokens)) {
       problems.push(
@@ -488,7 +602,7 @@ function stableJson(value, pretty = true) {
   return `${JSON.stringify(sortDeep(value), null, pretty ? 2 : undefined)}${pretty ? '\n' : ''}`;
 }
 
-async function atomicWriteJson(filePath, value) {
+async function atomicWriteJson(filePath, value, sortKeys = true) {
   await mkdir(path.dirname(filePath), { recursive: true });
   const temporaryPath = path.join(
     path.dirname(filePath),
@@ -497,7 +611,8 @@ async function atomicWriteJson(filePath, value) {
   let handle;
   try {
     handle = await open(temporaryPath, 'wx', 0o644);
-    await handle.writeFile(stableJson(value), 'utf8');
+    const contents = sortKeys ? stableJson(value) : `${JSON.stringify(value, null, 2)}\n`;
+    await handle.writeFile(contents, 'utf8');
     await handle.sync();
     await handle.close();
     handle = undefined;
@@ -517,6 +632,15 @@ async function readJsonFile(filePath) {
     throw error;
   }
   return parseJson(text, relative(filePath));
+}
+
+async function readOptionalJsonFile(filePath) {
+  try {
+    return parseJson(await readFile(filePath, 'utf8'), relative(filePath));
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
 }
 
 function parseJson(text, label) {

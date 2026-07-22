@@ -59,14 +59,14 @@ export const defaultFilters: Filters = {
 export function buildFacets(records: WoodRecord[]) {
   return {
     regions: unique(records.map((wood) => wood.origin.region)),
-    colours: unique(records.map((wood) => wood.appearance.colourReference.value)),
-    textures: unique(records.map((wood) => wood.appearance.texture.value)),
-    grains: unique(records.map((wood) => wood.appearance.grain.value)),
-    fungi: unique(records.map((wood) => wood.durability.fungi.value)),
-    termites: unique(records.map((wood) => wood.durability.termites.value)),
-    treatability: unique(records.map((wood) => wood.durability.treatability.value)),
-    drying: unique(records.map((wood) => wood.drying.rate.value)),
-    endUses: unique(records.flatMap((wood) => wood.endUses)),
+    colours: uniqueCategory(records.map((wood) => wood.appearance.colourReference.value)),
+    textures: uniqueCategory(records.map((wood) => wood.appearance.texture.value)),
+    grains: uniqueCategory(records.map((wood) => wood.appearance.grain.value)),
+    fungi: uniqueCategory(records.map((wood) => wood.durability.fungi.value)),
+    termites: uniqueCategory(records.map((wood) => wood.durability.termites.value)),
+    treatability: uniqueCategory(records.map((wood) => wood.durability.treatability.value)),
+    drying: uniqueCategory(records.map((wood) => wood.drying.rate.value)),
+    endUses: uniqueCategory(records.flatMap((wood) => wood.endUses)),
   };
 }
 
@@ -138,4 +138,12 @@ function unique(values: Array<string | null | undefined>) {
   return [...new Set(values.filter((value): value is string => Boolean(value)))].sort((a, b) =>
     a.localeCompare(b),
   );
+}
+
+function uniqueCategory(values: Array<string | null | undefined>) {
+  return unique(values.map((value) => (value ? normalizeFilterCategory(value) : value)));
+}
+
+export function normalizeFilterCategory(value: string) {
+  return value.normalize('NFKC').trim().replace(/\s+/g, ' ').toLocaleLowerCase();
 }

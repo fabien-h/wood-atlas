@@ -15,6 +15,7 @@
     "preview": "vite preview --host 127.0.0.1",
     "data:sync": "node scripts/tropix.mjs sync",
     "data:extract": "node scripts/tropix.mjs extract",
+    "data:normalize": "node scripts/tropix.mjs normalize",
     "data:manual-images": "node scripts/tropix.mjs manual-images && pnpm content:extract",
     "images:crop-manual": "node scripts/crop-manual-images.mjs",
     "data:validate": "node scripts/tropix.mjs validate",

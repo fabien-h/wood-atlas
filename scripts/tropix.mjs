@@ -5,6 +5,11 @@ import { fileURLToPath } from 'node:url';
 import { execFile as execFileCallback } from 'node:child_process';
 import { promisify } from 'node:util';
 import sharp from 'sharp';
+import {
+  categoryEntries,
+  normalizeCategoryText,
+  normalizeWoodCategories,
+} from './category-normalization.mjs';
 
 const execFile = promisify(execFileCallback);
 
@@ -237,7 +242,7 @@ const LANGUAGE_CONFIG = {
 };
 
 function usage() {
-  console.log('Usage: node scripts/tropix.mjs <sync|extract|manual-images|validate|all>');
+  console.log('Usage: node scripts/tropix.mjs <sync|extract|normalize|manual-images|validate|all>');
 }
 
 async function main() {
@@ -246,6 +251,8 @@ async function main() {
     await sync();
   } else if (command === 'extract') {
     await extract();
+  } else if (command === 'normalize') {
+    await normalizeGeneratedDatabases();
   } else if (command === 'manual-images') {
     await applyManualImagesToGeneratedDatabases();
   } else if (command === 'validate') {
@@ -303,6 +310,7 @@ async function extract() {
     async ({ link, index }) => {
       const text = await extractText(link);
       const record = parseWoodRecord(link, text);
+      normalizeWoodCategories(record, link.language);
       record.images = await extractImages(link, record);
       record.extraction = qualityReport(record);
       record.searchText = makeSearchText(record);
@@ -336,6 +344,7 @@ async function extract() {
     async ({ link, index }) => {
       const text = await extractText(link);
       const record = parseWoodRecord(link, text);
+      normalizeWoodCategories(record, link.language);
       const englishMatch = findEnglishMatch(record, englishByBotanicalName, englishByLooseName);
       if (englishMatch) {
         matchedFrenchRecords += 1;
@@ -417,6 +426,33 @@ async function extract() {
   console.log(`Published ${manualImages.length} manually sourced images.`);
 }
 
+async function normalizeGeneratedDatabases() {
+  const [englishDatabase, frenchDatabase] = await Promise.all([
+    fsp.readFile(outputPath('en'), 'utf8').then(JSON.parse),
+    fsp.readFile(outputPath('fr'), 'utf8').then(JSON.parse),
+  ]);
+
+  for (const record of englishDatabase.records) {
+    normalizeWoodCategories(record, 'en');
+    record.searchText = makeSearchText(record);
+  }
+  for (const record of frenchDatabase.records) {
+    normalizeWoodCategories(record, 'fr');
+    record.searchText = makeSearchText(record);
+  }
+
+  const validation = validateDatabases(englishDatabase, frenchDatabase);
+  await Promise.all([
+    fsp.writeFile(outputPath('en'), JSON.stringify(englishDatabase, null, 2)),
+    fsp.writeFile(outputPath('fr'), JSON.stringify(frenchDatabase, null, 2)),
+    fsp.writeFile(LEGACY_OUTPUT_PATH, JSON.stringify(englishDatabase, null, 2)),
+  ]);
+  console.log(
+    `Normalized filter categories in ${englishDatabase.records.length} English and ` +
+      `${frenchDatabase.records.length} French records; validated ${validation.checkedValues} numeric values.`,
+  );
+}
+
 async function applyManualImagesToGeneratedDatabases() {
   const [englishDatabase, frenchDatabase] = await Promise.all([
     fsp.readFile(outputPath('en'), 'utf8').then(JSON.parse),
@@ -470,6 +506,24 @@ function validateDatabases(englishDatabase, frenchDatabase) {
       if (seenIds.has(record.id))
         errors.push(`${database.language}:${record.id} has a duplicate id`);
       seenIds.add(record.id);
+
+      for (const [recordPath, value] of categoryEntries(record)) {
+        if (
+          typeof value === 'string' &&
+          value !== normalizeCategoryText(value, database.language)
+        ) {
+          errors.push(
+            `${database.language}:${record.id}.${recordPath} is not normalized lowercase`,
+          );
+        }
+      }
+      const canonicalRecord = structuredClone(record);
+      normalizeWoodCategories(canonicalRecord, database.language);
+      if (
+        JSON.stringify(categoryEntries(record)) !== JSON.stringify(categoryEntries(canonicalRecord))
+      ) {
+        errors.push(`${database.language}:${record.id} has noncanonical filter categories`);
+      }
 
       for (const [key, [minimum, maximum]] of Object.entries(PHYSICS_RANGES)) {
         const measurement = record.physics?.[key];
