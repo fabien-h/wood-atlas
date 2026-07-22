@@ -48,14 +48,16 @@ export function useWoodDatabase(language: AppLanguage) {
 
 async function loadWoodDatabase(language: AppLanguage, signal: AbortSignal) {
   const sourceLanguage = sourceLanguageFor(language);
-  const databaseResponse = await fetch(`/data/woods.generated.${sourceLanguage}.json`, { signal });
+  const databaseResponse = await fetch(publicUrl(`data/woods.generated.${sourceLanguage}.json`), {
+    signal,
+  });
   if (!databaseResponse.ok)
     throw new Error(`Wood database request failed: HTTP ${databaseResponse.status}`);
-  const database = (await databaseResponse.json()) as WoodDatabase;
+  const database = withPublicImageUrls((await databaseResponse.json()) as WoodDatabase);
 
   if (!isContentOverlayLanguage(language)) return database;
 
-  const overlayResponse = await fetch(`/data/content/${language}.json`, { signal });
+  const overlayResponse = await fetch(publicUrl(`data/content/${language}.json`), { signal });
   if (!overlayResponse.ok)
     throw new Error(`Content overlay request failed: HTTP ${overlayResponse.status}`);
   const overlay = validateContentOverlay(await overlayResponse.json(), {
@@ -63,4 +65,21 @@ async function loadWoodDatabase(language: AppLanguage, signal: AbortSignal) {
     expectedSourceGeneratedAt: database.generatedAt,
   });
   return applyContentOverlay(database, overlay);
+}
+
+function publicUrl(path: string) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+}
+
+function withPublicImageUrls(database: WoodDatabase): WoodDatabase {
+  return {
+    ...database,
+    records: database.records.map((record) => ({
+      ...record,
+      images: record.images.map((image) => ({
+        ...image,
+        src: publicUrl(image.src),
+      })),
+    })),
+  };
 }
