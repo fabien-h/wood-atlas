@@ -1,0 +1,144 @@
+.panel {
+  --compare-text: #f7f7f2;
+  --compare-muted: #c3c5bf;
+  --compare-line: rgba(255, 255, 255, 0.28);
+  min-width: 0;
+  border-bottom: 1px solid var(--compare-line);
+  background: #000;
+  color: var(--compare-text);
+}
+
+.panel h2 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 1.3rem;
+  padding: 0 0 0 15px;
+  border-bottom: 1px solid var(--compare-line);
+}
+.clearButton {
+  border: 0;
+  border-left: 1px solid var(--compare-line);
+  margin-inline-start: auto;
+  padding: 20px 15px;
+  background: transparent;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: normal;
+  height: 100%;
+  display: block;
+  letter-spacing: 0;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+.clearButton:hover {
+  color: #000;
+  background: #fff;
+}
+.clearButton:focus-visible {
+  outline: 1px solid var(--compare-text);
+  outline-offset: 2px;
+}
+.scroll {
+  max-width: 100%;
+  overflow: auto;
+  color-scheme: dark;
+}
+.scroll table {
+  width: max-content;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.scroll th,
+.scroll td {
+  padding: 14px 10px;
+  border-bottom: 1px solid var(--compare-line);
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.scroll thead th {
+  background: #000;
+  color: var(--compare-text);
+  font-size: 1.2rem;
+  text-transform: none;
+  padding: 0;
+}
+.scroll th:first-child,
+.scroll td:first-child {
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+}
+.scroll th:nth-child(n + 2),
+.scroll td:nth-child(n + 2) {
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  border-inline-start: 1px solid var(--compare-line);
+}
+.scroll th:last-child,
+.scroll td:last-child {
+  border-inline-end: 1px solid var(--compare-line);
+}
+.scroll tbody th {
+  color: var(--compare-text);
+  font-size: 0.76rem;
+  font-weight: 400;
+}
+.scroll thead button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-inline-start: auto;
+  padding: 0;
+  border: 0;
+  background: #000;
+  color: var(--compare-text);
+  border-left: 1px solid var(--compare-line);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+.woodHeading {
+  display: flex;
+  align-items: center;
+}
+.woodGrain {
+  flex: 0 0 auto;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  margin-right: 10px;
+}
+.woodName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.scroll thead button:hover {
+  background: var(--compare-text);
+  color: #000;
+}
+.scroll thead button:focus-visible {
+  outline: 1px solid var(--compare-text);
+  outline-offset: 2px;
+}
+.winner {
+  color: var(--compare-text);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clearButton,
+  .scroll thead button {
+    transition: none;
+  }
+}

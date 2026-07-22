@@ -1,0 +1,234 @@
+.wrap {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+.table {
+  --select-column-width: 46px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+.table th,
+.table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 50%, #fff);
+  text-align: start;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.table thead th {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background: #fff;
+  color: #000;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: inset 0 -1px 0 #000;
+  text-transform: none;
+}
+.table thead button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+  text-transform: inherit;
+}
+.sortIcon {
+  color: #000;
+}
+.table tbody tr {
+  background: #fff;
+  cursor: pointer;
+}
+.table tbody tr:hover,
+.table tbody tr.activeRow {
+  background: #fff;
+}
+.table th:first-child,
+.table td:first-child {
+  position: sticky;
+  inset-inline-start: 0;
+  width: var(--select-column-width);
+  min-width: var(--select-column-width);
+  max-width: var(--select-column-width);
+}
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  position: sticky;
+  inset-inline-start: var(--select-column-width);
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+}
+.table th:nth-child(2)::after,
+.table td:nth-child(2)::after {
+  position: absolute;
+  z-index: 1;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: 3px;
+  background: #000;
+  content: '';
+  pointer-events: none;
+}
+.table th:first-child,
+.table th:nth-child(2) {
+  z-index: 3;
+  background: #fff;
+}
+.table td:first-child,
+.table td:nth-child(2) {
+  z-index: 2;
+  background: inherit;
+}
+.table tbody td:nth-child(n + 4):nth-child(-n + 8) {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.table tbody td {
+  padding-block: 19px;
+}
+.selectToggle {
+  display: inline-grid;
+  place-items: center;
+  width: 16.25px;
+  height: 16.25px;
+  min-height: 16.25px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: #fff;
+  color: transparent;
+}
+.selectToggle.selected {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+.selectToggle:disabled {
+  opacity: 0.45;
+}
+.nameCell {
+  padding: 0 !important;
+}
+.nameButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-width: 300px;
+  min-height: 72px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: start;
+}
+.grainImage,
+.grainPlaceholder {
+  flex: 0 0 auto;
+  align-self: stretch;
+  width: 54px;
+  height: auto;
+  background: var(--field);
+}
+.grainImage {
+  display: block;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.grainPlaceholder {
+  display: block;
+  background: #fff;
+}
+.nameText {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 0;
+  min-width: 0;
+}
+.nameText strong,
+.nameText span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.nameText strong {
+  font-size: 0.933rem;
+}
+.nameText span {
+  color: var(--muted);
+  font-size: 0.733rem;
+}
+.openIcon {
+  flex: 0 0 auto;
+  margin-inline-start: auto;
+  color: var(--muted);
+  opacity: 0.5;
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+}
+.table tbody tr:hover .openIcon,
+.nameButton:focus-visible .openIcon,
+.table tbody tr.activeRow .openIcon {
+  opacity: 1;
+  transform: translateX(2px);
+}
+:global([dir='rtl']) .openIcon {
+  transform: rotate(180deg);
+}
+:global([dir='rtl']) .table tbody tr:hover .openIcon,
+:global([dir='rtl']) .nameButton:focus-visible .openIcon,
+:global([dir='rtl']) .table tbody tr.activeRow .openIcon {
+  transform: translateX(-2px) rotate(180deg);
+}
+:global([dir='rtl']) .table td:nth-child(n + 4):nth-child(-n + 9) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.status {
+  height: 120px;
+  color: var(--muted);
+  text-align: center !important;
+}
+@media (max-width: 799px) {
+  .table {
+    --select-column-width: 0px;
+  }
+  .table th:first-child,
+  .table td:first-child {
+    display: none;
+  }
+  .table th:nth-child(2),
+  .table td:nth-child(2) {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+  .nameButton {
+    min-width: 200px;
+  }
+  .grainImage,
+  .grainPlaceholder {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .openIcon {
+    transition: none;
+  }
+}

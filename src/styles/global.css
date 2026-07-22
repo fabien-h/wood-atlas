@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  color-scheme: light;
+  --font-sans:
+    'IBM Plex Sans', 'Noto Sans Arabic', 'Noto Sans Devanagari', 'Noto Sans Bengali',
+    'Noto Sans CJK SC', 'Hiragino Sans', 'Yu Gothic', Meiryo, 'Malgun Gothic', ui-sans-serif,
+    system-ui, sans-serif;
+  --font-mono:
+    'IBM Plex Mono', ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #181713;
+  background: #fff;
+  --ink: #181713;
+  --muted: #5e655e;
+  --line: #d9ddd2;
+  --paper: #fff;
+  --field: #fff;
+  --canopy: #246b4b;
+  --blue: #315f73;
+  --amber: #a75f00;
+  --rosewood: #7d3f31;
+  --shadow: 0 16px 34px rgba(24, 23, 19, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  background: #fff;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+button:not(:disabled),
+select {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+button,
+label,
+th {
+  overflow-wrap: anywhere;
+}
+
+:focus-visible {
+  outline: 1px solid #00000000;
+  outline-offset: 0;
+}
+select:focus-visible {
+  outline: 1px solid #00000000;
+  outline-offset: 0;
+}
+input:focus-visible {
+  outline: 1px solid #00000000;
+  outline-offset: 0;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}

@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]><html lang="en-GB" class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html lang="en-GB" class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html lang="en-GB" class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en-GB" class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en-GB" class="no-js">
+<!--<![endif]-->
+
+<head>
+    
+        <link rel="canonical" href="https://tropix.cirad.fr/en/technical-sheets-available" />
+    
+    
+    <link rel="preconnect" href="https://static.cirad.fr" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+
+    
+    
+
+    
+    
+
+    
+    
+                    
+    
+                                    
+    
+    
+
+
+
+
+
+
+    
+
+
+
+              
+                
+    
+          
+    
+          
+    
+              
+  
+
+  
+        
+  <title>  Technical sheets available   - Tropix 7 - CIRAD</title>
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+<link rel="Shortcut icon" href="https://static.cirad.fr/sites/tropix.cirad.fr/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+    
+                                                                                    <link rel="stylesheet" type="text/css" href="https://static.cirad.fr/sites/tropix.cirad.fr/css/general.css" media="screen" />
+                                                                                    <link rel="stylesheet" type="text/css" href="https://static.cirad.fr/sites/tropix.cirad.fr/css/print.css" media="print" />
+                                    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz&amp;v2" media="screen" />
+    
+    
+
+    
+    
+    <!--[if IE]><![endif]-->
+                    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/extension/ezsite/design/ezsite/stylesheets/browsers/ie7lte.css" /><![endif]-->
+    
+    
+                                    <script src="//static.cirad.fr/js/modernizr-2.6.2.min.js"></script>
+    
+    
+    
+    <script src="https://static.cirad.fr/js/cookie.js"></script>
+    
+    
+
+<!-- BEGIN google_analytics.tpl -->
+
+
+
+    
+
+
+
+        
+
+    
+
+    <script>
+        // Les cookies (Google Analytics) sont-ils autorisés ?
+        //      En mode OPT-IN, l'utilisateur DOIT les accepter, sinon GA n'est pas chargé
+        //      En mode OPT-OUT, l'utilisateur DOIT les accepter, sinon GA est chargé
+        var allowAnalytics = Cookie.get('allowAnalytics');
+        var allowByDefault = ('no' === 'yes') ? 'allow' : 'deny';
+        var cookieconsent_status = Cookie.get('cookieconsent_status') || allowByDefault;
+                var allowCookies = allowAnalytics == 'yes' || cookieconsent_status == 'allow';
+            </script>
+
+    
+                        
+            
+            <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-2635513-10']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_setSiteSpeedSampleRate', 5]);
+            
+            _gaq.push (['_gat._anonymizeIp']);
+            _gaq.push(['_setCampaignCookieTimeout', 2628000000]);
+            
+            if (allowCookies) {                (function() {                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+                console.log('RGPD info : Google analytics loaded');
+            } else {                console.log('RGPD info : Google analytics NOT loaded');
+            }            ;
+            </script>
+        
+    
+    
+
+
+<!-- END google_analytics.tpl -->
+    
+    
+    
+
+
+
+<script>
+    Theme  = "classic";
+    PopupBackground  = "#000";
+    PopupText  = "#fff";
+    ButtonBackground  = "#fff";
+    ButtonText  = "#000";
+    ContentMessage  = "This site uses third-party cookies to measure the site's audience and improve your browsing experience. By clicking on [Accept] you authorise CIRAD to set these cookies, you can also [Refuse] or find out more by clicking on :";
+    ContentDismiss  = "";
+    ContentAllow  = "Allow";
+    ContentDeny  = "Refuse";
+    ContentLink  = "Modify my preferences";
+    ContentHref  = "/en/cookies/infos";
+</script>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+
+<link rel="stylesheet" type="text/css" href="//static.cirad.fr/css/cookieConsent/cookieConsent.css" />
+
+<script>
+var CoCoPo = null; // Cookie Consent Popup
+window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+        "type": "opt-in",
+        "theme": Theme,
+        "palette": {
+            "popup": {
+                "background": PopupBackground,
+                "text": PopupText
+            },
+            "button": {
+                "background": ButtonBackground,
+                "text": ButtonText
+            }
+        },
+        "content": {
+            "message": ContentMessage,
+            "dismiss": ContentDismiss,
+            "allow": ContentAllow,
+            "deny": ContentDeny,
+            "link": ContentLink,
+            "href": ContentHref,
+        },
+    }, function (popup) {
+        CoCoPo = popup;
+    }, function (err) {
+        console.error(err);
+    });
+
+    // On enlève le target="_blank" du lien "En savoir plus" de Cookie Consent
+    // et le noreferrer du rel="nopener noreferrer nofollow"
+
+    var $lnk = $('.cc-message .cc-link');
+    var rel = $lnk.attr('rel').replace(/\bnoreferrer\b/, '');
+    $lnk.attr('target', '').attr('rel', rel);
+
+    // On remplace le texte "Cookie Policy" du div.cc_revoke par du texte français
+
+    // $('div.cc-revoke').text('Paramétrage des cookies');
+});
+</script>
+
+
+    
+            </head>
+
+<body data-node="4027" data-langue="en-GB" data-classe="crd_rubrique" data-nodeid="4027" class="crd_rubrique mep_standard not_connected"
+    data-path="/1/2/105/4027/"
+    itemscope itemtype="http://schema.org/WebPage">
+
+    
+
+    
+    
+    
+    
+
+    
+
+    
+
+    
+        
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+
+        
+
+        
+        
+        <!-- START blocs/accessiblite.tpl -->
+  <ul id="menu_accessibilite">
+        <li><a href="#contenu">Go to the content</a></li>
+        <li><a href="#sitenav">Go to the menu</a></li>
+        <li><a href="#basdepage">Go to the bottom of page</a></li>
+      </ul>
+<!-- END blocs/accessiblite.tpl --><div id="container"><header id="entete"><!-- BEGIN blocs/bloc_titresite.tpl -->
+
+<div id="titre_site">
+    
+  <div class="hgroup" title=" TROPIX 7">
+    <h1><a href="/en"> TROPIX 7</a></h1>
+          <h2><a href="/en">The main technological characteristics of 245 tropical wood species</a></h2>
+      </div>
+ 
+  <div id="logo">
+    <a href="/en">
+      <img src="https://static.cirad.fr/sites/tropix.cirad.fr/images/logo.png" alt="">
+    </a>
+  </div>
+
+  
+  </div>
+
+<!-- END blocs/bloc_titresite.tpl -->
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="menuOutils">
+    
+                       
+
+      
+                                      
+      <li class="Contactus">
+        <a href="/en/contact-us" title="Contact us">
+          <span>Contact us</span>
+        </a>
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul id="langages">
+              <li class="fr">
+      <a href="/switchlanguage/to/tropix_fr/technical-sheets-available">
+        <span>Français</span>
+      </a>
+    </li>
+                      <li class="en courant">
+      <a href="/switchlanguage/to/tropix_en/technical-sheets-available">
+        <span>(English)</span>
+      </a>
+    </li>
+    </ul>
+
+</header><nav id="menuAriane">
+
+
+
+
+
+
+
+
+
+
+  
+      
+    
+    
+
+    
+    
+    <p id="nav_ariane" class="breadcrumbs" itemprop="breadcrumb"><span class="libelle">You are here:</span>
+      
+              
+                        
+                
+                        
+        <span class="bc1">
+                      
+            <a href="/en"><span class="home"><span class="lig1">Tropix</span></span></a>
+                  </span>
+              <span class="path-separator"><span class="separator"> &gt; </span></span>        
+                        
+                
+                        
+        <span class="bc2">
+                      <span class="lig1">Technical sheets available</span>
+                  </span>
+              
+      
+          </p>
+  <!-- END blocs/menu_ariane.tpl -->
+</nav><div id="main"><div id="content"><article id="contenu" class="colonne">  <h1 class="attr_name">
+    <span class="lig1">Technical sheets available </span>  </h1>
+  <!-- BEGIN blocs/bloc_module.tpl -->
+
+
+
+
+
+
+
+
+  
+
+
+<div  class="crd_rubrique full">
+    
+  
+  
+  
+  
+  
+  
+  
+
+  
+    
+
+  
+  
+  
+  
+    
+
+  
+        
+          
+                    
+                
+                
+          
+                    
+                
+                
+          
+                    
+                
+                
+          
+                    
+                
+                
+          
+                      
+          
+                    
+  
+    
+
+  
+    
+
+  
+    
+
+  
+  
+
+  
+  
+  
+
+</div><!-- class="crd_rubrique full" -->
+
+
+<!-- END blocs/bloc_module.tpl -->
+        <div class="attr_contenu1">
+              
+  
+            <h3>Africa</h3>
+
+
+
+
+
+<div class="liste_telechargements">
+  <div class="DEBUG">
+    <p>Configuration: <table><tr><th align="left">Attribute</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+<tr><td>EN/Tempered</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/Asia</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/America</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/Africa</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+</table>
+</p>
+    <p>Rep: EN/Africa</p>
+  </div>
+
+  
+    <h1>Liste</h1>
+
+    
+          <ul>
+              <li><a href="/FichiersComplementaires/EN/Africa/ABURA 2023.pdf">ABURA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AFARA 2023.pdf">AFARA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AFRICAN CANARIUM 2023.pdf">AFRICAN CANARIUM 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AFRICAN CORDIA 2023.pdf">AFRICAN CORDIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AFRICAN EBONY 2023.pdf">AFRICAN EBONY 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AFRICAN PADAUK 2023.pdf">AFRICAN PADAUK 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AFRICAN WALNUT 2023.pdf">AFRICAN WALNUT 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AFRORMOSIA 2023.pdf">AFRORMOSIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AFZELIA 2023.pdf">AFZELIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AGBA 2023.pdf">AGBA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ALEP 2023.pdf">ALEP 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ALSTONIA 2023.pdf">ALSTONIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ALUMBI 2023.pdf">ALUMBI 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ANANTA 2024.pdf">ANANTA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ANDOK 2023.pdf">ANDOK 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ANDOUNG 2023.pdf">ANDOUNG 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ANGOA 2023.pdf">ANGOA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ANGUEUK 2023.pdf">ANGUEUK 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ANINGERIA 2023.pdf">ANINGERIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ANTIARIS 2023.pdf">ANTIARIS 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ANZÈM or NTÉNÉ 2023.pdf">ANZÈM or NTÉNÉ 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ARIELLA 2023.pdf">ARIELLA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AVODIRE 2023.pdf">AVODIRE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/AYAN 2023.pdf">AYAN 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/BELI 2024.pdf">BELI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/BERLINIA 2023.pdf">BERLINIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/BILINGA or OPEPE 2025.pdf">BILINGA or OPEPE 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/BODIOA 2023.pdf">BODIOA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/BROWN STERCULIA 2025.pdf">BROWN STERCULIA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/BUBINGA 2023.pdf">BUBINGA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/CEIBA 2023.pdf">CEIBA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/COCONUT WOOD 2023.pdf">COCONUT WOOD 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/CONGOTALI 2023.pdf">CONGOTALI 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/COULA 2023.pdf">COULA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/DABEMA 2024.pdf">DABEMA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/DANTA 2023.pdf">DANTA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/DIANIA 2023.pdf">DIANIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/DIFOU 2023.pdf">DIFOU 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/DINA 2023.pdf">DINA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/DOUKA 2023.pdf">DOUKA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/EAST AFRICAN BOMBAX 2023.pdf">EAST AFRICAN BOMBAX 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/EKKI 2026.pdf">EKKI 2026.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/EKOP 2023.pdf">EKOP 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/EKOUNE 2023.pdf">EKOUNE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ERIMADO 2023.pdf">ERIMADO 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ESSIA 2023.pdf">ESSIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ETIMOE 2023.pdf">ETIMOE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/EVEUSS 2025.PDF">EVEUSS 2025.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/EYOUM 2023.pdf">EYOUM 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/GEDU NOHOR 2023.pdf">GEDU NOHOR 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/GHEOMBI 2024.pdf">GHEOMBI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/GOMBE ROUGE 2024.pdf">GOMBE ROUGE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/GOMBÉ TOWÉ 2024.pdf">GOMBÉ TOWÉ 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/GRENADILLO or GRENADILLE D’AFRIQUE 2023.pdf">GRENADILLO or GRENADILLE D’AFRIQUE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/GUAREA BLACK or BOSSÉ FONCÉ 2023.pdf">GUAREA BLACK or BOSSÉ FONCÉ 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/GUAREA SCENTED or BOSSÉ CLAIR 2023.pdf">GUAREA SCENTED or BOSSÉ CLAIR 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/IATANDZA 2023.pdf">IATANDZA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/IDIGBO 2023.pdf">IDIGBO 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/IDÉWA 2023.pdf">IDÉWA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/IGAGANGA 2024.pdf">IGAGANGA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ILOMBA 2023.pdf">ILOMBA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/IROKO 2023.pdf">IROKO 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/IZOMBE 2023.pdf">IZOMBE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/KANDA BRUN 2023.pdf">KANDA BRUN 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/KANDA ROSE 2023.pdf">KANDA ROSE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/KAPOKIER 2023.pdf">KAPOKIER 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/KHAYA or AFRICAN MAHOGANY 2025.pdf">KHAYA or AFRICAN MAHOGANY 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/KOSIPO 2023.pdf">KOSIPO 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/KUMBI 2023.pdf">KUMBI 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/LANDA 2023.pdf">LANDA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/LATI 2023.pdf">LATI 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/LIMBALI 2026.PDF">LIMBALI 2026.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/LONGUI 2023.pdf">LONGUI 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MAKORÉ 2023.pdf">MAKORÉ 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MAMBODE 2023.pdf">MAMBODE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MANILKARA 2026.PDF">MANILKARA 2026.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MANSONIA 2023.pdf">MANSONIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MECRUSSÉ 2023.pdf">MECRUSSÉ 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MOABI 2024.pdf">MOABI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MUBALA 2023.pdf">MUBALA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MUHUHU 2023.pdf">MUHUHU 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MUKULUNGU 2023.pdf">MUKULUNGU 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MUMULI 2023.pdf">MUMULI 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MUSIZI 2023.pdf">MUSIZI 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/MUTENYE 2023.pdf">MUTENYE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/NIANGON 2023.pdf">NIANGON 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/NIEUK 2023.pdf">NIEUK 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/NIOVE 2025.pdf">NIOVE 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OBECHE 2023.pdf">OBECHE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OBOTO 2023.pdf">OBOTO 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ODOKO 2023.pdf">ODOKO 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OGEA 2023.pdf">OGEA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OHIA 2023.pdf">OHIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OKAN 2023.pdf">OKAN 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OKOUME 2024.pdf">OKOUME 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OKWEN 2023.pdf">OKWEN 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OLON 2023.pdf">OLON 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OLÈNE 2023.pdf">OLÈNE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ONZABILI 2023.pdf">ONZABILI 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OSANGA 2025.pdf">OSANGA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OSSABEL 2023.pdf">OSSABEL 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OSSIMIALE 2023.pdf">OSSIMIALE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OSSOKO 2023.pdf">OSSOKO 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OVANGKOL 2023.pdf">OVANGKOL 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OVOGA 2023.pdf">OVOGA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OWUI 2023.pdf">OWUI 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OZIGO 2023.pdf">OZIGO 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/OZOUGA 2023.pdf">OZOUGA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/PTERYGOTA 2023.pdf">PTERYGOTA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/SAFUKALA 2023.pdf">SAFUKALA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/SAPELLI_SAPELE 2024.pdf">SAPELLI SAPELE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/SENEGAL MAHOGANY 2023.pdf">SENEGAL MAHOGANY 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/SOUGUE 2025.PDF">SOUGUE 2025.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/TALI or MISSANDA 2024.pdf">TALI or MISSANDA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/TCHITOLA 2023.pdf">TCHITOLA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/TEAK 2023.pdf">TEAK 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/UTILE 2023.pdf">UTILE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/VESAMBATA 2025.PDF">VESAMBATA 2025.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/VÊNE 2026 .PDF">VÊNE 2026 .PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/WAMBA 2023.pdf">WAMBA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/WENGE 2023.pdf">WENGE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/WHITE STERCULIA 2023.pdf">WHITE STERCULIA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Africa/ZEBRANO 2023.pdf">ZEBRANO 2023.pdf</a></li>
+            </ul>
+    
+  </div><!-- class="liste_telechargements"-->
+
+              </div>
+                <div class="attr_contenu2">
+              
+  
+            <h3>Central and South America</h3>
+
+
+
+
+
+<div class="liste_telechargements">
+  <div class="DEBUG">
+    <p>Configuration: <table><tr><th align="left">Attribute</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+<tr><td>EN/Tempered</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/Asia</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/America</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/Africa</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+</table>
+</p>
+    <p>Rep: EN/America</p>
+  </div>
+
+  
+    <h1>Liste</h1>
+
+    
+          <ul>
+              <li><a href="/FichiersComplementaires/EN/America/ABARCO 2024.pdf">ABARCO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/ABIURANA VERMELHA 2024.pdf">ABIURANA VERMELHA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/AMESCLÀO 2024.pdf">AMESCLÀO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/ANDIROBA 2025.pdf">ANDIROBA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/ANGELIM AMARGOSO 2025.pdf">ANGELIM AMARGOSO 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/ANGELIM PEDRA 2025.pdf">ANGELIM PEDRA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/ANGELIM VERMELHO 2024.pdf">ANGELIM VERMELHO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/ANGELIN 2024.pdf">ANGELIN 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/ARARACANGA 2024.pdf">ARARACANGA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/BALSA 2024.pdf">BALSA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/BARACARA 2024.pdf">BARACARA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/BASRALOCUS 2024.pdf">BASRALOCUS 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/BATIBATRA 2025.pdf">BATIBATRA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/BRAZIL NUT 2024.pdf">BRAZIL NUT 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CABREUVA 2025.pdf">CABREUVA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CANON BALL 2024.pdf">CANON BALL 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CAPOMO 2024.pdf">CAPOMO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CARDEIRO or CEDRINHO.pdf">CARDEIRO or CEDRINHO.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CARIBBEAN PINE or PITCH PINE 2025.pdf">CARIBBEAN PINE or PITCH PINE 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CATUCAÉM or LOURO FAIA 2024.pdf">CATUCAÉM or LOURO FAIA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CEDRINHO or CAMBARA - 2025.pdf">CEDRINHO or CAMBARA - 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CEDRO 2024.pdf">CEDRO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CEDRORANA 2024.pdf">CEDRORANA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CEREJEIRA 2024.pdf">CEREJEIRA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/COCONUT WOOD 2023.pdf">COCONUT WOOD 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/COPAIBA 2024.pdf">COPAIBA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/COW TREE 2024.pdf">COW TREE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CUMARU or TONKA 2023 .pdf">CUMARU or TONKA 2023 .pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CUPIUBA 2025.pdf">CUPIUBA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/CURUPIXA 2025.pdf">CURUPIXA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/DAKAMAA 2024.pdf">DAKAMAA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/DALLI 2024.pdf">DALLI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/DJEDOE 2024.pdf">DJEDOE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/DUKALI or AMAPA 2024.pdf">DUKALI or AMAPA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/FAVEIRA 2024.pdf">FAVEIRA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/FREIJO 2025.pdf">FREIJO 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/GARAPA 2023.pdf">GARAPA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/GOIABAO 2024.pdf">GOIABAO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/GOMMIER 2024.pdf">GOMMIER 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/GREENHEART 2024.pdf">GREENHEART 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/GUANACASTE 2024.pdf">GUANACASTE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/IMBUIA 2024.pdf">IMBUIA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/IPE 2022.pdf">IPE 2022.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/ITAUBA 2024.pdf">ITAUBA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/JACARANDA 2025.pdf">JACARANDA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/JACAREUBA 2026 .PDF">JACAREUBA 2026 .PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/JATOBA 2025.pdf">JATOBA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/JEQUITIBA 2024.pdf">JEQUITIBA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/KHAYA or AFRICAN MAHOGANY 2025.pdf">KHAYA or AFRICAN MAHOGANY 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/KUROKAI 2024.pdf">KUROKAI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/LOURO BRANCO 2024.pdf">LOURO BRANCO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/LOURO VERMELHO 2025.pdf">LOURO VERMELHO 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MACACAUBA 2025.pdf">MACACAUBA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MACUCU DE PACA 2024.pdf">MACUCU DE PACA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MAHOGANY 2025.PDF">MAHOGANY 2025.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MANCHICHE 2026.PDF">MANCHICHE 2026.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MANDIOQUEIRA 2024.pdf">MANDIOQUEIRA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MANIL or MANNI_2024.pdf">MANIL or MANNI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MANNIBALLI 2024.pdf">MANNIBALLI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MAPOROKON 2024.pdf">MAPOROKON 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MARUPA 2024.pdf">MARUPA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MASSARANDUBA 2026.pdf">MASSARANDUBA 2026.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MELANCIEIRA 2024.pdf">MELANCIEIRA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MORA 2024.pdf">MORA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MORAL 2024.pdf">MORAL 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MOROTOTO 2024.pdf">MOROTOTO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MUIRACATIARA or GONÇALO ALVES 2025.pdf">MUIRACATIARA or GONÇALO ALVES 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/MUIRAPIRANGA or BLOODWOOD 2025.pdf">MUIRAPIRANGA or BLOODWOOD 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PAKURI 2024.pdf">PAKURI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PARANA PINE 2024.pdf">PARANA PINE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PASHACO _ PARICÁ 2024.pdf">PASHACO   PARICÁ 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PATULA PINE 2024.pdf">PATULA PINE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PAU MARFIM 2024.pdf">PAU MARFIM 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PAU MULATO 2024.pdf">PAU MULATO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PERUVIAN WALNUT 2025.pdf">PERUVIAN WALNUT 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PIQUIA 2024.pdf">PIQUIA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PIQUIARANA 2025.pdf">PIQUIARANA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PRECIOSA 2024.pdf">PRECIOSA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PUCTE 2026.PDF">PUCTE 2026.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/PURPLEHEART 2024.pdf">PURPLEHEART 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/QUARUBA 2024.pdf">QUARUBA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/RED GRANDIS 2023.pdf">RED GRANDIS 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/ROSEWOOD PARA 2024.pdf">ROSEWOOD PARA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/RUBBERWOOD 2024.pdf">RUBBERWOOD 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/SANDBOX 2024.pdf">SANDBOX 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/SAPUCAIA 2024.pdf">SAPUCAIA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/SNAKEWOOD 2024.pdf">SNAKEWOOD 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/STERCULIA 2024.pdf">STERCULIA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/SUCUPIRA 2024.pdf">SUCUPIRA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/SUMAUMA 2024.pdf">SUMAUMA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/TAMARINDO or GROÇAI-ROSA 2023.pdf">TAMARINDO or GROÇAI-ROSA 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/TANIMBUCA 2025.pdf">TANIMBUCA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/TATAJUBA 2025.pdf">TATAJUBA 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/TAUARI 2025.pdf">TAUARI 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/TEAK 2023.pdf">TEAK 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/TIMBORANA 2024.pdf">TIMBORANA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/UCHY 2024.pdf">UCHY 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/WACAPOU 2024.pdf">WACAPOU 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/WALLABA 2024.pdf">WALLABA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/WAMARA 2024.pdf">WAMARA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/America/YELLOWHEART 2025.pdf">YELLOWHEART 2025.pdf</a></li>
+            </ul>
+    
+  </div><!-- class="liste_telechargements"-->
+
+              </div>
+                <div class="attr_contenu3">
+              
+  
+            <h3>Asia and Oceania</h3>
+
+
+
+
+
+<div class="liste_telechargements">
+  <div class="DEBUG">
+    <p>Configuration: <table><tr><th align="left">Attribute</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+<tr><td>EN/Tempered</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/Asia</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/America</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/Africa</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+</table>
+</p>
+    <p>Rep: EN/Asia</p>
+  </div>
+
+  
+    <h1>Liste</h1>
+
+    
+          <ul>
+              <li><a href="/FichiersComplementaires/EN/Asia/ALAN _ ALAN-BATU 2024.pdf">ALAN   ALAN-BATU 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/BENGUET PINE 2024.pdf">BENGUET PINE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/BILLIAN 2024.pdf">BILLIAN 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/BINTANGOR 2024.pdf">BINTANGOR 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/BITIS 2024.pdf">BITIS 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/BLACK WATTLE 2024.pdf">BLACK WATTLE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/CARIBBEAN PINE 2024.pdf">CARIBBEAN PINE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/CHENGAL 2024.pdf">CHENGAL 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/COCONUT WOOD 2024.pdf">COCONUT WOOD 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/CRYPTOMERIA 2024.pdf">CRYPTOMERIA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/DARK RED MERANTI 2024.pdf">DARK RED MERANTI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/DURIAN 2024.pdf">DURIAN 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/EBÈNE NOIRE D’ASIE 2024.pdf">EBÈNE NOIRE D’ASIE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/EBÈNE VEINÉE D’ASIE 2024.pdf">EBÈNE VEINÉE D’ASIE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/GERONGGANG 2024.pdf">GERONGGANG 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/GERUTU 2024.pdf">GERUTU 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/GIAM 2024.pdf">GIAM 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/HALDU 2024.pdf">HALDU 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/JARRAH 2024.pdf">JARRAH 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/JELUTONG 2024.pdf">JELUTONG 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KAPUR 2024.pdf">KAPUR 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KARRI 2024.pdf">KARRI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KASAI 2024.pdf">KASAI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KAURI 2024.pdf">KAURI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KEDONDONG 2024.pdf">KEDONDONG 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KELAT 2024.pdf">KELAT 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KELEDANG 2024.pdf">KELEDANG 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KEMBANG SEMANGKOK 2024.pdf">KEMBANG SEMANGKOK 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KEMPAS 2024.pdf">KEMPAS 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KERANJI 2024.pdf">KERANJI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/KERUING 2024.pdf">KERUING 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/LIGHT RED LAUAN 2024.pdf">LIGHT RED LAUAN 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/LIGHT RED MERANTI 2024.pdf">LIGHT RED MERANTI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/MAGAS 2024.pdf">MAGAS 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/MANGO_MACHANG 2024.pdf">MANGO MACHANG 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/MENGKULANG 2024.pdf">MENGKULANG 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/MERAWAN 2024.pdf">MERAWAN 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/MERBAU 2024.pdf">MERBAU 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/MERKUS PINE 2024.pdf">MERKUS PINE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/MERPAUH 2024.pdf">MERPAUH 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/MERSAWA 2024.pdf">MERSAWA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/NYATOH 2024.pdf">NYATOH 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/PADAUK AMBOINA 2024.pdf">PADAUK AMBOINA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/PERUPOK 2024.pdf">PERUPOK 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/PULAI 2024.pdf">PULAI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/PUNAH 2024.pdf">PUNAH 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/PYINKADO 2024.pdf">PYINKADO 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/PYINMA 2024.pdf">PYINMA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/RAMIN 2024.pdf">RAMIN 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/RED BALAU 2024.pdf">RED BALAU 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/RED GRANDIS 2023.pdf">RED GRANDIS 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/RED LAUAN 2024.pdf">RED LAUAN 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/RENGAS 2024.pdf">RENGAS 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/RESAK 2024.pdf">RESAK 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/ROSEWOOD, SONOKELING 2024.pdf">ROSEWOOD, SONOKELING 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/ROSEWOOD, TAMALAN 2024.pdf">ROSEWOOD, TAMALAN 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/RUBBERWOOD 2024.pdf">RUBBERWOOD 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/SATIN, CEYLON 2024.pdf">SATIN, CEYLON 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/SEPETIR 2024.pdf">SEPETIR 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/SESENDOK 2024.pdf">SESENDOK 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/SIMPOH 2024.pdf">SIMPOH 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/SUREN 2024.pdf">SUREN 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/TASMANIAN OAK 2024.pdf">TASMANIAN OAK 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/TEAK 2023.pdf">TEAK 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/WHITE MERANTI 2024.pdf">WHITE MERANTI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/WHITE SERAYA 2024.pdf">WHITE SERAYA 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/YELLOW BALAU 2024.pdf">YELLOW BALAU 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/YELLOW MERANTI 2024.pdf">YELLOW MERANTI 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Asia/YEMANE 2024.pdf">YEMANE 2024.pdf</a></li>
+            </ul>
+    
+  </div><!-- class="liste_telechargements"-->
+
+              </div>
+                <div class="attr_contenu4">
+              
+  
+            <h3>Temperate areas</h3>
+
+
+
+
+
+<div class="liste_telechargements">
+  <div class="DEBUG">
+    <p>Configuration: <table><tr><th align="left">Attribute</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+<tr><td>EN/Tempered</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/Asia</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/America</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+<tr><td>EN/Africa</td>
+<td>string</td>
+<td>'\.(pdf|PDF)$'</td>
+</tr>
+</table>
+</p>
+    <p>Rep: EN/Tempered</p>
+  </div>
+
+  
+    <h1>Liste</h1>
+
+    
+          <ul>
+              <li><a href="/FichiersComplementaires/EN/Tempered/BLACK LOCUST 2024.pdf">BLACK LOCUST 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/CEDAR 2025.PDF">CEDAR 2025.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/CHESTNUT 2026.PDF">CHESTNUT 2026.PDF</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/DOUGLAS FIR 2023.pdf">DOUGLAS FIR 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/EUROPEAN ASH.pdf">EUROPEAN ASH.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/EUROPEAN BEECH.pdf">EUROPEAN BEECH.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/EUROPEAN CHERRY.pdf">EUROPEAN CHERRY.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/EUROPEAN LARCH.pdf">EUROPEAN LARCH.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/EUROPEAN PLANTATION RADIATA PINE 2024.pdf">EUROPEAN PLANTATION RADIATA PINE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/EUROPEAN WALNUT 2024.pdf">EUROPEAN WALNUT 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/FIR 2025.pdf">FIR 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/HOOKED PINE 2023.pdf">HOOKED PINE 2023.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/MARITIME PINE 2024.pdf">MARITIME PINE 2024.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/OAK 2025.pdf">OAK 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/POPLAR.pdf">POPLAR.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/SCOTS PINE 2025.pdf">SCOTS PINE 2025.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/SPRUCE.pdf">SPRUCE.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/SYCAMORE.pdf">SYCAMORE.pdf</a></li>
+              <li><a href="/FichiersComplementaires/EN/Tempered/WESTERN RED CEDAR.pdf">WESTERN RED CEDAR.pdf</a></li>
+            </ul>
+    
+  </div><!-- class="liste_telechargements"-->
+
+              </div>
+        </article></div></div><footer id="basdepage"><!-- BEGIN bas_de_page.tpl -->
+
+
+
+<p class="bdp_copyright">  
+  
+  
+                                    © Cirad, 2017
+                                           &#8212;
+                                                                  <a href="/en/cookies/infos">Cookies and statistics</a>
+                                           &#8212;
+                                                                  <a href="/en/informations-legales">Legal Notice</a>
+                                           &#8212;
+                                                        <a class="bdp_contact" href="mailto:tropix@cirad.fr">
+                Contact
+              </a>
+                          </p>
+
+
+
+
+
+
+
+<!-- END bas_de_page.tpl -->
+</footer></div>
+
+        
+
+        
+        
+        
+        <noscript>
+            <p class="warning-nojs">
+            Javascript is disabled.
+            We try to keep the site readable even if Javascript is disabled, but you should consider enabling it to get a better experience.
+            </p>
+        </noscript>
+
+        
+    
+
+    
+
+    
+    
+    
+    
+    
+
+                                    <script src="//static.cirad.fr/js/jquery/1.7.2/jquery.min.js"></script>
+                                                                                    <script src="https://static.cirad.fr/sites/tropix.cirad.fr/js/general.js"></script>
+    
+    
+    
+
+<!-- BEGIN google_analytics.tpl -->
+
+
+
+    
+
+
+
+        
+
+    
+
+    <script>
+        // Les cookies (Google Analytics) sont-ils autorisés ?
+        //      En mode OPT-IN, l'utilisateur DOIT les accepter, sinon GA n'est pas chargé
+        //      En mode OPT-OUT, l'utilisateur DOIT les accepter, sinon GA est chargé
+        var allowAnalytics = Cookie.get('allowAnalytics');
+        var allowByDefault = ('no' === 'yes') ? 'allow' : 'deny';
+        var cookieconsent_status = Cookie.get('cookieconsent_status') || allowByDefault;
+                var allowCookies = allowAnalytics == 'yes' || cookieconsent_status == 'allow';
+            </script>
+
+    
+                <script>
+            console.log('Google Analytics NOT configured for his site');
+        </script>
+    
+
+
+    <!-- END google_analytics.tpl -->
+    
+<!-- BEGIN piwik_analytics.tpl / MATOMO -->
+
+
+
+
+<!-- END piwik_analytics.tpl -->
+
+
+
+
+
+
+
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+.scroll {
+  width: 100%;
+  max-width: 800px;
+  padding: 25px;
+  overflow-x: auto;
+  background: transparent;
+}
+.chart {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+  font-family: inherit;
+  shape-rendering: geometricPrecision;
+}
+.rulerBackground,
+.bandBackground {
+  fill: #fff;
+}
+.rowFrame,
+.bandBoundary {
+  fill: none;
+  stroke: #20211f;
+  stroke-width: 0.8;
+}
+.minorTick,
+.majorTick {
+  stroke: #20211f;
+  stroke-width: 0.7;
+}
+.majorTick {
+  stroke-width: 1;
+}
+.label {
+  fill: #171815;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.tickLabel {
+  fill: #171815;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-variant-numeric: tabular-nums;
+}
+.number {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.bandLabel {
+  fill: #171815;
+  font-size: 0.8rem;
+}
+.line {
+  fill: none;
+  stroke: #ff3131;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.footnote {
+  fill: #171815;
+  font-size: 0.733rem;
+  font-weight: 600;
+}
+.missing {
+  fill: var(--muted);
+  font-family: inherit;
+  font-size: 0.867rem;
+}
+.overflow {
+  fill: #fff;
+  stroke: #ff3131;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}

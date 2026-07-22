@@ -1,0 +1,2861 @@
+{
+  "schemaVersion": 1,
+  "sourceLanguages": [
+    "en",
+    "fr"
+  ],
+  "sourceDatabases": {
+    "en": "public/data/woods.generated.en.json",
+    "fr": "public/data/woods.generated.fr.json"
+  },
+  "derivation": {
+    "recordJoinKey": "id",
+    "pairedRecordCount": 311,
+    "scalarPairing": "same-record-path",
+    "setPairing": "record-occurrence-signature",
+    "canonicalization": "most-frequent-case-preserving-pair",
+    "excludedSourceArtifacts": [
+      "page headings",
+      "species headings in controlled arrays",
+      "drying-table column leakage",
+      "sawn-orientation caption leakage"
+    ]
+  },
+  "normalization": {
+    "unicode": "NFKC",
+    "whitespace": "collapse",
+    "decimalSeparatorsEquivalent": [
+      ".",
+      ",",
+      "٫"
+    ],
+    "unicodeDecimalDigitsEquivalent": true
+  },
+  "protectedContent": {
+    "exactPathPatterns": [
+      "id",
+      "identity.slug",
+      "identity.family",
+      "identity.botanicalNames[].name",
+      "source.provider",
+      "source.listingUrls.*",
+      "source.pdfs.*.url",
+      "source.pdfs.*.fileName",
+      "source.pdfs.*.localPath",
+      "source.pdfs.*.year",
+      "source.lastUpdateDate",
+      "source.extractionDate",
+      "images[].src",
+      "images[].width",
+      "images[].height"
+    ],
+    "tokenPatterns": [
+      {
+        "id": "url",
+        "pattern": "https?:\\/\\/[^\\s)]+",
+        "flags": "giu",
+        "comparison": "exact"
+      },
+      {
+        "id": "email",
+        "pattern": "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}",
+        "flags": "giu",
+        "comparison": "case-insensitive"
+      },
+      {
+        "id": "standard",
+        "pattern": "\\b(?:NF\\s+)?(?:EN|ISO|ASTM|DIN|BS|NF|FD|UNE)\\s+(?:[A-Z]\\s+)?\\d[0-9A-Z.:-]*(?:[-/][0-9A-Z.:-]+)*(?:\\s*\\+\\s*[A-Z]?\\d+)?\\b",
+        "flags": "giu",
+        "comparison": "space-punctuation-normalized"
+      },
+      {
+        "id": "euroclass",
+        "pattern": "\\b[A-F](?:fl)?\\s*-?\\s*s[1-3]\\s*,?\\s*d[0-2]\\b",
+        "flags": "giu",
+        "comparison": "space-punctuation-normalized"
+      },
+      {
+        "id": "strength-class",
+        "pattern": "\\b[CD]\\d{2}\\b",
+        "flags": "gu",
+        "comparison": "exact"
+      },
+      {
+        "id": "grading-code",
+        "pattern": "\\b(?:[CFQ]-[A-Z0-9]{2,3}|[ABCDFGMPQRS]\\d{1,2}(?:-\\d)?|ME-[12]|E-TMT-[A-Z0-9-]+|RA05-[A-Z0-9]+|XX|FAS|ATIBT|MGR|NHLA|NLGA|SATA|CSTB|HSR|STI)\\b",
+        "flags": "gu",
+        "comparison": "punctuation-normalized"
+      },
+      {
+        "id": "number",
+        "pattern": "[+−-]?[\\p{Nd}]+(?:[.,٫][\\p{Nd}]+)*(?:\\s*(?:-|–|—|to|à)\\s*[+−-]?[\\p{Nd}]+(?:[.,٫][\\p{Nd}]+)*)?",
+        "flags": "gu",
+        "comparison": "numeric-equivalent"
+      }
+    ],
+    "units": [
+      "%",
+      "°C",
+      "h",
+      "mm",
+      "cm",
+      "m",
+      "m²",
+      "m³",
+      "kg/m³",
+      "kg/m3",
+      "MPa",
+      "GPa",
+      "kJ/kg",
+      "W/(m·K)",
+      "W/m.K",
+      "N/mm²",
+      "N/mm2",
+      "kg",
+      "RH",
+      "UGL"
+    ],
+    "literalTokens": [
+      "CIRAD",
+      "Tropix",
+      "CITES",
+      "ATIBT",
+      "FAS",
+      "MGR",
+      "NHLA",
+      "NLGA",
+      "SATA",
+      "CSTB",
+      "HSR",
+      "STI",
+      "Euroclass"
+    ]
+  },
+  "scriptPolicies": {
+    "ar": {
+      "scripts": [
+        "Arabic"
+      ],
+      "allowLatinInProtectedTokens": true
+    },
+    "bn": {
+      "scripts": [
+        "Bengali"
+      ],
+      "allowLatinInProtectedTokens": true
+    },
+    "hi": {
+      "scripts": [
+        "Devanagari"
+      ],
+      "allowLatinInProtectedTokens": true
+    },
+    "ur": {
+      "scripts": [
+        "Arabic"
+      ],
+      "allowLatinInProtectedTokens": true
+    }
+  },
+  "scopes": {
+    "origin.region": {
+      "paths": [
+        "origin.region"
+      ],
+      "sourceValueLanguage": "en",
+      "entries": [
+        {
+          "id": "origin.region.africa",
+          "en": "Africa",
+          "fr": "Afrique"
+        },
+        {
+          "id": "origin.region.america",
+          "en": "America",
+          "fr": "Amérique"
+        },
+        {
+          "id": "origin.region.asia",
+          "en": "Asia",
+          "fr": "Asie"
+        },
+        {
+          "id": "origin.region.temperate",
+          "en": "Temperate",
+          "fr": "Tempéré"
+        },
+        {
+          "id": "origin.region.unknown",
+          "en": "Unknown",
+          "fr": "Inconnu"
+        }
+      ]
+    },
+    "origin.continent": {
+      "paths": [
+        "origin.continent"
+      ],
+      "entries": [
+        {
+          "id": "origin.continent.africa",
+          "en": "Africa",
+          "fr": "Afrique"
+        },
+        {
+          "id": "origin.continent.asia-oceania",
+          "en": "Asia-Oceania",
+          "fr": "Asie-Océanie"
+        },
+        {
+          "id": "origin.continent.latin-america",
+          "en": "Latin America",
+          "fr": "Amérique latine"
+        },
+        {
+          "id": "origin.continent.europe",
+          "en": "Europe",
+          "fr": "Europe"
+        }
+      ]
+    },
+    "origin.country": {
+      "paths": [
+        "origin.countries[]"
+      ],
+      "entries": [
+        {
+          "id": "origin.country.andaman.islands.2d5f1a39",
+          "en": "Andaman (islands)",
+          "fr": "Andaman (îles)",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.angola.22b96532",
+          "en": "Angola",
+          "fr": "Angola",
+          "occurrences": 27,
+          "confidence": 0.963
+        },
+        {
+          "id": "origin.country.argentina.ea0b937e",
+          "en": "Argentina",
+          "fr": "Argentine",
+          "occurrences": 14,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.australia.c1ef40ce",
+          "en": "Australia",
+          "fr": "Australie",
+          "occurrences": 10,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.belgium.importated.tropical.timber.77de26f6",
+          "en": "Belgium (importated tropical timber)",
+          "fr": "Belgique (bois tropicaux importés)",
+          "occurrences": 5,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.belize.71dc81f1",
+          "en": "Belize",
+          "fr": "Belize",
+          "occurrences": 6,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.benin.69d0a7b8",
+          "en": "Benin",
+          "fr": "Bénin",
+          "occurrences": 28,
+          "confidence": 0.964
+        },
+        {
+          "id": "origin.country.bolivia.9621c073",
+          "en": "Bolivia",
+          "fr": "Bolivie",
+          "occurrences": 23,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.brazil.07f62b02",
+          "en": "Brazil",
+          "fr": "Brésil",
+          "occurrences": 97,
+          "confidence": 0.99
+        },
+        {
+          "id": "origin.country.brunei.99ebf7d9",
+          "en": "Brunei",
+          "fr": "Brunéi",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.burkina.faso.a564371a",
+          "en": "Burkina Faso",
+          "fr": "Burkina Faso",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.cambodia.0c2cb01a",
+          "en": "Cambodia",
+          "fr": "Cambodge",
+          "occurrences": 17,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.cameroon.085807f2",
+          "en": "Cameroon",
+          "fr": "Cameroun",
+          "occurrences": 102,
+          "confidence": 0.99
+        },
+        {
+          "id": "origin.country.central.african.republic.e509cda4",
+          "en": "Central African Republic",
+          "fr": "République centrafricaine",
+          "occurrences": 50,
+          "confidence": 0.98
+        },
+        {
+          "id": "origin.country.chad.4256e512",
+          "en": "Chad",
+          "fr": "Tchad",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.chile.f5273e23",
+          "en": "Chile",
+          "fr": "Chili",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.china.10436829",
+          "en": "China",
+          "fr": "Chine",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.colombia.6b615adb",
+          "en": "Colombia",
+          "fr": "Colombie",
+          "occurrences": 45,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.congo.0bbfeb15",
+          "en": "Congo",
+          "fr": "Congo",
+          "occurrences": 71,
+          "confidence": 0.986
+        },
+        {
+          "id": "origin.country.congo.republic.of.de589ebe",
+          "en": "Congo (Republic of)",
+          "fr": "Congo (République du)",
+          "occurrences": 10,
+          "confidence": 0.8
+        },
+        {
+          "id": "origin.country.costa.rica.e26742d7",
+          "en": "Costa Rica",
+          "fr": "Costa Rica",
+          "occurrences": 10,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.cote.d.ivoire.95ffc51d",
+          "en": "Côte d'Ivoire",
+          "fr": "Côte d'Ivoire",
+          "occurrences": 82,
+          "confidence": 0.988
+        },
+        {
+          "id": "origin.country.cuba.0d0b4e41",
+          "en": "Cuba",
+          "fr": "Cuba",
+          "occurrences": 6,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.democratic.republic.of.the.congo.098c6424",
+          "en": "Democratic Republic of the Congo",
+          "fr": "République Démocratique du Congo",
+          "occurrences": 63,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.dominican.republic.81e884cb",
+          "en": "Dominican Republic",
+          "fr": "République dominicaine",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.ecuador.2ca26c60",
+          "en": "Ecuador",
+          "fr": "Équateur",
+          "occurrences": 33,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.el.salvador.c408d26c",
+          "en": "El Salvador",
+          "fr": "El Salvador",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.equatorial.guinea.89946878",
+          "en": "Equatorial Guinea",
+          "fr": "Guinée équatoriale",
+          "occurrences": 43,
+          "confidence": 0.977
+        },
+        {
+          "id": "origin.country.ethiopia.7d94977e",
+          "en": "Ethiopia",
+          "fr": "Éthiopie",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.fiji.679c02dc",
+          "en": "Fiji",
+          "fr": "Fidji",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.france.importated.tropical.timber.875ae58e",
+          "en": "France (importated tropical timber)",
+          "fr": "France (bois tropicaux importés)",
+          "occurrences": 69,
+          "confidence": 0.986
+        },
+        {
+          "id": "origin.country.france.temperate.timber.87dda6e7",
+          "en": "France (temperate timber)",
+          "fr": "France (bois tempérés)",
+          "occurrences": 19,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.french.guiana.2b457cd8",
+          "en": "French Guiana",
+          "fr": "Guyane française",
+          "occurrences": 59,
+          "confidence": 0.983
+        },
+        {
+          "id": "origin.country.french.west.indies.bf463a4a",
+          "en": "French West Indies",
+          "fr": "Antilles",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.gabon.7e222a78",
+          "en": "Gabon",
+          "fr": "Gabon",
+          "occurrences": 101,
+          "confidence": 0.99
+        },
+        {
+          "id": "origin.country.germany.importated.tropical.timber.75597ed6",
+          "en": "Germany (importated tropical timber)",
+          "fr": "Allemagne (bois tropicaux importés)",
+          "occurrences": 36,
+          "confidence": 0.921
+        },
+        {
+          "id": "origin.country.germany.imported.tropical.timber.b2233b89",
+          "en": "Germany (imported tropical timber)",
+          "fr": "Allemagne (bois tropicaux importés)",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.germany.temperate.timber.226c998b",
+          "en": "Germany (temperate timber)",
+          "fr": "Allemagne (bois tempérés)",
+          "occurrences": 18,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.ghana.583201c1",
+          "en": "Ghana",
+          "fr": "Ghana",
+          "occurrences": 63,
+          "confidence": 0.984
+        },
+        {
+          "id": "origin.country.guatemala.45a15a24",
+          "en": "Guatemala",
+          "fr": "Guatemala",
+          "occurrences": 5,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.guinea.dd591d77",
+          "en": "Guinea",
+          "fr": "Guinée",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.guinea.bissau.75e8f462",
+          "en": "Guinea-Bissau",
+          "fr": "Guinée-Bissau",
+          "occurrences": 5,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.guyana.ea3bfc26",
+          "en": "Guyana",
+          "fr": "Guyana",
+          "occurrences": 56,
+          "confidence": 0.982
+        },
+        {
+          "id": "origin.country.haiti.d090b87e",
+          "en": "Haiti",
+          "fr": "Haïti",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.honduras.b79b5f97",
+          "en": "Honduras",
+          "fr": "Honduras",
+          "occurrences": 14,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.india.abd14921",
+          "en": "India",
+          "fr": "Inde",
+          "occurrences": 26,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.indonesia.dbc74a36",
+          "en": "Indonesia",
+          "fr": "Indonésie",
+          "occurrences": 57,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.italia.importated.tropical.timber.e61631b3",
+          "en": "Italia (importated tropical timber)",
+          "fr": "Italie (bois tropicaux importés)",
+          "occurrences": 14,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.italia.temperate.timber.9e8f2f68",
+          "en": "Italia (temperate timber)",
+          "fr": "Italie (bois tempérés)",
+          "occurrences": 16,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.jamaica.42c298ba",
+          "en": "Jamaica",
+          "fr": "Jamaïque",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.japan.64729438",
+          "en": "Japan",
+          "fr": "Japon",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.kenya.74e1891d",
+          "en": "Kenya",
+          "fr": "Kenya",
+          "occurrences": 7,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.laos.98e18f46",
+          "en": "Laos",
+          "fr": "Laos",
+          "occurrences": 12,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.liberia.c9d2604d",
+          "en": "Liberia",
+          "fr": "Libéria",
+          "occurrences": 18,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.magadascar.9600f7b1",
+          "en": "Magadascar",
+          "fr": "Magadascar",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.malaysia.08450416",
+          "en": "Malaysia",
+          "fr": "Malaisie",
+          "occurrences": 54,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.mali.ee5721a5",
+          "en": "Mali",
+          "fr": "Mali",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.mexico.a7d355b2",
+          "en": "Mexico",
+          "fr": "Mexique",
+          "occurrences": 14,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.mozambique.c9054826",
+          "en": "Mozambique",
+          "fr": "Mozambique",
+          "occurrences": 10,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.myanmar.ba2039a4",
+          "en": "Myanmar",
+          "fr": "Myanmar",
+          "occurrences": 32,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.netherlands.importated.tropical.timber.0199f078",
+          "en": "Netherlands (importated tropical timber)",
+          "fr": "Pays-Bas (bois tropicaux importés)",
+          "occurrences": 8,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.new.caledonia.be60011f",
+          "en": "New Caledonia",
+          "fr": "Nouvelle-Calédonie",
+          "occurrences": 5,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.nicaragua.94e6bd57",
+          "en": "Nicaragua",
+          "fr": "Nicaragua",
+          "occurrences": 5,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.nigeria.04952a0f",
+          "en": "Nigeria",
+          "fr": "Nigéria",
+          "occurrences": 76,
+          "confidence": 0.987
+        },
+        {
+          "id": "origin.country.pakistan.e2567312",
+          "en": "Pakistan",
+          "fr": "Pakistan",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.panama.c3668f58",
+          "en": "Panama",
+          "fr": "Panama",
+          "occurrences": 12,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.papua.new.guinea.c65742ce",
+          "en": "Papua New Guinea",
+          "fr": "Papouasie-Nouvelle-Guinée",
+          "occurrences": 18,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.paraguay.7fb4d179",
+          "en": "Paraguay",
+          "fr": "Paraguay",
+          "occurrences": 11,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.peru.508731a3",
+          "en": "Peru",
+          "fr": "Pérou",
+          "occurrences": 43,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.philippines.c3782c86",
+          "en": "Philippines",
+          "fr": "Philippines",
+          "occurrences": 36,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.polynesia.32098480",
+          "en": "Polynesia",
+          "fr": "Polynésie française",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.portugal.importated.tropical.timber.a43d317a",
+          "en": "Portugal (importated tropical timber",
+          "fr": "Portugal (bois tropicaux importés)",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.portugal.importated.tropical.timber.98101dc2",
+          "en": "Portugal (importated tropical timber)",
+          "fr": "Portugal (bois tropicaux importés)",
+          "occurrences": 6,
+          "confidence": 0.857
+        },
+        {
+          "id": "origin.country.portugal.temperate.timber.cbeb3004",
+          "en": "Portugal (temperate timber)",
+          "fr": "Portugal (bois tempérés)",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.puerto.rico.d9aa43ea",
+          "en": "Puerto Rico",
+          "fr": "Porto Rico",
+          "occurrences": 5,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.reunion.island.france.ce3ca5e6",
+          "en": "Réunion Island (France)",
+          "fr": "La Réunion (île de)",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.senegal.364e5f65",
+          "en": "Senegal",
+          "fr": "Sénégal",
+          "occurrences": 6,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.sierra.leone.f405b98d",
+          "en": "Sierra Leone",
+          "fr": "Sierra Leone",
+          "occurrences": 24,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.solomon.islands.cff4c58d",
+          "en": "Solomon Islands",
+          "fr": "Îles Salomon",
+          "occurrences": 6,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.south.africa.3e049d78",
+          "en": "South Africa",
+          "fr": "Afrique du Sud",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.spain.importated.tropical.timber.a92f4dd8",
+          "en": "Spain (importated tropical timber)",
+          "fr": "Espagne (bois tropicaux importés)",
+          "occurrences": 12,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.spain.temperate.timber.bd592ac5",
+          "en": "Spain (temperate timber)",
+          "fr": "Espagne (bois tempérés)",
+          "occurrences": 17,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.sri.lanka.07f8d114",
+          "en": "Sri Lanka",
+          "fr": "Sri Lanka",
+          "occurrences": 6,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.suriname.b1cb8eac",
+          "en": "Suriname",
+          "fr": "Suriname",
+          "occurrences": 61,
+          "confidence": 0.984
+        },
+        {
+          "id": "origin.country.taiwan.dd76af19",
+          "en": "Taiwan",
+          "fr": "Taïwan",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.tanzania.9555664f",
+          "en": "Tanzania",
+          "fr": "Tanzanie",
+          "occurrences": 10,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.thailand.6e49e650",
+          "en": "Thailand",
+          "fr": "Thaïlande",
+          "occurrences": 42,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.togo.4080343e",
+          "en": "Togo",
+          "fr": "Togo",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.trinidad.and.tobago.0c0177b5",
+          "en": "Trinidad and Tobago",
+          "fr": "Trinité-et-Tobago",
+          "occurrences": 10,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.uganda.893d5385",
+          "en": "Uganda",
+          "fr": "Ouganda",
+          "occurrences": 20,
+          "confidence": 0.95
+        },
+        {
+          "id": "origin.country.united.kingdom.importated.tropical.timber.b8c4e0eb",
+          "en": "United Kingdom (importated tropical timber)",
+          "fr": "Royaume-Uni (bois tropicaux importés)",
+          "occurrences": 90,
+          "confidence": 0.947
+        },
+        {
+          "id": "origin.country.united.kingdom.imported.tropical.timber.ffa8b2f0",
+          "en": "United Kingdom (imported tropical timber)",
+          "fr": "Royaume-Uni (bois tropicaux importés)",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.united.kingdom.temperate.timber.6861d730",
+          "en": "United Kingdom (temperate timber)",
+          "fr": "Royaume-Uni (bois tempérés)",
+          "occurrences": 18,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.united.states.temperate.timber.547e699d",
+          "en": "United States (temperate timber)",
+          "fr": "États-Unis (bois tempérés)",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.united.states.of.america.importated.tropical.timber.1c8b4856",
+          "en": "United States of America (importated tropical timber)",
+          "fr": "États-Unis (bois tropicaux importés)",
+          "occurrences": 26,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.uruguay.fe2403f2",
+          "en": "Uruguay",
+          "fr": "Uruguay",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.vanuatu.c5b2a6de",
+          "en": "Vanuatu",
+          "fr": "Vanuatu",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.venezuela.020e438b",
+          "en": "Venezuela",
+          "fr": "Venezuela",
+          "occurrences": 53,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.viet.nam.6ca41f1b",
+          "en": "Viet Nam",
+          "fr": "Viêt Nam",
+          "occurrences": 33,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.zambia.b5f9221a",
+          "en": "Zambia",
+          "fr": "Zambie",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "origin.country.zimbabwe.c72199a8",
+          "en": "Zimbabwe",
+          "fr": "Zimbabwe",
+          "occurrences": 2,
+          "confidence": 1
+        }
+      ]
+    },
+    "appearance.colour": {
+      "paths": [
+        "appearance.colourReference.value"
+      ],
+      "entries": [
+        {
+          "id": "appearance.colour.black.c6cfe6e4",
+          "en": "Black",
+          "fr": "Noir",
+          "occurrences": 3
+        },
+        {
+          "id": "appearance.colour.black.half.quartrer.sawn.7771c7a0",
+          "en": "Black Half-quartrer sawn",
+          "fr": "Noir",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.colour.brown.18f28559",
+          "en": "Brown",
+          "fr": "Brun",
+          "occurrences": 31
+        },
+        {
+          "id": "appearance.colour.creamy.white.55b4498b",
+          "en": "Creamy white",
+          "fr": "Blanc crème",
+          "occurrences": 25
+        },
+        {
+          "id": "appearance.colour.dark.brown.f22b6895",
+          "en": "Dark brown",
+          "fr": "Brun foncé",
+          "occurrences": 10
+        },
+        {
+          "id": "appearance.colour.dark.red.0bf71ea2",
+          "en": "Dark red",
+          "fr": "Rouge foncé",
+          "occurrences": 6
+        },
+        {
+          "id": "appearance.colour.light.brown.d5b0c919",
+          "en": "Light brown",
+          "fr": "Brun clair",
+          "occurrences": 42
+        },
+        {
+          "id": "appearance.colour.light.red.a10ee7c8",
+          "en": "Light red",
+          "fr": "Rouge clair",
+          "occurrences": 4
+        },
+        {
+          "id": "appearance.colour.light.yellow.8005954d",
+          "en": "Light yellow",
+          "fr": "Jaune clair",
+          "occurrences": 20
+        },
+        {
+          "id": "appearance.colour.orange.yellow.0ea5e844",
+          "en": "Orange - yellow",
+          "fr": "Jaune orangé",
+          "occurrences": 5
+        },
+        {
+          "id": "appearance.colour.orange.brown.9d9c6b34",
+          "en": "Orange brown",
+          "fr": "Brun orangé",
+          "occurrences": 2
+        },
+        {
+          "id": "appearance.colour.orange.yellow.b1982607",
+          "en": "Orange yellow",
+          "fr": "Jaune orangé",
+          "occurrences": 2
+        },
+        {
+          "id": "appearance.colour.orange.brown.4be7f024",
+          "en": "Orange-brown",
+          "fr": "Brun orangé",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.colour.pinkish.brown.1f2a9bb2",
+          "en": "Pinkish brown",
+          "fr": "Brun rosé",
+          "occurrences": 20
+        },
+        {
+          "id": "appearance.colour.pinkish.white.8d304e93",
+          "en": "Pinkish white",
+          "fr": "Blanc rosé",
+          "occurrences": 8
+        },
+        {
+          "id": "appearance.colour.purple.7d465fb9",
+          "en": "Purple",
+          "fr": "Violet",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.colour.red.ba19e9c3",
+          "en": "Red",
+          "fr": "Rouge",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.colour.red.brown.9068c264",
+          "en": "Red brown",
+          "fr": "Brun rouge",
+          "occurrences": 70
+        },
+        {
+          "id": "appearance.colour.salmon.pink.9845cadc",
+          "en": "Salmon pink",
+          "fr": "Rose saumon",
+          "occurrences": 2
+        },
+        {
+          "id": "appearance.colour.white.018fa96a",
+          "en": "white",
+          "fr": "blanc",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.colour.yellow.19dd83f1",
+          "en": "Yellow",
+          "fr": "Jaune",
+          "occurrences": 6
+        },
+        {
+          "id": "appearance.colour.yellow.brown.ce877876",
+          "en": "Yellow brown",
+          "fr": "Brun jaune",
+          "occurrences": 43
+        }
+      ]
+    },
+    "appearance.sapwood": {
+      "paths": [
+        "appearance.sapwood.value"
+      ],
+      "entries": [
+        {
+          "id": "appearance.sapwood.absent.84fd36f7",
+          "en": "Absent",
+          "fr": "Absent",
+          "occurrences": 3
+        },
+        {
+          "id": "appearance.sapwood.clearly.demarcated.b58d7e16",
+          "en": "Clearly demarcated",
+          "fr": "Bien distinct",
+          "occurrences": 171
+        },
+        {
+          "id": "appearance.sapwood.not.clearly.demarcated.dd81b6ee",
+          "en": "Not clearly demarcated",
+          "fr": "Peu distinct",
+          "occurrences": 77
+        },
+        {
+          "id": "appearance.sapwood.not.clearly.to.moderately.demarcated.e9e7709c",
+          "en": "Not clearly to moderately demarcated",
+          "fr": "Peu à moyennement distinct",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.sapwood.not.demarcated.27f1bffd",
+          "en": "Not demarcated",
+          "fr": "Non distinct",
+          "occurrences": 49
+        }
+      ]
+    },
+    "appearance.texture": {
+      "paths": [
+        "appearance.texture.value"
+      ],
+      "entries": [
+        {
+          "id": "appearance.texture.coarse.435d518a",
+          "en": "Coarse",
+          "fr": "Grossier",
+          "occurrences": 83
+        },
+        {
+          "id": "appearance.texture.fine.fa67303a",
+          "en": "Fine",
+          "fr": "Fin",
+          "occurrences": 76
+        },
+        {
+          "id": "appearance.texture.fine.to.medium.c7917aa8",
+          "en": "Fine to medium",
+          "fr": "Fin à moyen",
+          "occurrences": 2
+        },
+        {
+          "id": "appearance.texture.medium.8e588cd1",
+          "en": "Medium",
+          "fr": "Moyen",
+          "occurrences": 138
+        },
+        {
+          "id": "appearance.texture.medium.to.coarse.969ebc5c",
+          "en": "Medium to coarse",
+          "fr": "Moyen à grossier",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.texture.very.variable.fine.to.coarse.390392fb",
+          "en": "Very variable, fine to coarse",
+          "fr": "Très variable, fin à grossier",
+          "occurrences": 1
+        }
+      ]
+    },
+    "appearance.grain": {
+      "paths": [
+        "appearance.grain.value"
+      ],
+      "entries": [
+        {
+          "id": "appearance.grain.interlocked.07b49bdb",
+          "en": "Interlocked",
+          "fr": "Contrefil",
+          "occurrences": 67
+        },
+        {
+          "id": "appearance.grain.straight.dc81306b",
+          "en": "Straight",
+          "fr": "Droit",
+          "occurrences": 74
+        },
+        {
+          "id": "appearance.grain.straight.or.interlocked.7e3e413b",
+          "en": "Straight or interlocked",
+          "fr": "Droit ou contrefilé",
+          "occurrences": 142
+        },
+        {
+          "id": "appearance.grain.straight.to.entangled.81543b83",
+          "en": "Straight to entangled",
+          "fr": "Droit à enchevêtré",
+          "occurrences": 12
+        },
+        {
+          "id": "appearance.grain.straight.to.uneven.b6bb709e",
+          "en": "Straight to uneven",
+          "fr": "Droit à irrégulier",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.grain.straight.slightly.interlocked.530fc390",
+          "en": "Straight, slightly interlocked",
+          "fr": "Droit, légèrement contrefilé",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.grain.straight.sometimes.slightly.interlocked.aad0eef5",
+          "en": "Straight, sometimes slightly interlocked",
+          "fr": "Droit, parfois légèrement contrefilé",
+          "occurrences": 1
+        },
+        {
+          "id": "appearance.grain.undulating.e55dd9a7",
+          "en": "Undulating",
+          "fr": "Ondulé",
+          "occurrences": 3
+        },
+        {
+          "id": "appearance.grain.undulating.and.sometimes.interlocked.a41ae753",
+          "en": "Undulating and sometimes interlocked",
+          "fr": "Ondulé et parfois contrefilé",
+          "occurrences": 1
+        }
+      ]
+    },
+    "logs.durability": {
+      "paths": [
+        "log.durability.value"
+      ],
+      "entries": [
+        {
+          "id": "logs.durability.good.c939327c",
+          "en": "Good",
+          "fr": "Bonne",
+          "occurrences": 90
+        },
+        {
+          "id": "logs.durability.low.must.be.treated.46d0d26a",
+          "en": "low (must be treated)",
+          "fr": "faible (doit être traité)",
+          "occurrences": 2
+        },
+        {
+          "id": "logs.durability.low.treatment.necessary.c291855d",
+          "en": "Low (treatment necessary)",
+          "fr": "Faible (traitement nécessaire)",
+          "occurrences": 95
+        },
+        {
+          "id": "logs.durability.moderate.treatment.recommended.7cbbbc10",
+          "en": "Moderate (treatment recommended)",
+          "fr": "Moyenne (traitement recommandé)",
+          "occurrences": 118
+        }
+      ]
+    },
+    "durability.fungi": {
+      "paths": [
+        "durability.fungi.value"
+      ],
+      "entries": [
+        {
+          "id": "durability.fungi.class.1.very.durable.6d90c957",
+          "en": "Class 1 - very durable",
+          "fr": "Classe 1 - très durable",
+          "occurrences": 32
+        },
+        {
+          "id": "durability.fungi.class.1.to.3.very.durable.to.moderately.durable.according.to.ori.64593077",
+          "en": "Class 1 to 3 - very durable to moderately durable (according to origin and age of the stands)",
+          "fr": "Classe 1 à 3 - très durable à moyennement durable (selon la provenance et l'âge des peuplements)",
+          "occurrences": 3
+        },
+        {
+          "id": "durability.fungi.class.1.2.very.durable.to.durable.c239a74d",
+          "en": "Class 1-2 - very durable to durable",
+          "fr": "Classe 1-2 - très durable à durable",
+          "occurrences": 6
+        },
+        {
+          "id": "durability.fungi.class.2.durable.edc70ba6",
+          "en": "Class 2 - durable",
+          "fr": "Classe 2 - durable",
+          "occurrences": 20
+        },
+        {
+          "id": "durability.fungi.class.2.to.3.durable.to.moderately.durable.2bea975f",
+          "en": "Class 2 to 3 - durable to moderately durable",
+          "fr": "Classe 2 à 3 - durable à moyennement durable",
+          "occurrences": 5
+        },
+        {
+          "id": "durability.fungi.class.2.to.class.4.durable.to.poorly.durable.2f675ef3",
+          "en": "Class 2 to class 4 - durable to poorly durable",
+          "fr": "Classe 2 à classe 4 - durable à faiblement durable",
+          "occurrences": 2
+        },
+        {
+          "id": "durability.fungi.class.3.moderately.durable.3acf2b6a",
+          "en": "Class 3 - moderately durable",
+          "fr": "Classe 3 - moyennement durable",
+          "occurrences": 36
+        },
+        {
+          "id": "durability.fungi.class.3.to.4.moderately.to.poorly.durable.104b1f43",
+          "en": "Class 3 to 4 - moderately to poorly durable",
+          "fr": "Classe 3 à 4 - moyennement à faiblement durable",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.fungi.class.3.4.moderately.to.poorly.durable.48f77223",
+          "en": "class 3-4 - moderately to poorly durable",
+          "fr": "classe 3-4 - moyennement à faiblement durable",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.fungi.class.4.poorly.durable.599bf266",
+          "en": "Class 4 - poorly durable",
+          "fr": "Classe 4 - faiblement durable",
+          "occurrences": 17
+        },
+        {
+          "id": "durability.fungi.class.4.a.5.poorly.to.not.durable.498ef03b",
+          "en": "Class 4 à 5 - poorly to not durable",
+          "fr": "Classe 4 à 5 - faiblement à non durable",
+          "occurrences": 3
+        },
+        {
+          "id": "durability.fungi.class.5.not.durable.a8aa1541",
+          "en": "Class 5 - not durable",
+          "fr": "Classe 5 - non durable",
+          "occurrences": 40
+        },
+        {
+          "id": "durability.fungi.durability.class.1.very.durable.af88ed47",
+          "en": "Durability class 1 - very durable",
+          "fr": "Classe de durabilité 1 - très durable",
+          "occurrences": 26
+        },
+        {
+          "id": "durability.fungi.durability.class.1.to.2.v.very.durable.to.durable.v.variable.f13e2551",
+          "en": "Durability class 1 to 2 (v) – very durable to durable (\"v\" = variable)",
+          "fr": "Classe de durabilité 1 à 2 (v) – très durable à durable (\"v\" = variable)",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.fungi.durability.class.1.2.very.durable.to.durable.410a2a65",
+          "en": "Durability class 1-2 - very durable to durable",
+          "fr": "Classe de durabilité 1-2 - très durable à durable",
+          "occurrences": 4
+        },
+        {
+          "id": "durability.fungi.durability.class.2.durable.0680232a",
+          "en": "Durability class 2 - durable",
+          "fr": "Classe de durabilité 2 - durable",
+          "occurrences": 12
+        },
+        {
+          "id": "durability.fungi.durability.class.2.v.durable.v.variable.5cfc4e11",
+          "en": "Durability class 2 (v) - durable (\"v\" = variable)",
+          "fr": "Classe de durabilité 2 (v) - durable (\"v\" = variable)",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.fungi.durability.class.2.to.3.durable.to.moderately.durable.d416d21c",
+          "en": "Durability class 2 to 3 - durable to moderately durable",
+          "fr": "Classe de durabilité 2 à 3 - durable à moyennement durable",
+          "occurrences": 3
+        },
+        {
+          "id": "durability.fungi.durability.class.2.to.3.durable.to.moderately.durable.see.note.660a47fc",
+          "en": "Durability class 2 to 3 - durable to moderately durable (see note)",
+          "fr": "Classe de durabilité 2 à 3 - durable à moyennement durable (voir note)",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.fungi.durability.class.2.to.4.durable.to.poorly.durable.1116a0da",
+          "en": "Durability class 2 to 4 - durable to poorly durable",
+          "fr": "Classe de durabilité 2 à 4 - durable à faiblement durable",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.fungi.durability.class.3.moderately.durable.22a3f34d",
+          "en": "Durability class 3 - moderately durable",
+          "fr": "Classe de durabilité 3 - moyennement durable",
+          "occurrences": 27
+        },
+        {
+          "id": "durability.fungi.durability.class.3.v.moderately.durable.v.variable.fdf81cf2",
+          "en": "Durability class 3 (v) – moderately durable (\"v\" = variable)",
+          "fr": "Classe de durabilité 3 (v) – moyennement durable (\"v\" = variable)",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.fungi.durability.class.3.to.4.moderately.to.poorly.durable.08836285",
+          "en": "Durability class 3 to 4 - moderately to poorly durable",
+          "fr": "Classe de durabilité 3 à 4 - moyennement à faiblement durable",
+          "occurrences": 8
+        },
+        {
+          "id": "durability.fungi.durability.class.4.poorly.durable.267aafae",
+          "en": "Durability class 4 - poorly durable",
+          "fr": "Classe de durabilité 4 - faiblement durable",
+          "occurrences": 10
+        },
+        {
+          "id": "durability.fungi.durability.class.4.v.poorly.durable.v.variable.0b4d34ee",
+          "en": "Durability class 4 (v) – poorly durable (\"v\" = variable)",
+          "fr": "Classe de durabilité 4 (v) – faiblement durable (\"v\" = variable)",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.fungi.durability.class.4.a.5.poorly.to.not.durable.879de341",
+          "en": "Durability class 4 à 5 - poorly to not durable",
+          "fr": "Classe de durabilité 4 à 5 - faiblement à non durable",
+          "occurrences": 2
+        },
+        {
+          "id": "durability.fungi.durability.class.5.not.durable.b20063eb",
+          "en": "Durability class 5 - not durable",
+          "fr": "Classe de durabilité 5 - non durable",
+          "occurrences": 19
+        }
+      ]
+    },
+    "durability.dryWoodBorers": {
+      "paths": [
+        "durability.dryWoodBorers.value"
+      ],
+      "entries": [
+        {
+          "id": "durability.dryWoodBorers.class.d.durable.heartw.durable.but.sapw.not.clearly.demarcated.d5ba1e4d",
+          "en": "Class D - durable (heartw. durable but sapw. not clearly demarcated)",
+          "fr": "Classe D - durable (duramen durable mais aubier peu distinct)",
+          "occurrences": 24
+        },
+        {
+          "id": "durability.dryWoodBorers.class.d.durable.sapwood.demarcated.risk.limited.to.sapwood.073356a0",
+          "en": "Class D - durable (sapwood demarcated, risk limited to sapwood)",
+          "fr": "Classe D - durable (aubier distinct, risque limité à l'aubier)",
+          "occurrences": 160
+        },
+        {
+          "id": "durability.dryWoodBorers.class.s.susceptible.risk.in.all.the.wood.a44fb2b5",
+          "en": "Class S - susceptible (risk in all the wood)",
+          "fr": "Classe S - sensible (risque dans tout le bois)",
+          "occurrences": 119
+        },
+        {
+          "id": "durability.dryWoodBorers.durable.sapwood.demarcated.risk.limited.to.sapwood.7f46c767",
+          "en": "durable - sapwood demarcated (risk limited to sapwood)",
+          "fr": "durable - aubier distinct (risque limité à l'aubier)",
+          "occurrences": 2
+        },
+        {
+          "id": "durability.dryWoodBorers.heartwood.durable.but.sapwood.not.clearly.demarcated.83692d05",
+          "en": "heartwood durable but sapwood not clearly demarcated",
+          "fr": "Classe S - sensible (risque dans tout le bois)",
+          "occurrences": 2
+        },
+        {
+          "id": "durability.dryWoodBorers.susceptible.ea0f2469",
+          "en": "susceptible",
+          "fr": "sensible",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.dryWoodBorers.susceptible.sapwood.not.or.slightly.demarcated.risk.in.all.the.w.1aa790cc",
+          "en": "susceptible - sapwood not or slightly demarcated (risk in all the wood)",
+          "fr": "sensible - aubier peu ou non distinct (risque dans tout le bois)",
+          "occurrences": 1
+        }
+      ]
+    },
+    "durability.termites": {
+      "paths": [
+        "durability.termites.value"
+      ],
+      "entries": [
+        {
+          "id": "durability.termites.class.d.durable.ae91eec3",
+          "en": "Class D - durable",
+          "fr": "Classe D - durable",
+          "occurrences": 103
+        },
+        {
+          "id": "durability.termites.class.m.moderately.durable.c83c09ba",
+          "en": "Class M - moderately durable",
+          "fr": "Classe M - moyennement durable",
+          "occurrences": 64
+        },
+        {
+          "id": "durability.termites.class.s.susceptible.a2f0c03e",
+          "en": "Class S - susceptible",
+          "fr": "Classe S - sensible",
+          "occurrences": 136
+        }
+      ]
+    },
+    "durability.treatability": {
+      "paths": [
+        "durability.treatability.value"
+      ],
+      "entries": [
+        {
+          "id": "durability.treatability.class.1.easily.permeable.24519a64",
+          "en": "Class 1 - easily permeable",
+          "fr": "Classe 1 - imprégnable",
+          "occurrences": 42
+        },
+        {
+          "id": "durability.treatability.class.1.2.moderately.to.easily.permeable.92b03679",
+          "en": "Class 1-2 - moderately to easily permeable",
+          "fr": "Classe 1-2 - moyennement imprégnable à imprégnable",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.treatability.class.2.moderately.permeable.24d90353",
+          "en": "Class 2 - moderately permeable",
+          "fr": "Classe 2 - moyennement imprégnable",
+          "occurrences": 35
+        },
+        {
+          "id": "durability.treatability.class.2.3.poorly.to.moderately.permeable.bb899cfd",
+          "en": "Class 2-3 - poorly to moderately permeable",
+          "fr": "Classe 2-3 - peu à moyennement imprégnable",
+          "occurrences": 10
+        },
+        {
+          "id": "durability.treatability.class.2.v.3.v.poorly.to.moderately.permeable.v.variable.1874415b",
+          "en": "Class 2(v)-3(v) - poorly to moderately permeable (\"v\" = variable)",
+          "fr": "Classe 2(v)-3(v) - peu à moyennement imprégnable (\"v\" = variable)",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.treatability.class.3.poorly.permeable.9142d54a",
+          "en": "Class 3 - poorly permeable",
+          "fr": "Classe 3 - peu imprégnable",
+          "occurrences": 91
+        },
+        {
+          "id": "durability.treatability.class.3.4.poorly.or.not.permeable.e1789e6b",
+          "en": "Class 3-4 - poorly or not permeable",
+          "fr": "Classe 3-4 - peu ou non imprégnable",
+          "occurrences": 40
+        },
+        {
+          "id": "durability.treatability.class.4.not.permeable.2c2d42f1",
+          "en": "Class 4 - not permeable",
+          "fr": "Classe 4 - non imprégnable",
+          "occurrences": 83
+        },
+        {
+          "id": "durability.treatability.no.information.available.40eb6628",
+          "en": "no information available",
+          "fr": "aucune information disponible",
+          "occurrences": 1
+        }
+      ]
+    },
+    "durability.naturalUseClass": {
+      "paths": [
+        "durability.naturalUseClass.value"
+      ],
+      "entries": [
+        {
+          "id": "durability.naturalUseClass.class.1.inside.no.dampness.3d758cac",
+          "en": "Class 1 - inside (no dampness)",
+          "fr": "Classe 1 - à l'intérieur (pas de risque d'humidification)",
+          "occurrences": 76
+        },
+        {
+          "id": "durability.naturalUseClass.class.2.inside.or.under.cover.dampness.possible.dfba134f",
+          "en": "Class 2 - inside or under cover (dampness possible)",
+          "fr": "Classe 2 - à l'intérieur ou sous abri (risque d'humidification)",
+          "occurrences": 94
+        },
+        {
+          "id": "durability.naturalUseClass.class.2.inside.or.under.cover.dampness.possible.according.to.nf..f3dc49d8",
+          "en": "Class 2 (inside or under cover, dampness possible) according to NF P 23-305 standard (December 2014)",
+          "fr": "Classe 2 - à l'intérieur ou sous abri (risque d'humidification) selon la norme NF P 23-305 (décembre 2014)",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.naturalUseClass.class.2.inside.or.under.cover.dampness.possible.to.class.3.not.i.5e73c036",
+          "en": "Class 2 (inside or under cover, dampness possible) to class 3 (not in ground contact, outside)",
+          "fr": "Classe 2 (à l'intérieur ou sous abri, risque d'humidification) à classe 3 (hors contact du sol, à l'extérieur)",
+          "occurrences": 2
+        },
+        {
+          "id": "durability.naturalUseClass.class.2.to.3.2.subject.to.sound.drainage.design.see.note.da36a9df",
+          "en": "Class 2 to 3.2 subject to sound drainage design (see note)",
+          "fr": "Classe 2 à 3.2 sous réserve d'une conception saine et drainante (voir note)",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.naturalUseClass.class.3.not.in.ground.contact.outside.59a5ba69",
+          "en": "Class 3 - not in ground contact, outside",
+          "fr": "Classe 3 - hors contact du sol, à l'extérieur",
+          "occurrences": 36
+        },
+        {
+          "id": "durability.naturalUseClass.class.3.not.in.ground.contact.outside.to.class.4.in.ground.or.fr.5f2df24c",
+          "en": "Class 3 (not in ground contact, outside) to class 4 (in ground or fresh water contact), according to origin",
+          "fr": "Classe 3 (hors contact du sol, à l'extérieur) à classe 4 (en contact avec le sol ou l'eau douce), selon la provenance des bois",
+          "occurrences": 3
+        },
+        {
+          "id": "durability.naturalUseClass.class.3.1.according.to.nf.p.23.305.standard.december.2014.class..a30dae21",
+          "en": "Class 3.1 according to NF P 23-305 standard (December 2014). Class 3.2 may be considered with preservation treatment or, without treatment, subject to sound drainage design (FD P 20 651 - 2011).",
+          "fr": "Classe 3.1 selon la norme NF P 23-305 (décembre 2014). Une classe d'emploi 3.2 peut être envisagée avec traitement de préservation ou, sans traitement, sous réserve d'une conception saine et drainante (FD P 20 651 - 2011).",
+          "occurrences": 2
+        },
+        {
+          "id": "durability.naturalUseClass.class.3.1.subject.to.sound.drainage.design.documentation.leaflet.b972c150",
+          "en": "Class 3.1, subject to sound drainage design (documentation leaflet FD P 20 651)",
+          "fr": "Classe 3.1 sous réserve d'une conception saine et drainante (fascicule de documentation FD P 20 651)",
+          "occurrences": 3
+        },
+        {
+          "id": "durability.naturalUseClass.class.3.2.subject.to.sound.drainage.design.293d4450",
+          "en": "Class 3.2, subject to sound drainage design",
+          "fr": "Classe 3.2 sous réserve d'une conception saine et drainante",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.naturalUseClass.class.3.2.subject.to.sound.drainage.design.fd.p.20.651.2b1c9887",
+          "en": "Class 3.2, subject to sound drainage design (FD P 20 651).",
+          "fr": "Classe 3.2 sous réserve d'une conception saine et drainante (FD P 20 651).",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.naturalUseClass.class.4.in.ground.or.fresh.water.contact.5e96915d",
+          "en": "Class 4 - in ground or fresh water contact",
+          "fr": "Classe 4 - en contact avec le sol ou l'eau douce",
+          "occurrences": 80
+        },
+        {
+          "id": "durability.naturalUseClass.class.4.in.ground.or.fresh.water.contact.in.temperate.regions.978fcee3",
+          "en": "Class 4 - in ground or fresh water contact (in temperate regions)",
+          "fr": "Classe 4 - en contact avec le sol ou l'eau douce (en région tempérée)",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.naturalUseClass.class.4.above.ground.as.defined.in.fd.p.20.651.to.class.3.2.subj.379fc65c",
+          "en": "Class 4 (above-ground as defined in FD P 20-651) to class 3.2, subject to sound drainage design.",
+          "fr": "Classe 4 (hors sol tel que défini dans le FD P 20-651) à classe 3.2, sous réserve d'une conception saine et drainante.",
+          "occurrences": 1
+        },
+        {
+          "id": "durability.naturalUseClass.class.4.not.in.direct.contact.with.the.ground.as.defined.in.fd.p.4317bdb6",
+          "en": "Class 4 (not in direct contact with the ground as defined in FD P 20-651), subject to sound drainage design.",
+          "fr": "Classe 4 (hors du contact direct avec le sol tel que défini dans le FD P 20-651), sous réserve d'une conception saine et drainante.",
+          "occurrences": 1
+        }
+      ]
+    },
+    "durability.coversUseClass5": {
+      "paths": [
+        "durability.coversUseClass5.value"
+      ],
+      "entries": [
+        {
+          "id": "durability.coversUseClass5.no.1ea442a1",
+          "en": "No",
+          "fr": "Non",
+          "occurrences": 4
+        }
+      ]
+    },
+    "preservation.dryWoodBorer": {
+      "paths": [
+        "durability.preservativeTreatment.dryWoodBorer.value"
+      ],
+      "entries": [
+        {
+          "id": "preservation.dryWoodBorer.does.not.require.any.preservative.treatment.7716f9d8",
+          "en": "Does not require any preservative treatment",
+          "fr": "Ce bois ne nécessite pas de traitement de préservation",
+          "occurrences": 164
+        },
+        {
+          "id": "preservation.dryWoodBorer.requires.a.preservative.treatment.against.termites.fbe0239d",
+          "en": "Requires a preservative treatment against termites",
+          "fr": "Ce bois nécessite un traitement de préservation contre les termites",
+          "occurrences": 4
+        },
+        {
+          "id": "preservation.dryWoodBorer.requires.appropriate.preservative.treatment.61fbf756",
+          "en": "Requires appropriate preservative treatment",
+          "fr": "Ce bois nécessite un traitement de préservation adapté",
+          "occurrences": 132
+        }
+      ]
+    },
+    "preservation.temporaryHumidification": {
+      "paths": [
+        "durability.preservativeTreatment.temporaryHumidification.value"
+      ],
+      "entries": [
+        {
+          "id": "preservation.temporaryHumidification.does.not.require.any.preservative.treatment.7716f9d8",
+          "en": "Does not require any preservative treatment",
+          "fr": "Ce bois ne nécessite pas de traitement de préservation",
+          "occurrences": 121
+        },
+        {
+          "id": "preservation.temporaryHumidification.requires.appropriate.preservative.treatment.61fbf756",
+          "en": "Requires appropriate preservative treatment",
+          "fr": "Ce bois nécessite un traitement de préservation adapté",
+          "occurrences": 152
+        },
+        {
+          "id": "preservation.temporaryHumidification.sapwood.excluded.this.wood.is.suitable.for.temporary.humidificat.0808f5d7",
+          "en": "Sapwood excluded, this wood is suitable for temporary humidification situations without preservative treatment, provided it is designed to be sound and draining (FD P 20 651 - 2011).",
+          "fr": "Hors aubier, ce bois est adapté aux situations d’humidification temporaire sans traitement de préservation moyennant une conception saine et drainante (FD P 20 651 - 2011).",
+          "occurrences": 1
+        },
+        {
+          "id": "preservation.temporaryHumidification.sapwood.excluded.wood.with.mature.heartwood.is.suitable.for.temp.68bd0876",
+          "en": "Sapwood excluded, wood with mature heartwood is suitable for temporary humidification situations (use class 3.1 and 3.2 according to NF EN 335 - 2013), without preservative treatment, provided it is designed to be sound and draining (FD P 20 651 - 2011).",
+          "fr": "Hors aubier, les bois dont le duramen est arrivé à maturité sont adaptés aux situations d’humidification temporaire (classe emploi 3.1 et 3.2 selon NF EN 335 - 2013), sans traitement de préservation moyennant une conception saine et drainante (FD P 20 651 - 2011).",
+          "occurrences": 1
+        },
+        {
+          "id": "preservation.temporaryHumidification.use.not.recommended.1596348d",
+          "en": "Use not recommended",
+          "fr": "L'utilisation de ce bois n'est pas conseillée",
+          "occurrences": 25
+        }
+      ]
+    },
+    "preservation.permanentHumidification": {
+      "paths": [
+        "durability.preservativeTreatment.permanentHumidification.value"
+      ],
+      "entries": [
+        {
+          "id": "preservation.permanentHumidification.does.not.require.any.preservative.treatment.7716f9d8",
+          "en": "Does not require any preservative treatment",
+          "fr": "Ce bois ne nécessite pas de traitement de préservation",
+          "occurrences": 81
+        },
+        {
+          "id": "preservation.permanentHumidification.does.not.require.any.preservative.treatment.when.class.1.or.2.fo.163f161e",
+          "en": "Does not require any preservative treatment (when class 1 or 2 for natural resistance to fungi)",
+          "fr": "Ce bois ne nécessite pas de traitement de préservation (pour les bois en classe 1 ou 2 de durabilité aux champignons)",
+          "occurrences": 3
+        },
+        {
+          "id": "preservation.permanentHumidification.does.not.require.any.preservative.treatment.in.temperate.regions.094cb237",
+          "en": "Does not require any preservative treatment in temperate regions but use not recommended in tropical regions",
+          "fr": "Ce bois ne nécessite pas de traitement de préservation en région tempérée mais utilisation non conseillée en région tropicale",
+          "occurrences": 1
+        },
+        {
+          "id": "preservation.permanentHumidification.requires.appropriate.preservative.treatment.61fbf756",
+          "en": "Requires appropriate preservative treatment",
+          "fr": "Ce bois nécessite un traitement de préservation adapté",
+          "occurrences": 17
+        },
+        {
+          "id": "preservation.permanentHumidification.use.not.recommended.1596348d",
+          "en": "Use not recommended",
+          "fr": "L'utilisation de ce bois n'est pas conseillée",
+          "occurrences": 199
+        }
+      ]
+    },
+    "drying.rate": {
+      "paths": [
+        "drying.rate.value"
+      ],
+      "entries": [
+        {
+          "id": "drying.rate.medium.to.slow.aa33fb75",
+          "en": "Medium to slow",
+          "fr": "Moyenne à lente",
+          "occurrences": 1
+        },
+        {
+          "id": "drying.rate.no.information.available.55918015",
+          "en": "No information available",
+          "fr": "Aucune information disponible",
+          "occurrences": 1
+        },
+        {
+          "id": "drying.rate.normal.a7248eeb",
+          "en": "Normal",
+          "fr": "Normale",
+          "occurrences": 50
+        },
+        {
+          "id": "drying.rate.normal.to.slow.a582c29e",
+          "en": "Normal to slow",
+          "fr": "Normale à lente",
+          "occurrences": 65
+        },
+        {
+          "id": "drying.rate.rapid.26c48693",
+          "en": "Rapid",
+          "fr": "Rapide",
+          "occurrences": 39
+        },
+        {
+          "id": "drying.rate.rapid.to.normal.cc7e7024",
+          "en": "Rapid to normal",
+          "fr": "Rapide à normale",
+          "occurrences": 33
+        },
+        {
+          "id": "drying.rate.slow.4b2bebbf",
+          "en": "Slow",
+          "fr": "Lente",
+          "occurrences": 114
+        }
+      ]
+    },
+    "drying.distortionRisk": {
+      "paths": [
+        "drying.distortionRisk.value"
+      ],
+      "entries": [
+        {
+          "id": "drying.distortionRisk.high.risk.4682a7f7",
+          "en": "High risk",
+          "fr": "Elevé",
+          "occurrences": 114
+        },
+        {
+          "id": "drying.distortionRisk.medium.risk.17b2d4b0",
+          "en": "Medium risk",
+          "fr": "Moyennement élevé",
+          "occurrences": 3
+        },
+        {
+          "id": "drying.distortionRisk.medium.to.high.risk.4ba0ea07",
+          "en": "Medium to high risk",
+          "fr": "Moyennement élevé à élevé",
+          "occurrences": 2
+        },
+        {
+          "id": "drying.distortionRisk.no.risk.or.very.slight.risk.fc4b6daa",
+          "en": "No risk or very slight risk",
+          "fr": "Absent ou très faible",
+          "occurrences": 38
+        },
+        {
+          "id": "drying.distortionRisk.slight.risk.073b3d00",
+          "en": "Slight risk",
+          "fr": "Peu élevé",
+          "occurrences": 146
+        }
+      ]
+    },
+    "drying.casehardeningRisk": {
+      "paths": [
+        "drying.casehardeningRisk.value"
+      ],
+      "entries": [
+        {
+          "id": "drying.casehardeningRisk.no.known.specific.risk.8a1a8205",
+          "en": "No known specific risk",
+          "fr": "Pas de risque particulier connu",
+          "occurrences": 271
+        },
+        {
+          "id": "drying.casehardeningRisk.yes.85a39ab3",
+          "en": "Yes",
+          "fr": "Oui",
+          "occurrences": 32
+        }
+      ]
+    },
+    "drying.checkingRisk": {
+      "paths": [
+        "drying.checkingRisk.value"
+      ],
+      "entries": [
+        {
+          "id": "drying.checkingRisk.high.risk.4682a7f7",
+          "en": "High risk",
+          "fr": "Elevé",
+          "occurrences": 117
+        },
+        {
+          "id": "drying.checkingRisk.medium.risk.17b2d4b0",
+          "en": "Medium risk",
+          "fr": "Moyennement élevé",
+          "occurrences": 2
+        },
+        {
+          "id": "drying.checkingRisk.medium.to.high.risk.4ba0ea07",
+          "en": "Medium to high risk",
+          "fr": "Moyennement élevé à élevé",
+          "occurrences": 2
+        },
+        {
+          "id": "drying.checkingRisk.no.information.available.55918015",
+          "en": "No information available",
+          "fr": "Aucune information disponible",
+          "occurrences": 1
+        },
+        {
+          "id": "drying.checkingRisk.no.risk.or.very.slight.risk.fc4b6daa",
+          "en": "No risk or very slight risk",
+          "fr": "Absent ou très faible",
+          "occurrences": 38
+        },
+        {
+          "id": "drying.checkingRisk.risk.of.surface.splitting.in.outdoor.uses.in.dry.hot.environment.22fe8509",
+          "en": "Risk of surface splitting in outdoor uses in dry, hot environments",
+          "fr": "Sous climat sec et chaud, risques de gerces pour les utilisations extérieures",
+          "occurrences": 1
+        },
+        {
+          "id": "drying.checkingRisk.slight.risk.073b3d00",
+          "en": "Slight risk",
+          "fr": "Peu élevé",
+          "occurrences": 141
+        },
+        {
+          "id": "drying.checkingRisk.slight.to.medium.risk.29fcaa2a",
+          "en": "Slight to medium risk",
+          "fr": "Peu à moyennement élevé",
+          "occurrences": 1
+        }
+      ]
+    },
+    "drying.collapseRisk": {
+      "paths": [
+        "drying.collapseRisk.value"
+      ],
+      "entries": [
+        {
+          "id": "drying.collapseRisk.no.40.50.45.75.58e2ef61",
+          "en": "no 40 50 45 75",
+          "fr": "non 40 50 45 75",
+          "occurrences": 1
+        },
+        {
+          "id": "drying.collapseRisk.no.50.48.43.74.bc8634cb",
+          "en": "no 50 48 43 74",
+          "fr": "non 50 48 43 74",
+          "occurrences": 1
+        },
+        {
+          "id": "drying.collapseRisk.no.information.available.50.48.43.74.280ad461",
+          "en": "no information available 50 48 43 74",
+          "fr": "aucune information dispon 50 48 43 74",
+          "occurrences": 1
+        },
+        {
+          "id": "drying.collapseRisk.no.known.specific.risk.8a1a8205",
+          "en": "No known specific risk",
+          "fr": "Pas de risque particulier connu",
+          "occurrences": 266
+        },
+        {
+          "id": "drying.collapseRisk.yes.85a39ab3",
+          "en": "Yes",
+          "fr": "Oui",
+          "occurrences": 37
+        },
+        {
+          "id": "drying.collapseRisk.yes.30.68.58.61.7325e5e4",
+          "en": "yes 30 68 58 61",
+          "fr": "Oui",
+          "occurrences": 1
+        },
+        {
+          "id": "drying.collapseRisk.yes.40.50.45.75.441c96a0",
+          "en": "yes 40 50 45 75",
+          "fr": "oui 40 50 45 75",
+          "occurrences": 1
+        }
+      ]
+    },
+    "machining.bluntingEffect": {
+      "paths": [
+        "machining.bluntingEffect.value"
+      ],
+      "entries": [
+        {
+          "id": "machining.bluntingEffect.fairly.high.1ccbb000",
+          "en": "Fairly high",
+          "fr": "Assez important",
+          "occurrences": 90
+        },
+        {
+          "id": "machining.bluntingEffect.high.c4ebc6d4",
+          "en": "High",
+          "fr": "Important",
+          "occurrences": 48
+        },
+        {
+          "id": "machining.bluntingEffect.normal.a7248eeb",
+          "en": "Normal",
+          "fr": "Normal",
+          "occurrences": 164
+        }
+      ]
+    },
+    "machining.sawteeth": {
+      "paths": [
+        "machining.sawteethRecommended.value"
+      ],
+      "entries": [
+        {
+          "id": "machining.sawteeth.no.information.available.55918015",
+          "en": "No information available",
+          "fr": "Aucune information disponible",
+          "occurrences": 1
+        },
+        {
+          "id": "machining.sawteeth.ordinary.or.alloy.steel.1033d6ec",
+          "en": "Ordinary or alloy steel",
+          "fr": "Acier ordinaire ou allié",
+          "occurrences": 144
+        },
+        {
+          "id": "machining.sawteeth.stellite.tipped.5716cc31",
+          "en": "Stellite-tipped",
+          "fr": "Denture stellitée",
+          "occurrences": 158
+        }
+      ]
+    },
+    "machining.cuttingTools": {
+      "paths": [
+        "machining.cuttingTools.value"
+      ],
+      "entries": [
+        {
+          "id": "machining.cuttingTools.ordinary.f46f36f7",
+          "en": "Ordinary",
+          "fr": "Ordinaire",
+          "occurrences": 144
+        },
+        {
+          "id": "machining.cuttingTools.tungsten.carbide.982ef8c5",
+          "en": "Tungsten carbide",
+          "fr": "Au carbure de tungstène",
+          "occurrences": 159
+        }
+      ]
+    },
+    "machining.peeling": {
+      "paths": [
+        "machining.peeling.value"
+      ],
+      "entries": [
+        {
+          "id": "machining.peeling.bad.6fe7d711",
+          "en": "Bad",
+          "fr": "Mauvaise",
+          "occurrences": 10
+        },
+        {
+          "id": "machining.peeling.good.c939327c",
+          "en": "Good",
+          "fr": "Bonne",
+          "occurrences": 170
+        },
+        {
+          "id": "machining.peeling.not.recommended.or.without.interest.9bd72879",
+          "en": "Not recommended or without interest",
+          "fr": "Non recommandé ou sans intérêt",
+          "occurrences": 123
+        }
+      ]
+    },
+    "machining.slicing": {
+      "paths": [
+        "machining.slicing.value"
+      ],
+      "entries": [
+        {
+          "id": "machining.slicing.good.c939327c",
+          "en": "Good",
+          "fr": "Bonne",
+          "occurrences": 206
+        },
+        {
+          "id": "machining.slicing.not.recommended.or.without.interest.9bd72879",
+          "en": "Not recommended or without interest",
+          "fr": "Non recommandé ou sans intérêt",
+          "occurrences": 97
+        }
+      ]
+    },
+    "assembly.nailingAndScrewing": {
+      "paths": [
+        "assembly.nailingAndScrewing.value"
+      ],
+      "entries": [
+        {
+          "id": "assembly.nailingAndScrewing.good.c939327c",
+          "en": "Good",
+          "fr": "Bonne tenue",
+          "occurrences": 96
+        },
+        {
+          "id": "assembly.nailingAndScrewing.good.but.pre.boring.necessary.7ef14223",
+          "en": "Good but pre-boring necessary",
+          "fr": "Bonne tenue, avant-trous nécessaires",
+          "occurrences": 167
+        },
+        {
+          "id": "assembly.nailingAndScrewing.good.when.specific.gravity.over.0.35.69a60639",
+          "en": "Good when specific gravity over 0.35",
+          "fr": "Bonne tenue pour les bois de densité supérieure à 0,35",
+          "occurrences": 1
+        },
+        {
+          "id": "assembly.nailingAndScrewing.poor.94dfd46d",
+          "en": "Poor",
+          "fr": "Faible tenue",
+          "occurrences": 39
+        }
+      ]
+    },
+    "assembly.gluing": {
+      "paths": [
+        "assembly.gluing.value"
+      ],
+      "entries": [
+        {
+          "id": "assembly.gluing.correct.15a596e3",
+          "en": "correct",
+          "fr": "correct",
+          "occurrences": 5
+        }
+      ]
+    },
+    "drying.phase": {
+      "paths": [
+        "drying.schedule[].phase"
+      ],
+      "entries": [
+        {
+          "id": "drying.phase.prewarm.1",
+          "en": "Prewarm 1",
+          "fr": "Préchauffage 1"
+        },
+        {
+          "id": "drying.phase.prewarm.2",
+          "en": "Prewarm 2",
+          "fr": "Préchauffage 2"
+        },
+        {
+          "id": "drying.phase.drying",
+          "en": "Drying",
+          "fr": "Séchage"
+        },
+        {
+          "id": "drying.phase.conditioning",
+          "en": "Conditioning",
+          "fr": "Équilibrage"
+        },
+        {
+          "id": "drying.phase.cooling",
+          "en": "Cooling",
+          "fr": "Refroidissement"
+        }
+      ]
+    },
+    "grading.appearanceCodes": {
+      "paths": [
+        "grading.appearance"
+      ],
+      "translate": false,
+      "entries": [
+        {
+          "id": "grading.appearanceCodes.atibt.1d30923c",
+          "en": "ATIBT",
+          "fr": "ATIBT"
+        },
+        {
+          "id": "grading.appearanceCodes.fas.aafb4482",
+          "en": "FAS",
+          "fr": "FAS"
+        },
+        {
+          "id": "grading.appearanceCodes.mgr.56e2321b",
+          "en": "MGR",
+          "fr": "MGR"
+        },
+        {
+          "id": "grading.appearanceCodes.nhla.f289572f",
+          "en": "NHLA",
+          "fr": "NHLA"
+        },
+        {
+          "id": "grading.appearanceCodes.sata.66517f77",
+          "en": "SATA",
+          "fr": "SATA"
+        },
+        {
+          "id": "grading.appearanceCodes.prime.dd844485",
+          "en": "Prime",
+          "fr": "Prime"
+        },
+        {
+          "id": "grading.appearanceCodes.select.2a78025d",
+          "en": "Select",
+          "fr": "Select"
+        },
+        {
+          "id": "grading.appearanceCodes.standard.ef669154",
+          "en": "Standard",
+          "fr": "Standard"
+        },
+        {
+          "id": "grading.appearanceCodes.serviceable.a2be58d1",
+          "en": "Serviceable",
+          "fr": "Serviceable"
+        },
+        {
+          "id": "grading.appearanceCodes.utility.9450d833",
+          "en": "Utility",
+          "fr": "Utility"
+        },
+        {
+          "id": "grading.appearanceCodes.common.1.d70793bb",
+          "en": "Common 1",
+          "fr": "Common 1"
+        },
+        {
+          "id": "grading.appearanceCodes.common.2.8995804c",
+          "en": "Common 2",
+          "fr": "Common 2"
+        },
+        {
+          "id": "grading.appearanceCodes.common.3.7fd711a8",
+          "en": "Common 3",
+          "fr": "Common 3"
+        },
+        {
+          "id": "grading.appearanceCodes.g2.0.aad3b928",
+          "en": "G2-0",
+          "fr": "G2-0"
+        },
+        {
+          "id": "grading.appearanceCodes.g2.1.060e30a8",
+          "en": "G2-1",
+          "fr": "G2-1"
+        },
+        {
+          "id": "grading.appearanceCodes.g2.2.ef9161e7",
+          "en": "G2-2",
+          "fr": "G2-2"
+        },
+        {
+          "id": "grading.appearanceCodes.g2.3.fcba77a7",
+          "en": "G2-3",
+          "fr": "G2-3"
+        },
+        {
+          "id": "grading.appearanceCodes.g2.4.7095f2fb",
+          "en": "G2-4",
+          "fr": "G2-4"
+        },
+        {
+          "id": "grading.appearanceCodes.g4.0.10cb707b",
+          "en": "G4-0",
+          "fr": "G4-0"
+        },
+        {
+          "id": "grading.appearanceCodes.g4.1.e0c4ab27",
+          "en": "G4-1",
+          "fr": "G4-1"
+        },
+        {
+          "id": "grading.appearanceCodes.g4.2.c665de47",
+          "en": "G4-2",
+          "fr": "G4-2"
+        },
+        {
+          "id": "grading.appearanceCodes.g4.3.cc37a8ec",
+          "en": "G4-3",
+          "fr": "G4-3"
+        },
+        {
+          "id": "grading.appearanceCodes.g4.4.cce1279a",
+          "en": "G4-4",
+          "fr": "G4-4"
+        }
+      ]
+    },
+    "grading.structuralCodes": {
+      "paths": [
+        "grading.structural"
+      ],
+      "translate": false,
+      "entries": [
+        {
+          "id": "grading.structuralCodes.c18.d7cbb6e7",
+          "en": "C18",
+          "fr": "C18"
+        },
+        {
+          "id": "grading.structuralCodes.c24.133d22d9",
+          "en": "C24",
+          "fr": "C24"
+        },
+        {
+          "id": "grading.structuralCodes.d18.fe5ad281",
+          "en": "D18",
+          "fr": "D18"
+        },
+        {
+          "id": "grading.structuralCodes.d24.7d29060f",
+          "en": "D24",
+          "fr": "D24"
+        },
+        {
+          "id": "grading.structuralCodes.d30.11c3fe67",
+          "en": "D30",
+          "fr": "D30"
+        },
+        {
+          "id": "grading.structuralCodes.d35.a5882870",
+          "en": "D35",
+          "fr": "D35"
+        },
+        {
+          "id": "grading.structuralCodes.d40.c2778721",
+          "en": "D40",
+          "fr": "D40"
+        },
+        {
+          "id": "grading.structuralCodes.d50.cd989f27",
+          "en": "D50",
+          "fr": "D50"
+        },
+        {
+          "id": "grading.structuralCodes.d60.107770f1",
+          "en": "D60",
+          "fr": "D60"
+        },
+        {
+          "id": "grading.structuralCodes.d70.0cb3fab6",
+          "en": "D70",
+          "fr": "D70"
+        }
+      ]
+    },
+    "fire.frenchCodes": {
+      "paths": [
+        "fireSafety.frenchGrading"
+      ],
+      "translate": false,
+      "entries": [
+        {
+          "id": "fire.frenchCodes.m3.67629a19",
+          "en": "M3",
+          "fr": "M3"
+        },
+        {
+          "id": "fire.frenchCodes.m4.449a900e",
+          "en": "M4",
+          "fr": "M4"
+        }
+      ]
+    },
+    "fire.euroclassCodes": {
+      "paths": [
+        "fireSafety.euroclass.value"
+      ],
+      "translate": false,
+      "entries": [
+        {
+          "id": "fire.euroclassCodes.c.s1.d0.fdd2a868",
+          "en": "C-s1, d0",
+          "fr": "C-s1, d0"
+        },
+        {
+          "id": "fire.euroclassCodes.c.s2.d0.25be348e",
+          "en": "C-s2, d0",
+          "fr": "C-s2, d0"
+        },
+        {
+          "id": "fire.euroclassCodes.d.s1.d0.1f12f671",
+          "en": "D-s1, d0",
+          "fr": "D-s1, d0"
+        },
+        {
+          "id": "fire.euroclassCodes.d.s2.d0.d850f302",
+          "en": "D-s2, d0",
+          "fr": "D-s2, d0"
+        }
+      ]
+    },
+    "endUse": {
+      "paths": [
+        "endUses[]"
+      ],
+      "entries": [
+        {
+          "id": "endUse.3.plies.laminated.scantling.12516fb5",
+          "en": "3-plies laminated scantling",
+          "fr": "Carrelets 3-plis",
+          "occurrences": 4,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.arched.goods.91f84342",
+          "en": "Arched goods",
+          "fr": "Articles cintrés",
+          "occurrences": 15,
+          "confidence": 0.938
+        },
+        {
+          "id": "endUse.blockboard.c472d721",
+          "en": "Blockboard",
+          "fr": "Panneau latté",
+          "occurrences": 75,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.boxes.and.crates.caa12db7",
+          "en": "Boxes and crates",
+          "fr": "Emballage-caisserie",
+          "occurrences": 128,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.bridges.parts.in.contact.with.water.or.ground.5a664f30",
+          "en": "Bridges (parts in contact with water or ground)",
+          "fr": "Ponts (en contact avec le sol ou l'eau)",
+          "occurrences": 52,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.bridges.parts.not.in.contact.with.water.or.ground.ea325915",
+          "en": "Bridges (parts not in contact with water or ground)",
+          "fr": "Ponts (parties non en contact avec le sol ou l'eau)",
+          "occurrences": 70,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.cabinetwork.high.class.furniture.d0292428",
+          "en": "Cabinetwork (high class furniture)",
+          "fr": "Ebénisterie (meuble de luxe)",
+          "occurrences": 128,
+          "confidence": 0.984
+        },
+        {
+          "id": "endUse.carpentry.e6cd84fc",
+          "en": "Carpentry",
+          "fr": "Charpente",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.cigar.boxes.54caf285",
+          "en": "Cigar boxes",
+          "fr": "Boites à cigares",
+          "occurrences": 7,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.cladding.274c40a1",
+          "en": "Cladding",
+          "fr": "Bardage",
+          "occurrences": 8,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.coffin.13c19232",
+          "en": "Coffin",
+          "fr": "Cercueil",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.cooperage.2a703413",
+          "en": "Cooperage",
+          "fr": "Tonnellerie-cuverie",
+          "occurrences": 40,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.current.furniture.or.furniture.components.a4521511",
+          "en": "Current furniture or furniture components",
+          "fr": "Meuble courant ou éléments meublants",
+          "occurrences": 220,
+          "confidence": 0.986
+        },
+        {
+          "id": "endUse.decking.05df8c68",
+          "en": "Decking",
+          "fr": "Platelage - decking",
+          "occurrences": 72,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.decking.only.in.temperate.regions.c083e925",
+          "en": "Decking (only in temperate regions)",
+          "fr": "Platelage - decking (uniquement en région tempérée)",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.exterior.joinery.8c537a9d",
+          "en": "Exterior joinery",
+          "fr": "Menuiserie extérieure",
+          "occurrences": 148,
+          "confidence": 0.993
+        },
+        {
+          "id": "endUse.exterior.panelling.5e77e210",
+          "en": "Exterior panelling",
+          "fr": "Revêtement extérieur",
+          "occurrences": 102,
+          "confidence": 0.99
+        },
+        {
+          "id": "endUse.fiber.or.particle.boards.80b4f761",
+          "en": "Fiber or particle boards",
+          "fr": "Panneaux de fibre ou de particules",
+          "occurrences": 44,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.floats.ff0e2bdd",
+          "en": "Floats",
+          "fr": "Flotteurs",
+          "occurrences": 6,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.flooring.f8db52bb",
+          "en": "Flooring",
+          "fr": "Parquet",
+          "occurrences": 187,
+          "confidence": 0.995
+        },
+        {
+          "id": "endUse.formwork.8c5996fb",
+          "en": "Formwork",
+          "fr": "Coffrage",
+          "occurrences": 60,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.glued.laminated.66879e9c",
+          "en": "Glued laminated",
+          "fr": "Lamellé-collé",
+          "occurrences": 75,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.heavy.carpentry.a5e8624c",
+          "en": "Heavy carpentry",
+          "fr": "Charpente lourde",
+          "occurrences": 109,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.hydraulic.works.fresh.water.31d42f04",
+          "en": "Hydraulic works (fresh water)",
+          "fr": "Travaux hydrauliques (en eau douce)",
+          "occurrences": 40,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.hydraulic.works.seawater.0791574c",
+          "en": "Hydraulic works (seawater)",
+          "fr": "Travaux hydrauliques (en milieu maritime)",
+          "occurrences": 25,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.indoor.staircases.1fb4c186",
+          "en": "Indoor staircases",
+          "fr": "Escaliers d'intérieur",
+          "occurrences": 110,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.industrial.or.heavy.flooring.ff24d8d2",
+          "en": "Industrial or heavy flooring",
+          "fr": "Parquet (lourd ou industriel)",
+          "occurrences": 73,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.insulation.38068e28",
+          "en": "Insulation",
+          "fr": "Isolation",
+          "occurrences": 8,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.interior.joinery.2c6a79ee",
+          "en": "Interior joinery",
+          "fr": "Menuiserie intérieure",
+          "occurrences": 242,
+          "confidence": 0.996
+        },
+        {
+          "id": "endUse.interior.panelling.85ba6f8b",
+          "en": "Interior panelling",
+          "fr": "Lambris",
+          "occurrences": 203,
+          "confidence": 0.99
+        },
+        {
+          "id": "endUse.light.carpentry.c7c2f77d",
+          "en": "Light carpentry",
+          "fr": "Charpente",
+          "occurrences": 118,
+          "confidence": 0.941
+        },
+        {
+          "id": "endUse.matches.98abff28",
+          "en": "Matches",
+          "fr": "Allumettes",
+          "occurrences": 32,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.model.building.d3a97656",
+          "en": "Model building",
+          "fr": "Modélisme",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.moulding.3adf8a14",
+          "en": "Moulding",
+          "fr": "Moulure",
+          "occurrences": 106,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.musical.instruments.c97fdd79",
+          "en": "Musical instruments",
+          "fr": "Instruments de musique",
+          "occurrences": 32,
+          "confidence": 0.97
+        },
+        {
+          "id": "endUse.open.boats.2a59ce2e",
+          "en": "Open boats",
+          "fr": "Embarcations légères",
+          "occurrences": 22,
+          "confidence": 0.955
+        },
+        {
+          "id": "endUse.pallet.78c4dc4e",
+          "en": "Pallet",
+          "fr": "Palette",
+          "occurrences": 4,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.pencils.a2a7eb97",
+          "en": "Pencils",
+          "fr": "Crayons",
+          "occurrences": 7,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.percussion.instruments.6ede5005",
+          "en": "Percussion instruments",
+          "fr": "Instruments de percussion",
+          "occurrences": 3,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.pit.props.b17717da",
+          "en": "Pit props",
+          "fr": "Bois de mine",
+          "occurrences": 7,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.poles.e2854c3a",
+          "en": "Poles",
+          "fr": "Poteaux",
+          "occurrences": 45,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.pulp.ebe573a1",
+          "en": "Pulp",
+          "fr": "Pâte à papier",
+          "occurrences": 23,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.resistant.to.one.or.several.acids.0b673df6",
+          "en": "Resistant to one or several acids",
+          "fr": "Résistant à un ou plusieurs acides",
+          "occurrences": 18,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.rolling.shutters.8826132a",
+          "en": "Rolling shutters",
+          "fr": "Volets roulants",
+          "occurrences": 16,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.sculpture.e94fb7a6",
+          "en": "Sculpture",
+          "fr": "Sculpture",
+          "occurrences": 55,
+          "confidence": 0.982
+        },
+        {
+          "id": "endUse.seats.f3b81325",
+          "en": "Seats",
+          "fr": "Sièges",
+          "occurrences": 35,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.shingles.14643e2a",
+          "en": "Shingles",
+          "fr": "Bardeaux",
+          "occurrences": 33,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.ship.building.9c037b38",
+          "en": "Ship building",
+          "fr": "Construction navale",
+          "occurrences": 18,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.ship.building.mast.6acb626a",
+          "en": "Ship building (mast)",
+          "fr": "Construction navale (mât)",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.ship.building.planking.and.deck.039a3f9a",
+          "en": "Ship building (planking and deck)",
+          "fr": "Construction navale (bordé et pont)",
+          "occurrences": 66,
+          "confidence": 0.985
+        },
+        {
+          "id": "endUse.ship.building.ribs.f0ee0a7a",
+          "en": "Ship building (ribs)",
+          "fr": "Construction navale (membrure)",
+          "occurrences": 18,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.sleepers.f7a6b731",
+          "en": "Sleepers",
+          "fr": "Traverses",
+          "occurrences": 49,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.sliced.veneer.f4a2cd7a",
+          "en": "Sliced veneer",
+          "fr": "Placage tranché",
+          "occurrences": 200,
+          "confidence": 0.99
+        },
+        {
+          "id": "endUse.stairs.inside.923424ef",
+          "en": "Stairs (inside)",
+          "fr": "Escaliers (à l'intérieur)",
+          "occurrences": 5,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.stakes.5e35185a",
+          "en": "Stakes",
+          "fr": "Piquets",
+          "occurrences": 16,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.stringed.instrument.back.and.case.7256e57b",
+          "en": "Stringed instrument (back and case)",
+          "fr": "Instruments à corde (fond et caisse)",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.stringed.instruments.cd8af2ea",
+          "en": "Stringed instruments",
+          "fr": "Instruments à corde",
+          "occurrences": 1,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.stringed.instruments.bow.61ba0b33",
+          "en": "Stringed instruments (bow)",
+          "fr": "Instruments à corde (archet)",
+          "occurrences": 4,
+          "confidence": 0.8
+        },
+        {
+          "id": "endUse.stringed.instruments.sounding.board.22baa7ff",
+          "en": "Stringed instruments (sounding board)",
+          "fr": "Instruments à corde (table d'harmonie)",
+          "occurrences": 2,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.tool.handles.resilient.woods.42b81a66",
+          "en": "Tool handles (resilient woods)",
+          "fr": "Manches d'outil (bois résilient)",
+          "occurrences": 42,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.turned.goods.dc047b16",
+          "en": "Turned goods",
+          "fr": "Articles tournés",
+          "occurrences": 142,
+          "confidence": 0.993
+        },
+        {
+          "id": "endUse.vehicle.or.container.flooring.c4070374",
+          "en": "Vehicle or container flooring",
+          "fr": "Fond de véhicule ou de conteneur",
+          "occurrences": 87,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.veneer.for.back.or.face.of.plywood.ed4abd1e",
+          "en": "Veneer for back or face of plywood",
+          "fr": "Face ou contreface de contreplaqué",
+          "occurrences": 139,
+          "confidence": 0.993
+        },
+        {
+          "id": "endUse.veneer.for.interior.of.plywood.26989d2d",
+          "en": "Veneer for interior of plywood",
+          "fr": "Intérieur de contreplaqué",
+          "occurrences": 127,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.wind.instruments.c5d3aa60",
+          "en": "Wind instruments",
+          "fr": "Instruments à vent",
+          "occurrences": 2,
+          "confidence": 0.667
+        },
+        {
+          "id": "endUse.wood.frame.house.7d7bba4e",
+          "en": "Wood frame house",
+          "fr": "Ossature",
+          "occurrences": 95,
+          "confidence": 1
+        },
+        {
+          "id": "endUse.wood.ware.3564dacb",
+          "en": "Wood-ware",
+          "fr": "Tabletterie",
+          "occurrences": 69,
+          "confidence": 0.986
+        }
+      ]
+    }
+  }
+}

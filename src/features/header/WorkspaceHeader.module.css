@@ -1,0 +1,215 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  padding: 20px;
+  margin: 0;
+  font-size: 3rem;
+  line-height: 1;
+  white-space: nowrap;
+  border-inline-end: 1px solid #000;
+  flex-grow: 1;
+}
+
+.headerActions {
+  display: flex;
+  align-self: stretch;
+}
+
+.languageSelect {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+}
+
+.languageSelect select {
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 720;
+  padding: 0 20px;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+:global([dir='rtl']) .languageSelect select {
+  padding-right: 10px;
+  padding-left: 30px;
+}
+:global([dir='rtl']) .languageSelect svg {
+  right: auto;
+  left: 9px;
+}
+
+.languageSelect svg {
+  position: absolute;
+  right: 9px;
+  color: var(--muted);
+  pointer-events: none;
+  transition: color 180ms ease;
+}
+
+.languageSelect:hover select {
+  background: #000;
+  color: #fff;
+}
+
+.languageSelect:hover svg {
+  color: #fff;
+}
+
+.aboutButton {
+  padding: 0 20px;
+  border: 0;
+  border-inline-end: 1px solid #000;
+  background: #fff;
+  color: #000;
+  font-size: 0.78rem;
+  font-weight: 720;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.aboutButton:hover {
+  background: #000;
+  color: #fff;
+}
+
+.tools {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  min-width: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.filterToggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 60px;
+  border: none;
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 720;
+  padding: 10px 20px;
+  border-right: 1px solid #000;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.filterToggle.active {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+.filterToggle:hover {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+
+.searchBox {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 60px;
+  padding: 10px 12px;
+  color: var(--muted);
+  border: none;
+  background: #fff;
+  cursor: text;
+}
+
+.searchBox input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.tags {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
+  border-bottom: 1px solid #000;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+  padding: 3px 4px 3px 9px;
+  border-right: 1px solid #fff;
+  border-radius: 0;
+  background: #000;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 680;
+}
+
+.tag button {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+}
+
+.tag button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 799px) {
+  .title {
+    min-width: 0;
+    padding: 15px;
+    font-size: 2rem;
+  }
+
+  .languageSelect select {
+    max-width: 120px;
+    padding-inline: 10px 26px;
+  }
+
+  .aboutButton {
+    padding-inline: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .languageSelect select,
+  .languageSelect svg,
+  .aboutButton,
+  .filterToggle {
+    transition: none;
+  }
+}

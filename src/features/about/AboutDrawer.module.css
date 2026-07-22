@@ -1,0 +1,249 @@
+.overlay {
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.overlay[data-entering] {
+  animation: backdrop-in 180ms ease-out both;
+}
+
+.overlay[data-exiting] {
+  pointer-events: none;
+  animation: backdrop-out 180ms ease-in forwards;
+}
+
+.modal {
+  position: fixed;
+  z-index: 45;
+  top: 0;
+  inset-inline-end: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 720px;
+  overflow: auto;
+  border-inline-start: 1px solid #000;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.modal[data-entering] {
+  animation: drawer-in 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.modal[data-exiting] {
+  animation: drawer-out 200ms ease-in forwards;
+}
+
+.dialog {
+  min-height: 100%;
+  outline: none;
+}
+
+.header {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  border-bottom: 1px solid #000;
+  background: #fff;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100px;
+  margin: 0;
+  padding-inline-start: 25px;
+  font-size: 2.5rem;
+  line-height: 1.05;
+}
+
+.heading > span {
+  padding-block: 18px;
+}
+
+.closeButton {
+  display: grid;
+  place-items: center;
+  align-self: stretch;
+  flex: 0 0 60px;
+  width: 60px;
+  padding: 0;
+  border: 0;
+  border-inline-start: 1px solid var(--line);
+  background: #fff;
+  color: #000;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.closeButton:hover {
+  background: #000;
+  color: #fff;
+}
+
+.closeButton:focus-visible,
+.externalLink:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: -4px;
+}
+
+.introduction,
+.sources {
+  border-bottom: 1px solid #000;
+}
+
+.introduction > p,
+.sources > p {
+  margin: 0;
+  padding: 25px;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.sources h3 {
+  margin: 0;
+  padding: 15px 25px;
+  background: #333;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.links {
+  border-top: 1px solid var(--line);
+}
+
+.externalLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 14px 25px;
+  border-top: 1px solid var(--line);
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.links .externalLink:first-child {
+  border-top: 0;
+}
+
+.externalLink > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.externalLink:hover {
+  background: #000;
+  color: #fff;
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 25px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(calc(100% + 25px));
+  }
+}
+
+:global([dir='rtl']) .modal[data-entering] {
+  animation-name: drawer-in-rtl;
+}
+
+:global([dir='rtl']) .modal[data-exiting] {
+  animation-name: drawer-out-rtl;
+}
+
+@keyframes drawer-in-rtl {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-100% - 25px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-out-rtl {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(calc(-100% - 25px));
+  }
+}
+
+@media (max-width: 560px) {
+  .heading {
+    min-height: 76px;
+    padding-inline-start: 18px;
+    font-size: 1.55rem;
+  }
+
+  .introduction > p,
+  .sources > p {
+    padding: 20px 18px;
+  }
+
+  .sources h3,
+  .externalLink {
+    padding-inline: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .modal {
+    animation: none !important;
+  }
+
+  .closeButton,
+  .externalLink {
+    transition: none;
+  }
+}

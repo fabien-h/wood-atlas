@@ -1,0 +1,9 @@
+node_modules/
+dist/
+tmp/
+data/raw/
+data/i18n/
+public/data/
+public/assets/
+pnpm-lock.yaml
+.DS_Store

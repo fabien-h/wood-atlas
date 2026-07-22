@@ -1,0 +1,40 @@
+{
+  "name": "wood atlas",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.15.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "test": "pnpm content:smoke && pnpm test:a11y",
+    "build": "tsc && vite build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:a11y": "node scripts/a11y.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "data:sync": "node scripts/tropix.mjs sync",
+    "data:extract": "node scripts/tropix.mjs extract",
+    "data:validate": "node scripts/tropix.mjs validate",
+    "data:all": "node scripts/tropix.mjs all",
+    "content:extract": "node scripts/content-i18n.mjs extract",
+    "content:validate": "node scripts/content-i18n.mjs validate",
+    "content:compile": "node scripts/content-i18n.mjs compile",
+    "content:smoke": "node scripts/content-i18n-smoke.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.0.3",
+    "lucide-react": "^1.25.0",
+    "react": "^19.2.7",
+    "react-aria-components": "^1.19.0",
+    "react-dom": "^19.2.7",
+    "vite": "^8.1.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "axe-core": "^4.12.1",
+    "playwright-core": "^1.61.1",
+    "prettier": "3.9.6",
+    "typescript": "^7.0.2"
+  }
+}
