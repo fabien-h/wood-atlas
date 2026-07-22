@@ -52,3 +52,9 @@ The extraction script uses Poppler command-line tools:
 - `pdfimages`
 
 Image cropping, resizing, and JPEG conversion are handled cross-platform by `sharp`, installed with the project dependencies.
+
+## License
+
+Original software and documentation are licensed under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for the required attribution and third-party notices.
+
+Tropix-derived data, translated or adapted content, photographs, and illustrations—including materials under `public/data` and `public/assets/woods`—are not covered by the Apache License. They remain subject to the rights and [terms of their respective rights holders](https://www.tropix-online.com/legal).
