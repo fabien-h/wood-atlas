@@ -11,6 +11,8 @@
     "build": "tsc && vite build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "precommit:format": "pnpm run format && lint-staged && pnpm run format:check",
+    "prepare": "simple-git-hooks",
     "test:a11y": "node scripts/a11y.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "data:sync": "node scripts/tropix.mjs sync",
@@ -69,9 +71,17 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "axe-core": "^4.12.1",
+    "lint-staged": "^17.1.1",
     "playwright-core": "^1.61.1",
     "prettier": "3.9.6",
     "sharp": "^0.35.3",
+    "simple-git-hooks": "^2.13.1",
     "typescript": "^7.0.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm run precommit:format"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   }
 }

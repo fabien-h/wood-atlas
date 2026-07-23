@@ -780,8 +780,7 @@ function parseProfile(html, catalogEntry) {
       durability: {
         fungi: fungalField ?? fungalLaboratory,
         fungalBasis: fungalField ? 'field' : fungalLaboratory ? 'laboratory' : null,
-        dryWoodBorers:
-          genericDryWoodBorer ?? combineExactClasses(dryBorerValues, DRY_BORER_CODES),
+        dryWoodBorers: genericDryWoodBorer ?? combineExactClasses(dryBorerValues, DRY_BORER_CODES),
         dryWoodBorerClasses,
         termites: resistanceClass(rowValue(durabilityRows, 'termites')),
         heartwoodTreatability: treatabilityClass(
@@ -859,11 +858,7 @@ function parsePhysicalFacts(densityRows, physicalRows, jankaRows) {
   const allRows = [...densityRows, ...physicalRows];
   const totalTangentialShrinkage = numericMeasureFromRows(
     allRows,
-    [
-      /total tangential shrinkage/u,
-      /tangential shrinkage total/u,
-      /shrinkage tangential mean/u,
-    ],
+    [/total tangential shrinkage/u, /tangential shrinkage total/u, /shrinkage tangential mean/u],
     '%',
     1,
   );
