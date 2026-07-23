@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "locale": "vi",
   "sourceLanguage": "en",
-  "sourceManifestHash": "ab1b37f655509a1e31eae868e61c70d52cb2facf6ff69e927365ab435760a571",
+  "sourceManifestHash": "5de781391818fb422de23b58ec96fde94911bf4462501bb687a8cd7aae573422",
   "translations": {
     "u_2e6810bbbb33997ede2c3884cca790687a52b96ea6446b2fb4279bbe8a89ec90": "đen",
     "u_086bcf4f5c396be3935a26284e16e642ce7801ed2d4f4fbcdfb567ae7a5ad215": "nâu",
@@ -1829,7 +1829,9 @@
     "u_4fd7cbe9ece09e29e8a13170d61d9ab364946780b82c6f22b08df6d6ddc9ad1f": "loại trừ gỗ dác, gỗ có phần gỗ lõi trưởng thành thích hợp với điều kiện ẩm tạm thời (cấp sử dụng 3.1 và 3.2 theo nf en 335 - 2013) mà không cần xử lý bảo quản, với điều kiện cấu kiện được thiết kế chắc chắn và thoát nước tốt (fd p 20 651 - 2011).",
     "u_6066f85e0afced1217d848dbd0f11e5a82bb59a92b322a5a8365cba5711a2919": "không khuyến nghị sử dụng",
     "u_f1cfac6cb9d14fcc7e3dbb782eedf3436b6359fbda0e76c114a42fab7e8effa8": "lớp 1 - thấm dễ dàng",
+    "u_2cf2cb150e75f20d8779adaa361af41b2e1312c9836b1faac4070a41c583d448": "lớp 1-2 - thấm vừa đến dễ",
     "u_d832de2b698ada599a3b88a2f853e2b8bd893d5a12d99dd0f9784305c7bd4285": "lớp 2 - thấm vừa phải",
+    "u_91eccd645ae014fa8e49bc484ded41fcf72012a1cdf521cb6d9e10e06406c8e4": "lớp 2-3 - thấm kém đến vừa",
     "u_7860b7b27df0359c6516e7c91dc0cd6d8cffd924ace50731c99542c9aae5b87e": "lớp 3 - thấm kém",
     "u_20dd4fb95566e59ca39c2a85084e95726212b354ff6735e9a8b1a728664d8c0b": "lớp 4 - không thấm",
     "u_2fc67533585c85503c0bde1b0b17ac46e9d0eebfe7dfc9dfae87dc9bf65c2288": "lớp d - bền",

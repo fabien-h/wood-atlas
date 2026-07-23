@@ -17,12 +17,12 @@ const FRENCH_DATABASE_PATH = path.join(ROOT, 'public', 'data', 'woods.generated.
 const SOURCE_URL = 'https://lignumdata.ch/system/holzarten?locale=en';
 const SOURCE_PROVIDER = 'Lignumdata';
 const SOURCE_PUBLISHER = 'Lignum – Holzwirtschaft Schweiz';
-const EXTRACTION_DATE = '2026-07-23';
+const EXTRACTION_DATE = '2026-07-24';
 const FETCH_CONCURRENCY = 4;
 const FETCH_RETRIES = 4;
 const FETCH_TIMEOUT_MS = 45_000;
 const BETWEEN_REQUEST_DELAY_MS = 150;
-const PROFILE_SCHEMA_VERSION = 2;
+const PROFILE_SCHEMA_VERSION = 6;
 const refresh = process.argv.includes('--refresh');
 
 const TAXONOMY_RANKS = [
@@ -77,9 +77,166 @@ const FUNGAL_CODES = new Set([
   '5',
 ]);
 const TREATABILITY_CODES = new Set(['1', '1-2', '2', '2-3', '3', '3-4', '4']);
-const RESISTANCE_CODES = new Set(['D', 'M', 'S']);
+const RESISTANCE_CODES = new Set(['D', 'D-M', 'M', 'M-S', 'S']);
 const DRY_BORER_CODES = new Set(['D', 'S']);
 const COUNTRY_ALIAS_TO_CODE = countryAliasIndex();
+const LIGNUMDATA_REGION_CODE_TO_COUNTRY = new Map(
+  Object.entries({
+    AUT: 'AT',
+    BGM: 'BE',
+    BUL: 'BG',
+    CZE: 'CZ',
+    DEN: 'DK',
+    FRA: 'FR',
+    GER: 'DE',
+    HUN: 'HU',
+    ITA: 'IT',
+    KRY: 'UA',
+    NET: 'NL',
+    NZN: 'NZ',
+    NZS: 'NZ',
+    POL: 'PL',
+    POR: 'PT',
+    ROM: 'RO',
+    SAR: 'IT',
+    SPA: 'ES',
+    SWE: 'SE',
+    SWI: 'CH',
+    UKR: 'UA',
+  }),
+);
+const NORTH_AMERICAN_SUBDIVISION_TO_COUNTRY = new Map(
+  [
+    'Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'District of Columbia',
+    'Florida',
+    'Georgia',
+    'Hawaii',
+    'Idaho',
+    'Illinois',
+    'Indiana',
+    'Iowa',
+    'Kansas',
+    'Kentucky',
+    'Louisiana',
+    'Maine',
+    'Maryland',
+    'Massachusetts',
+    'Michigan',
+    'Minnesota',
+    'Mississippi',
+    'Missouri',
+    'Montana',
+    'Nebraska',
+    'Nevada',
+    'New Hampshire',
+    'New Jersey',
+    'New Mexico',
+    'New York',
+    'North Carolina',
+    'North Dakota',
+    'Ohio',
+    'Oklahoma',
+    'Oregon',
+    'Pennsylvania',
+    'Rhode Island',
+    'South Carolina',
+    'South Dakota',
+    'Tennessee',
+    'Texas',
+    'Utah',
+    'Vermont',
+    'Virginia',
+    'Washington',
+    'West Virginia',
+    'Wisconsin',
+    'Wyoming',
+  ].map((name) => [normalizeText(name), 'US']),
+);
+for (const name of [
+  'Alberta',
+  'British Columbia',
+  'Manitoba',
+  'New Brunswick',
+  'Newfoundland and Labrador',
+  'Northwest Territories',
+  'Nova Scotia',
+  'Nunavut',
+  'Ontario',
+  'Prince Edward Island',
+  'Québec',
+  'Saskatchewan',
+  'Yukon',
+]) {
+  NORTH_AMERICAN_SUBDIVISION_TO_COUNTRY.set(normalizeText(name), 'CA');
+}
+const DUPLICATE_PROFILE_OVERRIDES = new Map([
+  [
+    'africa-antiaris',
+    ['https://lignumdata.ch/system/holzarten/2402E007-42A9-3823-8B3F-956FEC9AA49C?locale=en'],
+  ],
+  [
+    'temperate-baldcypress',
+    ['https://lignumdata.ch/system/holzarten/4E269D4D-7CA1-3566-AEAB-CEED27F36A90?locale=en'],
+  ],
+  [
+    'temperate-douglas-fir',
+    ['https://lignumdata.ch/system/holzarten/AD667294-A577-3301-ADAC-E2F25875B6F7?locale=en'],
+  ],
+  [
+    'asia-jarrah',
+    ['https://lignumdata.ch/system/holzarten/3208D6B9-C737-3C74-BA17-B0D11D47E2CB?locale=en'],
+  ],
+  [
+    'temperate-loblolly-pine',
+    ['https://lignumdata.ch/system/holzarten/972CCA61-59C5-3387-B577-734DB7C42B0A?locale=en'],
+  ],
+  [
+    'africa-niangon',
+    [
+      'https://lignumdata.ch/system/holzarten/2F038950-3CF4-3A22-BF7F-74613D6E94B0?locale=en',
+      'https://lignumdata.ch/system/holzarten/D83C9AE6-4983-3C93-88CF-574EACF757B2?locale=en',
+    ],
+  ],
+  [
+    'america-red-grandis',
+    ['https://lignumdata.ch/system/holzarten/F452F21C-1582-3C4E-B982-976CBF237CC4?locale=en'],
+  ],
+  [
+    'asia-sesendok',
+    ['https://lignumdata.ch/system/holzarten/4AC707FF-78E6-3F94-8026-BCC172BC8E76?locale=en'],
+  ],
+  [
+    'temperate-slash-pine',
+    [
+      'https://lignumdata.ch/system/holzarten/188F4C04-FD6C-353D-9568-21FC4227680A?locale=en',
+      'https://lignumdata.ch/system/holzarten/6D0A4E4D-6A47-3736-8AA7-507DF27CC709?locale=en',
+    ],
+  ],
+  [
+    'africa-teak',
+    ['https://lignumdata.ch/system/holzarten/D7F9E5F7-D8CA-356A-AE19-B6CBED8BADF6?locale=en'],
+  ],
+  [
+    'asia-teak',
+    ['https://lignumdata.ch/system/holzarten/59673B04-AEB4-393D-A77E-B1EC46D0FDDC?locale=en'],
+  ],
+  [
+    'temperate-western-hemlock',
+    ['https://lignumdata.ch/system/holzarten/8C2A5FB6-3E6C-3F70-A87A-86E2EFD644F1?locale=en'],
+  ],
+  [
+    'temperate-western-red-cedar',
+    ['https://lignumdata.ch/system/holzarten/478A9CAF-EF12-360F-A040-0D5B89327E01?locale=en'],
+  ],
+]);
 
 async function sync() {
   const [catalog, database, cachedFacts] = await Promise.all([
@@ -92,7 +249,10 @@ async function sync() {
   }
 
   const catalogIndex = indexCatalog(catalog.entries);
-  const matches = database.records.map((record) => resolveRecordMatches(record, catalogIndex));
+  const catalogByUrl = new Map(catalog.entries.map((entry) => [entry.detailUrl, entry]));
+  const matches = database.records.map((record) =>
+    resolveRecordMatches(record, catalogIndex, catalogByUrl),
+  );
   const selectedEntries = uniqueBy(
     matches.flatMap((match) => match.entries),
     (entry) => entry.detailUrl,
@@ -109,12 +269,7 @@ async function sync() {
     FETCH_CONCURRENCY,
     async (entry) => {
       const cached = cachedByUrl.get(entry.detailUrl);
-      if (
-        !refresh &&
-        (cached?.schemaVersion === PROFILE_SCHEMA_VERSION ||
-          (cached?.schemaVersion === 1 &&
-            Object.hasOwn(cached.facts?.durability ?? {}, 'dryWoodBorerClasses')))
-      ) {
+      if (!refresh && cached?.schemaVersion === PROFILE_SCHEMA_VERSION) {
         reused += 1;
         completed += 1;
         logProgress(completed, selectedEntries.length, fetched, reused);
@@ -145,7 +300,7 @@ async function sync() {
   const matchCounts = countMatches(matches);
   const fieldCoverage = countProfileCoverage(profiles);
   await writeJson(FACTS_PATH, {
-    schemaVersion: 1,
+    schemaVersion: PROFILE_SCHEMA_VERSION,
     source: {
       title: 'Wood species catalogue',
       provider: SOURCE_PUBLISHER,
@@ -445,7 +600,7 @@ function indexCatalog(entries) {
   return byScientificName;
 }
 
-function resolveRecordMatches(record, catalogIndex) {
+function resolveRecordMatches(record, catalogIndex, catalogByUrl) {
   const acceptedNames = uniqueBy(
     record.identity.botanicalNames.filter((name) => !name.isSynonym).map(({ name }) => name),
     scientificNameKey,
@@ -455,6 +610,23 @@ function resolveRecordMatches(record, catalogIndex) {
     scientificNameKey,
   );
   const targetIsGroup = acceptedNames.length !== 1 || !isConcreteSpeciesName(acceptedNames[0]);
+  const profileOverride = DUPLICATE_PROFILE_OVERRIDES.get(record.id);
+  if (profileOverride) {
+    const entries = profileOverride.map((url) => catalogByUrl.get(url));
+    if (entries.some((entry) => !entry)) {
+      throw new Error(`${record.id} has a Lignumdata profile override missing from the catalogue`);
+    }
+    return {
+      id: record.id,
+      matchType: 'accepted',
+      targetAcceptedNameCount: acceptedNames.length,
+      targetIsGroup,
+      matchedNames: acceptedNames,
+      ambiguousNames: [],
+      unmatchedNames: [],
+      entries,
+    };
+  }
   const accepted = resolveBotanicalNames(acceptedNames, catalogIndex);
   const acceptedMatchIsComplete =
     acceptedNames.length > 0 &&
@@ -574,6 +746,7 @@ function parseProfile(html, catalogEntry) {
   const impregnabilityRows = sectionRows(sections, 'impregnability');
   const densityRows = sectionRows(sections, 'raw density');
   const physicalRows = sectionRows(sections, 'physical properties');
+  const jankaRows = sectionRows(sections, 'janka hardness');
   const mechanicalRows = sectionRows(sections, 'mechanical properties');
 
   const geographicRegions = rowValue(originRows, 'geographic regions');
@@ -581,6 +754,7 @@ function parseProfile(html, catalogEntry) {
   const taxonomyPath = taxonomyFromRows(botanyRows, catalogEntry.scientificName);
   const fungalField = durabilityClass(rowValue(durabilityRows, 'mushrooms field'));
   const fungalLaboratory = durabilityClass(rowValue(durabilityRows, 'mushrooms laboratory'));
+  const genericDryWoodBorer = resistanceClass(rowValue(durabilityRows, 'beetle'));
   const dryBorerValues = [
     resistanceClass(rowValue(durabilityRows, 'house longhorn beetle hylotrupes bajulus')),
     resistanceClass(rowValue(durabilityRows, 'common furniture beetle anobium')),
@@ -595,18 +769,19 @@ function parseProfile(html, catalogEntry) {
   };
 
   return {
-    schemaVersion: 1,
+    schemaVersion: PROFILE_SCHEMA_VERSION,
     scientificName: catalogEntry.scientificName,
     normalizedScientificName: scientificNameKey(catalogEntry.scientificName),
     url: catalogEntry.detailUrl,
     facts: {
       taxonomyPath,
       continentCodes: continentCodes(geographicRegions),
-      countryCodes: countryCodes(statesAndTerritories),
+      countryCodes: countryCodes(statesAndTerritories, geographicRegions),
       durability: {
         fungi: fungalField ?? fungalLaboratory,
         fungalBasis: fungalField ? 'field' : fungalLaboratory ? 'laboratory' : null,
-        dryWoodBorers: combineExactClasses(dryBorerValues, DRY_BORER_CODES),
+        dryWoodBorers:
+          genericDryWoodBorer ?? combineExactClasses(dryBorerValues, DRY_BORER_CODES),
         dryWoodBorerClasses,
         termites: resistanceClass(rowValue(durabilityRows, 'termites')),
         heartwoodTreatability: treatabilityClass(
@@ -616,7 +791,7 @@ function parseProfile(html, catalogEntry) {
           rowValue(impregnabilityRows, 'impregnability of the sapwood'),
         ),
       },
-      physics: parsePhysicalFacts(densityRows, physicalRows),
+      physics: parsePhysicalFacts(densityRows, physicalRows, jankaRows),
       mechanics: parseMechanicalFacts(mechanicalRows),
     },
   };
@@ -673,7 +848,7 @@ function taxonomyFromRows(rows, scientificName) {
   });
 }
 
-function parsePhysicalFacts(densityRows, physicalRows) {
+function parsePhysicalFacts(densityRows, physicalRows, jankaRows) {
   const density = {
     min: numericRowValue(densityRows, /density oven dry u 12 lower limit/u, 'kg/m3', 1 / 1000),
     value: numericRowValue(densityRows, /density oven dry u 12 mean value/u, 'kg/m3', 1 / 1000),
@@ -682,21 +857,44 @@ function parsePhysicalFacts(densityRows, physicalRows) {
     sourceUnit: 'kg/m³@12%',
   };
   const allRows = [...densityRows, ...physicalRows];
+  const totalTangentialShrinkage = numericMeasureFromRows(
+    allRows,
+    [
+      /total tangential shrinkage/u,
+      /tangential shrinkage total/u,
+      /shrinkage tangential mean/u,
+    ],
+    '%',
+    1,
+  );
+  const totalRadialShrinkage = numericMeasureFromRows(
+    allRows,
+    [/total radial shrinkage/u, /radial shrinkage total/u, /shrinkage radial mean/u],
+    '%',
+    1,
+  );
+  const jankaHardness =
+    numericMeasureWithoutUnit(jankaRows, [/^traversal$/u], 'N', 'transverse') ??
+    numericMeasureWithoutUnit(jankaRows, [/^parallel$/u], 'N', 'parallel');
   return {
     specificGravity:
       density.min !== null || density.value !== null || density.max !== null ? density : null,
-    totalTangentialShrinkage: numericMeasureFromRows(
-      allRows,
-      [/total tangential shrinkage/u, /tangential shrinkage total/u],
-      '%',
-      1,
-    ),
-    totalRadialShrinkage: numericMeasureFromRows(
-      allRows,
-      [/total radial shrinkage/u, /radial shrinkage total/u],
-      '%',
-      1,
-    ),
+    jankaHardness,
+    totalTangentialShrinkage,
+    totalRadialShrinkage,
+    shrinkageRatio:
+      totalTangentialShrinkage?.value != null &&
+      totalRadialShrinkage?.value != null &&
+      totalRadialShrinkage.value > 0
+        ? {
+            value: round(totalTangentialShrinkage.value / totalRadialShrinkage.value, 6),
+            min: null,
+            max: null,
+            unit: null,
+            sourceUnit: null,
+            basis: 'derived from tangential and radial shrinkage',
+          }
+        : null,
     fibreSaturationPoint: numericMeasureFromRows(
       allRows,
       [/fibre saturation point/u, /fiber saturation point/u],
@@ -743,6 +941,23 @@ function numericMeasureFromRows(rows, labelPatterns, expectedUnit, multiplier) {
     max: null,
     unit: targetUnit(expectedUnit),
     sourceUnit: cleanUnit(row.unit),
+  };
+}
+
+function numericMeasureWithoutUnit(rows, labelPatterns, targetMeasureUnit, basis) {
+  const row = rows.find((candidate) =>
+    labelPatterns.some((pattern) => pattern.test(candidate.normalizedLabel)),
+  );
+  if (!row) return null;
+  const value = parseNumeric(row.value);
+  if (value === null) return null;
+  return {
+    value,
+    min: null,
+    max: null,
+    unit: targetMeasureUnit,
+    sourceUnit: targetMeasureUnit,
+    basis,
   };
 }
 
@@ -805,6 +1020,9 @@ function aggregateProfiles(profiles, { targetIsGroup }) {
       specificGravity: aggregateMeasures(
         completeProfileValues(profiles, (profile) => profile.facts.physics.specificGravity),
       ),
+      jankaHardness: aggregateMeasures(
+        completeProfileValues(profiles, (profile) => profile.facts.physics.jankaHardness),
+      ),
       totalTangentialShrinkage: aggregateMeasures(
         completeProfileValues(
           profiles,
@@ -813,6 +1031,9 @@ function aggregateProfiles(profiles, { targetIsGroup }) {
       ),
       totalRadialShrinkage: aggregateMeasures(
         completeProfileValues(profiles, (profile) => profile.facts.physics.totalRadialShrinkage),
+      ),
+      shrinkageRatio: aggregateMeasures(
+        completeProfileValues(profiles, (profile) => profile.facts.physics.shrinkageRatio),
       ),
       fibreSaturationPoint: aggregateMeasures(
         completeProfileValues(profiles, (profile) => profile.facts.physics.fibreSaturationPoint),
@@ -847,6 +1068,8 @@ function aggregateMeasures(measures) {
   if (measures.length === 0 || measures.some((measure) => measure.value === null)) return null;
   const units = sortedUnique(measures.map((measure) => measure.unit ?? ''));
   if (units.length > 1) return null;
+  const bases = sortedUnique(measures.map((measure) => measure.basis).filter(Boolean));
+  if (bases.length > 1) return null;
   const lowerValues = measures
     .map((measure) => measure.min ?? measure.value)
     .filter((value) => value !== null);
@@ -867,6 +1090,7 @@ function aggregateMeasures(measures) {
     sourceUnit: sortedUnique(measures.map((measure) => measure.sourceUnit).filter(Boolean)).join(
       '; ',
     ),
+    basis: bases[0] ?? null,
     sourceMeanCount: measures.filter((measure) => measure.value !== null).length,
   };
 }
@@ -878,8 +1102,10 @@ function selectSupplementFields(base, previous, aggregated, skippedCounts) {
     ['durability.termites', aggregated.termites],
     ['durability.treatability', aggregated.heartwoodTreatability],
     ['physics.specificGravity', aggregated.physics.specificGravity?.value],
+    ['physics.jankaHardness', aggregated.physics.jankaHardness?.value],
     ['physics.totalTangentialShrinkage', aggregated.physics.totalTangentialShrinkage?.value],
     ['physics.totalRadialShrinkage', aggregated.physics.totalRadialShrinkage?.value],
+    ['physics.shrinkageRatio', aggregated.physics.shrinkageRatio?.value],
     ['physics.fibreSaturationPoint', aggregated.physics.fibreSaturationPoint?.value],
     ['physics.thermalConductivity', aggregated.physics.thermalConductivity?.value],
     ['physics.crushingStrength', aggregated.mechanics.crushingStrength?.value],
@@ -940,8 +1166,10 @@ function buildLocale(base, aggregated, fields, language) {
 
   const numericFields = [
     ['physics.specificGravity', aggregated.physics.specificGravity],
+    ['physics.jankaHardness', aggregated.physics.jankaHardness],
     ['physics.totalTangentialShrinkage', aggregated.physics.totalTangentialShrinkage],
     ['physics.totalRadialShrinkage', aggregated.physics.totalRadialShrinkage],
+    ['physics.shrinkageRatio', aggregated.physics.shrinkageRatio],
     ['physics.fibreSaturationPoint', aggregated.physics.fibreSaturationPoint],
     ['physics.thermalConductivity', aggregated.physics.thermalConductivity],
     ['physics.crushingStrength', aggregated.mechanics.crushingStrength],
@@ -1017,8 +1245,10 @@ function numericValue(field, measure, language) {
   const labels = {
     en: {
       'physics.specificGravity': 'density at 12% moisture content',
+      'physics.jankaHardness': 'Janka hardness',
       'physics.totalTangentialShrinkage': 'total tangential shrinkage',
       'physics.totalRadialShrinkage': 'total radial shrinkage',
+      'physics.shrinkageRatio': 'tangential/radial shrinkage ratio',
       'physics.fibreSaturationPoint': 'fibre saturation point',
       'physics.thermalConductivity': 'thermal conductivity',
       'physics.crushingStrength': 'mean compressive strength',
@@ -1027,8 +1257,10 @@ function numericValue(field, measure, language) {
     },
     fr: {
       'physics.specificGravity': 'masse volumique à 12 % d’humidité',
+      'physics.jankaHardness': 'dureté Janka',
       'physics.totalTangentialShrinkage': 'retrait tangentiel total',
       'physics.totalRadialShrinkage': 'retrait radial total',
+      'physics.shrinkageRatio': 'rapport des retraits tangentiel/radial',
       'physics.fibreSaturationPoint': 'point de saturation des fibres',
       'physics.thermalConductivity': 'conductivité thermique',
       'physics.crushingStrength': 'résistance moyenne en compression',
@@ -1043,14 +1275,28 @@ function numericValue(field, measure, language) {
         : `; range ${measure.min}–${measure.max}`
       : '';
   const sourceUnit = measure.sourceUnit ? ` ${measure.sourceUnit}` : '';
+  const basis =
+    measure.basis === 'transverse'
+      ? language === 'fr'
+        ? ' transversale'
+        : ' transverse'
+      : measure.basis === 'parallel'
+        ? language === 'fr'
+          ? ' parallèle au fil'
+          : ' parallel to the grain'
+        : '';
   const raw =
     field === 'physics.specificGravity'
       ? language === 'fr'
         ? `Lignumdata — ${labels.fr[field]} : densité relative moyenne publiée ${measure.value} (source en kg/m³ divisée par 1000)${range}`
         : `Lignumdata — ${labels.en[field]}: published mean relative density ${measure.value} (source kg/m³ divided by 1000)${range}`
-      : language === 'fr'
-        ? `Lignumdata — ${labels.fr[field]} : moyenne publiée ${measure.value}${sourceUnit}${range}`
-        : `Lignumdata — ${labels.en[field]}: published mean ${measure.value}${sourceUnit}${range}`;
+      : field === 'physics.shrinkageRatio'
+        ? language === 'fr'
+          ? `Lignumdata — ${labels.fr[field]} : ${measure.value}, calculé à partir des retraits moyens publiés`
+          : `Lignumdata — ${labels.en[field]}: ${measure.value}, calculated from the published mean shrinkage values`
+        : language === 'fr'
+          ? `Lignumdata — ${labels.fr[field]}${basis} : valeur publiée ${measure.value}${sourceUnit}${range}`
+          : `Lignumdata — ${labels.en[field]}${basis}: published value ${measure.value}${sourceUnit}${range}`;
   return {
     raw,
     value: measure.value,
@@ -1095,12 +1341,16 @@ const FRENCH_TREATABILITY_LABELS = new Map([
 ]);
 const ENGLISH_TERMITE_LABELS = new Map([
   ['D', 'class d - durable'],
+  ['D-M', 'class d-m - durable to moderately durable'],
   ['M', 'class m - moderately durable'],
+  ['M-S', 'class m-s - moderately durable to susceptible'],
   ['S', 'class s - susceptible'],
 ]);
 const FRENCH_TERMITE_LABELS = new Map([
   ['D', 'classe d - durable'],
+  ['D-M', 'classe d-m - durable à moyennement durable'],
   ['M', 'classe m - moyennement durable'],
+  ['M-S', 'classe m-s - moyennement durable à sensible'],
   ['S', 'classe s - sensible'],
 ]);
 const ENGLISH_BORER_LABELS = new Map([
@@ -1271,9 +1521,14 @@ function aggregateExactCategory(values, field, conflicts) {
 }
 
 function aggregateDryWoodBorers(profiles, conflicts) {
-  const individualClasses = profiles.map((profile) =>
-    sortedUnique(Object.values(profile.facts.durability.dryWoodBorerClasses ?? {}).filter(Boolean)),
-  );
+  const individualClasses = profiles.map((profile) => {
+    const genericClass = profile.facts.durability.dryWoodBorers;
+    return genericClass
+      ? [genericClass]
+      : sortedUnique(
+          Object.values(profile.facts.durability.dryWoodBorerClasses ?? {}).filter(Boolean),
+        );
+  });
   if (individualClasses.some((classes) => classes.length === 0)) return null;
   const conflictingProfileClasses = individualClasses.filter((classes) => classes.length > 1);
   if (conflictingProfileClasses.length > 0) {
@@ -1288,10 +1543,9 @@ function aggregateDryWoodBorers(profiles, conflicts) {
 }
 
 function durabilityClass(value) {
-  const normalized = normalizeText(value)
+  const normalized = normalizeClassValue(value)
     .replace(/^dc\s*/u, '')
-    .replace(/\bto\b/gu, '-')
-    .replace(/\s+/gu, '');
+    .replace(/([1-5])to([1-5])/gu, '$1-$2');
   const match = normalized.match(/^([1-5])(?:-([1-5]))?[a-z]?$/u);
   if (!match) return null;
   const code = match[2] ? `${match[1]}-${match[2]}` : match[1];
@@ -1299,9 +1553,9 @@ function durabilityClass(value) {
 }
 
 function treatabilityClass(value) {
-  const normalized = normalizeText(value)
-    .replace(/\bto\b/gu, '-')
-    .replace(/\s+/gu, '');
+  const normalized = normalizeClassValue(value)
+    .replace(/[()]/gu, '')
+    .replace(/([1-4])to([1-4])/gu, '$1-$2');
   const match = normalized.match(/^([1-4])(?:-([1-4]))?[a-z]?$/u);
   if (!match) return null;
   const code = match[2] ? `${match[1]}-${match[2]}` : match[1];
@@ -1309,10 +1563,26 @@ function treatabilityClass(value) {
 }
 
 function resistanceClass(value) {
-  const code = String(value ?? '')
+  const sourceCode = String(value ?? '')
     .trim()
-    .toUpperCase();
+    .toUpperCase()
+    .replace(/[‐‑‒–—]/gu, '-')
+    .replace(/\s+/gu, '');
+  const code =
+    new Map([
+      ['M-D', 'D-M'],
+      ['S-M', 'M-S'],
+    ]).get(sourceCode) ?? sourceCode;
   return RESISTANCE_CODES.has(code) ? code : null;
+}
+
+function normalizeClassValue(value) {
+  return String(value ?? '')
+    .normalize('NFKD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[‐‑‒–—]/gu, '-')
+    .toLocaleLowerCase('en')
+    .replace(/\s+/gu, '');
 }
 
 function combineExactClasses(values, allowed) {
@@ -1334,7 +1604,22 @@ function continentCodes(value) {
   );
 }
 
-function countryCodes(value) {
+function countryCodes(value, geographicRegions) {
+  const codes = [];
+  const isNorthAmerican = continentCodes(geographicRegions).includes('NA');
+  for (const rawToken of String(value ?? '').split(';')) {
+    const sourceToken = rawToken.replace(/\s*\[I\]\s*/giu, '').trim();
+    if (!sourceToken) continue;
+    const normalizedToken = normalizeText(sourceToken);
+    const subdivisionCode = isNorthAmerican
+      ? NORTH_AMERICAN_SUBDIVISION_TO_COUNTRY.get(normalizedToken)
+      : null;
+    const code =
+      LIGNUMDATA_REGION_CODE_TO_COUNTRY.get(sourceToken.toUpperCase()) ??
+      subdivisionCode ??
+      COUNTRY_ALIAS_TO_CODE.get(normalizedToken);
+    if (code) codes.push(code);
+  }
   const normalized = normalizeText(value)
     .replace(/\bnew mexico\b/gu, ' ')
     .replace(/\bnew jersey\b/gu, ' ');
@@ -1342,7 +1627,6 @@ function countryCodes(value) {
     (left, right) => right.length - left.length || left.localeCompare(right),
   );
   const pattern = new RegExp(`(?:^|\\b)(${aliases.map(escapeRegExp).join('|')})(?=\\b|$)`, 'gu');
-  const codes = [];
   for (const match of normalized.matchAll(pattern)) {
     const code = COUNTRY_ALIAS_TO_CODE.get(match[1]);
     if (code) codes.push(code);
@@ -1564,8 +1848,10 @@ function countProfileCoverage(profiles) {
     'durability.heartwoodTreatability',
     'durability.sapwoodTreatability',
     'physics.specificGravity',
+    'physics.jankaHardness',
     'physics.totalTangentialShrinkage',
     'physics.totalRadialShrinkage',
+    'physics.shrinkageRatio',
     'physics.fibreSaturationPoint',
     'physics.thermalConductivity',
     'mechanics.crushingStrength',

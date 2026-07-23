@@ -97,7 +97,7 @@
     {
       "id": "temperate-northern-red-oak",
       "source": {
-        "provider": "USDA Forest Products Laboratory · FCBA · SerQ — Forest Innovation and Competence Centre",
+        "provider": "USDA Forest Products Laboratory · FCBA · SerQ — Forest Innovation and Competence Centre · Lignumdata · Grouazel",
         "kind": "manual",
         "references": [
           {
@@ -123,10 +123,22 @@
             "url": "https://madeq.serq.pt/pt/especies/carvalho-vermelho-1",
             "publisher": "SerQ — Centro de Inovação e Competências da Floresta",
             "year": null
+          },
+          {
+            "title": "Quercus rubra — Lignumdata factual data",
+            "url": "https://lignumdata.ch/system/holzarten/3D20FD25-CBAB-387D-9AFB-41EF18A23831?locale=en",
+            "publisher": "Lignum – Holzwirtschaft Schweiz",
+            "year": null
+          },
+          {
+            "title": "Nouveau à la gamme : le chêne rouge (Quercus rubra)",
+            "url": "https://www.grouazel-group.com/fr/news/actu-3-nouveau-a-la-gamme-le-chene-rouge-quercus-rubra.html",
+            "publisher": "Grouazel",
+            "year": 2018
           }
         ],
         "lastUpdateDate": null,
-        "extractionDate": "2026-07-23"
+        "extractionDate": "2026-07-24"
       },
       "locales": {
         "en": {
@@ -272,13 +284,22 @@
           },
           "durability": {
             "fungi": {
-              "raw": "Slightly to nonresistant",
-              "value": "slightly to nonresistant"
+              "raw": "Lignumdata — EN 350 fungal durability from field testing: DC 3–4",
+              "value": "class 3-4 - moderately to poorly durable"
             },
             "dryWoodBorers": { "raw": "", "value": null },
-            "termites": { "raw": "", "value": null },
-            "treatability": { "raw": "", "value": null },
-            "naturalUseClass": { "raw": "", "value": null },
+            "termites": {
+              "raw": "Lignumdata — EN 350 termite resistance: S",
+              "value": "class s - susceptible"
+            },
+            "treatability": {
+              "raw": "Lignumdata — EN 350 heartwood impregnability: 2–3",
+              "value": "class 2-3 - moderately to poorly permeable"
+            },
+            "naturalUseClass": {
+              "raw": "Grouazel, citing FCBA-supported studies: use class 2; unsuitable for exterior use without appropriate protection",
+              "value": "class 2 - inside or under cover (dampness possible)"
+            },
             "coversUseClass5": { "raw": "", "value": null },
             "preservativeTreatment": {
               "dryWoodBorer": { "raw": "", "value": null },
@@ -288,7 +309,11 @@
             },
             "notes": [
               "The heartwood of the red oak group is more easily penetrated by preservatives than that of the white oak group."
-            ]
+            ],
+            "sapwoodTreatability": {
+              "raw": "Lignumdata — EN 350 sapwood impregnability: 1",
+              "value": "class 1 - easily permeable"
+            }
           },
           "drying": {
             "rate": { "raw": "", "value": null },
@@ -555,13 +580,22 @@
           },
           "durability": {
             "fungi": {
-              "raw": "Faiblement à non durable",
-              "value": "faiblement à non durable"
+              "raw": "Lignumdata — durabilité aux champignons selon EN 350, essai en plein air : DC 3–4",
+              "value": "classe 3-4 - moyennement à faiblement durable"
             },
             "dryWoodBorers": { "raw": "", "value": null },
-            "termites": { "raw": "", "value": null },
-            "treatability": { "raw": "", "value": null },
-            "naturalUseClass": { "raw": "", "value": null },
+            "termites": {
+              "raw": "Lignumdata — résistance aux termites selon EN 350 : S",
+              "value": "classe s - sensible"
+            },
+            "treatability": {
+              "raw": "Lignumdata — imprégnabilité du duramen selon EN 350 : 2–3",
+              "value": "classe 2-3 - moyennement à faiblement imprégnable"
+            },
+            "naturalUseClass": {
+              "raw": "Grouazel, d’après des études soutenues par le FCBA : classe d’emploi 2 ; inadapté à un usage extérieur sans protection appropriée",
+              "value": "classe 2 - à l'intérieur ou sous abri (risque d'humidification)"
+            },
             "coversUseClass5": { "raw": "", "value": null },
             "preservativeTreatment": {
               "dryWoodBorer": { "raw": "", "value": null },
@@ -571,7 +605,11 @@
             },
             "notes": [
               "Le duramen du groupe des chênes rouges est plus facilement pénétré par les produits de préservation que celui du groupe des chênes blancs."
-            ]
+            ],
+            "sapwoodTreatability": {
+              "raw": "Lignumdata — imprégnabilité de l’aubier selon EN 350 : 1",
+              "value": "classe 1 - facilement imprégnable"
+            }
           },
           "drying": {
             "rate": { "raw": "", "value": null },

@@ -17,6 +17,7 @@ const server = await createServer({
   server: { host, port, strictPort: true },
 });
 const publishedCoverage = await auditPublishedLpfMeasurements();
+await auditPublishedLignumdataMeasurements();
 await server.listen();
 console.log('A11y server started.');
 
@@ -155,6 +156,73 @@ try {
       'the main table does not identify the displayed hardness scale',
     );
     console.log('LPF measurements in the main table checked.');
+
+    await page.goto(`${origin}/?lang=en&q=Northern%20red%20oak`);
+    const northernRedOakRow = page
+      .getByRole('button', { name: 'Open details for Northern red oak', exact: true })
+      .locator('xpath=ancestor::tr');
+    await northernRedOakRow.waitFor();
+    const northernRedOakCells = await northernRedOakRow.locator('td').allTextContents();
+    assert(
+      northernRedOakCells[3].trim() === 'Class 2' &&
+        northernRedOakCells[4].trim() === 'Class 3–4' &&
+        northernRedOakCells[5].trim() === 'Class S' &&
+        northernRedOakCells[6].trim() === 'Class 2–3',
+      `the main table is missing Northern red oak durability data: ${JSON.stringify(northernRedOakCells.slice(3, 7))}`,
+    );
+    await northernRedOakRow
+      .getByRole('button', { name: 'Open details for Northern red oak', exact: true })
+      .click();
+    const northernRedOakDialog = page.getByRole('dialog');
+    await northernRedOakDialog.waitFor();
+    await northernRedOakDialog
+      .getByRole('link', { name: /Quercus rubra — Lignumdata factual data/ })
+      .waitFor();
+    await northernRedOakDialog
+      .getByRole('link', { name: /Nouveau à la gamme : le chêne rouge/ })
+      .waitFor();
+    await page.getByRole('button', { name: 'Close detail' }).click();
+    await northernRedOakDialog.waitFor({ state: 'hidden' });
+    console.log('Northern red oak durability and provenance checked.');
+
+    await page.goto(`${origin}/?lang=en&q=Loblolly%20Pine`);
+    const loblollyPineRow = page
+      .getByRole('button', { name: 'Open details for Loblolly Pine', exact: true })
+      .locator('xpath=ancestor::tr');
+    await loblollyPineRow.waitFor();
+    assert(
+      (await loblollyPineRow.locator('td').nth(5).innerText()).trim() === 'Class S',
+      'the main table is missing Loblolly Pine termite resistance',
+    );
+    await loblollyPineRow
+      .getByRole('button', { name: 'Open details for Loblolly Pine', exact: true })
+      .click();
+    const loblollyPineDialog = page.getByRole('dialog');
+    await loblollyPineDialog.waitFor();
+    assert(
+      (
+        await loblollyPineDialog
+          .getByText('Dry wood borers', { exact: true })
+          .locator('xpath=following-sibling::dd')
+          .innerText()
+      ).trim() === 'class d - durable',
+      'the detail drawer is missing Loblolly Pine dry-wood-borer resistance',
+    );
+    assert(
+      (
+        await loblollyPineDialog
+          .getByText('Sapwood treatability', { exact: true })
+          .locator('xpath=following-sibling::dd')
+          .innerText()
+      ).trim() === 'class 1 - easily permeable',
+      'the detail drawer is missing Loblolly Pine sapwood treatability',
+    );
+    await loblollyPineDialog
+      .getByRole('link', { name: /Pinus taeda — Lignumdata factual data/ })
+      .waitFor();
+    await page.getByRole('button', { name: 'Close detail' }).click();
+    await loblollyPineDialog.waitFor({ state: 'hidden' });
+    console.log('Additional Lignumdata durability and provenance checked.');
 
     await page.goto(`${origin}/?lang=en&q=Scots%20Pine`);
     const scotsPineButton = page.getByRole('button', {
@@ -596,6 +664,13 @@ async function auditPublishedLpfMeasurements() {
   for (const supplement of manifest.supplements) {
     const record = recordsById.get(supplement.id);
     assert(record, `LPF record ${supplement.id} is missing from the published database`);
+    assert(
+      supplement.locales.en.origin.continentCodes?.includes('SA') &&
+        supplement.locales.en.origin.countryCodes?.includes('BR') &&
+        record.origin.continentCodes.includes('SA') &&
+        record.origin.countryCodes.includes('BR'),
+      `LPF Brazilian origin metadata is missing from ${supplement.id}`,
+    );
     const profiles = supplement.source.references.map((reference) => {
       const sourceId = Number(new URL(reference.url).searchParams.get('especieestudadaid'));
       const profile = profilesBySourceId.get(sourceId);
@@ -664,6 +739,62 @@ async function auditPublishedLpfMeasurements() {
     modulus: database.records.filter((record) => record.physics.modulusOfElasticity.value !== null)
       .length,
   };
+}
+
+async function auditPublishedLignumdataMeasurements() {
+  const [manifest, database] = await Promise.all([
+    readJson(new URL('../data/manual/woods/lignumdata.json', import.meta.url)),
+    readJson(new URL('../public/data/woods.generated.en.json', import.meta.url)),
+  ]);
+  const recordsById = new Map(database.records.map((record) => [record.id, record]));
+  const requestedPaths = [
+    'durability.fungi',
+    'durability.dryWoodBorers',
+    'durability.termites',
+    'durability.treatability',
+    'durability.sapwoodTreatability',
+    'physics.specificGravity',
+    'physics.jankaHardness',
+    'physics.totalTangentialShrinkage',
+    'physics.totalRadialShrinkage',
+    'physics.shrinkageRatio',
+    'physics.fibreSaturationPoint',
+    'physics.thermalConductivity',
+    'physics.crushingStrength',
+    'physics.staticBendingStrength',
+    'physics.modulusOfElasticity',
+  ];
+  let checkedValues = 0;
+
+  for (const supplement of manifest.supplements) {
+    const record = recordsById.get(supplement.id);
+    assert(record, `Lignumdata record ${supplement.id} is missing from the published database`);
+    const publishedUrls = new Set(record.source.references?.map((reference) => reference.url) ?? []);
+    for (const reference of supplement.source.references) {
+      assert(
+        publishedUrls.has(reference.url),
+        `Lignumdata provenance ${reference.url} is missing from ${supplement.id}`,
+      );
+    }
+    for (const path of requestedPaths) {
+      const expected = valueAtPath(supplement.locales.en, path);
+      if (expected === null || expected === undefined) continue;
+      const actual = valueAtPath(record, path);
+      assert(
+        actual === expected,
+        `Lignumdata value ${path} was not published for ${supplement.id}: ${actual} !== ${expected}`,
+      );
+      checkedValues += 1;
+    }
+  }
+  assert(checkedValues > 0, 'the Lignumdata manifest contains no publishable requested values');
+  console.log(
+    `Published Lignumdata provenance and ${checkedValues} durability/physical values checked.`,
+  );
+}
+
+function valueAtPath(value, path) {
+  return path.split('.').reduce((current, part) => current?.[part], value)?.value;
 }
 
 async function readJson(url) {

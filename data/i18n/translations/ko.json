@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "locale": "ko",
   "sourceLanguage": "en",
-  "sourceManifestHash": "ab1b37f655509a1e31eae868e61c70d52cb2facf6ff69e927365ab435760a571",
+  "sourceManifestHash": "5de781391818fb422de23b58ec96fde94911bf4462501bb687a8cd7aae573422",
   "translations": {
     "u_2e6810bbbb33997ede2c3884cca790687a52b96ea6446b2fb4279bbe8a89ec90": "검정색",
     "u_086bcf4f5c396be3935a26284e16e642ce7801ed2d4f4fbcdfb567ae7a5ad215": "갈색",
@@ -1829,7 +1829,9 @@
     "u_4fd7cbe9ece09e29e8a13170d61d9ab364946780b82c6f22b08df6d6ddc9ad1f": "변재를 제외하고, 성숙한 심재가 포함된 목재는 방부 처리 없이도 견고하고 배수가 잘 되도록 설계된 경우(nf en 335 - 2013 에 따른 사용 등급 3.1 및 3.2, fd p 20 651 - 2011 참조)에 일시적인 습윤 환경에 적합합니다.",
     "u_6066f85e0afced1217d848dbd0f11e5a82bb59a92b322a5a8365cba5711a2919": "사용 권장 안 됨",
     "u_f1cfac6cb9d14fcc7e3dbb782eedf3436b6359fbda0e76c114a42fab7e8effa8": "1 급 - 쉽게 침투되는",
+    "u_2cf2cb150e75f20d8779adaa361af41b2e1312c9836b1faac4070a41c583d448": "클래스 1-2 - 중간에서 쉽게 투과되는",
     "u_d832de2b698ada599a3b88a2f853e2b8bd893d5a12d99dd0f9784305c7bd4285": "2 급 - 중간 투과성",
+    "u_91eccd645ae014fa8e49bc484ded41fcf72012a1cdf521cb6d9e10e06406c8e4": "2-3 급 - 낮거나 보통 정도로 약제 주입성이 있는",
     "u_7860b7b27df0359c6516e7c91dc0cd6d8cffd924ace50731c99542c9aae5b87e": "3 급 - 투과성이 낮음",
     "u_20dd4fb95566e59ca39c2a85084e95726212b354ff6735e9a8b1a728664d8c0b": "4 급 - 불투과성",
     "u_2fc67533585c85503c0bde1b0b17ac46e9d0eebfe7dfc9dfae87dc9bf65c2288": "d 급 - 내구성이 있는",

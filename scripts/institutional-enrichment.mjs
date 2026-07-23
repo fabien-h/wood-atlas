@@ -34,6 +34,18 @@ const SERQ_REFERENCE = {
   publisher: 'SerQ — Centro de Inovação e Competências da Floresta',
   year: null,
 };
+const LIGNUMDATA_RED_OAK_REFERENCE = {
+  title: 'Quercus rubra — Lignumdata factual data',
+  url: 'https://lignumdata.ch/system/holzarten/3D20FD25-CBAB-387D-9AFB-41EF18A23831?locale=en',
+  publisher: 'Lignum – Holzwirtschaft Schweiz',
+  year: null,
+};
+const GROUAZEL_RED_OAK_REFERENCE = {
+  title: 'Nouveau à la gamme : le chêne rouge (Quercus rubra)',
+  url: 'https://www.grouazel-group.com/fr/news/actu-3-nouveau-a-la-gamme-le-chene-rouge-quercus-rubra.html',
+  publisher: 'Grouazel',
+  year: 2018,
+};
 const TERMITE_STUDY_REFERENCE = {
   title:
     'Natural durability of tropical and native woods against termite damage by Reticulitermes flavipes',
@@ -256,12 +268,83 @@ setNumericMeasure(
   },
   0.52,
 );
-for (const reference of [FCBA_REFERENCE, SERQ_REFERENCE]) {
+setLocalizedTextMeasure(
+  northernRedOak,
+  'durability.fungi',
+  {
+    en: 'Lignumdata — EN 350 fungal durability from field testing: DC 3–4',
+    fr: 'Lignumdata — durabilité aux champignons selon EN 350, essai en plein air : DC 3–4',
+  },
+  {
+    en: 'class 3-4 - moderately to poorly durable',
+    fr: 'classe 3-4 - moyennement à faiblement durable',
+  },
+);
+setLocalizedTextMeasure(
+  northernRedOak,
+  'durability.termites',
+  {
+    en: 'Lignumdata — EN 350 termite resistance: S',
+    fr: 'Lignumdata — résistance aux termites selon EN 350 : S',
+  },
+  {
+    en: 'class s - susceptible',
+    fr: 'classe s - sensible',
+  },
+);
+setLocalizedTextMeasure(
+  northernRedOak,
+  'durability.treatability',
+  {
+    en: 'Lignumdata — EN 350 heartwood impregnability: 2–3',
+    fr: 'Lignumdata — imprégnabilité du duramen selon EN 350 : 2–3',
+  },
+  {
+    en: 'class 2-3 - moderately to poorly permeable',
+    fr: 'classe 2-3 - moyennement à faiblement imprégnable',
+  },
+);
+for (const language of ['en', 'fr']) {
+  northernRedOak.locales[language].durability.sapwoodTreatability ??= {
+    raw: '',
+    value: null,
+  };
+}
+setLocalizedTextMeasure(
+  northernRedOak,
+  'durability.sapwoodTreatability',
+  {
+    en: 'Lignumdata — EN 350 sapwood impregnability: 1',
+    fr: 'Lignumdata — imprégnabilité de l’aubier selon EN 350 : 1',
+  },
+  {
+    en: 'class 1 - easily permeable',
+    fr: 'classe 1 - facilement imprégnable',
+  },
+);
+setLocalizedTextMeasure(
+  northernRedOak,
+  'durability.naturalUseClass',
+  {
+    en: 'Grouazel, citing FCBA-supported studies: use class 2; unsuitable for exterior use without appropriate protection',
+    fr: 'Grouazel, d’après des études soutenues par le FCBA : classe d’emploi 2 ; inadapté à un usage extérieur sans protection appropriée',
+  },
+  {
+    en: 'class 2 - inside or under cover (dampness possible)',
+    fr: "classe 2 - à l'intérieur ou sous abri (risque d'humidification)",
+  },
+);
+for (const reference of [
+  FCBA_REFERENCE,
+  SERQ_REFERENCE,
+  LIGNUMDATA_RED_OAK_REFERENCE,
+  GROUAZEL_RED_OAK_REFERENCE,
+]) {
   addReference(northernRedOak, reference);
 }
 northernRedOak.source.provider =
-  'USDA Forest Products Laboratory · FCBA · SerQ — Forest Innovation and Competence Centre';
-northernRedOak.source.extractionDate = '2026-07-23';
+  'USDA Forest Products Laboratory · FCBA · SerQ — Forest Innovation and Competence Centre · Lignumdata · Grouazel';
+northernRedOak.source.extractionDate = '2026-07-24';
 await writeJson(BASE_MANIFEST_PATH, baseManifest);
 await writeJson(TRANSLATION_MANIFEST_PATH, {
   schemaVersion: 1,
@@ -361,6 +444,17 @@ function setNumericMeasure(record, fieldPath, rawByLanguage, value) {
     target.value = value;
     target.min = null;
     target.max = null;
+  }
+}
+
+function setLocalizedTextMeasure(record, fieldPath, rawByLanguage, valueByLanguage) {
+  for (const language of ['en', 'fr']) {
+    const target = getAtPath(record.locales[language], fieldPath);
+    if (!target || typeof target !== 'object') {
+      throw new Error(`${record.id} is missing locales.${language}.${fieldPath}`);
+    }
+    target.raw = rawByLanguage[language];
+    target.value = valueByLanguage[language];
   }
 }
 

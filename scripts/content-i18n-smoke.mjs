@@ -29,9 +29,9 @@ const LOCALES = [
   'vi',
   'zh-Hans',
 ];
-const EXPECTED_UNIT_COUNT = 5_838;
+const EXPECTED_UNIT_COUNT = 5_840;
 const EXPECTED_RECORD_COUNT = 728;
-const EXPECTED_CONTEXT_COUNT = 37_411;
+const EXPECTED_CONTEXT_COUNT = 37_447;
 const EXPECTED_DRY_WOOD_BORER_VALUES = new Set([
   'class d - durable',
   'class d - durable (heartwood durable but sapwood not clearly demarcated)',

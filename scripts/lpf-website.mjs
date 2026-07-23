@@ -1537,6 +1537,7 @@ function selectFields(record, facts, previous) {
     })
     .map(([field]) => field);
   if (facts.commonNames.length > 0) fields.push('identity.aliases', 'identity.localNames');
+  fields.push('origin.continentCodes', 'origin.countryCodes');
   if (facts.endUses.length > 0) fields.push('endUses');
   if (facts.additionalDetails.length > 0) fields.push('additionalDetails');
   return [...new Set(fields)];
@@ -1550,15 +1551,26 @@ function buildLocale(base, facts, fields, language) {
       const existingNames = new Set([
         base.identity.primaryName.toLocaleLowerCase('pt'),
         base.identity.displayName.toLocaleLowerCase('pt'),
-        ...base.identity.aliases.map((name) => name.toLocaleLowerCase('pt')),
       ]);
-      locale.identity.aliases = facts.commonNames.filter(
-        (name) => !existingNames.has(name.toLocaleLowerCase('pt')),
-      );
+      locale.identity.aliases = [
+        ...new Map(
+          facts.commonNames
+            .filter((name) => !existingNames.has(name.toLocaleLowerCase('pt')))
+            .map((name) => [name.toLocaleLowerCase('pt'), name]),
+        ).values(),
+      ];
       continue;
     }
     if (field === 'identity.localNames') {
       locale.identity.localNames = facts.commonNames.map((name) => ({ country, name }));
+      continue;
+    }
+    if (field === 'origin.continentCodes') {
+      locale.origin.continentCodes = ['SA'];
+      continue;
+    }
+    if (field === 'origin.countryCodes') {
+      locale.origin.countryCodes = ['BR'];
       continue;
     }
     if (field === 'log.diameterCm') {
