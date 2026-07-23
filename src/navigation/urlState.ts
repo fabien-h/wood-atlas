@@ -32,8 +32,10 @@ const arrayParams: Record<MultiValueFilterKey, string> = {
   textures: 'texture',
   grains: 'grain',
   fungi: 'fungi',
+  dryWoodBorers: 'dryWoodBorer',
   termites: 'termite',
   treatability: 'treatability',
+  naturalUseClasses: 'naturalUseClass',
   drying: 'drying',
 };
 const rangeParams: Record<RangeFilterKey, [string, string]> = {
@@ -77,8 +79,10 @@ function parseNavigationState(params: URLSearchParams): NavigationState {
     textures: params.getAll(arrayParams.textures),
     grains: params.getAll(arrayParams.grains),
     fungi: params.getAll(arrayParams.fungi),
+    dryWoodBorers: params.getAll(arrayParams.dryWoodBorers),
     termites: params.getAll(arrayParams.termites),
     treatability: params.getAll(arrayParams.treatability),
+    naturalUseClasses: params.getAll(arrayParams.naturalUseClasses),
     drying: params.getAll(arrayParams.drying),
     endUse: params.get('endUse') ?? '',
     cites: isCitesFilter(params.get('cites')) ? (params.get('cites') as Filters['cites']) : 'all',

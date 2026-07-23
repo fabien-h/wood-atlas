@@ -59,6 +59,12 @@ export interface WoodImage {
   };
 }
 
+export interface WoodThumbnail {
+  src: string;
+  width: number;
+  height: number;
+}
+
 export interface SourcePdf {
   language: SourceLanguage;
   region: string;
@@ -68,10 +74,19 @@ export interface SourcePdf {
   year: number | null;
 }
 
+export interface SourceReference {
+  title: string;
+  url: string;
+  publisher: string;
+  year: number | null;
+}
+
 export interface WoodSource {
-  provider: 'CIRAD Tropix';
-  listingUrls: Record<SourceLanguage, string>;
-  pdfs: Partial<Record<SourceLanguage, SourcePdf>>;
+  provider: string;
+  kind: 'tropix' | 'manual';
+  listingUrls?: Partial<Record<SourceLanguage, string>>;
+  pdfs?: Partial<Record<SourceLanguage, SourcePdf>>;
+  references?: SourceReference[];
   lastUpdateDate: string | null;
   extractionDate: string;
 }
@@ -119,6 +134,7 @@ export interface WoodAppearance {
 export interface PhysicsMechanics {
   specificGravity: NumericMeasure;
   monninHardness: NumericMeasure;
+  jankaHardness: NumericMeasure;
   volumetricShrinkageCoefficient: NumericMeasure;
   totalTangentialShrinkage: NumericMeasure;
   totalRadialShrinkage: NumericMeasure;
@@ -196,6 +212,16 @@ export interface ExtractionQuality {
   warnings: string[];
 }
 
+export interface AdditionalDetailSection {
+  id: string;
+  title: string;
+  fields: Array<{
+    label: string;
+    value: string;
+    valueLanguage?: SourceLanguage;
+  }>;
+}
+
 export interface WoodRecord {
   id: string;
   identity: Identity;
@@ -216,7 +242,9 @@ export interface WoodRecord {
   fireSafety: FireSafety;
   endUses: string[];
   endUseNotes: string[];
+  additionalDetails?: AdditionalDetailSection[];
   images: WoodImage[];
+  thumbnail: WoodThumbnail | null;
   source: WoodSource;
   rawSections: Record<string, string>;
   extraction: ExtractionQuality;
@@ -232,6 +260,8 @@ export interface WoodDatabase {
     frenchListing: string;
     englishSheets: number;
     frenchSheets: number;
+    manualRecords?: number;
+    supplementalRecords?: number;
   };
   records: WoodRecord[];
 }

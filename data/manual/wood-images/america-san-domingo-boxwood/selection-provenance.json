@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-san-domingo-boxwood",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "3f1e725f2f71f18ee5a36cd6ddfeeb3c4e27bf9ee75a822f7c9d864980e41da9",
+      "sourceWidth": 2470,
+      "sourceHeight": 1510,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

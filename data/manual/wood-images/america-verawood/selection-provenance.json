@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-verawood",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "422385fde48a6a21786177c98483c9c03eeaa4c8828c32cf7dcef6c445cac972",
+      "sourceWidth": 2067,
+      "sourceHeight": 1537,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

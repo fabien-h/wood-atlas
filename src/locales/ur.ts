@@ -11,7 +11,8 @@ export const ur = {
   aboutOpenSource: 'یہ لکڑی کا اٹلس اوپن سورس ہے۔ اس کا سورس کوڈ GitHub پر دستیاب ہے۔',
   aboutDataSourcesTitle: 'ڈیٹا کے ذرائع',
   aboutDataSources:
-    'اس اٹلس میں لکڑی کا تمام ڈیٹا Tropix ڈیٹا بیس اور CIRAD کے BioWooEB تحقیقی یونٹ سے آتا ہے۔',
+    'اس اٹلس کا بیشتر ڈیٹا Tropix، CIRAD کے BioWooEB یونٹ، USDA Forest Products Laboratory اور Brazilian Forest Service کی Forest Products Laboratory (LPF/SFB) سے آتا ہے۔ اضافی ریکارڈ اپنے صفحات پر اپنے ذرائع بتاتے ہیں۔',
+  contact: 'رابطہ',
   atlas: 'لکڑیوں کا اٹلس',
   searchPlaceholder: 'نام، استعمال یا ملک تلاش کریں…',
   clearSearch: 'تلاش صاف کریں',
@@ -60,6 +61,7 @@ export const ur = {
   materialMap: 'مواد کا نقشہ',
   hardnessVsRadialShrinkage: 'سختی بمقابلہ شعاعی سکڑاؤ',
   monninHardness: 'مونن سختی',
+  jankaHardness: 'جانکا سختی',
   radialShrinkage: 'شعاعی سکڑاؤ',
   distribution: 'پھیلاؤ',
   specificGravity: 'نسبتی کثافت',

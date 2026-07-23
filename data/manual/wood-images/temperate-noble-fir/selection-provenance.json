@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-noble-fir",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "9443433dec07ff178eef011b22c4b5fc658d8c99879757eb6603ddad4c71dfe8",
+      "sourceWidth": 2262,
+      "sourceHeight": 1421,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

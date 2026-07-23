@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-tupelo",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "a6813b93b119bc80213c64c752fa20eea8194060cdc78ffa58b9e04616666bb3",
+      "sourceWidth": 1760,
+      "sourceHeight": 1348,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

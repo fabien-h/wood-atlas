@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-western-larch",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "96278b0ac656365f0944a719a8f86d9cde599d829c572970a4d6667ef408290f",
+      "sourceWidth": 1990,
+      "sourceHeight": 1297,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

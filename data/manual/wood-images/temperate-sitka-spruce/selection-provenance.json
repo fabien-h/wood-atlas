@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-sitka-spruce",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "5de14fb33580fa8b5ad0f4614fc6f9c82d11a2a962fcd8ec112e324074e6b2da",
+      "sourceWidth": 1477,
+      "sourceHeight": 831,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

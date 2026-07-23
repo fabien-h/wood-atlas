@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-atlantic-white-cedar",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "cc844942583bb55f4c873efaf81a5d9d82f8ca0fe7a1e6111a2000df12abcb86",
+      "sourceWidth": 1330,
+      "sourceHeight": 500,
+      "outputFile": "radial.jpg",
+      "outputWidth": 500,
+      "outputHeight": 500,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_74.jpg",
+        "query": "\"Chamaecyparis thyoides\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 74 prints CHAMAECYPARIS THYOIDES and RADIAL SECTION for the middle specimen.",
+        "visualCheckNotes": "Opened at native crop size. The image is entirely a physical exposed radial wood face with straight horizontal growth-band figure; no foliage, bark-only subject, object, flooring, or microscopy is present.",
+        "derivedCrop": {
+          "left": 270,
+          "top": 955,
+          "width": 1330,
+          "height": 500
+        },
+        "width": 1330,
+        "height": 500,
+        "format": "jpeg",
+        "sha256": "cc844942583bb55f4c873efaf81a5d9d82f8ca0fe7a1e6111a2000df12abcb86",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "042f145c0b604f3c2a65438f0f53561586e3353e8c9525a275adbd79d5f0447e",
+      "sourceWidth": 1330,
+      "sourceHeight": 510,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 510,
+      "outputHeight": 510,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_74.jpg",
+        "query": "\"Chamaecyparis thyoides\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 74 prints CHAMAECYPARIS THYOIDES and TANGENTIAL SECTION for the lower specimen.",
+        "visualCheckNotes": "Opened at native crop size. A physical tangential wood face fills the frame with broad natural grain arcs; no tree, leaf, bark, furniture, flooring, generic stock texture, or microscopy is present.",
+        "derivedCrop": {
+          "left": 270,
+          "top": 1640,
+          "width": 1330,
+          "height": 510
+        },
+        "width": 1330,
+        "height": 510,
+        "format": "jpeg",
+        "sha256": "042f145c0b604f3c2a65438f0f53561586e3353e8c9525a275adbd79d5f0447e",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-western-juniper",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "0cf47b516020f625fb99e08e04e26f2f5f06aa3677890e657700e6382e70e986",
+      "sourceWidth": 1561,
+      "sourceHeight": 912,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-american-ash",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "862e71ec804e79b60dbe25b0791fb6564d604e0b56237899517687368326a9da",
+      "sourceWidth": 1339,
+      "sourceHeight": 509,
+      "outputFile": "radial.jpg",
+      "outputWidth": 509,
+      "outputHeight": 509,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_10.jpg",
+        "query": "\"Fraxinus americana\" \"radial section\" wood Hough",
+        "intendedViewHint": "radial",
+        "identityBasis": "genusOnly",
+        "identityEvidence": "The atlas record covers Fraxinus spp.; NCSU's 600-dpi Hough plate 10 identifies the included American species as FRAXINUS AMERICANA / White Ash and prints the middle specimen as RADIAL SECTION.",
+        "visualCheckNotes": "Opened after derivation at original crop resolution. This is a close exposed radial wood face with strong horizontal growth bands and fine vertical ray fleck; there is no tree, leaf, bark, furniture, or microscopy.",
+        "derivedCrop": {
+          "left": 290,
+          "top": 989,
+          "width": 1339,
+          "height": 509
+        },
+        "width": 1339,
+        "height": 509,
+        "format": "jpeg",
+        "sha256": "862e71ec804e79b60dbe25b0791fb6564d604e0b56237899517687368326a9da",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "08c8a2ac0dbde7734fcc9ed802bc3dd20a64f667c8525272db48f779fa2620be",
+      "sourceWidth": 1339,
+      "sourceHeight": 536,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 536,
+      "outputHeight": 536,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_10.jpg",
+        "query": "\"Fraxinus americana\" \"tangential section\" wood Hough",
+        "intendedViewHint": "tangential",
+        "identityBasis": "genusOnly",
+        "identityEvidence": "The atlas record covers Fraxinus spp.; Hough plate 10 identifies this member as Fraxinus americana / White Ash and prints the lower specimen as TANGENTIAL SECTION.",
+        "visualCheckNotes": "Opened after derivation at original crop resolution. The crop contains the exposed tangential specimen face, with prominent cathedral growth-ring figure; no living plant, bark-only area, flooring, furniture, or microscopy appears.",
+        "derivedCrop": {
+          "left": 290,
+          "top": 1672,
+          "width": 1339,
+          "height": 536
+        },
+        "width": 1339,
+        "height": 536,
+        "format": "jpeg",
+        "sha256": "08c8a2ac0dbde7734fcc9ed802bc3dd20a64f667c8525272db48f779fa2620be",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

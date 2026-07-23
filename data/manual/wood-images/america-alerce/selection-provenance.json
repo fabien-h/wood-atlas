@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-alerce",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "06bdf34334bf0038a0020279840a4eaef6880d24f4ecb9bf393027128288c715",
+      "sourceWidth": 1752,
+      "sourceHeight": 932,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "b22fdfa38e5bca4a347a2f19af3ca0588d89c56d3782d916e158322ca20f591b",
+      "sourceWidth": 1158,
+      "sourceHeight": 772,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 772,
+      "outputHeight": 772,
+      "matchedCandidate": null
+    }
+  ]
+}

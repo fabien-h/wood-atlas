@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-toon",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "d37fc20e978df75396955ef4bd01d369e236be6e924b995f82de5de7f96a2915",
+      "sourceWidth": 1259,
+      "sourceHeight": 485,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 485,
+      "outputHeight": 485,
+      "matchedCandidate": null
+    }
+  ]
+}

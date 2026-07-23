@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-blue-mahoe",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "90e03367760d65410430a1d41f90dccdef4cc222773040662f8c31c2e1239e78",
+      "sourceWidth": 2517,
+      "sourceHeight": 1569,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

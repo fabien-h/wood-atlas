@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-sourwood",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "813f12647583178067283686a34ce2bd83ebf3d5a6fc81a6042273a900ce84d7",
+      "sourceWidth": 1316,
+      "sourceHeight": 516,
+      "outputFile": "radial.jpg",
+      "outputWidth": 516,
+      "outputHeight": 516,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_283.jpg",
+        "query": "\"Oxydendrum arboreum\" Hough radial tangential wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 283 prints Oxydendrum Arboreum Dc. and labels its radial wood section. The printed binomial matches the atlas name Oxydendrum arboreum.",
+        "visualCheckNotes": "Native-resolution crop of the plate’s explicitly labeled radial physical wood face. Visually reviewed: exposed wood specimen only; no tree, leaf, bark-only view, furniture, or microscopy. No upscaling was applied.",
+        "derivedCrop": {
+          "left": 267,
+          "top": 1001,
+          "width": 1316,
+          "height": 516
+        },
+        "width": 1316,
+        "height": 516,
+        "format": "jpeg",
+        "sha256": "813f12647583178067283686a34ce2bd83ebf3d5a6fc81a6042273a900ce84d7",
+        "agent": "root-hough",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public-domain source publication (1888–1910)",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open",
+        "rightsNotes": "NCSU provides the reproduction for research access and asks users to credit the source and assess publication rights.",
+        "sourceRightsUrl": "https://www.lib.ncsu.edu/scrc/copyright",
+        "taxonomicEvidenceUrl": null
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "a8e0e435dbf93f1e0481104abf54c3c8875f55131cb5a1249bf92983d4a11400",
+      "sourceWidth": 1316,
+      "sourceHeight": 516,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 516,
+      "outputHeight": 516,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_283.jpg",
+        "query": "\"Oxydendrum arboreum\" Hough radial tangential wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 283 prints Oxydendrum Arboreum Dc. and labels its tangential wood section. The printed binomial matches the atlas name Oxydendrum arboreum.",
+        "visualCheckNotes": "Native-resolution crop of the plate’s explicitly labeled tangential physical wood face. Visually reviewed: exposed wood specimen only; no tree, leaf, bark-only view, furniture, or microscopy. No upscaling was applied.",
+        "derivedCrop": {
+          "left": 267,
+          "top": 1689,
+          "width": 1316,
+          "height": 516
+        },
+        "width": 1316,
+        "height": 516,
+        "format": "jpeg",
+        "sha256": "a8e0e435dbf93f1e0481104abf54c3c8875f55131cb5a1249bf92983d4a11400",
+        "agent": "root-hough",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public-domain source publication (1888–1910)",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open",
+        "rightsNotes": "NCSU provides the reproduction for research access and asks users to credit the source and assess publication rights.",
+        "sourceRightsUrl": "https://www.lib.ncsu.edu/scrc/copyright",
+        "taxonomicEvidenceUrl": null
+      }
+    }
+  ]
+}

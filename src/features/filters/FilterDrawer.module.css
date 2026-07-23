@@ -1,3 +1,7 @@
+.backdrop {
+  display: none;
+}
+
 .drawer {
   position: sticky;
   z-index: 20;
@@ -7,7 +11,7 @@
   grid-row: 1;
   top: 0;
   align-self: start;
-  width: 350px;
+  width: 400px;
   height: 100dvh;
   overflow: hidden;
   border-inline-end: 1px solid #000;
@@ -133,17 +137,17 @@
   font-size: 0.82rem;
 }
 .inputRow {
-  grid-template-columns: minmax(78px, auto) 1fr;
+  grid-template-columns: 150px minmax(0, 1fr);
 }
 .rangeRow {
-  grid-template-columns: minmax(100px, auto) 1fr 1fr;
+  grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr);
   margin: 0;
   padding: 0;
   border: 0;
 }
 .rangeRow legend {
   float: left;
-  width: 100px;
+  width: 150px;
   padding: 0;
 }
 .inputRow select,
@@ -176,25 +180,49 @@
 
 @media (max-width: 1260px) {
   .drawer {
-    width: 350px;
+    width: 400px;
   }
 }
 @media (max-width: 799px) {
+  .backdrop {
+    position: fixed;
+    z-index: 19;
+    inset: 0;
+    display: block;
+    border: 0;
+    background: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 180ms ease,
+      visibility 0s linear 180ms;
+  }
+  .backdrop.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
   .drawer {
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-block-end: auto;
+    inset-inline-start: 0;
     width: min(350px, 100vw);
-    height: auto;
+    height: 100dvh;
+    max-height: 100dvh;
     margin: 0;
   }
   :global([dir='rtl']) .drawer {
-    right: 0;
-    left: auto;
+    inset-inline-start: 0;
+  }
+  .clearButton {
+    padding-block-end: max(15px, env(safe-area-inset-bottom));
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .backdrop,
   .drawer,
   .iconButton {
     transition: none;

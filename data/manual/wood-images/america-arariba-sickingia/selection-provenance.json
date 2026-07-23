@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-arariba-sickingia",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "24be3cd8167c28f9187be4f49948e5234512023e970280f563fc42af59aed8a6",
+      "sourceWidth": 2694,
+      "sourceHeight": 1466,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

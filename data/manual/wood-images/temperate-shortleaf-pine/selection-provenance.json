@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-shortleaf-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "1c14d594b5f9764e4e65db40a170b880c623ee55decd5be76eee58edf0bff8e6",
+      "sourceWidth": 2413,
+      "sourceHeight": 1424,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-albizzia",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "1d63b693a736ee32768d1a251daa64a1e52e2a181989c7bee16911b58737ba2c",
+      "sourceWidth": 2186,
+      "sourceHeight": 1584,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "a8d8692ba82b7909418b5a9419d70798106497bc9d5231dc021d88219e8ffe1d",
+      "sourceWidth": 1655,
+      "sourceHeight": 975,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

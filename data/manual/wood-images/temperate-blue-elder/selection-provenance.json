@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-blue-elder",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "465252c1cc18aaa879f65262bb231bd0351ee07dda53fe12f55d8a42a13c4e29",
+      "sourceWidth": 1167,
+      "sourceHeight": 469,
+      "outputFile": "radial.jpg",
+      "outputWidth": 469,
+      "outputHeight": 469,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "37568a0904e9b3489ee7dea60a683e3180c6a08e9fbf68091d7af888dbc4bd4f",
+      "sourceWidth": 1127,
+      "sourceHeight": 429,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 429,
+      "outputHeight": 429,
+      "matchedCandidate": null
+    }
+  ]
+}

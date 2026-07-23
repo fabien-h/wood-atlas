@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-african-cherry",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "b9f89599b568f186e1284218f6fb23c18e62915aad5dc9bde7b2fc8969c77265",
+      "sourceWidth": 373,
+      "sourceHeight": 266,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 266,
+      "outputHeight": 266,
+      "matchedCandidate": null
+    }
+  ]
+}

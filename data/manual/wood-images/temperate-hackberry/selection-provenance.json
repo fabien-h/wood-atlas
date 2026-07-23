@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-hackberry",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "9b70462a58c2ae4308ec1335e6665e675888afff0cf03fd4cb9af6a3bbed7b58",
+      "sourceWidth": 1352,
+      "sourceHeight": 786,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 786,
+      "outputHeight": 786,
+      "matchedCandidate": null
+    }
+  ]
+}

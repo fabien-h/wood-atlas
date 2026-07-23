@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-osage-orange",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "f07852f0b1a60a09b7fcf806ec07257e8292399c5eb2c52b589da3bff72c847e",
+      "sourceWidth": 616,
+      "sourceHeight": 655,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 616,
+      "outputHeight": 616,
+      "matchedCandidate": null
+    }
+  ]
+}

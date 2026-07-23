@@ -12,7 +12,8 @@ export const it = {
     'Questo atlante dei legni è open source. Il codice sorgente è disponibile su GitHub.',
   aboutDataSourcesTitle: 'Fonti dei dati',
   aboutDataSources:
-    'Tutti i dati sui legni di questo atlante provengono dalla banca dati Tropix e dall’unità di ricerca BioWooEB del CIRAD.',
+    'La maggior parte dei dati proviene da Tropix, dall’unità BioWooEB del CIRAD, dal Forest Products Laboratory dell’USDA e dal Laboratorio dei prodotti forestali del Servizio forestale brasiliano (LPF/SFB). Le schede aggiuntive citano le proprie fonti.',
+  contact: 'Contatti',
   atlas: 'Atlante dei legni',
   searchPlaceholder: 'Cerca nomi, impieghi, paesi…',
   clearSearch: 'Cancella ricerca',
@@ -61,6 +62,7 @@ export const it = {
   materialMap: 'Mappa dei materiali',
   hardnessVsRadialShrinkage: 'Durezza e ritiro radiale',
   monninHardness: 'Durezza Monnin',
+  jankaHardness: 'Durezza Janka',
   radialShrinkage: 'Ritiro radiale',
   distribution: 'Distribuzione',
   specificGravity: 'Peso specifico',

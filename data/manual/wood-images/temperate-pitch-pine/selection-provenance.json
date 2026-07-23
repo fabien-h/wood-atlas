@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-pitch-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "08261bc49faf012ae3b3a7e6192f99b2c8f891151aff183a61ae9299154348de",
+      "sourceWidth": 2257,
+      "sourceHeight": 1669,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

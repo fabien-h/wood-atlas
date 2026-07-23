@@ -11,7 +11,9 @@ export type SortKey =
   | 'tangentialShrinkage'
   | 'modulus'
   | 'fungi'
-  | 'termites';
+  | 'termites'
+  | 'treatability'
+  | 'naturalUseClass';
 export type SortDirection = 'none' | 'asc' | 'desc';
 export interface WoodSort {
   key: SortKey;
@@ -21,6 +23,13 @@ export interface SearchIndexEntry {
   text: string;
   terms: string[];
 }
+type ClassKind = 'fungi' | 'termites' | 'treatability' | 'naturalUseClass';
+interface ClassSortValue {
+  type: 'class';
+  start: number;
+  end: number;
+}
+type SortValue = string | number | ClassSortValue | null;
 
 export const defaultSort: WoodSort = { key: 'name', direction: 'none' };
 export const sortKeys: SortKey[] = [
@@ -33,6 +42,8 @@ export const sortKeys: SortKey[] = [
   'modulus',
   'fungi',
   'termites',
+  'treatability',
+  'naturalUseClass',
 ];
 
 export function buildSearchIndex(records: WoodRecord[]) {
@@ -67,8 +78,12 @@ export function woodMatches(
   if (!includesCategoryOrEmpty(filters.textures, wood.appearance.texture.value)) return false;
   if (!includesCategoryOrEmpty(filters.grains, wood.appearance.grain.value)) return false;
   if (!includesCategoryOrEmpty(filters.fungi, wood.durability.fungi.value)) return false;
+  if (!includesCategoryOrEmpty(filters.dryWoodBorers, wood.durability.dryWoodBorers.value))
+    return false;
   if (!includesCategoryOrEmpty(filters.termites, wood.durability.termites.value)) return false;
   if (!includesCategoryOrEmpty(filters.treatability, wood.durability.treatability.value))
+    return false;
+  if (!includesCategoryOrEmpty(filters.naturalUseClasses, wood.durability.naturalUseClass.value))
     return false;
   if (!includesCategoryOrEmpty(filters.drying, wood.drying.rate.value)) return false;
   if (
@@ -114,8 +129,8 @@ export function buildSearchIndexEntry(value: string): SearchIndexEntry {
 export function sortWoods(records: WoodRecord[], sort: WoodSort) {
   if (sort.direction === 'none') return [...records];
   const direction = sort.direction === 'asc' ? 1 : -1;
-  return [...records].sort(
-    (a, b) => compareValues(sortValue(a, sort.key), sortValue(b, sort.key)) * direction,
+  return [...records].sort((a, b) =>
+    compareValues(sortValue(a, sort.key), sortValue(b, sort.key), direction),
   );
 }
 
@@ -124,7 +139,7 @@ export function formatMeasure(
   unit: string | null | undefined,
   copy: Translation,
 ) {
-  if (measure.value === null) return measure.raw || copy.unknown;
+  if (measure.value === null) return copy.unknown;
   const formatted =
     Math.abs(measure.value) >= 1000
       ? measure.value.toLocaleString(copy.locale)
@@ -142,24 +157,79 @@ export function formatNumber(value: number | null, digits: number, copy: Transla
       });
 }
 
-export function shortClass(value: string | null, copy: Translation) {
-  if (!value) return copy.unknown;
-  const match = value.match(
-    /\bclass(?:e)?(?:\s+de\s+durabilit[ée])?\s+(\d+|[A-Z])\b(?:\s*(?:-|–|—|to|à)\s*(?:class(?:e)?\s+)?(\d+|[A-Z])\b)?/i,
-  );
-  if (!match) return copy.unknown;
-  const label = copy.classLabel;
-  return `${label} ${match[1].toUpperCase()}${match[2] ? `–${match[2].toUpperCase()}` : ''}`;
+export function shortClass(value: string | null, copy: Translation, kind: ClassKind = 'fungi') {
+  const classRange = parseClassRange(value, kind);
+  if (!classRange) return copy.unknown;
+  const [start, end] = classRange;
+  return `${copy.classLabel} ${start}${end ? `–${end}` : ''}`;
 }
 
 export function durabilityScore(raw: string) {
-  const classMatch = raw.match(/Class\s+(\d+)/i);
-  if (classMatch) return Number(classMatch[1]);
-  if (/very durable|très durable/i.test(raw)) return 1;
-  if (/durable/i.test(raw) && !/not durable|non durable/i.test(raw)) return 2;
-  if (/moderately|moyennement/i.test(raw)) return 3;
-  if (/susceptible|not durable|not recommended|non durable|déconseill/i.test(raw)) return 5;
+  return classSortValue(raw, 'fungi')?.start ?? null;
+}
+
+function parseClassRange(value: string | null, kind: ClassKind): [string, string?] | null {
+  if (!value) return null;
+  const match = value.match(
+    /\bclass(?:e)?(?:\s+de\s+durabilit[ée])?\s*:?\s*(\d+(?:\.\d+)?|[DMS])\b(?:\s*\([^)]*\))?(?:\s*(?:-|–|—|to|à)\s*(?:class(?:e)?\s*)?(\d+(?:\.\d+)?|[DMS])\b(?:\s*\([^)]*\))?)?/i,
+  );
+  if (match) {
+    return [match[1].toUpperCase(), match[2]?.toUpperCase()];
+  }
+
+  const normalized = value
+    .normalize('NFKD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase();
+  if (kind === 'termites') {
+    if (/susceptible|sensible|not resistant|non resistant/u.test(normalized)) return ['S'];
+    if (/moderately|moyennement/u.test(normalized)) return ['M'];
+    if (/resistant|durable/u.test(normalized)) return ['D'];
+    return null;
+  }
+
+  if (/moderate to low|moyenne? a faible/u.test(normalized)) return ['3', '4'];
+  if (
+    /slightly resistant (?:to|or) nonresistant|legerement resistant (?:a|ou) non resistant/u.test(
+      normalized,
+    )
+  ) {
+    return ['4', '5'];
+  }
+  if (
+    /exceptionally high|very resistant|highly resistant|very durable|tres resistant|tres durable/u.test(
+      normalized,
+    )
+  ) {
+    return ['1'];
+  }
+  if (
+    /susceptible|nonresistant|not durable|very limited|non durable|tres faible/u.test(normalized)
+  ) {
+    return ['5'];
+  }
+  if (/moderately|moyennement|moderate resistance/u.test(normalized)) return ['3'];
+  if (/slightly|poorly durable|low resistance|faiblement|legerement/u.test(normalized)) {
+    return ['4'];
+  }
+  if (/resistant|durable|good natural durability/u.test(normalized)) return ['2'];
   return null;
+}
+
+function classSortValue(value: string | null, kind: ClassKind): ClassSortValue | null {
+  const classRange = parseClassRange(value, kind);
+  if (!classRange) return null;
+  const start = classTokenValue(classRange[0]);
+  const end = classRange[1] ? classTokenValue(classRange[1]) : start;
+  if (start === null || end === null) return null;
+  return { type: 'class', start, end };
+}
+
+function classTokenValue(token: string) {
+  const numeric = Number(token);
+  if (Number.isFinite(numeric)) return numeric;
+  const letterRanks: Record<string, number> = { D: 1, M: 2, S: 3 };
+  return letterRanks[token] ?? null;
 }
 
 export function winningIndexes<T extends WoodRecord>(
@@ -262,18 +332,30 @@ function sortValue(wood: WoodRecord, key: SortKey) {
     case 'modulus':
       return wood.physics.modulusOfElasticity.value;
     case 'fungi':
-      return durabilityScore(wood.durability.fungi.raw);
+      return classSortValue(wood.durability.fungi.raw, 'fungi');
     case 'termites':
-      return durabilityScore(wood.durability.termites.raw);
+      return classSortValue(wood.durability.termites.raw, 'termites');
+    case 'treatability':
+      return classSortValue(wood.durability.treatability.raw, 'treatability');
+    case 'naturalUseClass':
+      return classSortValue(wood.durability.naturalUseClass.raw, 'naturalUseClass');
   }
 }
 
-function compareValues(a: string | number | null, b: string | number | null) {
+function compareValues(a: SortValue, b: SortValue, direction: 1 | -1) {
   if (a === null && b === null) return 0;
   if (a === null) return 1;
   if (b === null) return -1;
-  if (typeof a === 'number' && typeof b === 'number') return a - b;
-  return String(a).localeCompare(String(b));
+  if (isClassSortValue(a) && isClassSortValue(b)) {
+    const startComparison = a.start - b.start;
+    return (startComparison || a.end - b.end) * direction;
+  }
+  if (typeof a === 'number' && typeof b === 'number') return (a - b) * direction;
+  return String(a).localeCompare(String(b)) * direction;
+}
+
+function isClassSortValue(value: Exclude<SortValue, null>): value is ClassSortValue {
+  return typeof value === 'object' && value.type === 'class';
 }
 
 function rangeMatches(value: number | null, range: RangeFilter) {

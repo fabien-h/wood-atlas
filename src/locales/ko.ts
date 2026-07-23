@@ -11,7 +11,8 @@ export const ko = {
   aboutOpenSource: '이 목재 도감은 오픈 소스이며 소스 코드는 GitHub에서 확인할 수 있습니다.',
   aboutDataSourcesTitle: '데이터 출처',
   aboutDataSources:
-    '이 도감의 모든 목재 데이터는 Tropix 데이터베이스와 CIRAD BioWooEB 연구팀에서 제공됩니다.',
+    '이 도감의 대부분의 데이터는 Tropix, CIRAD BioWooEB, USDA 임산물 연구소 및 브라질 산림청 임산물 연구소(LPF/SFB)에서 제공됩니다. 추가 레코드는 각 상세 페이지에 출처가 표시됩니다.',
+  contact: '연락처',
   atlas: '목재 도감',
   searchPlaceholder: '이름, 용도, 국가 검색…',
   clearSearch: '검색 지우기',
@@ -60,6 +61,7 @@ export const ko = {
   materialMap: '재료 지도',
   hardnessVsRadialShrinkage: '경도와 방사 수축률 비교',
   monninHardness: '모냉 경도',
+  jankaHardness: '잔카 경도',
   radialShrinkage: '방사 수축률',
   distribution: '분포',
   specificGravity: '비중',

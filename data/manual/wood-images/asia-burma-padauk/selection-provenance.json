@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-burma-padauk",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "3adfd6e6e7cc836fc899122d342e8572d63e724864af8f5c97722b41a2394542",
+      "sourceWidth": 2275,
+      "sourceHeight": 1273,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

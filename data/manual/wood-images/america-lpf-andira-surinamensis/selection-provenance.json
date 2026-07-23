@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-andira-surinamensis",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "20a090ed955f74f3f06504daeba69f97573afe0e49b0c78633ce846e9e121954",
+      "sourceWidth": 480,
+      "sourceHeight": 284,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 284,
+      "outputHeight": 284,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=13",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Andira%20retusa3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Andira surinamensis\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies the record as Andira surinamensis = Andira retusa and captions this image Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. The image is entirely a clean longitudinal wood surface with visible grain; no tree, foliage, bark exterior, furniture, generic texture, diagram, or microscopy appears.",
+        "width": 480,
+        "height": 284,
+        "format": "jpeg",
+        "sha256": "20a090ed955f74f3f06504daeba69f97573afe0e49b0c78633ce846e9e121954",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-adjouaba",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "5fbc2348b7eebcec51ec96458822c1ba500c28a96c6d8ec5b52bb03ad8752c3e",
+      "sourceWidth": 800,
+      "sourceHeight": 800,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://tropix.cirad.fr/FichiersComplementaires/EN/Africa/IGAGANGA%202024.pdf",
+        "imageUrl": "https://tropix.cirad.fr/FichiersComplementaires/EN/Africa/IGAGANGA%202024.pdf",
+        "query": "\"Dacryodes spp.\" Dacryodes igaganga Adjouaba wood grain radial tangential quarter sawn flat sawn",
+        "intendedViewHint": "radial",
+        "identityBasis": "genusOnly",
+        "identityEvidence": "The CIRAD Tropix sheet explicitly identifies the timber as Dacryodes igaganga. This is an exact member of the requested genus-level Dacryodes spp. record.",
+        "visualCheckNotes": "Opened at 800 × 800. This is a quarter-sawn longitudinal wood surface with predominantly straight brown grain; no living plant, bark exterior, furniture, generic texture, diagram, or microscopic slide appears. The image is the original raster extracted from the CIRAD PDF by the project's Tropix extraction workflow.",
+        "width": 800,
+        "height": 800,
+        "format": "jpeg",
+        "sha256": "5fbc2348b7eebcec51ec96458822c1ba500c28a96c6d8ec5b52bb03ad8752c3e",
+        "agent": "pilot_africa",
+        "creator": "CIRAD Tropix",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "3c72a6dc052568ebaad93180d745df196f468589ec7c1e04c5e9313ee7057f03",
+      "sourceWidth": 800,
+      "sourceHeight": 800,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://tropix.cirad.fr/FichiersComplementaires/EN/Africa/IGAGANGA%202024.pdf",
+        "imageUrl": "https://tropix.cirad.fr/FichiersComplementaires/EN/Africa/IGAGANGA%202024.pdf",
+        "query": "\"Dacryodes spp.\" Dacryodes igaganga Adjouaba wood grain radial tangential quarter sawn flat sawn",
+        "intendedViewHint": "tangential",
+        "identityBasis": "genusOnly",
+        "identityEvidence": "The CIRAD Tropix sheet explicitly identifies the timber as Dacryodes igaganga. This is an exact member of the requested genus-level Dacryodes spp. record.",
+        "visualCheckNotes": "Opened at 800 × 800. The frame is filled by an exposed flat-sawn wood face with broad warm-brown figure and visible grain; it contains no tree, leaf, bark-only area, product scene, diagram, or microscopy. The image is the original raster extracted from the CIRAD PDF by the project's Tropix extraction workflow.",
+        "width": 800,
+        "height": 800,
+        "format": "jpeg",
+        "sha256": "3c72a6dc052568ebaad93180d745df196f468589ec7c1e04c5e9313ee7057f03",
+        "agent": "pilot_africa",
+        "creator": "CIRAD Tropix",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

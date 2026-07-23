@@ -106,12 +106,39 @@
   margin: 0;
   background: #000;
 }
-.imagePair img {
+.imageButton {
+  position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 1.15;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
   background: var(--field);
+}
+.imageButton:not(:disabled) {
+  cursor: zoom-in;
+}
+.imageButton img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition:
+    transform 220ms ease,
+    filter 220ms ease;
+}
+.imagePair .imageButton img {
+  aspect-ratio: 1.15;
   object-fit: cover;
+}
+.imageButton:hover img {
+  filter: brightness(1.04);
+  transform: scale(1.012);
+}
+.imageButton:focus-visible {
+  z-index: 1;
+  outline: 3px solid #fff;
+  outline-offset: -6px;
 }
 .imagePair figcaption {
   color: #fff;
@@ -158,7 +185,10 @@
   border-bottom: 1px solid var(--line);
 }
 .kv span {
+  min-width: 0;
   color: var(--muted);
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }
 .kv strong {
   font-weight: 640;
@@ -234,11 +264,63 @@
   gap: 25px;
   padding: 25px;
 }
-.exampleImages img {
-  display: block;
-  width: 100%;
-  height: auto;
+.exampleImages .imageButton {
   border: 1px solid var(--line);
+}
+.lightboxOverlay {
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: zoom-out;
+}
+.lightboxOverlay * {
+  cursor: zoom-out;
+}
+.lightboxOverlay[data-entering] {
+  animation: lightbox-in 160ms ease-out both;
+}
+.lightboxOverlay[data-exiting] {
+  animation: lightbox-out 140ms ease-in forwards;
+}
+.lightboxModal {
+  width: fit-content;
+  max-width: min(1500px, 100%);
+  max-height: calc(100dvh - 64px);
+  outline: none;
+}
+.lightboxDialog {
+  position: relative;
+  outline: none;
+}
+.lightboxDialog figure {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 100%;
+  max-height: calc(100dvh - 64px);
+  margin: 0;
+}
+.lightboxImage {
+  display: block;
+  align-self: center;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  max-width: 100%;
+  max-height: calc(100dvh - 118px);
+  object-fit: contain;
+}
+.lightboxDialog figcaption {
+  flex: 0 0 auto;
+  min-height: 54px;
+  padding: 10px 12px;
+  background: #000;
+  color: #fff;
+  font-size: 0.8rem;
 }
 .endUses {
   display: flex;
@@ -253,6 +335,54 @@
 }
 .endUses div:last-child {
   border: none;
+}
+.sourceProvider {
+  margin: 0;
+  padding: 15px 25px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8rem;
+}
+.sourceLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 58px;
+  padding: 12px 25px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  color: #000;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+.sourceLinks a:last-child {
+  border-bottom: 0;
+}
+.sourceLinks a:hover {
+  background: #000;
+  color: #fff;
+}
+.sourceLinks a:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: -4px;
+}
+.sourceLinks span,
+.sourceLinks small {
+  display: block;
+}
+.sourceLinks strong {
+  font-weight: 700;
+}
+.sourceLinks small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.733rem;
+}
+.sourceLinks a:hover small {
+  color: #ccc;
 }
 
 @keyframes backdrop-in {
@@ -289,6 +419,22 @@
   to {
     opacity: 0;
     transform: translateX(calc(100% + 25px));
+  }
+}
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes lightbox-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
@@ -334,13 +480,27 @@
   .imagePair {
     grid-template-columns: 1fr;
   }
+  .lightboxOverlay {
+    padding: 12px;
+  }
+  .lightboxModal,
+  .lightboxDialog figure {
+    max-height: calc(100dvh - 24px);
+  }
+  .lightboxImage {
+    max-height: calc(100dvh - 78px);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .overlay,
-  .modal {
+  .modal,
+  .lightboxOverlay {
     animation: none !important;
   }
   .header {
+    transition: none;
+  }
+  .imageButton img {
     transition: none;
   }
 }

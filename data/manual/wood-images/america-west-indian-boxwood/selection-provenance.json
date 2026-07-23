@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-west-indian-boxwood",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "ad6ab5827f8dfdc4576089437b4d42c514a7eb45a458310dd0170d927fac8b5f",
+      "sourceWidth": 2374,
+      "sourceHeight": 1403,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

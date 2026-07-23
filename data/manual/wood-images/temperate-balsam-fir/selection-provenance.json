@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-balsam-fir",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "346aa9cd726776f9c08f08439c2090fcbce8eecfa596e62e3d29156a620b393d",
+      "sourceWidth": 1320,
+      "sourceHeight": 550,
+      "outputFile": "radial.jpg",
+      "outputWidth": 550,
+      "outputHeight": 550,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_22.jpg",
+        "query": "\"Abies balsamea\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 22 prints ABIES BALSAMEA and RADIAL SECTION for the middle specimen.",
+        "visualCheckNotes": "Opened at native crop size. A physical radial wood face fills the image with straight growth lines; no tree, needles, bark, finished product, flooring, diagram, or microscopy is present.",
+        "derivedCrop": {
+          "left": 260,
+          "top": 1020,
+          "width": 1320,
+          "height": 550
+        },
+        "width": 1320,
+        "height": 550,
+        "format": "jpeg",
+        "sha256": "346aa9cd726776f9c08f08439c2090fcbce8eecfa596e62e3d29156a620b393d",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "ef93fb65a6ec0981b01fb35b79dc6c581841b826061dca3345ae131a0a4c9574",
+      "sourceWidth": 1320,
+      "sourceHeight": 550,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 550,
+      "outputHeight": 550,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_22.jpg",
+        "query": "\"Abies balsamea\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 22 prints ABIES BALSAMEA and TANGENTIAL SECTION for the lower specimen.",
+        "visualCheckNotes": "Opened at native crop size. A clean physical tangential face fills the image with natural cathedral grain; no living plant, bark-only image, furniture, flooring, or microscopy is present.",
+        "derivedCrop": {
+          "left": 260,
+          "top": 1730,
+          "width": 1320,
+          "height": 550
+        },
+        "width": 1320,
+        "height": 550,
+        "format": "jpeg",
+        "sha256": "ef93fb65a6ec0981b01fb35b79dc6c581841b826061dca3345ae131a0a4c9574",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

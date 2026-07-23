@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-silky-oak",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "4b9e698bfb1e2d73c1fa7596e6ebd32ef8d5442f9b8a5943169c87bed17b01c2",
+      "sourceWidth": 2496,
+      "sourceHeight": 1634,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

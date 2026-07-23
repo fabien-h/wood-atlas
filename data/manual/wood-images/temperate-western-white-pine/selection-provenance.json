@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-western-white-pine",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "da3e9a66526f097a020ec760cb2a512e313e4317092e305bed321c6e8d071ef6",
+      "sourceWidth": 2202,
+      "sourceHeight": 1411,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

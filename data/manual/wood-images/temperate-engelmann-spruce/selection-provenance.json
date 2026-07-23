@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-engelmann-spruce",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "60f86a4c080389c8b2d32c946c95ec273b335d25e24e3fadfbed8710581d8fa5",
+      "sourceWidth": 2097,
+      "sourceHeight": 1462,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

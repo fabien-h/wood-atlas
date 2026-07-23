@@ -1,6 +1,51 @@
 {
   "images": [
     {
+      "woodId": "africa-adjouaba",
+      "kind": "flatSawn",
+      "sourceFile": "africa-adjouaba/tangential.jpg"
+    },
+    {
+      "woodId": "africa-adjouaba",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-adjouaba/radial.jpg"
+    },
+    {
+      "woodId": "africa-afina",
+      "kind": "flatSawn",
+      "sourceFile": "africa-afina/tangential.jpg"
+    },
+    {
+      "woodId": "africa-afina",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-afina/radial.jpg"
+    },
+    {
+      "woodId": "africa-african-cherry",
+      "kind": "flatSawn",
+      "sourceFile": "africa-african-cherry/tangential.jpg"
+    },
+    {
+      "woodId": "africa-african-pencil-cedar",
+      "kind": "flatSawn",
+      "sourceFile": "africa-african-pencil-cedar/tangential.jpg"
+    },
+    {
+      "woodId": "africa-albizzia",
+      "kind": "flatSawn",
+      "sourceFile": "africa-albizzia/tangential.jpg"
+    },
+    {
+      "woodId": "africa-albizzia",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-albizzia/radial.jpg"
+    },
+    {
+      "woodId": "africa-burkea",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-burkea/radial.jpg"
+    },
+    {
       "woodId": "africa-ekki",
       "kind": "flatSawn",
       "sourceFile": "africa-ekki/tangential.jpg"
@@ -51,6 +96,11 @@
       "sourceFile": "africa-moabi/radial.jpg"
     },
     {
+      "woodId": "africa-muninga",
+      "kind": "flatSawn",
+      "sourceFile": "africa-muninga/tangential.jpg"
+    },
+    {
       "woodId": "africa-ohia",
       "kind": "flatSawn",
       "sourceFile": "africa-ohia/tangential.jpg"
@@ -59,6 +109,21 @@
       "woodId": "africa-ohia",
       "kind": "quarterSawn",
       "sourceFile": "africa-ohia/radial.jpg"
+    },
+    {
+      "woodId": "africa-podo",
+      "kind": "flatSawn",
+      "sourceFile": "africa-podo/tangential.jpg"
+    },
+    {
+      "woodId": "africa-rhodesian-teak",
+      "kind": "flatSawn",
+      "sourceFile": "africa-rhodesian-teak/tangential.jpg"
+    },
+    {
+      "woodId": "africa-sugar-plum",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-sugar-plum/radial.jpg"
     },
     {
       "woodId": "africa-tali-missanda",
@@ -71,6 +136,110 @@
       "sourceFile": "africa-tali-missanda/radial.jpg"
     },
     {
+      "woodId": "africa-vitex",
+      "kind": "flatSawn",
+      "sourceFile": "africa-vitex/tangential.jpg"
+    },
+    {
+      "woodId": "africa-vitex",
+      "kind": "quarterSawn",
+      "sourceFile": "africa-vitex/radial.jpg"
+    },
+    {
+      "woodId": "america-alerce",
+      "kind": "flatSawn",
+      "sourceFile": "america-alerce/tangential.jpg"
+    },
+    {
+      "woodId": "america-alerce",
+      "kind": "quarterSawn",
+      "sourceFile": "america-alerce/radial.jpg"
+    },
+    {
+      "woodId": "america-amendoim",
+      "kind": "flatSawn",
+      "sourceFile": "america-amendoim/tangential.jpg"
+    },
+    {
+      "woodId": "america-amendoim",
+      "kind": "quarterSawn",
+      "sourceFile": "america-amendoim/radial.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:9504b-Pterogyne_nitens_(Amendoim_bravo).jpg",
+      "creator": "Vojtěch Zavadil",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    {
+      "woodId": "america-arariba",
+      "kind": "flatSawn",
+      "sourceFile": "america-arariba/tangential.jpg"
+    },
+    {
+      "woodId": "america-arariba-sickingia",
+      "kind": "flatSawn",
+      "sourceFile": "america-arariba-sickingia/tangential.jpg"
+    },
+    {
+      "woodId": "america-black-mangrove",
+      "kind": "flatSawn",
+      "sourceFile": "america-black-mangrove/tangential.jpg"
+    },
+    {
+      "woodId": "america-black-mangrove",
+      "kind": "quarterSawn",
+      "sourceFile": "america-black-mangrove/radial.jpg"
+    },
+    {
+      "woodId": "america-blue-mahoe",
+      "kind": "flatSawn",
+      "sourceFile": "america-blue-mahoe/tangential.jpg"
+    },
+    {
+      "woodId": "america-buttonwood",
+      "kind": "flatSawn",
+      "sourceFile": "america-buttonwood/tangential.jpg"
+    },
+    {
+      "woodId": "america-buttonwood",
+      "kind": "quarterSawn",
+      "sourceFile": "america-buttonwood/radial.jpg"
+    },
+    {
+      "woodId": "america-caviuna",
+      "kind": "flatSawn",
+      "sourceFile": "america-caviuna/tangential.jpg"
+    },
+    {
+      "woodId": "america-cocobolo",
+      "kind": "flatSawn",
+      "sourceFile": "america-cocobolo/tangential.jpg"
+    },
+    {
+      "woodId": "america-cocobolo",
+      "kind": "quarterSawn",
+      "sourceFile": "america-cocobolo/radial.jpg"
+    },
+    {
+      "woodId": "america-degame",
+      "kind": "flatSawn",
+      "sourceFile": "america-degame/tangential.jpg"
+    },
+    {
+      "woodId": "america-gumbo-limbo",
+      "kind": "flatSawn",
+      "sourceFile": "america-gumbo-limbo/tangential.jpg"
+    },
+    {
+      "woodId": "america-gumbo-limbo",
+      "kind": "quarterSawn",
+      "sourceFile": "america-gumbo-limbo/radial.jpg"
+    },
+    {
+      "woodId": "america-honduras-rosewood",
+      "kind": "flatSawn",
+      "sourceFile": "america-honduras-rosewood/tangential.jpg"
+    },
+    {
       "woodId": "america-ipe",
       "kind": "flatSawn",
       "sourceFile": "america-ipe/tangential.jpg"
@@ -79,6 +248,160 @@
       "woodId": "america-ipe",
       "kind": "quarterSawn",
       "sourceFile": "america-ipe/radial.jpg"
+    },
+    {
+      "woodId": "america-lechero",
+      "kind": "flatSawn",
+      "sourceFile": "america-lechero/tangential.jpg"
+    },
+    {
+      "woodId": "america-lignumvitae",
+      "kind": "flatSawn",
+      "sourceFile": "america-lignumvitae/tangential.jpg"
+    },
+    {
+      "woodId": "america-lingue",
+      "kind": "flatSawn",
+      "sourceFile": "america-lingue/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-acioa-sp",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-acioa-sp/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-anacardium-occidentale",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-anacardium-occidentale/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-andira-sp",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-andira-sp/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-andira-surinamensis",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-andira-surinamensis/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-diploon-cuspidatum",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-diploon-cuspidatum/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-hymenolobium-modestum",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-hymenolobium-modestum/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-hymenolobium-nitidum",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-hymenolobium-nitidum/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-hymenolobium-pulcherrimum",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-hymenolobium-pulcherrimum/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-hymenolobium-pulcherrimum",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-hymenolobium-pulcherrimum/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-hymenolobium-sp",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-hymenolobium-sp/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-lueheopsis-duckeana",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-lueheopsis-duckeana/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-macrolobium-acacifolium",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-macrolobium-acacifolium/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-manilkara-sp",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-manilkara-sp/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-micropholis-mensalis",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-micropholis-mensalis/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-ocotea-aciphylla",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-ocotea-aciphylla/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-peltogyne-cf-subsessilis",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-peltogyne-cf-subsessilis/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-pouteria-anomala",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-pouteria-anomala/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-pouteria-egregia",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-pouteria-egregia/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-pouteria-oppositifolia",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-pouteria-oppositifolia/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-pouteria-oppositifolia",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-pouteria-oppositifolia/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-pouteria-sp",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-pouteria-sp/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-trattinnickia-burserifolia",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-trattinnickia-burserifolia/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-vatairea-sericea",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-vatairea-sericea/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-virola-michelii",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-virola-michelii/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-zollernia-paraensis",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-zollernia-paraensis/tangential.jpg"
+    },
+    {
+      "woodId": "america-mesquite",
+      "kind": "flatSawn",
+      "sourceFile": "america-mesquite/tangential.jpg"
+    },
+    {
+      "woodId": "america-mesquite",
+      "kind": "quarterSawn",
+      "sourceFile": "america-mesquite/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
     },
     {
       "woodId": "america-purpleheart",
@@ -91,6 +414,76 @@
       "sourceFile": "america-purpleheart/radial.jpg"
     },
     {
+      "woodId": "america-raintree",
+      "kind": "flatSawn",
+      "sourceFile": "america-raintree/tangential.jpg"
+    },
+    {
+      "woodId": "america-red-mangrove",
+      "kind": "flatSawn",
+      "sourceFile": "america-red-mangrove/tangential.jpg"
+    },
+    {
+      "woodId": "america-red-mangrove",
+      "kind": "quarterSawn",
+      "sourceFile": "america-red-mangrove/radial.jpg"
+    },
+    {
+      "woodId": "america-sabicu",
+      "kind": "flatSawn",
+      "sourceFile": "america-sabicu/tangential.jpg"
+    },
+    {
+      "woodId": "america-san-domingo-boxwood",
+      "kind": "flatSawn",
+      "sourceFile": "america-san-domingo-boxwood/tangential.jpg"
+    },
+    {
+      "woodId": "america-verawood",
+      "kind": "flatSawn",
+      "sourceFile": "america-verawood/tangential.jpg"
+    },
+    {
+      "woodId": "america-west-indian-boxwood",
+      "kind": "flatSawn",
+      "sourceFile": "america-west-indian-boxwood/tangential.jpg"
+    },
+    {
+      "woodId": "asia-australian-blackwood",
+      "kind": "flatSawn",
+      "sourceFile": "asia-australian-blackwood/tangential.jpg"
+    },
+    {
+      "woodId": "asia-berangan",
+      "kind": "flatSawn",
+      "sourceFile": "asia-berangan/tangential.jpg"
+    },
+    {
+      "woodId": "asia-bishopwood",
+      "kind": "flatSawn",
+      "sourceFile": "asia-bishopwood/tangential.jpg"
+    },
+    {
+      "woodId": "asia-bluegum",
+      "kind": "flatSawn",
+      "sourceFile": "asia-bluegum/tangential.jpg"
+    },
+    {
+      "woodId": "asia-burma-padauk",
+      "kind": "flatSawn",
+      "sourceFile": "asia-burma-padauk/tangential.jpg"
+    },
+    {
+      "woodId": "asia-cinnamon",
+      "kind": "flatSawn",
+      "sourceFile": "asia-cinnamon/tangential.jpg"
+    },
+    {
+      "woodId": "asia-cordia",
+      "kind": "flatSawn",
+      "sourceFile": "asia-cordia/tangential.jpg"
+    },
+    {
       "woodId": "asia-cryptomeria",
       "kind": "flatSawn",
       "sourceFile": "asia-cryptomeria/tangential.jpg"
@@ -99,6 +492,392 @@
       "woodId": "asia-cryptomeria",
       "kind": "quarterSawn",
       "sourceFile": "asia-cryptomeria/radial.jpg"
+    },
+    {
+      "woodId": "asia-deglupta",
+      "kind": "flatSawn",
+      "sourceFile": "asia-deglupta/tangential.jpg"
+    },
+    {
+      "woodId": "asia-persian-lilac",
+      "kind": "flatSawn",
+      "sourceFile": "asia-persian-lilac/tangential.jpg"
+    },
+    {
+      "woodId": "asia-silky-oak",
+      "kind": "quarterSawn",
+      "sourceFile": "asia-silky-oak/radial.jpg"
+    },
+    {
+      "woodId": "asia-toon",
+      "kind": "flatSawn",
+      "sourceFile": "asia-toon/tangential.jpg"
+    },
+    {
+      "woodId": "asia-white-cypress-pine",
+      "kind": "flatSawn",
+      "sourceFile": "asia-white-cypress-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-alaska-cedar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-alaska-cedar/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-alaska-cedar",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-alaska-cedar/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-alligator-juniper",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-alligator-juniper/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-alligator-juniper",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-alligator-juniper/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-ash",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-american-ash/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-ash",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-american-ash/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-basswood",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-american-basswood/tangential.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tilia_americana_sections.jpg",
+      "creator": "Romeyn B. Hough; source scan by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-basswood",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-american-basswood/radial.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tilia_americana_sections.jpg",
+      "creator": "Romeyn B. Hough; source scan by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-beech",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-american-beech/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-beech",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-american-beech/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-birch",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-american-birch/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-birch",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-american-birch/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-chestnut",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-american-chestnut/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-chestnut",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-american-chestnut/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-holly",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-american-holly/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-holly",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-american-holly/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-hophornbeam",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-american-hophornbeam/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-hophornbeam",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-american-hophornbeam/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-hornbeam",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-american-hornbeam/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-hornbeam",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-american-hornbeam/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-sycamore",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-american-sycamore/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-american-sycamore",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-american-sycamore/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-apple",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-apple/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-atlantic-white-cedar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-atlantic-white-cedar/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-atlantic-white-cedar",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-atlantic-white-cedar/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-baldcypress",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-baldcypress/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-baldcypress",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-baldcypress/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-balsam-fir",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-balsam-fir/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-balsam-fir",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-balsam-fir/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-black-cherry",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-black-cherry/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-black-cherry",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-black-cherry/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-black-spruce",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-black-spruce/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-black-walnut",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-black-walnut/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-black-walnut",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-black-walnut/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-black-willow",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-black-willow/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-black-willow",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-black-willow/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-blue-elder",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-blue-elder/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-blue-elder",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-blue-elder/radial.jpg"
+    },
+    {
+      "woodId": "temperate-boxelder",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-boxelder/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-butternut",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-butternut/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-california-laurel",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-california-laurel/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-california-red-fir",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-california-red-fir/radial.jpg"
+    },
+    {
+      "woodId": "temperate-cascara-buckthorn",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-cascara-buckthorn/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-cascara-buckthorn",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-cascara-buckthorn/radial.jpg"
+    },
+    {
+      "woodId": "temperate-catalpa",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-catalpa/tangential.jpg"
     },
     {
       "woodId": "temperate-cedar",
@@ -119,6 +898,31 @@
       "woodId": "temperate-chestnut",
       "kind": "quarterSawn",
       "sourceFile": "temperate-chestnut/radial.jpg"
+    },
+    {
+      "woodId": "temperate-common-persimmon",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-common-persimmon/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-eastern-hemlock",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-eastern-hemlock/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-eastern-redcedar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-eastern-redcedar/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-eastern-white-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-eastern-white-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-engelmann-spruce",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-engelmann-spruce/radial.jpg"
     },
     {
       "woodId": "temperate-european-ash",
@@ -179,6 +983,185 @@
       "sourceFile": "temperate-fir/radial.jpg"
     },
     {
+      "woodId": "temperate-flowering-dogwood",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-flowering-dogwood/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-giant-chinkapin",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-giant-chinkapin/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-grand-fir",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-grand-fir/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-hackberry",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-hackberry/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-hickory",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-hickory/radial.jpg"
+    },
+    {
+      "woodId": "temperate-honeylocust",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-honeylocust/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-incense-cedar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-incense-cedar/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-incense-cedar",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-incense-cedar/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-jack-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-jack-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-jeffrey-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-jeffrey-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-kentucky-coffeetree",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-kentucky-coffeetree/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-kentucky-coffeetree",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-kentucky-coffeetree/radial.jpg"
+    },
+    {
+      "woodId": "temperate-limber-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-limber-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-loblolly-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-loblolly-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-lodgepole-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-lodgepole-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-longleaf-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-longleaf-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-madrone",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-madrone/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-maritime-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-maritime-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-mountain-hemlock",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-mountain-hemlock/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-mountain-laurel",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-mountain-laurel/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-noble-fir",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-noble-fir/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-north-american-elm",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-north-american-elm/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-north-american-elm",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-north-american-elm/radial.jpg"
+    },
+    {
+      "woodId": "temperate-north-american-magnolia",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-north-american-magnolia/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-north-american-maple",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-north-american-maple/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-northern-red-oak",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-northern-red-oak/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-northern-red-oak",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-northern-red-oak/radial.jpg"
+    },
+    {
+      "woodId": "temperate-northern-white-cedar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-northern-white-cedar/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-osage-orange",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-osage-orange/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-pacific-silver-fir",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-pacific-silver-fir/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-pacific-yew",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-pacific-yew/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-pinyon",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-pinyon/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-pitch-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-pitch-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-pond-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-pond-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-ponderosa-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-ponderosa-pine/tangential.jpg"
+    },
+    {
       "woodId": "temperate-poplar",
       "kind": "flatSawn",
       "sourceFile": "temperate-poplar/tangential.jpg"
@@ -187,6 +1170,41 @@
       "woodId": "temperate-poplar",
       "kind": "quarterSawn",
       "sourceFile": "temperate-poplar/radial.jpg"
+    },
+    {
+      "woodId": "temperate-port-orford-cedar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-port-orford-cedar/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-red-alder",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-red-alder/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-red-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-red-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-red-spruce",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-red-spruce/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-redwood",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-redwood/radial.jpg"
+    },
+    {
+      "woodId": "temperate-sand-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-sand-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-sassafras",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-sassafras/radial.jpg"
     },
     {
       "woodId": "temperate-scots-pine",
@@ -199,6 +1217,54 @@
       "sourceFile": "temperate-scots-pine/radial.jpg"
     },
     {
+      "woodId": "temperate-serviceberry",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-serviceberry/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-shortleaf-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-shortleaf-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-silverbell",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-silverbell/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-silverbell",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-silverbell/radial.jpg"
+    },
+    {
+      "woodId": "temperate-sitka-spruce",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-sitka-spruce/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-slash-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-slash-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-sourwood",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-sourwood/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-sourwood",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-sourwood/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
       "woodId": "temperate-spruce",
       "kind": "flatSawn",
       "sourceFile": "temperate-spruce/tangential.jpg"
@@ -207,6 +1273,49 @@
       "woodId": "temperate-spruce",
       "kind": "quarterSawn",
       "sourceFile": "temperate-spruce/radial.jpg"
+    },
+    {
+      "woodId": "temperate-spruce-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-spruce-pine/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-spruce-pine",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-spruce-pine/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-staghorn-sumac",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-staghorn-sumac/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-subalpine-fir",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-subalpine-fir/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-sugar-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-sugar-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-sweetbay",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-sweetbay/radial.jpg"
+    },
+    {
+      "woodId": "temperate-sweetgum",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-sweetgum/tangential.jpg"
     },
     {
       "woodId": "temperate-sycamore",
@@ -219,6 +1328,64 @@
       "sourceFile": "temperate-sycamore/radial.jpg"
     },
     {
+      "woodId": "temperate-table-mountain-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-table-mountain-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-tamarack",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-tamarack/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-tanoak",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-tanoak/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-tanoak",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-tanoak/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-tree-of-heaven",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-tree-of-heaven/radial.jpg"
+    },
+    {
+      "woodId": "temperate-tupelo",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-tupelo/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-virginia-pine",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-virginia-pine/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-western-hemlock",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-western-hemlock/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-western-juniper",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-western-juniper/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-western-larch",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-western-larch/radial.jpg"
+    },
+    {
       "woodId": "temperate-western-red-cedar",
       "kind": "flatSawn",
       "sourceFile": "temperate-western-red-cedar/tangential.jpg"
@@ -227,6 +1394,68 @@
       "woodId": "temperate-western-red-cedar",
       "kind": "quarterSawn",
       "sourceFile": "temperate-western-red-cedar/radial.jpg"
+    },
+    {
+      "woodId": "temperate-western-white-pine",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-western-white-pine/radial.jpg"
+    },
+    {
+      "woodId": "temperate-white-fir",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-white-fir/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-white-fir",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-white-fir/radial.jpg"
+    },
+    {
+      "woodId": "temperate-white-spruce",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-white-spruce/tangential.jpg"
+    },
+    {
+      "woodId": "temperate-white-spruce",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-white-spruce/radial.jpg"
+    },
+    {
+      "woodId": "temperate-witch-hazel",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-witch-hazel/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-witch-hazel",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-witch-hazel/radial.jpg"
+    },
+    {
+      "woodId": "temperate-yellow-buckeye",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-yellow-buckeye/tangential.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-yellow-buckeye",
+      "kind": "quarterSawn",
+      "sourceFile": "temperate-yellow-buckeye/radial.jpg",
+      "sourceUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+      "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+      "license": "Public-domain source publication (1888–1910)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "woodId": "temperate-yellow-poplar",
+      "kind": "flatSawn",
+      "sourceFile": "temperate-yellow-poplar/tangential.jpg"
     }
   ]
 }

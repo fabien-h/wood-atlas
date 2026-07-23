@@ -12,7 +12,8 @@ export const pt = {
     'Este atlas de madeiras é de código aberto. O código-fonte está disponível no GitHub.',
   aboutDataSourcesTitle: 'Fontes de dados',
   aboutDataSources:
-    'Todos os dados sobre madeiras deste atlas provêm da base de dados Tropix e da unidade de investigação BioWooEB do CIRAD.',
+    'A maioria dos dados deste atlas provém do Tropix, da unidade BioWooEB do CIRAD, do Laboratório de Produtos Florestais do USDA e do Laboratório de Produtos Florestais do Serviço Florestal Brasileiro (LPF/SFB). As fichas adicionais citam as respetivas fontes.',
+  contact: 'Contacto',
   atlas: 'Atlas de madeiras',
   searchPlaceholder: 'Pesquisar nomes, utilizações, países…',
   clearSearch: 'Limpar pesquisa',
@@ -61,6 +62,7 @@ export const pt = {
   materialMap: 'Mapa de materiais',
   hardnessVsRadialShrinkage: 'Dureza vs. retração radial',
   monninHardness: 'Dureza Monnin',
+  jankaHardness: 'Dureza Janka',
   radialShrinkage: 'Retração radial',
   distribution: 'Distribuição',
   specificGravity: 'Densidade relativa',

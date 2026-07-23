@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-gumbo-limbo",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "374f5be815fe94e856c0dab780dd5a4859d6ae582eed3c2887736782882d3127",
+      "sourceWidth": 1268,
+      "sourceHeight": 491,
+      "outputFile": "radial.jpg",
+      "outputWidth": 491,
+      "outputHeight": 491,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "013c0580674f2f4df791240f1555699c34acbf8cca3072694c67663928abc116",
+      "sourceWidth": 1279,
+      "sourceHeight": 507,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 507,
+      "outputHeight": 507,
+      "matchedCandidate": null
+    }
+  ]
+}

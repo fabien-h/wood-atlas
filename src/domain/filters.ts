@@ -12,8 +12,10 @@ export interface Filters {
   textures: string[];
   grains: string[];
   fungi: string[];
+  dryWoodBorers: string[];
   termites: string[];
   treatability: string[];
+  naturalUseClasses: string[];
   drying: string[];
   endUse: string;
   cites: 'all' | 'listed' | 'not-listed' | 'unknown';
@@ -25,7 +27,16 @@ export interface Filters {
 }
 
 export type MultiValueFilterKey =
-  'regions' | 'colours' | 'textures' | 'grains' | 'fungi' | 'termites' | 'treatability' | 'drying';
+  | 'regions'
+  | 'colours'
+  | 'textures'
+  | 'grains'
+  | 'fungi'
+  | 'dryWoodBorers'
+  | 'termites'
+  | 'treatability'
+  | 'naturalUseClasses'
+  | 'drying';
 
 export type RangeFilterKey =
   'density' | 'hardness' | 'radialShrinkage' | 'tangentialShrinkage' | 'modulus';
@@ -44,8 +55,10 @@ export const defaultFilters: Filters = {
   textures: [],
   grains: [],
   fungi: [],
+  dryWoodBorers: [],
   termites: [],
   treatability: [],
+  naturalUseClasses: [],
   drying: [],
   endUse: '',
   cites: 'all',
@@ -63,8 +76,10 @@ export function buildFacets(records: WoodRecord[]) {
     textures: uniqueCategory(records.map((wood) => wood.appearance.texture.value)),
     grains: uniqueCategory(records.map((wood) => wood.appearance.grain.value)),
     fungi: uniqueCategory(records.map((wood) => wood.durability.fungi.value)),
+    dryWoodBorers: uniqueCategory(records.map((wood) => wood.durability.dryWoodBorers.value)),
     termites: uniqueCategory(records.map((wood) => wood.durability.termites.value)),
     treatability: uniqueCategory(records.map((wood) => wood.durability.treatability.value)),
+    naturalUseClasses: uniqueCategory(records.map((wood) => wood.durability.naturalUseClass.value)),
     drying: uniqueCategory(records.map((wood) => wood.drying.rate.value)),
     endUses: uniqueCategory(records.flatMap((wood) => wood.endUses)),
   };
@@ -93,8 +108,10 @@ export function buildActiveFilterTags(filters: Filters, copy: Translation): Acti
   addValues('textures', copy.texture);
   addValues('grains', copy.grain);
   addValues('fungi', copy.fungi);
+  addValues('dryWoodBorers', copy.dryWoodBorers);
   addValues('termites', copy.termites);
   addValues('treatability', copy.treatability);
+  addValues('naturalUseClasses', copy.naturalUseClass);
   addValues('drying', copy.drying);
 
   if (filters.endUse) {

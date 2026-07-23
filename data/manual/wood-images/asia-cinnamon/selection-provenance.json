@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-cinnamon",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "14eee7ca34f4e97095582d17f7e2aff12886a9243513764e0c9ed0ab9f9305ef",
+      "sourceWidth": 2532,
+      "sourceHeight": 1574,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

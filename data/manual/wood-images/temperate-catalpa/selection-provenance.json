@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-catalpa",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "942f7bac5e5fbcb221e22509038bf0c5ee8b1e7067e4dd7842dff1feb4b2808b",
+      "sourceWidth": 2355,
+      "sourceHeight": 1608,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "units": [
+    {
+      "scope": "identity.localNames[].country",
+      "source": "British West Indies",
+      "translations": {
+        "ar": "جزر الهند الغربية البريطانية",
+        "bn": "ব্রিটিশ ওয়েস্ট ইন্ডিজ",
+        "de": "Britisch-Westindien",
+        "es": "Indias Occidentales Británicas",
+        "hi": "ब्रिटिश वेस्ट इंडीज",
+        "id": "Hindia Barat Britania",
+        "it": "Indie occidentali britanniche",
+        "ja": "イギリス領西インド諸島",
+        "ko": "영국령 서인도 제도",
+        "pt": "Índias Ocidentais Britânicas",
+        "ru": "Британская Вест-Индия",
+        "tr": "Britanya Batı Hint Adaları",
+        "ur": "برطانوی ویسٹ انڈیز",
+        "vi": "Tây Ấn thuộc Anh",
+        "zh-Hans": "英属西印度群岛"
+      }
+    },
+    {
+      "scope": "identity.localNames[].country",
+      "source": "Guianas",
+      "translations": {
+        "ar": "غيانا",
+        "bn": "গায়ানাস",
+        "de": "Guayanas",
+        "es": "Guayanas",
+        "hi": "गुयाना",
+        "id": "Guiana",
+        "it": "Guyane",
+        "ja": "ギアナ",
+        "ko": "기아나",
+        "pt": "Guianas",
+        "ru": "Гвианы",
+        "tr": "Guianas",
+        "ur": "گیاناس",
+        "vi": "Guianas",
+        "zh-Hans": "圭亚那"
+      }
+    },
+    {
+      "scope": "identity.localNames[].country",
+      "source": "Norfolk Island",
+      "translations": {
+        "ar": "جزيرة نورفولك",
+        "bn": "নরফোক দ্বীপ",
+        "de": "Norfolk Island",
+        "es": "Isla Norfolk",
+        "hi": "नॉरफ़ॉक द्वीप",
+        "id": "Pulau Norfolk",
+        "it": "Isola Norfolk",
+        "ja": "ノーフォーク島",
+        "ko": "노퍽 아일랜드",
+        "pt": "Ilha Norfolk",
+        "ru": "Остров Норфолк",
+        "tr": "Norfolk Adası",
+        "ur": "نورفولک آئی لینڈ",
+        "vi": "Đảo Norfolk",
+        "zh-Hans": "诺福克岛"
+      }
+    },
+    {
+      "scope": "identity.localNames[].country",
+      "source": "United Kingdom",
+      "translations": {
+        "ar": "المملكة المتحدة",
+        "bn": "যুক্তরাজ্য",
+        "de": "Vereinigtes Königreich",
+        "es": "Reino Unido",
+        "hi": "यूनाइटेड किंगडम",
+        "id": "Inggris Raya",
+        "it": "Regno Unito",
+        "ja": "英国",
+        "ko": "영국",
+        "pt": "Reino Unido",
+        "ru": "Великобритания",
+        "tr": "Birleşik Krallık",
+        "ur": "برطانیہ",
+        "vi": "Vương quốc Anh",
+        "zh-Hans": "英国"
+      }
+    },
+    {
+      "scope": "identity.localNames[].country",
+      "source": "United States",
+      "translations": {
+        "ar": "الولايات المتحدة الأمريكية",
+        "bn": "মার্কিন যুক্তরাষ্ট্র",
+        "de": "Vereinigte Staaten",
+        "es": "Estados Unidos",
+        "hi": "संयुक्त राज्य अमेरिका",
+        "id": "Amerika Serikat",
+        "it": "Stati Uniti",
+        "ja": "米国",
+        "ko": "미국",
+        "pt": "Estados Unidos",
+        "ru": "Соединённые Штаты",
+        "tr": "Amerika Birleşik Devletleri",
+        "ur": "ریاستہائے متحدہ",
+        "vi": "Hoa Kỳ",
+        "zh-Hans": "美国"
+      }
+    },
+    {
+      "scope": "identity.localNames[].country",
+      "source": "Vietnam",
+      "translations": {
+        "ar": "فيتنام",
+        "bn": "ভিয়েতনাম",
+        "de": "Vietnam",
+        "es": "Vietnam",
+        "hi": "वियतनाम",
+        "id": "Vietnam",
+        "it": "Vietnam",
+        "ja": "ベトナム",
+        "ko": "베트남",
+        "pt": "Vietnã",
+        "ru": "Вьетнам",
+        "tr": "Vietnam",
+        "ur": "ویتنام",
+        "vi": "Việt Nam",
+        "zh-Hans": "越南"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-hymenolobium-nitidum",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "34d2119a451bd239640585d8029afed545ee452dc5020b6444db6c0b67deb16b",
+      "sourceWidth": 474,
+      "sourceHeight": 270,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 270,
+      "outputHeight": 270,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=126",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Hymenolobium%20nitidum3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Hymenolobium nitidum\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies Hymenolobium nitidum and captions this file Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. The complete image is an exposed reddish longitudinal wood face with pronounced streaked grain; it contains no tree, leaf, bark exterior, product scene, generic texture, illustration, or microscopy.",
+        "width": 474,
+        "height": 270,
+        "format": "jpeg",
+        "sha256": "34d2119a451bd239640585d8029afed545ee452dc5020b6444db6c0b67deb16b",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

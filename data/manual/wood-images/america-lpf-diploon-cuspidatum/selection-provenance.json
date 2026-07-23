@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-diploon-cuspidatum",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "fec5124c4c6d14af76c338c841d6dc5fa2d59b39f164c7886ef05925ee24f950",
+      "sourceWidth": 480,
+      "sourceHeight": 276,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 276,
+      "outputHeight": 276,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=87",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Diploon%20venezuelana3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Diploon cuspidatum\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies the record as Diploon cuspidatum = Diploon venezuelana and captions this image Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. The full frame is an exposed longitudinal wood surface with clear grain and no living plant, bark-only subject, product scene, generic texture, illustration, or microscopy.",
+        "width": 480,
+        "height": 276,
+        "format": "jpeg",
+        "sha256": "fec5124c4c6d14af76c338c841d6dc5fa2d59b39f164c7886ef05925ee24f950",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

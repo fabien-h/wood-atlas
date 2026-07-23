@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-afina",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "034aa6b05dffee981ad50b4433afddc7ea8950665b16f99eefa187173690902a",
+      "sourceWidth": 228,
+      "sourceHeight": 375,
+      "outputFile": "radial.jpg",
+      "outputWidth": 228,
+      "outputHeight": 228,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.bvrio.org/wp-content/uploads/2022/08/BVRio_Lesser_known_and_lesser_used_species_booklet_English.pdf#page=9",
+        "imageUrl": "https://www.bvrio.org/wp-content/uploads/2022/08/BVRio_Lesser_known_and_lesser_used_species_booklet_English.pdf#page=9",
+        "query": "\"Strombosia glaucescens\" Afina timber wood grain radial longitudinal section tangential longitudinal section",
+        "intendedViewHint": "unknown",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "Page 9 of the BVRio/Forestry Commission Ghana/CSIR-FORIG booklet explicitly labels the species sheet AFINA and gives the scientific name Strombosia glaucescens (Engl.). The retained raster is embedded in that same species sheet.",
+        "visualCheckNotes": "Opened at its original 228 × 375 resolution. The frame shows a second longitudinally cut wood face with clearly visible grain; there is no living plant, bark-only surface, furniture, diagram, or microscope field. It was extracted directly from the PDF, but its resolution is modest and should be reviewed accordingly.",
+        "width": 228,
+        "height": 375,
+        "format": "jpeg",
+        "sha256": "034aa6b05dffee981ad50b4433afddc7ea8950665b16f99eefa187173690902a",
+        "agent": "pilot_africa",
+        "creator": "BVRio / Forestry Commission Ghana / CSIR-FORIG",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "bc34ed5b64fa0ac38d541861c27300c05a052a39d31cc7bbdc6e46ef723d1ea9",
+      "sourceWidth": 506,
+      "sourceHeight": 194,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 194,
+      "outputHeight": 194,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-sand-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "73b0b4b9f95025caa5c44ed71c2c362a55e5ad1191d1700a3b7c3a4e91a90c40",
+      "sourceWidth": 2543,
+      "sourceHeight": 1478,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

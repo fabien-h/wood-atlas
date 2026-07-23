@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-american-beech",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "0406bbe4c758e1108b880fbe913445452417fa9e1e49ce1ad3cc5217a7edc9f6",
+      "sourceWidth": 1340,
+      "sourceHeight": 520,
+      "outputFile": "radial.jpg",
+      "outputWidth": 520,
+      "outputHeight": 520,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_16.jpg",
+        "query": "\"Fagus ferruginea\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 16 identifies Fagus ferruginea / American Beech, a documented synonym of Fagus grandifolia, and prints RADIAL SECTION below the middle specimen.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The exposed radial wood face fills the image and shows conspicuous beech ray fleck; no tree, leaf, bark-only area, furniture, flooring, diagram, or microscopy is present.",
+        "derivedCrop": {
+          "left": 257,
+          "top": 970,
+          "width": 1340,
+          "height": 520
+        },
+        "width": 1340,
+        "height": 520,
+        "format": "jpeg",
+        "sha256": "0406bbe4c758e1108b880fbe913445452417fa9e1e49ce1ad3cc5217a7edc9f6",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "4e1a0dc89201a6d134abbcc030663a192b4be018f72c8ac88051f923e8b1ff3b",
+      "sourceWidth": 1340,
+      "sourceHeight": 520,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 520,
+      "outputHeight": 520,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_16.jpg",
+        "query": "\"Fagus ferruginea\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 16 identifies Fagus ferruginea / American Beech, a documented synonym of Fagus grandifolia, and prints TANGENTIAL SECTION below the lower specimen.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The exposed tangential face fills the frame and shows the characteristic short dark ray marks of beech; no living plant, bark, finished object, or microscopy appears.",
+        "derivedCrop": {
+          "left": 257,
+          "top": 1655,
+          "width": 1340,
+          "height": 520
+        },
+        "width": 1340,
+        "height": 520,
+        "format": "jpeg",
+        "sha256": "4e1a0dc89201a6d134abbcc030663a192b4be018f72c8ac88051f923e8b1ff3b",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

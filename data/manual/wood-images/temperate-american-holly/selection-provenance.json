@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-american-holly",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "e82ad47f25785d7cb27476b102c85be22fb559c210dfafcc17ad4250a0ab0d34",
+      "sourceWidth": 1348,
+      "sourceHeight": 550,
+      "outputFile": "radial.jpg",
+      "outputWidth": 550,
+      "outputHeight": 550,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_52.jpg",
+        "query": "\"Ilex opaca\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 52 prints ILEX OPACA / American Holly and labels the middle physical specimen RADIAL SECTION.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The image is entirely the exposed pale radial specimen face, with visible diffuse pores and ray fleck; no leaves, berries, bark, living tree, product scene, or microscopy appears.",
+        "derivedCrop": {
+          "left": 287,
+          "top": 1018,
+          "width": 1348,
+          "height": 550
+        },
+        "width": 1348,
+        "height": 550,
+        "format": "jpeg",
+        "sha256": "e82ad47f25785d7cb27476b102c85be22fb559c210dfafcc17ad4250a0ab0d34",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "2db3cd0170774f03264fd26380ab21cf537c8a13f75933f598a9924c8a68261e",
+      "sourceWidth": 1348,
+      "sourceHeight": 550,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 550,
+      "outputHeight": 550,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_52.jpg",
+        "query": "\"Ilex opaca\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 52 prints ILEX OPACA / American Holly and labels the lower physical specimen TANGENTIAL SECTION.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The pale tangential wood surface fills the frame with subtle longitudinal texture; no foliage, berries, bark-only area, finished product, or microscopy is present.",
+        "derivedCrop": {
+          "left": 294,
+          "top": 1745,
+          "width": 1348,
+          "height": 550
+        },
+        "width": 1348,
+        "height": 550,
+        "format": "jpeg",
+        "sha256": "2db3cd0170774f03264fd26380ab21cf537c8a13f75933f598a9924c8a68261e",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

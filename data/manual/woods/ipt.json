@@ -1,0 +1,2377 @@
+{
+  "schemaVersion": 1,
+  "dataset": {
+    "generatorVersion": 2,
+    "title": "Informações sobre madeiras",
+    "provider": "Instituto de Pesquisas Tecnológicas do Estado de São Paulo (IPT)",
+    "url": "https://madeiras.ipt.br/",
+    "sourcePageCount": 282,
+    "profileCount": 80,
+    "exactAtlasMatches": 64,
+    "unpairedAtlasMatchesSkipped": 0,
+    "supplementedRecords": 4,
+    "supplementedFields": {
+      "durability.fungi": 4,
+      "durability.termites": 2
+    }
+  },
+  "records": [],
+  "supplements": [
+    {
+      "id": "america-lpf-cedrelinga-cateniformis",
+      "source": {
+        "provider": "São Paulo Institute for Technological Research (IPT)",
+        "kind": "manual",
+        "references": [
+          {
+            "title": "Cedrorana — Informações sobre madeiras",
+            "url": "https://madeiras.ipt.br/cedrorana/",
+            "publisher": "Instituto de Pesquisas Tecnológicas do Estado de São Paulo (IPT)",
+            "year": 2023
+          }
+        ],
+        "lastUpdateDate": "2023-12-05",
+        "extractionDate": "2026-07-23"
+      },
+      "locales": {
+        "en": {
+          "identity": {
+            "primaryName": "Cedrorana",
+            "displayName": "Cedrorana",
+            "slug": "cedrorana",
+            "family": "Mimosaceae",
+            "botanicalNames": [
+              {
+                "name": "Cedrelinga cateniformis",
+                "isSynonym": false
+              }
+            ],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "origin": {
+            "region": "America",
+            "continent": "South America",
+            "countries": []
+          },
+          "cites": {
+            "raw": null,
+            "listed": null
+          },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": {
+              "raw": "",
+              "value": null
+            },
+            "floats": {
+              "raw": "",
+              "value": null
+            },
+            "durability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": {
+              "raw": "",
+              "value": null
+            },
+            "sapwood": {
+              "raw": "",
+              "value": null
+            },
+            "texture": {
+              "raw": "",
+              "value": null
+            },
+            "grain": {
+              "raw": "",
+              "value": null
+            },
+            "interlockedGrain": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "% per %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "durability": {
+            "fungi": {
+              "raw": "IPT — normalized fungal-resistance class: 3",
+              "value": "class 3 - moderately durable"
+            },
+            "dryWoodBorers": {
+              "raw": "",
+              "value": null
+            },
+            "termites": {
+              "raw": "IPT — explicit termite resistance: class M",
+              "value": "class m - moderately durable"
+            },
+            "treatability": {
+              "raw": "",
+              "value": null
+            },
+            "naturalUseClass": {
+              "raw": "",
+              "value": null
+            },
+            "coversUseClass5": {
+              "raw": "",
+              "value": null
+            },
+            "preservativeTreatment": {
+              "dryWoodBorer": {
+                "raw": "",
+                "value": null
+              },
+              "temporaryHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "permanentHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "notes": []
+            },
+            "notes": []
+          },
+          "drying": {
+            "rate": {
+              "raw": "",
+              "value": null
+            },
+            "distortionRisk": {
+              "raw": "",
+              "value": null
+            },
+            "casehardeningRisk": {
+              "raw": "",
+              "value": null
+            },
+            "checkingRisk": {
+              "raw": "",
+              "value": null
+            },
+            "collapseRisk": {
+              "raw": "",
+              "value": null
+            },
+            "notes": [],
+            "schedule": [],
+            "scheduleNotes": []
+          },
+          "machining": {
+            "bluntingEffect": {
+              "raw": "",
+              "value": null
+            },
+            "sawteethRecommended": {
+              "raw": "",
+              "value": null
+            },
+            "cuttingTools": {
+              "raw": "",
+              "value": null
+            },
+            "peeling": {
+              "raw": "",
+              "value": null
+            },
+            "slicing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "assembly": {
+            "nailingAndScrewing": {
+              "raw": "",
+              "value": null
+            },
+            "gluing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "grading": {
+            "appearance": null,
+            "structural": null
+          },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": {
+              "raw": "",
+              "value": null
+            },
+            "notes": null
+          },
+          "endUses": [],
+          "endUseNotes": []
+        },
+        "fr": {
+          "identity": {
+            "primaryName": "Cedrorana",
+            "displayName": "Cedrorana",
+            "slug": "cedrorana",
+            "family": "Mimosaceae",
+            "botanicalNames": [
+              {
+                "name": "Cedrelinga cateniformis",
+                "isSynonym": false
+              }
+            ],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "origin": {
+            "region": "America",
+            "continent": "Amérique du Sud",
+            "countries": []
+          },
+          "cites": {
+            "raw": null,
+            "listed": null
+          },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": {
+              "raw": "",
+              "value": null
+            },
+            "floats": {
+              "raw": "",
+              "value": null
+            },
+            "durability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": {
+              "raw": "",
+              "value": null
+            },
+            "sapwood": {
+              "raw": "",
+              "value": null
+            },
+            "texture": {
+              "raw": "",
+              "value": null
+            },
+            "grain": {
+              "raw": "",
+              "value": null
+            },
+            "interlockedGrain": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "% par %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "durability": {
+            "fungi": {
+              "raw": "IPT — classe normalisée de résistance aux champignons : 3",
+              "value": "classe 3 - moyennement durable"
+            },
+            "dryWoodBorers": {
+              "raw": "",
+              "value": null
+            },
+            "termites": {
+              "raw": "IPT — résistance explicite aux termites : classe M",
+              "value": "classe m - moyennement durable"
+            },
+            "treatability": {
+              "raw": "",
+              "value": null
+            },
+            "naturalUseClass": {
+              "raw": "",
+              "value": null
+            },
+            "coversUseClass5": {
+              "raw": "",
+              "value": null
+            },
+            "preservativeTreatment": {
+              "dryWoodBorer": {
+                "raw": "",
+                "value": null
+              },
+              "temporaryHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "permanentHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "notes": []
+            },
+            "notes": []
+          },
+          "drying": {
+            "rate": {
+              "raw": "",
+              "value": null
+            },
+            "distortionRisk": {
+              "raw": "",
+              "value": null
+            },
+            "casehardeningRisk": {
+              "raw": "",
+              "value": null
+            },
+            "checkingRisk": {
+              "raw": "",
+              "value": null
+            },
+            "collapseRisk": {
+              "raw": "",
+              "value": null
+            },
+            "notes": [],
+            "schedule": [],
+            "scheduleNotes": []
+          },
+          "machining": {
+            "bluntingEffect": {
+              "raw": "",
+              "value": null
+            },
+            "sawteethRecommended": {
+              "raw": "",
+              "value": null
+            },
+            "cuttingTools": {
+              "raw": "",
+              "value": null
+            },
+            "peeling": {
+              "raw": "",
+              "value": null
+            },
+            "slicing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "assembly": {
+            "nailingAndScrewing": {
+              "raw": "",
+              "value": null
+            },
+            "gluing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "grading": {
+            "appearance": null,
+            "structural": null
+          },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": {
+              "raw": "",
+              "value": null
+            },
+            "notes": null
+          },
+          "endUses": [],
+          "endUseNotes": []
+        }
+      }
+    },
+    {
+      "id": "america-lpf-endopleura-uchi",
+      "source": {
+        "provider": "São Paulo Institute for Technological Research (IPT)",
+        "kind": "manual",
+        "references": [
+          {
+            "title": "Uxi — Informações sobre madeiras",
+            "url": "https://madeiras.ipt.br/uxi/",
+            "publisher": "Instituto de Pesquisas Tecnológicas do Estado de São Paulo (IPT)",
+            "year": 2023
+          }
+        ],
+        "lastUpdateDate": "2023-12-07",
+        "extractionDate": "2026-07-23"
+      },
+      "locales": {
+        "en": {
+          "identity": {
+            "primaryName": "Uxi",
+            "displayName": "Uxi",
+            "slug": "uxi",
+            "family": "Humiriaceae",
+            "botanicalNames": [
+              {
+                "name": "Endopleura uchi",
+                "isSynonym": false
+              }
+            ],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "origin": {
+            "region": "America",
+            "continent": "South America",
+            "countries": []
+          },
+          "cites": {
+            "raw": null,
+            "listed": null
+          },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": {
+              "raw": "",
+              "value": null
+            },
+            "floats": {
+              "raw": "",
+              "value": null
+            },
+            "durability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": {
+              "raw": "",
+              "value": null
+            },
+            "sapwood": {
+              "raw": "",
+              "value": null
+            },
+            "texture": {
+              "raw": "",
+              "value": null
+            },
+            "grain": {
+              "raw": "",
+              "value": null
+            },
+            "interlockedGrain": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "% per %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "durability": {
+            "fungi": {
+              "raw": "IPT — normalized fungal-resistance class: 3",
+              "value": "class 3 - moderately durable"
+            },
+            "dryWoodBorers": {
+              "raw": "",
+              "value": null
+            },
+            "termites": {
+              "raw": "",
+              "value": null
+            },
+            "treatability": {
+              "raw": "",
+              "value": null
+            },
+            "naturalUseClass": {
+              "raw": "",
+              "value": null
+            },
+            "coversUseClass5": {
+              "raw": "",
+              "value": null
+            },
+            "preservativeTreatment": {
+              "dryWoodBorer": {
+                "raw": "",
+                "value": null
+              },
+              "temporaryHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "permanentHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "notes": []
+            },
+            "notes": []
+          },
+          "drying": {
+            "rate": {
+              "raw": "",
+              "value": null
+            },
+            "distortionRisk": {
+              "raw": "",
+              "value": null
+            },
+            "casehardeningRisk": {
+              "raw": "",
+              "value": null
+            },
+            "checkingRisk": {
+              "raw": "",
+              "value": null
+            },
+            "collapseRisk": {
+              "raw": "",
+              "value": null
+            },
+            "notes": [],
+            "schedule": [],
+            "scheduleNotes": []
+          },
+          "machining": {
+            "bluntingEffect": {
+              "raw": "",
+              "value": null
+            },
+            "sawteethRecommended": {
+              "raw": "",
+              "value": null
+            },
+            "cuttingTools": {
+              "raw": "",
+              "value": null
+            },
+            "peeling": {
+              "raw": "",
+              "value": null
+            },
+            "slicing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "assembly": {
+            "nailingAndScrewing": {
+              "raw": "",
+              "value": null
+            },
+            "gluing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "grading": {
+            "appearance": null,
+            "structural": null
+          },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": {
+              "raw": "",
+              "value": null
+            },
+            "notes": null
+          },
+          "endUses": [],
+          "endUseNotes": []
+        },
+        "fr": {
+          "identity": {
+            "primaryName": "Uxi",
+            "displayName": "Uxi",
+            "slug": "uxi",
+            "family": "Humiriaceae",
+            "botanicalNames": [
+              {
+                "name": "Endopleura uchi",
+                "isSynonym": false
+              }
+            ],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "origin": {
+            "region": "America",
+            "continent": "Amérique du Sud",
+            "countries": []
+          },
+          "cites": {
+            "raw": null,
+            "listed": null
+          },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": {
+              "raw": "",
+              "value": null
+            },
+            "floats": {
+              "raw": "",
+              "value": null
+            },
+            "durability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": {
+              "raw": "",
+              "value": null
+            },
+            "sapwood": {
+              "raw": "",
+              "value": null
+            },
+            "texture": {
+              "raw": "",
+              "value": null
+            },
+            "grain": {
+              "raw": "",
+              "value": null
+            },
+            "interlockedGrain": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "% par %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "durability": {
+            "fungi": {
+              "raw": "IPT — classe normalisée de résistance aux champignons : 3",
+              "value": "classe 3 - moyennement durable"
+            },
+            "dryWoodBorers": {
+              "raw": "",
+              "value": null
+            },
+            "termites": {
+              "raw": "",
+              "value": null
+            },
+            "treatability": {
+              "raw": "",
+              "value": null
+            },
+            "naturalUseClass": {
+              "raw": "",
+              "value": null
+            },
+            "coversUseClass5": {
+              "raw": "",
+              "value": null
+            },
+            "preservativeTreatment": {
+              "dryWoodBorer": {
+                "raw": "",
+                "value": null
+              },
+              "temporaryHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "permanentHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "notes": []
+            },
+            "notes": []
+          },
+          "drying": {
+            "rate": {
+              "raw": "",
+              "value": null
+            },
+            "distortionRisk": {
+              "raw": "",
+              "value": null
+            },
+            "casehardeningRisk": {
+              "raw": "",
+              "value": null
+            },
+            "checkingRisk": {
+              "raw": "",
+              "value": null
+            },
+            "collapseRisk": {
+              "raw": "",
+              "value": null
+            },
+            "notes": [],
+            "schedule": [],
+            "scheduleNotes": []
+          },
+          "machining": {
+            "bluntingEffect": {
+              "raw": "",
+              "value": null
+            },
+            "sawteethRecommended": {
+              "raw": "",
+              "value": null
+            },
+            "cuttingTools": {
+              "raw": "",
+              "value": null
+            },
+            "peeling": {
+              "raw": "",
+              "value": null
+            },
+            "slicing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "assembly": {
+            "nailingAndScrewing": {
+              "raw": "",
+              "value": null
+            },
+            "gluing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "grading": {
+            "appearance": null,
+            "structural": null
+          },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": {
+              "raw": "",
+              "value": null
+            },
+            "notes": null
+          },
+          "endUses": [],
+          "endUseNotes": []
+        }
+      }
+    },
+    {
+      "id": "america-lpf-mezilaurus-itauba",
+      "source": {
+        "provider": "São Paulo Institute for Technological Research (IPT)",
+        "kind": "manual",
+        "references": [
+          {
+            "title": "Itaúba — Informações sobre madeiras",
+            "url": "https://madeiras.ipt.br/itauba/",
+            "publisher": "Instituto de Pesquisas Tecnológicas do Estado de São Paulo (IPT)",
+            "year": 2023
+          }
+        ],
+        "lastUpdateDate": "2023-12-05",
+        "extractionDate": "2026-07-23"
+      },
+      "locales": {
+        "en": {
+          "identity": {
+            "primaryName": "Itaúba / Itaúba-Vermelha",
+            "displayName": "Itaúba / Itaúba-Vermelha",
+            "slug": "itauba-itauba-vermelha",
+            "family": "Lauraceae",
+            "botanicalNames": [
+              {
+                "name": "Mezilaurus itauba",
+                "isSynonym": false
+              }
+            ],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "origin": {
+            "region": "America",
+            "continent": "South America",
+            "countries": []
+          },
+          "cites": {
+            "raw": null,
+            "listed": null
+          },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": {
+              "raw": "",
+              "value": null
+            },
+            "floats": {
+              "raw": "",
+              "value": null
+            },
+            "durability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": {
+              "raw": "",
+              "value": null
+            },
+            "sapwood": {
+              "raw": "",
+              "value": null
+            },
+            "texture": {
+              "raw": "",
+              "value": null
+            },
+            "grain": {
+              "raw": "",
+              "value": null
+            },
+            "interlockedGrain": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "% per %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "durability": {
+            "fungi": {
+              "raw": "IPT — normalized fungal-resistance class: 1",
+              "value": "class 1 - very durable"
+            },
+            "dryWoodBorers": {
+              "raw": "",
+              "value": null
+            },
+            "termites": {
+              "raw": "IPT — explicit termite resistance: class D",
+              "value": "class d - durable"
+            },
+            "treatability": {
+              "raw": "",
+              "value": null
+            },
+            "naturalUseClass": {
+              "raw": "",
+              "value": null
+            },
+            "coversUseClass5": {
+              "raw": "",
+              "value": null
+            },
+            "preservativeTreatment": {
+              "dryWoodBorer": {
+                "raw": "",
+                "value": null
+              },
+              "temporaryHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "permanentHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "notes": []
+            },
+            "notes": []
+          },
+          "drying": {
+            "rate": {
+              "raw": "",
+              "value": null
+            },
+            "distortionRisk": {
+              "raw": "",
+              "value": null
+            },
+            "casehardeningRisk": {
+              "raw": "",
+              "value": null
+            },
+            "checkingRisk": {
+              "raw": "",
+              "value": null
+            },
+            "collapseRisk": {
+              "raw": "",
+              "value": null
+            },
+            "notes": [],
+            "schedule": [],
+            "scheduleNotes": []
+          },
+          "machining": {
+            "bluntingEffect": {
+              "raw": "",
+              "value": null
+            },
+            "sawteethRecommended": {
+              "raw": "",
+              "value": null
+            },
+            "cuttingTools": {
+              "raw": "",
+              "value": null
+            },
+            "peeling": {
+              "raw": "",
+              "value": null
+            },
+            "slicing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "assembly": {
+            "nailingAndScrewing": {
+              "raw": "",
+              "value": null
+            },
+            "gluing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "grading": {
+            "appearance": null,
+            "structural": null
+          },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": {
+              "raw": "",
+              "value": null
+            },
+            "notes": null
+          },
+          "endUses": [],
+          "endUseNotes": []
+        },
+        "fr": {
+          "identity": {
+            "primaryName": "Itaúba / Itaúba-Vermelha",
+            "displayName": "Itaúba / Itaúba-Vermelha",
+            "slug": "itauba-itauba-vermelha",
+            "family": "Lauraceae",
+            "botanicalNames": [
+              {
+                "name": "Mezilaurus itauba",
+                "isSynonym": false
+              }
+            ],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "origin": {
+            "region": "America",
+            "continent": "Amérique du Sud",
+            "countries": []
+          },
+          "cites": {
+            "raw": null,
+            "listed": null
+          },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": {
+              "raw": "",
+              "value": null
+            },
+            "floats": {
+              "raw": "",
+              "value": null
+            },
+            "durability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": {
+              "raw": "",
+              "value": null
+            },
+            "sapwood": {
+              "raw": "",
+              "value": null
+            },
+            "texture": {
+              "raw": "",
+              "value": null
+            },
+            "grain": {
+              "raw": "",
+              "value": null
+            },
+            "interlockedGrain": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "% par %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "durability": {
+            "fungi": {
+              "raw": "IPT — classe normalisée de résistance aux champignons : 1",
+              "value": "classe 1 - très durable"
+            },
+            "dryWoodBorers": {
+              "raw": "",
+              "value": null
+            },
+            "termites": {
+              "raw": "IPT — résistance explicite aux termites : classe D",
+              "value": "classe d - durable"
+            },
+            "treatability": {
+              "raw": "",
+              "value": null
+            },
+            "naturalUseClass": {
+              "raw": "",
+              "value": null
+            },
+            "coversUseClass5": {
+              "raw": "",
+              "value": null
+            },
+            "preservativeTreatment": {
+              "dryWoodBorer": {
+                "raw": "",
+                "value": null
+              },
+              "temporaryHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "permanentHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "notes": []
+            },
+            "notes": []
+          },
+          "drying": {
+            "rate": {
+              "raw": "",
+              "value": null
+            },
+            "distortionRisk": {
+              "raw": "",
+              "value": null
+            },
+            "casehardeningRisk": {
+              "raw": "",
+              "value": null
+            },
+            "checkingRisk": {
+              "raw": "",
+              "value": null
+            },
+            "collapseRisk": {
+              "raw": "",
+              "value": null
+            },
+            "notes": [],
+            "schedule": [],
+            "scheduleNotes": []
+          },
+          "machining": {
+            "bluntingEffect": {
+              "raw": "",
+              "value": null
+            },
+            "sawteethRecommended": {
+              "raw": "",
+              "value": null
+            },
+            "cuttingTools": {
+              "raw": "",
+              "value": null
+            },
+            "peeling": {
+              "raw": "",
+              "value": null
+            },
+            "slicing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "assembly": {
+            "nailingAndScrewing": {
+              "raw": "",
+              "value": null
+            },
+            "gluing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "grading": {
+            "appearance": null,
+            "structural": null
+          },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": {
+              "raw": "",
+              "value": null
+            },
+            "notes": null
+          },
+          "endUses": [],
+          "endUseNotes": []
+        }
+      }
+    },
+    {
+      "id": "america-lpf-trattinnickia-burserifolia",
+      "source": {
+        "provider": "São Paulo Institute for Technological Research (IPT)",
+        "kind": "manual",
+        "references": [
+          {
+            "title": "Amesclão — Informações sobre madeiras",
+            "url": "https://madeiras.ipt.br/amesclao/",
+            "publisher": "Instituto de Pesquisas Tecnológicas do Estado de São Paulo (IPT)",
+            "year": 2023
+          }
+        ],
+        "lastUpdateDate": "2023-12-07",
+        "extractionDate": "2026-07-23"
+      },
+      "locales": {
+        "en": {
+          "identity": {
+            "primaryName": "Amescla",
+            "displayName": "Amescla",
+            "slug": "amescla",
+            "family": "Burseraceae",
+            "botanicalNames": [
+              {
+                "name": "Trattinnickia burserifolia",
+                "isSynonym": false
+              }
+            ],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "origin": {
+            "region": "America",
+            "continent": "South America",
+            "countries": []
+          },
+          "cites": {
+            "raw": null,
+            "listed": null
+          },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": {
+              "raw": "",
+              "value": null
+            },
+            "floats": {
+              "raw": "",
+              "value": null
+            },
+            "durability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": {
+              "raw": "",
+              "value": null
+            },
+            "sapwood": {
+              "raw": "",
+              "value": null
+            },
+            "texture": {
+              "raw": "",
+              "value": null
+            },
+            "grain": {
+              "raw": "",
+              "value": null
+            },
+            "interlockedGrain": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "% per %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "durability": {
+            "fungi": {
+              "raw": "IPT — normalized fungal-resistance class: 5",
+              "value": "class 5 - not durable"
+            },
+            "dryWoodBorers": {
+              "raw": "",
+              "value": null
+            },
+            "termites": {
+              "raw": "",
+              "value": null
+            },
+            "treatability": {
+              "raw": "",
+              "value": null
+            },
+            "naturalUseClass": {
+              "raw": "",
+              "value": null
+            },
+            "coversUseClass5": {
+              "raw": "",
+              "value": null
+            },
+            "preservativeTreatment": {
+              "dryWoodBorer": {
+                "raw": "",
+                "value": null
+              },
+              "temporaryHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "permanentHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "notes": []
+            },
+            "notes": []
+          },
+          "drying": {
+            "rate": {
+              "raw": "",
+              "value": null
+            },
+            "distortionRisk": {
+              "raw": "",
+              "value": null
+            },
+            "casehardeningRisk": {
+              "raw": "",
+              "value": null
+            },
+            "checkingRisk": {
+              "raw": "",
+              "value": null
+            },
+            "collapseRisk": {
+              "raw": "",
+              "value": null
+            },
+            "notes": [],
+            "schedule": [],
+            "scheduleNotes": []
+          },
+          "machining": {
+            "bluntingEffect": {
+              "raw": "",
+              "value": null
+            },
+            "sawteethRecommended": {
+              "raw": "",
+              "value": null
+            },
+            "cuttingTools": {
+              "raw": "",
+              "value": null
+            },
+            "peeling": {
+              "raw": "",
+              "value": null
+            },
+            "slicing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "assembly": {
+            "nailingAndScrewing": {
+              "raw": "",
+              "value": null
+            },
+            "gluing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "grading": {
+            "appearance": null,
+            "structural": null
+          },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": {
+              "raw": "",
+              "value": null
+            },
+            "notes": null
+          },
+          "endUses": [],
+          "endUseNotes": []
+        },
+        "fr": {
+          "identity": {
+            "primaryName": "Amescla",
+            "displayName": "Amescla",
+            "slug": "amescla",
+            "family": "Burseraceae",
+            "botanicalNames": [
+              {
+                "name": "Trattinnickia burserifolia",
+                "isSynonym": false
+              }
+            ],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "origin": {
+            "region": "America",
+            "continent": "Amérique du Sud",
+            "countries": []
+          },
+          "cites": {
+            "raw": null,
+            "listed": null
+          },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": {
+              "raw": "",
+              "value": null
+            },
+            "floats": {
+              "raw": "",
+              "value": null
+            },
+            "durability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": {
+              "raw": "",
+              "value": null
+            },
+            "sapwood": {
+              "raw": "",
+              "value": null
+            },
+            "texture": {
+              "raw": "",
+              "value": null
+            },
+            "grain": {
+              "raw": "",
+              "value": null
+            },
+            "interlockedGrain": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "% par %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "durability": {
+            "fungi": {
+              "raw": "IPT — classe normalisée de résistance aux champignons : 5",
+              "value": "classe 5 - non durable"
+            },
+            "dryWoodBorers": {
+              "raw": "",
+              "value": null
+            },
+            "termites": {
+              "raw": "",
+              "value": null
+            },
+            "treatability": {
+              "raw": "",
+              "value": null
+            },
+            "naturalUseClass": {
+              "raw": "",
+              "value": null
+            },
+            "coversUseClass5": {
+              "raw": "",
+              "value": null
+            },
+            "preservativeTreatment": {
+              "dryWoodBorer": {
+                "raw": "",
+                "value": null
+              },
+              "temporaryHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "permanentHumidification": {
+                "raw": "",
+                "value": null
+              },
+              "notes": []
+            },
+            "notes": []
+          },
+          "drying": {
+            "rate": {
+              "raw": "",
+              "value": null
+            },
+            "distortionRisk": {
+              "raw": "",
+              "value": null
+            },
+            "casehardeningRisk": {
+              "raw": "",
+              "value": null
+            },
+            "checkingRisk": {
+              "raw": "",
+              "value": null
+            },
+            "collapseRisk": {
+              "raw": "",
+              "value": null
+            },
+            "notes": [],
+            "schedule": [],
+            "scheduleNotes": []
+          },
+          "machining": {
+            "bluntingEffect": {
+              "raw": "",
+              "value": null
+            },
+            "sawteethRecommended": {
+              "raw": "",
+              "value": null
+            },
+            "cuttingTools": {
+              "raw": "",
+              "value": null
+            },
+            "peeling": {
+              "raw": "",
+              "value": null
+            },
+            "slicing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "assembly": {
+            "nailingAndScrewing": {
+              "raw": "",
+              "value": null
+            },
+            "gluing": {
+              "raw": "",
+              "value": null
+            },
+            "notes": []
+          },
+          "grading": {
+            "appearance": null,
+            "structural": null
+          },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": {
+              "raw": "",
+              "value": null
+            },
+            "notes": null
+          },
+          "endUses": [],
+          "endUseNotes": []
+        }
+      }
+    }
+  ]
+}

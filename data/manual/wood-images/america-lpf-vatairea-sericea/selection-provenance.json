@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-vatairea-sericea",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "6e1b3d1bdf9e1c64ef5601959179995f1ad5c3daa68800b7428d98358cd80606",
+      "sourceWidth": 480,
+      "sourceHeight": 284,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 284,
+      "outputHeight": 284,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=264",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Vatairea%20sericea3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Vatairea sericea\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies Vatairea sericea and captions this image Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. The complete frame is a strongly figured exposed longitudinal wood face; no tree, leaves, bark exterior, product scene, generic texture, diagram, or microscopy is present.",
+        "width": 480,
+        "height": 284,
+        "format": "jpeg",
+        "sha256": "6e1b3d1bdf9e1c64ef5601959179995f1ad5c3daa68800b7428d98358cd80606",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

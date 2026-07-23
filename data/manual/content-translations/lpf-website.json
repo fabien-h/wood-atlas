@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "units": [
+    {
+      "scope": "durability.dryWoodBorers.value",
+      "source": "class d - durable",
+      "translations": {
+        "ar": "فئة d - متينة",
+        "bn": "ক্লাস d - টেকসই",
+        "de": "klasse d – dauerhaft",
+        "es": "clase d - durable",
+        "hi": "कक्षा d - टिकाऊ",
+        "id": "kelas d - awet",
+        "it": "classe d - durabile",
+        "ja": "クラス d - 耐久性のある",
+        "ko": "d 급 - 내구성이 있는",
+        "pt": "classe d - durável",
+        "ru": "класс d — стойкая",
+        "tr": "sınıf d - dayanıklı",
+        "ur": "کلاس d - پائیدار",
+        "vi": "lớp d - bền",
+        "zh-Hans": "d 类 - 耐用"
+      }
+    },
+    {
+      "scope": "durability.dryWoodBorers.value",
+      "source": "class s - susceptible",
+      "translations": {
+        "ar": "فئة s - معرضة للإصابة",
+        "bn": "ক্লাস s - সংবেদনশীল",
+        "de": "klasse s – anfällig",
+        "es": "clase s - susceptible",
+        "hi": "कक्षा s - अतिसंवेदनशील",
+        "id": "kelas s - rentan",
+        "it": "classe s - suscettibile",
+        "ja": "クラス s - 感受性あり",
+        "ko": "s 급 - 감염되기 쉬움",
+        "pt": "classe s - suscetível",
+        "ru": "класс s — подвержена поражению",
+        "tr": "duyarlılık sınıfı s — hassas",
+        "ur": "کلاس s - حساس",
+        "vi": "lớp s - dễ bị ảnh hưởng",
+        "zh-Hans": "s 类 - 易感"
+      }
+    }
+  ]
+}

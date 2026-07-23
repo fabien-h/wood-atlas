@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-longleaf-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "1ee915a08d39856ad3769d92cd6396c61fcdcd831007e5f24c75ac824c55772a",
+      "sourceWidth": 2199,
+      "sourceHeight": 1471,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

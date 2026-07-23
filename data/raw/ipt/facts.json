@@ -1,0 +1,897 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "title": "Informações sobre madeiras",
+    "provider": "Instituto de Pesquisas Tecnológicas do Estado de São Paulo (IPT)",
+    "url": "https://madeiras.ipt.br/",
+    "apiUrl": "https://madeiras.ipt.br/wp-json/wp/v2/pages",
+    "extractionPolicy": "Scientific names and normalized fungal- and termite-resistance facts are retained. Descriptive prose, photographs, and illustrations are excluded.",
+    "extractionDate": "2026-07-23"
+  },
+  "sourcePageCount": 282,
+  "profileCount": 80,
+  "fungalClassifications": 55,
+  "termiteClassifications": 30,
+  "profiles": [
+    {
+      "sourceId": 19,
+      "title": "Açacu",
+      "url": "https://madeiras.ipt.br/acacu/",
+      "modified": "2023-12-07T16:59:32",
+      "scientificNames": ["Hura crepitans"],
+      "facts": {
+        "fungi": null,
+        "termites": "S"
+      }
+    },
+    {
+      "sourceId": 45,
+      "title": "Amapá",
+      "url": "https://madeiras.ipt.br/amapa/",
+      "modified": "2023-12-07T13:45:38",
+      "scientificNames": ["Brosimum parinarioides"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 57,
+      "title": "Amesclão",
+      "url": "https://madeiras.ipt.br/amesclao/",
+      "modified": "2023-12-07T13:48:23",
+      "scientificNames": ["Trattinnickia burserifolia"],
+      "facts": {
+        "fungi": "5",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 71,
+      "title": "Amoreira",
+      "url": "https://madeiras.ipt.br/amoreira/",
+      "modified": "2023-11-22T15:46:21",
+      "scientificNames": ["Maclura tinctoria"],
+      "facts": {
+        "fungi": "1",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 96,
+      "title": "Andiroba",
+      "url": "https://madeiras.ipt.br/andiroba/",
+      "modified": "2023-11-22T16:22:40",
+      "scientificNames": ["Carapa guianensis"],
+      "facts": {
+        "fungi": "3-4",
+        "termites": "S"
+      }
+    },
+    {
+      "sourceId": 107,
+      "title": "Angelim-amargoso",
+      "url": "https://madeiras.ipt.br/angelim-amargoso/",
+      "modified": "2023-11-22T16:23:34",
+      "scientificNames": ["Vatairea sp"],
+      "facts": {
+        "fungi": "1",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 115,
+      "title": "Angelim-pedra",
+      "url": "https://madeiras.ipt.br/angelim-pedra/",
+      "modified": "2023-11-22T16:22:06",
+      "scientificNames": ["Hymenolobium petraeum"],
+      "facts": {
+        "fungi": "1-2",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 129,
+      "title": "Angelim-vermelho",
+      "url": "https://madeiras.ipt.br/angelim-vermelho/",
+      "modified": "2023-11-22T16:29:46",
+      "scientificNames": ["Dinizia excelsa"],
+      "facts": {
+        "fungi": "1",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 137,
+      "title": "Angico-preto",
+      "url": "https://madeiras.ipt.br/angico-preto/",
+      "modified": "2023-11-22T16:36:09",
+      "scientificNames": ["Anadenanthera macrocarpa"],
+      "facts": {
+        "fungi": "1",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 145,
+      "title": "Angico-vermelho",
+      "url": "https://madeiras.ipt.br/angico-vermelho/",
+      "modified": "2023-11-22T16:41:14",
+      "scientificNames": ["Parapiptadenia rigida"],
+      "facts": {
+        "fungi": "1",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 156,
+      "title": "Araracanga",
+      "url": "https://madeiras.ipt.br/araracanga/",
+      "modified": "2023-11-29T10:16:22",
+      "scientificNames": ["Aspidosperma desmanthum"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 164,
+      "title": "Bacuri",
+      "url": "https://madeiras.ipt.br/bacuri/",
+      "modified": "2023-11-29T10:20:59",
+      "scientificNames": ["Platonia insignis"],
+      "facts": {
+        "fungi": "3",
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 172,
+      "title": "Bracatinga",
+      "url": "https://madeiras.ipt.br/bracatinga/",
+      "modified": "2023-11-29T10:25:27",
+      "scientificNames": ["Mimosa scabrella"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 180,
+      "title": "Cabriúva-parda",
+      "url": "https://madeiras.ipt.br/cabriuva-parda/",
+      "modified": "2023-11-29T10:29:27",
+      "scientificNames": ["Myrocarpus sp"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 188,
+      "title": "Cabriúva-vermelha",
+      "url": "https://madeiras.ipt.br/cabriuva-vermelha/",
+      "modified": "2023-11-29T10:33:24",
+      "scientificNames": ["Myroxylon balsamum"],
+      "facts": {
+        "fungi": "1",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 196,
+      "title": "Cajuaçu",
+      "url": "https://madeiras.ipt.br/cajuacu/",
+      "modified": "2023-11-29T10:37:59",
+      "scientificNames": ["Anacardium giganteum"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 204,
+      "title": "Caraipé",
+      "url": "https://madeiras.ipt.br/caraipe/",
+      "modified": "2023-11-29T12:30:01",
+      "scientificNames": ["Licania spp"],
+      "facts": {
+        "fungi": "5",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 213,
+      "title": "Castanheira",
+      "url": "https://madeiras.ipt.br/castanheira/",
+      "modified": "2023-11-29T12:34:58",
+      "scientificNames": ["Bertholletia excelsa"],
+      "facts": {
+        "fungi": "1-2",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 221,
+      "title": "Cedrinho",
+      "url": "https://madeiras.ipt.br/cedrinho/",
+      "modified": "2023-11-29T12:39:48",
+      "scientificNames": ["Erisma uncinatum"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 229,
+      "title": "Cedro",
+      "url": "https://madeiras.ipt.br/cedro/",
+      "modified": "2023-12-05T08:35:14",
+      "scientificNames": ["Cedrela spp"],
+      "facts": {
+        "fungi": "3",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 237,
+      "title": "Cedrorana",
+      "url": "https://madeiras.ipt.br/cedrorana/",
+      "modified": "2023-12-05T08:38:20",
+      "scientificNames": ["Cedrelinga cateniformis"],
+      "facts": {
+        "fungi": "3",
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 244,
+      "title": "Cerejeira",
+      "url": "https://madeiras.ipt.br/cerejeira/",
+      "modified": "2023-12-05T08:41:30",
+      "scientificNames": ["Amburana cearensis"],
+      "facts": {
+        "fungi": "5",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 252,
+      "title": "Cinamomo",
+      "url": "https://madeiras.ipt.br/cinamomo/",
+      "modified": "2023-12-05T08:45:08",
+      "scientificNames": ["Melia azedarach"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 262,
+      "title": "Copaíba",
+      "url": "https://madeiras.ipt.br/copaiba/",
+      "modified": "2023-12-05T08:50:58",
+      "scientificNames": ["Copaifera spp"],
+      "facts": {
+        "fungi": null,
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 270,
+      "title": "Cumaru",
+      "url": "https://madeiras.ipt.br/cumaru/",
+      "modified": "2023-12-05T08:57:13",
+      "scientificNames": ["Dipteryx odorata"],
+      "facts": {
+        "fungi": "1",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 278,
+      "title": "Cupiúba",
+      "url": "https://madeiras.ipt.br/cupiuba/",
+      "modified": "2023-12-05T09:00:53",
+      "scientificNames": ["Goupia glabra"],
+      "facts": {
+        "fungi": "1-2",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 286,
+      "title": "Curupixá",
+      "url": "https://madeiras.ipt.br/curupixa/",
+      "modified": "2023-12-05T09:15:49",
+      "scientificNames": ["Micropholis venulosa"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 293,
+      "title": "Eucalipto-citriodora",
+      "url": "https://madeiras.ipt.br/eucalipto-citriodora/",
+      "modified": "2023-12-05T09:19:00",
+      "scientificNames": ["Corymbia citriodora", "Eucalyptus citriodora"],
+      "facts": {
+        "fungi": "2",
+        "termites": "S"
+      }
+    },
+    {
+      "sourceId": 301,
+      "title": "Eucalipto-grandis",
+      "url": "https://madeiras.ipt.br/eucalipto-grandis/",
+      "modified": "2023-12-05T09:24:30",
+      "scientificNames": ["Eucalyptus grandis"],
+      "facts": {
+        "fungi": "4",
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 310,
+      "title": "Eucalipto-saligna",
+      "url": "https://madeiras.ipt.br/eucalipto-saligna/",
+      "modified": "2023-12-05T09:34:04",
+      "scientificNames": ["Eucalyptus saligna"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 318,
+      "title": "Fava-orelha-de-negro",
+      "url": "https://madeiras.ipt.br/fava-orelha-de-negro/",
+      "modified": "2023-12-05T10:11:12",
+      "scientificNames": ["Enterolobium schomburgkii"],
+      "facts": {
+        "fungi": "1",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 326,
+      "title": "Faveira",
+      "url": "https://madeiras.ipt.br/faveira/",
+      "modified": "2023-12-05T10:15:50",
+      "scientificNames": ["Parkia spp"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 334,
+      "title": "Figueira",
+      "url": "https://madeiras.ipt.br/figueira/",
+      "modified": "2023-12-05T10:21:32",
+      "scientificNames": ["Ficus sp"],
+      "facts": {
+        "fungi": "5",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 342,
+      "title": "Freijó",
+      "url": "https://madeiras.ipt.br/freijo/",
+      "modified": "2023-12-05T10:30:39",
+      "scientificNames": ["Cordia goeldiana"],
+      "facts": {
+        "fungi": "4",
+        "termites": "S"
+      }
+    },
+    {
+      "sourceId": 350,
+      "title": "Garapa",
+      "url": "https://madeiras.ipt.br/garapa/",
+      "modified": "2023-12-05T10:45:30",
+      "scientificNames": ["Apuleia leiocarpa"],
+      "facts": {
+        "fungi": "2-3",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 358,
+      "title": "Goiabão",
+      "url": "https://madeiras.ipt.br/goiabao/",
+      "modified": "2023-12-05T13:53:30",
+      "scientificNames": ["Pouteria pachycarpa", "Planchonella pachycarpa"],
+      "facts": {
+        "fungi": "4",
+        "termites": "S"
+      }
+    },
+    {
+      "sourceId": 366,
+      "title": "Grevílea",
+      "url": "https://madeiras.ipt.br/grevilea/",
+      "modified": "2023-12-05T13:59:19",
+      "scientificNames": ["Grevillea robusta"],
+      "facts": {
+        "fungi": "5",
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 374,
+      "title": "Guarucaia",
+      "url": "https://madeiras.ipt.br/guarucaia/",
+      "modified": "2023-12-05T14:16:16",
+      "scientificNames": ["Peltophorum dubium", "Peltophorum vogelianum"],
+      "facts": {
+        "fungi": "3",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 382,
+      "title": "Imbuia",
+      "url": "https://madeiras.ipt.br/imbuia/",
+      "modified": "2023-12-05T15:34:39",
+      "scientificNames": ["Ocotea porosa"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 390,
+      "title": "Ipê",
+      "url": "https://madeiras.ipt.br/ipe/",
+      "modified": "2023-12-05T15:41:28",
+      "scientificNames": ["Tabebuia spp"],
+      "facts": {
+        "fungi": "3",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 398,
+      "title": "Itaúba",
+      "url": "https://madeiras.ipt.br/itauba/",
+      "modified": "2023-12-05T15:44:29",
+      "scientificNames": ["Mezilaurus itauba"],
+      "facts": {
+        "fungi": "1",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 406,
+      "title": "Jacareúba",
+      "url": "https://madeiras.ipt.br/jacareuba/",
+      "modified": "2023-12-05T15:48:27",
+      "scientificNames": ["Calophyllum brasiliense"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 414,
+      "title": "Jarana",
+      "url": "https://madeiras.ipt.br/jarana/",
+      "modified": "2023-12-06T08:49:19",
+      "scientificNames": ["Lecythis lurida"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 421,
+      "title": "Jatobá",
+      "url": "https://madeiras.ipt.br/jatoba/",
+      "modified": "2023-12-06T08:53:10",
+      "scientificNames": ["Hymenaea spp"],
+      "facts": {
+        "fungi": "1",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 429,
+      "title": "Louro-faia Euplassa",
+      "url": "https://madeiras.ipt.br/louro-faia-euplassa/",
+      "modified": "2023-12-06T08:56:31",
+      "scientificNames": ["Euplassa spp"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 437,
+      "title": "Louro-faia Roupala",
+      "url": "https://madeiras.ipt.br/louro-faia-roupala/",
+      "modified": "2023-12-06T08:59:32",
+      "scientificNames": ["Roupala montana"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 445,
+      "title": "Louro-pardo",
+      "url": "https://madeiras.ipt.br/louro-pardo/",
+      "modified": "2023-12-06T09:12:59",
+      "scientificNames": ["Cordia trichotoma"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 453,
+      "title": "Louro-vermelho",
+      "url": "https://madeiras.ipt.br/louro-vermelho/",
+      "modified": "2023-12-06T10:31:13",
+      "scientificNames": ["Nectandra rubra"],
+      "facts": {
+        "fungi": "5",
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 461,
+      "title": "Macacaúba",
+      "url": "https://madeiras.ipt.br/macacauba/",
+      "modified": "2023-12-06T10:34:26",
+      "scientificNames": ["Platymiscium ulei"],
+      "facts": {
+        "fungi": "2",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 469,
+      "title": "Maçaranduba",
+      "url": "https://madeiras.ipt.br/macaranduba/",
+      "modified": "2023-12-06T10:38:30",
+      "scientificNames": ["Manilkara spp"],
+      "facts": {
+        "fungi": null,
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 477,
+      "title": "Mandioqueira",
+      "url": "https://madeiras.ipt.br/mandioqueira/",
+      "modified": "2023-12-06T10:46:19",
+      "scientificNames": ["Ruizterania albiflora"],
+      "facts": {
+        "fungi": null,
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 485,
+      "title": "Marupá",
+      "url": "https://madeiras.ipt.br/marupa/",
+      "modified": "2023-12-06T15:44:14",
+      "scientificNames": ["Simarouba amara"],
+      "facts": {
+        "fungi": "4",
+        "termites": "S"
+      }
+    },
+    {
+      "sourceId": 493,
+      "title": "Melancieira",
+      "url": "https://madeiras.ipt.br/melancieira/",
+      "modified": "2023-12-13T16:54:57",
+      "scientificNames": ["Alexa grandiflora"],
+      "facts": {
+        "fungi": "2",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 501,
+      "title": "Mogno",
+      "url": "https://madeiras.ipt.br/mogno/",
+      "modified": "2023-12-06T16:00:37",
+      "scientificNames": ["Swietenia macrophylla"],
+      "facts": {
+        "fungi": "3",
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 509,
+      "title": "Muiracatiara",
+      "url": "https://madeiras.ipt.br/muiracatiara/",
+      "modified": "2023-12-06T16:10:45",
+      "scientificNames": ["Astronium lecointei"],
+      "facts": {
+        "fungi": null,
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 517,
+      "title": "Muirapiranga",
+      "url": "https://madeiras.ipt.br/muirapiranga/",
+      "modified": "2023-12-06T16:17:45",
+      "scientificNames": ["Brosimum paraense"],
+      "facts": {
+        "fungi": "1",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 525,
+      "title": "Oiticica-amarela",
+      "url": "https://madeiras.ipt.br/oiticica-amarela/",
+      "modified": "2023-12-06T16:21:22",
+      "scientificNames": ["Clarisia racemosa"],
+      "facts": {
+        "fungi": "4",
+        "termites": "S"
+      }
+    },
+    {
+      "sourceId": 533,
+      "title": "Parapará",
+      "url": "https://madeiras.ipt.br/parapara/",
+      "modified": "2023-12-06T16:31:40",
+      "scientificNames": ["Jacaranda copaia"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 540,
+      "title": "Pau-amarelo",
+      "url": "https://madeiras.ipt.br/pau-amarelo/",
+      "modified": "2023-12-06T16:34:56",
+      "scientificNames": ["Euxylophora paraensis"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 548,
+      "title": "Pau-marfim",
+      "url": "https://madeiras.ipt.br/pau-marfim/",
+      "modified": "2023-12-06T16:38:12",
+      "scientificNames": ["Balfourodendron riedelianum"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 556,
+      "title": "Pau-roxo",
+      "url": "https://madeiras.ipt.br/pau-roxo/",
+      "modified": "2023-12-06T16:41:55",
+      "scientificNames": ["Peltogyne spp"],
+      "facts": {
+        "fungi": "1",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 564,
+      "title": "Peroba-de-campos",
+      "url": "https://madeiras.ipt.br/peroba-de-campos/",
+      "modified": "2023-12-06T16:45:35",
+      "scientificNames": ["Paratecoma peroba"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 572,
+      "title": "Peroba-rosa",
+      "url": "https://madeiras.ipt.br/peroba-rosa/",
+      "modified": "2023-12-06T16:48:56",
+      "scientificNames": ["Aspidosperma polyneuron"],
+      "facts": {
+        "fungi": "3-4",
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 580,
+      "title": "Pinho-do-paraná",
+      "url": "https://madeiras.ipt.br/pinho-do-parana/",
+      "modified": "2023-12-06T16:53:28",
+      "scientificNames": ["Araucaria angustifolia"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 588,
+      "title": "Pinus-eliote",
+      "url": "https://madeiras.ipt.br/pinus-eliote/",
+      "modified": "2023-12-06T16:56:42",
+      "scientificNames": ["Pinus elliottii"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 596,
+      "title": "Piquiá",
+      "url": "https://madeiras.ipt.br/piquia/",
+      "modified": "2023-12-06T16:59:44",
+      "scientificNames": ["Caryocar villosum"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 604,
+      "title": "Piquiarana",
+      "url": "https://madeiras.ipt.br/piquiarana/",
+      "modified": "2023-12-06T17:03:42",
+      "scientificNames": ["Caryocar glabrum"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 612,
+      "title": "Quaruba",
+      "url": "https://madeiras.ipt.br/quaruba/",
+      "modified": "2023-12-06T17:07:29",
+      "scientificNames": ["Vochysia spp"],
+      "facts": {
+        "fungi": "3",
+        "termites": "M"
+      }
+    },
+    {
+      "sourceId": 620,
+      "title": "Sapucaia",
+      "url": "https://madeiras.ipt.br/sapucaia/",
+      "modified": "2023-12-06T17:10:33",
+      "scientificNames": ["Lecythis spp"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 628,
+      "title": "Sucupira",
+      "url": "https://madeiras.ipt.br/sucupira/",
+      "modified": "2023-12-06T17:13:57",
+      "scientificNames": ["Bowdichia spp", "Diplotropis spp"],
+      "facts": {
+        "fungi": "2",
+        "termites": "D"
+      }
+    },
+    {
+      "sourceId": 636,
+      "title": "Sumaúma",
+      "url": "https://madeiras.ipt.br/sumauma/",
+      "modified": "2023-12-06T17:17:15",
+      "scientificNames": ["Ceiba pentandra"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 644,
+      "title": "Tamboril",
+      "url": "https://madeiras.ipt.br/tamboril/",
+      "modified": "2023-12-06T17:22:08",
+      "scientificNames": ["Enterolobium maximum"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 652,
+      "title": "Tanibuca",
+      "url": "https://madeiras.ipt.br/tanibuca/",
+      "modified": "2023-12-06T17:24:56",
+      "scientificNames": ["Buchenavia huberi", "Terminalia amazonia"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 660,
+      "title": "Tatajuba",
+      "url": "https://madeiras.ipt.br/tatajuba/",
+      "modified": "2023-12-06T17:29:20",
+      "scientificNames": ["Bagassa guianensis"],
+      "facts": {
+        "fungi": "2",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 668,
+      "title": "Tauari",
+      "url": "https://madeiras.ipt.br/tauari/",
+      "modified": "2023-12-07T08:06:27",
+      "scientificNames": ["Couratari spp"],
+      "facts": {
+        "fungi": "4",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 676,
+      "title": "Taxi",
+      "url": "https://madeiras.ipt.br/taxi/",
+      "modified": "2023-12-07T08:10:44",
+      "scientificNames": ["Tachigali myrmecophilla"],
+      "facts": {
+        "fungi": "3",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 684,
+      "title": "Teca",
+      "url": "https://madeiras.ipt.br/teca/",
+      "modified": "2023-12-07T08:13:43",
+      "scientificNames": ["Tectona grandis"],
+      "facts": {
+        "fungi": "1",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 690,
+      "title": "Timborana",
+      "url": "https://madeiras.ipt.br/timborana/",
+      "modified": "2023-12-07T09:51:55",
+      "scientificNames": ["Pseudopiptadenia psilostachya", "Piptadenia suaveolens"],
+      "facts": {
+        "fungi": "2",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 698,
+      "title": "Uxi",
+      "url": "https://madeiras.ipt.br/uxi/",
+      "modified": "2023-12-07T10:16:12",
+      "scientificNames": ["Endopleura uchi"],
+      "facts": {
+        "fungi": "3",
+        "termites": null
+      }
+    },
+    {
+      "sourceId": 709,
+      "title": "Vinhático",
+      "url": "https://madeiras.ipt.br/vinhatico/",
+      "modified": "2023-12-07T10:19:38",
+      "scientificNames": ["Plathymenia foliolosa"],
+      "facts": {
+        "fungi": null,
+        "termites": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-pacific-yew",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "ba7315a3694f5577b1682a903dc1f6c601a02648a7a84ed232ddbb53aef492cb",
+      "sourceWidth": 2472,
+      "sourceHeight": 1661,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-common-persimmon",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "97c1ecf9781dcada970518dcc8320fdaafc6dfb9d68760841edd6a41e35b6ffb",
+      "sourceWidth": 2099,
+      "sourceHeight": 1238,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

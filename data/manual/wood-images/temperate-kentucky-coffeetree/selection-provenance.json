@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-kentucky-coffeetree",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "fce4190354a5b4634107b524bd4842d3aba5e17049d367aa13c53e715fd100d1",
+      "sourceWidth": 1046,
+      "sourceHeight": 481,
+      "outputFile": "radial.jpg",
+      "outputWidth": 481,
+      "outputHeight": 481,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "f6744c5e5b2a938ec4e3b37563d10488f7a18c6cff6eb851f297b2f72eda2360",
+      "sourceWidth": 969,
+      "sourceHeight": 491,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 491,
+      "outputHeight": 491,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-american-hophornbeam",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "d15297bada15dc08c9011e3bd0cbcec6687c7ba67acd7eb796269c2ed6ff9671",
+      "sourceWidth": 1340,
+      "sourceHeight": 566,
+      "outputFile": "radial.jpg",
+      "outputWidth": 566,
+      "outputHeight": 566,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_41.jpg",
+        "query": "\"Ostrya virginica\" \"radial section\" Hough Hop-Hornbeam wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 41 prints OSTRYA VIRGINICA / Hop-Hornbeam and labels the middle specimen RADIAL SECTION. Kew Plants of the World Online documents Ostrya virginica as a synonym of Ostrya virginiana subsp. virginiana.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The exposed radial wood face fills the frame with wavy horizontal bands and fine ray figure; no tree, bark, leaves, furniture, product scene, or microscopy appears.",
+        "derivedCrop": {
+          "left": 260,
+          "top": 1032,
+          "width": 1340,
+          "height": 566
+        },
+        "width": 1340,
+        "height": 566,
+        "format": "jpeg",
+        "sha256": "d15297bada15dc08c9011e3bd0cbcec6687c7ba67acd7eb796269c2ed6ff9671",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "db7b57de4d8a64bdee2e39f6c187c4d41931fb69a833b6e697c054c72e279b6a",
+      "sourceWidth": 1350,
+      "sourceHeight": 557,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 557,
+      "outputHeight": 557,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_41.jpg",
+        "query": "\"Ostrya virginica\" \"tangential section\" Hough Hop-Hornbeam wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 41 prints OSTRYA VIRGINICA / Hop-Hornbeam and labels the lower specimen TANGENTIAL SECTION. Kew documents this historical name as a synonym of Ostrya virginiana subsp. virginiana.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The exposed tangential face fills the frame with broad cathedral grain and two small natural knots; no living plant, bark-only subject, furniture, or microscopy appears.",
+        "derivedCrop": {
+          "left": 250,
+          "top": 1748,
+          "width": 1350,
+          "height": 557
+        },
+        "width": 1350,
+        "height": 557,
+        "format": "jpeg",
+        "sha256": "db7b57de4d8a64bdee2e39f6c187c4d41931fb69a833b6e697c054c72e279b6a",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

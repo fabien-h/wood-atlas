@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-degame",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "ebe0ddec73e2edbb92fbfdf03aea1392876dfa57ac0d1c64cd00ea2dc9020c6d",
+      "sourceWidth": 2243,
+      "sourceHeight": 1423,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

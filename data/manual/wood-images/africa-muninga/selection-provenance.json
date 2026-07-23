@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-muninga",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "beaacc2c77ec2ea4a8318784e3b12ed757a2550bca95d6e500904110fb4d5631",
+      "sourceWidth": 2473,
+      "sourceHeight": 1590,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

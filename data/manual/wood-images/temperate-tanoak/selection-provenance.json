@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-tanoak",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "d66a6114af632d937d67b96e9e9c59bf7395dc2a23a63630af9a41f6c70a6113",
+      "sourceWidth": 1309,
+      "sourceHeight": 508,
+      "outputFile": "radial.jpg",
+      "outputWidth": 508,
+      "outputHeight": 508,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_138.jpg",
+        "query": "\"Lithocarpus densiflorus\" Hough radial tangential wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 138 prints Quercus Densiflora, H. &amp; A. and labels its tangential wood section. Kew POWO documents the historical name as Notholithocarpus densiflorus, matching the atlas name Lithocarpus densiflorus.",
+        "visualCheckNotes": "Native-resolution crop of the plate’s explicitly labeled tangential physical wood face. Visually reviewed: exposed wood specimen only; no tree, leaf, bark-only view, furniture, or microscopy. No upscaling was applied.",
+        "derivedCrop": {
+          "left": 266,
+          "top": 1664,
+          "width": 1309,
+          "height": 508
+        },
+        "width": 1309,
+        "height": 508,
+        "format": "jpeg",
+        "sha256": "d66a6114af632d937d67b96e9e9c59bf7395dc2a23a63630af9a41f6c70a6113",
+        "agent": "root-hough",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public-domain source publication (1888–1910)",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open",
+        "rightsNotes": "NCSU provides the reproduction for research access and asks users to credit the source and assess publication rights.",
+        "sourceRightsUrl": "https://www.lib.ncsu.edu/scrc/copyright",
+        "taxonomicEvidenceUrl": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60451161-2"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "54e408d5f9c4006ec4be3cc14fb8c9d5b824dca1c70c40c61994a143dc5906c5",
+      "sourceWidth": 1309,
+      "sourceHeight": 508,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 508,
+      "outputHeight": 508,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_138.jpg",
+        "query": "\"Lithocarpus densiflorus\" Hough radial tangential wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 138 prints Quercus Densiflora, H. &amp; A. and labels its radial wood section. Kew POWO documents the historical name as Notholithocarpus densiflorus, matching the atlas name Lithocarpus densiflorus.",
+        "visualCheckNotes": "Native-resolution crop of the plate’s explicitly labeled radial physical wood face. Visually reviewed: exposed wood specimen only; no tree, leaf, bark-only view, furniture, or microscopy. No upscaling was applied.",
+        "derivedCrop": {
+          "left": 266,
+          "top": 986,
+          "width": 1309,
+          "height": 508
+        },
+        "width": 1309,
+        "height": 508,
+        "format": "jpeg",
+        "sha256": "54e408d5f9c4006ec4be3cc14fb8c9d5b824dca1c70c40c61994a143dc5906c5",
+        "agent": "root-hough",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public-domain source publication (1888–1910)",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open",
+        "rightsNotes": "NCSU provides the reproduction for research access and asks users to credit the source and assess publication rights.",
+        "sourceRightsUrl": "https://www.lib.ncsu.edu/scrc/copyright",
+        "taxonomicEvidenceUrl": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60451161-2"
+      }
+    }
+  ]
+}

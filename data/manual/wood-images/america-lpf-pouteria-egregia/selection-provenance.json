@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-pouteria-egregia",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "38c9f3e9d4bb3a72674f26f2411fece8cc1a78862759790fc902da563be63d3f",
+      "sourceWidth": 481,
+      "sourceHeight": 280,
+      "outputFile": "radial.jpg",
+      "outputWidth": 280,
+      "outputHeight": 280,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=221",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Sandwithiodoxa%20egregia3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Pouteria egregia\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly names the record Pouteria egregia and captions this file Corte tangencial. The direct filename uses the documented combination Sandwithiodoxa egregia.",
+        "visualCheckNotes": "Opened at original resolution. A clean reddish longitudinal wood face fills the frame; fine grain is visible and there are no living plant parts, external log/bark, finished object, diagram, or microscopy.",
+        "width": 481,
+        "height": 280,
+        "format": "jpeg",
+        "sha256": "38c9f3e9d4bb3a72674f26f2411fece8cc1a78862759790fc902da563be63d3f",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

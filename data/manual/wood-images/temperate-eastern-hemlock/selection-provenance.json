@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-eastern-hemlock",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "9ce3fdf5c2af9fdaeedc4fd69542d8927bb36f03c034ed7c23600e9c00ffb6cb",
+      "sourceWidth": 1397,
+      "sourceHeight": 848,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

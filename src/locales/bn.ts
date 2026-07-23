@@ -11,7 +11,8 @@ export const bn = {
   aboutOpenSource: 'এই কাঠের অ্যাটলাসটি ওপেন সোর্স। এর সোর্স কোড GitHub-এ পাওয়া যায়।',
   aboutDataSourcesTitle: 'তথ্যের উৎস',
   aboutDataSources:
-    'এই অ্যাটলাসের সব কাঠের তথ্য Tropix ডেটাবেস এবং CIRAD-এর BioWooEB গবেষণা ইউনিট থেকে এসেছে।',
+    'এই অ্যাটলাসের অধিকাংশ তথ্য Tropix, CIRAD-এর BioWooEB ইউনিট, USDA Forest Products Laboratory এবং Brazilian Forest Service-এর Forest Products Laboratory (LPF/SFB) থেকে এসেছে। অতিরিক্ত রেকর্ডগুলোর নিজস্ব পাতায় উৎস উল্লেখ করা আছে।',
+  contact: 'যোগাযোগ',
   atlas: 'কাঠের অ্যাটলাস',
   searchPlaceholder: 'নাম, ব্যবহার বা দেশ খুঁজুন…',
   clearSearch: 'অনুসন্ধান মুছুন',
@@ -60,6 +61,7 @@ export const bn = {
   materialMap: 'উপাদান মানচিত্র',
   hardnessVsRadialShrinkage: 'কঠোরতা বনাম রেডিয়াল সঙ্কোচন',
   monninHardness: 'মনিন কঠোরতা',
+  jankaHardness: 'জাঙ্কা কঠোরতা',
   radialShrinkage: 'রেডিয়াল সঙ্কোচন',
   distribution: 'বিস্তৃতি',
   specificGravity: 'আপেক্ষিক ঘনত্ব',

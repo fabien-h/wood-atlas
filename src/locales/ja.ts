@@ -11,7 +11,8 @@ export const ja = {
   aboutOpenSource: 'この木材図鑑はオープンソースです。ソースコードはGitHubで公開されています。',
   aboutDataSourcesTitle: 'データソース',
   aboutDataSources:
-    'この図鑑の木材データはすべて、TropixデータベースとCIRADのBioWooEB研究ユニットに由来します。',
+    '本図鑑のデータの大部分はTropix、CIRADのBioWooEBユニット、USDA林産物研究所、ブラジル森林局の林産物研究所（LPF/SFB）に由来します。追加データは各シートに出典を記載しています。',
+  contact: 'お問い合わせ',
   atlas: '木材図鑑',
   searchPlaceholder: '名称、用途、国名を検索…',
   clearSearch: '検索をクリア',
@@ -60,6 +61,7 @@ export const ja = {
   materialMap: '材料マップ',
   hardnessVsRadialShrinkage: '硬さと放射方向収縮率',
   monninHardness: 'モナン硬さ',
+  jankaHardness: 'ヤンカ硬さ',
   radialShrinkage: '放射方向収縮率',
   distribution: '分布',
   specificGravity: '比重',

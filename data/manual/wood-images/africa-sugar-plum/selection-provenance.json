@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-sugar-plum",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.png",
+      "sourceSha256": "2abba61682cfe8e9daa4cfb5738221a0e634d7eeb61b875195448e5c8ad04d22",
+      "sourceWidth": 484,
+      "sourceHeight": 307,
+      "outputFile": "radial.jpg",
+      "outputWidth": 307,
+      "outputHeight": 307,
+      "matchedCandidate": null
+    }
+  ]
+}

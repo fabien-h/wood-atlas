@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-hymenolobium-pulcherrimum",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "b50b0250210010a7b66884aa54c85fa57616d06dc5ca8e1469c27c5a2362a35a",
+      "sourceWidth": 480,
+      "sourceHeight": 288,
+      "outputFile": "radial.jpg",
+      "outputWidth": 288,
+      "outputHeight": 288,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=128",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Hymenolobium%20cf.%20pulcherrimum3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Hymenolobium pulcherrimum\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The current Brazilian Forest Service LPF record explicitly identifies Hymenolobium pulcherrimum and captions this image Corte tangencial. The image filename retains an older cf. qualifier, which is recorded here rather than silently omitted.",
+        "visualCheckNotes": "Opened at original resolution. A pale, naturally streaked exposed longitudinal wood surface occupies the full image; no external tree parts, furniture, generic texture, diagram, or microscopic section appears.",
+        "width": 480,
+        "height": 288,
+        "format": "jpeg",
+        "sha256": "b50b0250210010a7b66884aa54c85fa57616d06dc5ca8e1469c27c5a2362a35a",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "8f1956ac1ba547ee3eab8c2c010ac0605b52c8c71aea16bc8b1100326414e85e",
+      "sourceWidth": 304,
+      "sourceHeight": 122,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 122,
+      "outputHeight": 122,
+      "matchedCandidate": null
+    }
+  ]
+}

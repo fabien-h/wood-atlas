@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-peltogyne-cf-subsessilis",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "eeb3eabb7587c130578a4c6ed2940cc5db83b001c5ed01871f75df1328963fbe",
+      "sourceWidth": 480,
+      "sourceHeight": 286,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 286,
+      "outputHeight": 286,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=193",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Peltogyne%20cf.%20subsessilis3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Peltogyne cf. subsessilis\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies the tentative record Peltogyne cf. subsessilis and captions this image Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. The image is entirely an exposed reddish-purple longitudinal wood surface with subtle natural grain; there is no tree, leaf, bark exterior, finished product, generic texture, diagram, or microscopy.",
+        "width": 480,
+        "height": 286,
+        "format": "jpeg",
+        "sha256": "eeb3eabb7587c130578a4c6ed2940cc5db83b001c5ed01871f75df1328963fbe",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

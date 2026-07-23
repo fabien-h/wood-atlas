@@ -5,7 +5,7 @@ import { mkdir, open, readFile, readdir, rename, rm } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import {
-  FILTER_CATEGORY_SCOPES,
+  CATEGORICAL_VALUE_SCOPES,
   isRemovedSourceCategory,
   normalizeCategoryText,
   normalizedCategorySourceKey,
@@ -16,6 +16,8 @@ const SOURCE_DATABASE = path.join(ROOT, 'public/data/woods.generated.en.json');
 const I18N_DIRECTORY = path.join(ROOT, 'data/i18n');
 const CATALOG_DIRECTORY = path.join(I18N_DIRECTORY, 'translations');
 const SOURCE_MANIFEST = path.join(I18N_DIRECTORY, 'source.en.json');
+const MANUAL_TRANSLATIONS = path.join(ROOT, 'data/manual/content-translations.json');
+const MANUAL_TRANSLATION_DIRECTORY = path.join(ROOT, 'data/manual/content-translations');
 const CONTENT_DIRECTORY = path.join(ROOT, 'public/data/content');
 const SCHEMA_VERSION = 1;
 
@@ -78,7 +80,7 @@ const DIRECT_TEXT_PATHS = [
   'fireSafety.notes',
 ];
 
-const ARRAY_TEXT_PATHS = ['identity.aliases', 'origin.countries', 'endUses'];
+const ARRAY_TEXT_PATHS = ['origin.countries', 'endUses'];
 
 const SCHEDULE_CELL_PATHS = [
   'durationHours',
@@ -154,7 +156,8 @@ async function extractSourceManifest() {
     units,
   };
 
-  const rebasedCatalogs = await planCatalogRebases(previousManifest, manifest);
+  const manualTranslations = await readManualTranslationSeeds();
+  const rebasedCatalogs = await planCatalogRebases(previousManifest, manifest, manualTranslations);
   await atomicWriteJson(SOURCE_MANIFEST, manifest);
   for (const { catalogPath, catalog } of rebasedCatalogs) {
     await atomicWriteJson(catalogPath, catalog, false);
@@ -168,14 +171,18 @@ async function extractSourceManifest() {
   }
 }
 
-async function planCatalogRebases(previousManifest, nextManifest) {
-  if (!previousManifest || previousManifest.manifestHash === nextManifest.manifestHash) return [];
+async function planCatalogRebases(previousManifest, nextManifest, manualTranslations) {
+  if (!previousManifest) return [];
 
   const catalogPaths = await resolveCatalogs([]);
   const previousById = new Map(previousManifest.units.map((unit) => [unit.id, unit]));
   const previousCategories = Map.groupBy(
-    previousManifest.units.filter((unit) => FILTER_CATEGORY_SCOPES.has(unit.scope)),
+    previousManifest.units.filter((unit) => CATEGORICAL_VALUE_SCOPES.has(unit.scope)),
     (unit) => categoryKey(unit.scope, unit.source),
+  );
+  const previousByContext = Map.groupBy(previousManifest.units, unitContextKey);
+  const nextWoodIds = new Set(
+    nextManifest.units.flatMap((unit) => unit.contexts.map((context) => context.woodId)),
   );
   const plans = [];
 
@@ -192,21 +199,27 @@ async function planCatalogRebases(previousManifest, nextManifest) {
     const translations = {};
     const consumedIds = new Set();
     for (const unit of nextManifest.units) {
-      const isCategory = FILTER_CATEGORY_SCOPES.has(unit.scope);
+      const isCategory = CATEGORICAL_VALUE_SCOPES.has(unit.scope);
+      const manualUnitTranslations = manualTranslations.get(`${unit.scope}\u0000${unit.source}`);
       const candidates = isCategory
         ? (previousCategories.get(categoryKey(unit.scope, unit.source)) ?? [])
         : previousById.has(unit.id)
           ? [previousById.get(unit.id)]
-          : [];
-      if (candidates.length === 0) {
-        throw new Error(`${locale}: cannot automatically rebase new unit ${unit.id}`);
-      }
-
+          : manualUnitTranslations
+            ? (previousByContext.get(unitContextKey(unit)) ?? [])
+            : [];
       for (const candidate of candidates) consumedIds.add(candidate.id);
       const preferred = candidates.find((candidate) => candidate.id === unit.id) ?? candidates[0];
-      const translated = catalog.translations?.[preferred.id];
+      const manualTranslation = manualUnitTranslations?.[locale];
+      const translated =
+        manualTranslation ??
+        catalog.translations?.[preferred?.id] ??
+        (isLocaleNeutralUnit(unit) ? unit.source : undefined);
       if (typeof translated !== 'string' || !translated.trim()) {
-        throw new Error(`${locale}: missing translation while rebasing ${unit.id}`);
+        const reason = preferred
+          ? 'missing translation while rebasing'
+          : 'no manual translation for';
+        throw new Error(`${locale}: ${reason} ${unit.id} (${unit.scope}: ${unit.source})`);
       }
       translations[unit.id] = isCategory
         ? normalizeCategoryTranslation(unit, translated, locale)
@@ -216,11 +229,28 @@ async function planCatalogRebases(previousManifest, nextManifest) {
     const unconsumed = Object.keys(catalog.translations ?? {}).filter((id) => {
       if (consumedIds.has(id)) return false;
       const oldUnit = previousById.get(id);
-      return !oldUnit || !isRemovedSourceCategory(oldUnit.scope, oldUnit.source);
+      if (
+        oldUnit?.contexts.length > 0 &&
+        oldUnit.contexts.every((context) => !nextWoodIds.has(context.woodId))
+      ) {
+        return false;
+      }
+      return (
+        !oldUnit ||
+        (oldUnit.scope !== 'identity.aliases[]' &&
+          !isRemovedSourceCategory(oldUnit.scope, oldUnit.source))
+      );
     });
     if (unconsumed.length > 0) {
+      const sample = unconsumed
+        .slice(0, 5)
+        .map((id) => {
+          const unit = previousById.get(id);
+          return unit ? `${unit.scope}: ${unit.source}` : id;
+        })
+        .join('; ');
       throw new Error(
-        `${locale}: cannot automatically discard ${unconsumed.length} unrelated catalog units`,
+        `${locale}: cannot automatically discard ${unconsumed.length} unrelated catalog units (${sample})`,
       );
     }
 
@@ -235,6 +265,105 @@ async function planCatalogRebases(previousManifest, nextManifest) {
   }
 
   return plans;
+}
+
+function unitContextKey(unit) {
+  const contexts = unit.contexts
+    .map((context) => `${context.woodId}\u0000${context.path}`)
+    .sort(compareText)
+    .join('\u0001');
+  return `${unit.scope}\u0000${contexts}`;
+}
+
+function isLocaleNeutralUnit(unit) {
+  return (
+    unit.scope === 'log.sapwoodThickness.value' &&
+    /^[\d.\s/–]+cm(?:\s*\/\s*[\d.\s–]+cm)*$/u.test(unit.source)
+  );
+}
+
+async function readManualTranslationSeeds() {
+  const manifestPaths = [MANUAL_TRANSLATIONS];
+  try {
+    const entries = await readdir(MANUAL_TRANSLATION_DIRECTORY, { withFileTypes: true });
+    manifestPaths.push(
+      ...entries
+        .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
+        .map((entry) => path.join(MANUAL_TRANSLATION_DIRECTORY, entry.name))
+        .sort(compareText),
+    );
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+  }
+
+  const translations = new Map();
+  for (const manifestPath of manifestPaths) {
+    const manifest = await readJsonFile(manifestPath);
+    if (manifest.schemaVersion !== SCHEMA_VERSION || !Array.isArray(manifest.units)) {
+      throw new Error(
+        `${relative(manifestPath)} must use schemaVersion ${SCHEMA_VERSION} and contain a units array`,
+      );
+    }
+
+    for (const [index, unit] of manifest.units.entries()) {
+      const label = `${relative(manifestPath)} unit ${index + 1}`;
+      if (
+        typeof unit?.scope !== 'string' ||
+        !unit.scope.trim() ||
+        typeof unit.source !== 'string' ||
+        !unit.source.trim() ||
+        !isPlainObject(unit.translations)
+      ) {
+        throw new Error(`${label} is invalid`);
+      }
+      if (isRemovedSourceCategory(unit.scope, unit.source)) continue;
+      const source = CATEGORICAL_VALUE_SCOPES.has(unit.scope)
+        ? normalizedCategorySourceKey(unit.scope, unit.source)
+        : unit.source;
+      const normalizedSource = normalizeCategoryText(unit.source, 'en');
+      if (
+        (unit.scope === 'durability.fungi.value' ||
+          unit.scope === 'durability.treatability.value') &&
+        normalizedSource !== source
+      ) {
+        continue;
+      }
+      const signature = `${unit.scope}\u0000${source}`;
+      const priority =
+        !CATEGORICAL_VALUE_SCOPES.has(unit.scope) || normalizedSource === source ? 1 : 0;
+      const normalizedTranslations = {};
+      for (const [locale, translated] of Object.entries(unit.translations)) {
+        assertLocale(locale);
+        if (typeof translated !== 'string' || !translated.trim()) {
+          throw new Error(`${label} has an empty ${locale} translation`);
+        }
+        normalizedTranslations[locale] = CATEGORICAL_VALUE_SCOPES.has(unit.scope)
+          ? normalizeCategoryTranslation({ ...unit, source }, translated, locale)
+          : translated;
+      }
+      const existing = translations.get(signature);
+      if (
+        existing &&
+        stableJson(existing.translations, false) !== stableJson(normalizedTranslations, false)
+      ) {
+        if (priority > existing.priority) {
+          translations.set(signature, { priority, translations: normalizedTranslations });
+        } else if (priority === existing.priority) {
+          throw new Error(`${label} conflicts with another translation for ${unit.scope}`);
+        }
+      } else if (existing && priority > existing.priority) {
+        translations.set(signature, { priority, translations: normalizedTranslations });
+      } else if (!existing) {
+        translations.set(signature, { priority, translations: normalizedTranslations });
+      }
+    }
+  }
+  return new Map(
+    [...translations].map(([signature, { translations: normalizedTranslations }]) => [
+      signature,
+      normalizedTranslations,
+    ]),
+  );
 }
 
 function categoryKey(scope, source) {
@@ -361,7 +490,7 @@ async function compileCommand(arguments_) {
     let valueCount = 0;
 
     for (const unit of manifest.units) {
-      const translated = FILTER_CATEGORY_SCOPES.has(unit.scope)
+      const translated = CATEGORICAL_VALUE_SCOPES.has(unit.scope)
         ? normalizeCategoryTranslation(unit, catalog.translations[unit.id], locale)
         : catalog.translations[unit.id];
       for (const context of unit.contexts) {
@@ -506,10 +635,10 @@ async function readAndValidateCatalog(catalogPath, manifest) {
       continue;
     }
     if (
-      FILTER_CATEGORY_SCOPES.has(unit.scope) &&
+      CATEGORICAL_VALUE_SCOPES.has(unit.scope) &&
       translated !== normalizeCategoryText(translated, locale)
     ) {
-      problems.push(`${unit.id}: filter category translation is not normalized lowercase`);
+      problems.push(`${unit.id}: categorical translation is not normalized lowercase`);
       continue;
     }
     const targetTokens = extractProtectedTokens(translated, unit.protectedTokens);
@@ -550,6 +679,42 @@ function extractProtectedTokens(text, requiredTokens = []) {
     /(?:°C|MPa|N\/mm(?:²|2)?|kJ\/kg|W\/\(m[.]K\)|kg\/m(?:³|3)|\b(?:mm|cm|m³|m3|kg|kW)\b|%)/gu,
   );
   collect(/(?<![\p{L}\p{N}])\d+(?:[.,]\d+)*(?![\p{L}\p{N}])/gu);
+
+  // Some scripts naturally place a required numeric value directly beside
+  // letters (for example, Japanese "収縮率4.5%"). Find only numbers already
+  // required by the source here so translated prose such as "one fourth"
+  // written with digits does not become a new protected token.
+  for (const token of new Set(requiredTokens)) {
+    if (!/^\d+(?:[.,]\d+)*$/u.test(token)) continue;
+    const expectedCount = requiredTokens.filter(
+      (requiredToken) => canonicalProtectedToken(requiredToken) === canonicalProtectedToken(token),
+    ).length;
+    const collectedCount = [...occurrences.values()].filter(
+      (collectedToken) =>
+        canonicalProtectedToken(collectedToken) === canonicalProtectedToken(token),
+    ).length;
+    let missingCount = expectedCount - collectedCount;
+    if (missingCount <= 0) continue;
+
+    const localizedTokenPattern = token.replace(/[.,]/gu, '[.,]');
+    const pattern = new RegExp(`(?<![A-Za-z\\d.,])${localizedTokenPattern}(?![A-Za-z\\d.,])`, 'gu');
+    for (const match of text.matchAll(pattern)) {
+      const translatedToken = match[0];
+      const start = match.index ?? 0;
+      const end = start + translatedToken.length;
+      const occurrenceKey = `${start}:${end}:${translatedToken}`;
+      if (occurrences.has(occurrenceKey)) continue;
+
+      for (const [key, collectedToken] of occurrences) {
+        if (!/^\d+(?:[.,]\d+)*$/u.test(collectedToken)) continue;
+        const [collectedStart, collectedEnd] = key.split(':', 2).map(Number);
+        if (collectedStart >= start && collectedEnd <= end) occurrences.delete(key);
+      }
+      occurrences.set(occurrenceKey, translatedToken);
+      missingCount -= 1;
+      if (missingCount === 0) break;
+    }
+  }
 
   // A class letter is language-independent, but the word introducing it is
   // translated (Class, Klasse, classe, クラス, فئة, …). When validating a
@@ -669,9 +834,13 @@ function isPlainObject(value) {
 
 function sameTokenMultiset(left, right) {
   if (left.length !== right.length) return false;
-  const sortedLeft = [...left].sort(compareText);
-  const sortedRight = [...right].sort(compareText);
+  const sortedLeft = left.map(canonicalProtectedToken).sort(compareText);
+  const sortedRight = right.map(canonicalProtectedToken).sort(compareText);
   return sortedLeft.every((value, index) => value === sortedRight[index]);
+}
+
+function canonicalProtectedToken(token) {
+  return /^\d+(?:[.,]\d+)+$/u.test(token) ? token.replaceAll(',', '.') : token;
 }
 
 function formatTokens(tokens) {

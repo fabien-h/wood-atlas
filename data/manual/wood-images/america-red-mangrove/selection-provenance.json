@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-red-mangrove",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "013fc49e6dcd2262b6c743c431201b526d5a86c6a2103d1f121304d2a0392607",
+      "sourceWidth": 1075,
+      "sourceHeight": 478,
+      "outputFile": "radial.jpg",
+      "outputWidth": 478,
+      "outputHeight": 478,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "10f8a14f6dfa2404a83f16ae7c42a9ef9f510bbd2208de12c369e2242f28d079",
+      "sourceWidth": 1087,
+      "sourceHeight": 492,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 492,
+      "outputHeight": 492,
+      "matchedCandidate": null
+    }
+  ]
+}

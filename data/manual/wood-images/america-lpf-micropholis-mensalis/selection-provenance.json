@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-micropholis-mensalis",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "59d9ae1fa566218b0724c5e713c9a3113d03d5cd786e24047932763d7bed7f66",
+      "sourceWidth": 476,
+      "sourceHeight": 275,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 275,
+      "outputHeight": 275,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=286",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Micropholis%20mensalis3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Micropholis mensalis\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies the specimen as Micropholis mensalis and captions this photograph Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. A clean tan longitudinal wood face occupies the image and exposes visible grain; no tree, leaves, bark-only area, furniture, generic scene, diagram, or microscopic slide.",
+        "width": 476,
+        "height": 275,
+        "format": "jpeg",
+        "sha256": "59d9ae1fa566218b0724c5e713c9a3113d03d5cd786e24047932763d7bed7f66",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

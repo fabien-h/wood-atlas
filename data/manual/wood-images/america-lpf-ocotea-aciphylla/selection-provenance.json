@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-ocotea-aciphylla",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "826db5903d9fe1b671183632aabd1af769fbee96e001578fcf487f47eacf616d",
+      "sourceWidth": 478,
+      "sourceHeight": 272,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 272,
+      "outputHeight": 272,
+      "matchedCandidate": {
+        "filename": "candidate-05.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=564",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Ocotea%20costulata3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Ocotea aciphylla\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies the record as Ocotea aciphylla = Ocotea costulata and captions the image Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. A clean, close longitudinal wood surface with visible grain occupies the full image; no non-wood botanical subject or finished object appears.",
+        "width": 478,
+        "height": 272,
+        "format": "jpeg",
+        "sha256": "826db5903d9fe1b671183632aabd1af769fbee96e001578fcf487f47eacf616d",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

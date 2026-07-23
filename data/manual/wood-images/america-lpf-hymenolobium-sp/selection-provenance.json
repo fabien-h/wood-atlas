@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-hymenolobium-sp",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "e4b0808c638bcfa00af3802be4aa205f2ab3251cdce8de5cab381708ef1255a1",
+      "sourceWidth": 2097,
+      "sourceHeight": 945,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

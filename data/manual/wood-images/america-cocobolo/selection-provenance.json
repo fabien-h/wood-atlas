@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-cocobolo",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "1f63ed00be13b31180127e1859e79008732a33b0a4eac1f11fa9b63089076138",
+      "sourceWidth": 2915,
+      "sourceHeight": 1571,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "68542421a0a5999a0e964c61b678f7df205629a03bf7fc4d5f9fdacaebca0f81",
+      "sourceWidth": 2687,
+      "sourceHeight": 1422,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

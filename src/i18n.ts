@@ -26,6 +26,7 @@ export interface Translation {
   aboutOpenSource: string;
   aboutDataSourcesTitle: string;
   aboutDataSources: string;
+  contact: string;
   classLabel: string;
   low: string;
   medium: string;
@@ -87,6 +88,7 @@ export interface Translation {
   materialMap: string;
   hardnessVsRadialShrinkage: string;
   monninHardness: string;
+  jankaHardness: string;
   radialShrinkage: string;
   distribution: string;
   specificGravity: string;
@@ -220,7 +222,8 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     aboutOpenSource: 'This wood atlas is open source. Its source code is available on GitHub.',
     aboutDataSourcesTitle: 'Data sources',
     aboutDataSources:
-      'All wood data in this atlas comes from the Tropix database and the CIRAD BioWooEB research unit.',
+      'Most wood data in this atlas comes from Tropix, CIRAD BioWooEB, the USDA Forest Products Laboratory, and the Brazilian Forest Service’s Forest Products Laboratory (LPF/SFB). Additional records use the sources cited in their individual sheets.',
+    contact: 'Contact',
     classLabel: 'Class',
     low: 'Low',
     medium: 'Medium',
@@ -282,6 +285,7 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     materialMap: 'Material map',
     hardnessVsRadialShrinkage: 'Hardness vs radial shrinkage',
     monninHardness: 'Monnin hardness',
+    jankaHardness: 'Janka hardness',
     radialShrinkage: 'Radial shrinkage',
     distribution: 'Distribution',
     specificGravity: 'Specific gravity',
@@ -392,7 +396,8 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
       'Cet atlas des bois est open source. Son code source est disponible sur GitHub.',
     aboutDataSourcesTitle: 'Sources des données',
     aboutDataSources:
-      'Toutes les données sur les bois de cet atlas proviennent de la base Tropix et de l’unité de recherche BioWooEB du CIRAD.',
+      'La plupart des données de cet atlas proviennent de Tropix, de l’unité BioWooEB du CIRAD, du laboratoire des produits forestiers de l’USDA et du Laboratoire des produits forestiers du Service forestier brésilien (LPF/SFB). Les fiches ajoutées indiquent leurs propres sources.',
+    contact: 'Contact',
     classLabel: 'Classe',
     low: 'Faible',
     medium: 'Moyen',
@@ -454,6 +459,7 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     materialMap: 'Carte des matériaux',
     hardnessVsRadialShrinkage: 'Dureté et retrait radial',
     monninHardness: 'Dureté Monnin',
+    jankaHardness: 'Dureté Janka',
     radialShrinkage: 'Retrait radial',
     distribution: 'Distribution',
     specificGravity: 'Densité',

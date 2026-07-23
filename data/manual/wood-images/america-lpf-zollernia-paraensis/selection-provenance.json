@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-zollernia-paraensis",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "6368fb8204885f0c9b50f3f775ba84d727d034c685e98f08897dbd81af176a7c",
+      "sourceWidth": 1980,
+      "sourceHeight": 427,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 427,
+      "outputHeight": 427,
+      "matchedCandidate": null
+    }
+  ]
+}

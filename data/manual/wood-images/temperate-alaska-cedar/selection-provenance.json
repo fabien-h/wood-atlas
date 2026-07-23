@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-alaska-cedar",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "7fe78462bd6fa151930fa890dbd59be028ea8a8a4d66a6fb865f0183a5d4e77a",
+      "sourceWidth": 1346,
+      "sourceHeight": 515,
+      "outputFile": "radial.jpg",
+      "outputWidth": 515,
+      "outputHeight": 515,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_240.jpg",
+        "query": "\"Chamaecyparis nootkatensis\" \"radial section\" wood Hough",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU's 600-dpi Hough plate 240 is headed CHAMÆCYPARIS NOOTKATENSIS and Alaska Cedar; its middle specimen is printed as RADIAL SECTION.",
+        "visualCheckNotes": "Opened after derivation at original crop resolution. The crop is entirely an exposed longitudinal wood specimen with fine straight grain and no tree, foliage, bark-only area, product scene, diagram, or microscopy.",
+        "derivedCrop": {
+          "left": 292,
+          "top": 1000,
+          "width": 1346,
+          "height": 515
+        },
+        "width": 1346,
+        "height": 515,
+        "format": "jpeg",
+        "sha256": "7fe78462bd6fa151930fa890dbd59be028ea8a8a4d66a6fb865f0183a5d4e77a",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "f4c9083901d25cbb811d3799848e5ef08755409d2bf172f9d48c36d65276b860",
+      "sourceWidth": 1346,
+      "sourceHeight": 542,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 542,
+      "outputHeight": 542,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_240.jpg",
+        "query": "\"Chamaecyparis nootkatensis\" \"tangential section\" wood Hough",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU's 600-dpi Hough plate 240 is headed CHAMÆCYPARIS NOOTKATENSIS and Alaska Cedar; its lower specimen is printed as TANGENTIAL SECTION.",
+        "visualCheckNotes": "Opened after derivation at original crop resolution. The crop shows only the exposed tangential specimen face, including broad curved growth-ring figure; no living plant or finished object is present.",
+        "derivedCrop": {
+          "left": 292,
+          "top": 1692,
+          "width": 1346,
+          "height": 542
+        },
+        "width": 1346,
+        "height": 542,
+        "format": "jpeg",
+        "sha256": "f4c9083901d25cbb811d3799848e5ef08755409d2bf172f9d48c36d65276b860",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

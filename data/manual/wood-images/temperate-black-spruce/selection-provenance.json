@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-black-spruce",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "da9e18055c38c3ac66c5ab90fb8739053f6a07c2ebaa9eb228194579a435b6ce",
+      "sourceWidth": 2525,
+      "sourceHeight": 1543,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

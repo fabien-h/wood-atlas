@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-raintree",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c50322f6e9fa5993801dc0b435d5fe206053f7f69963623340d6bfbb4de6f323",
+      "sourceWidth": 1991,
+      "sourceHeight": 1285,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

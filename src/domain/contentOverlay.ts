@@ -24,7 +24,6 @@ type ArrayIndex = `${number}`;
 export type ContentOverlayPath =
   | 'identity.primaryName'
   | 'identity.displayName'
-  | `identity.aliases.${ArrayIndex}`
   | `identity.localNames.${ArrayIndex}.country`
   | 'identity.commercialRestrictions.value'
   | `identity.notes.${ArrayIndex}`
@@ -88,7 +87,6 @@ const fixedPaths = new Set<ContentOverlayPath>([
 ]);
 
 const indexedPathPatterns = [
-  /^identity\.aliases\.\d+$/,
   /^identity\.localNames\.\d+\.country$/,
   /^identity\.notes\.\d+$/,
   /^origin\.countries\.\d+$/,
@@ -195,6 +193,11 @@ export function applyContentOverlay(database: WoodDatabase, overlay: ContentOver
 
   const localized = structuredClone(database);
   const recordsById = new Map(localized.records.map((record) => [record.id, record]));
+  const localizedCommonNameIds = new Set(
+    database.records
+      .filter((record) => record.origin.region === 'Temperate')
+      .map((record) => record.id),
+  );
 
   for (const [woodId, values] of Object.entries(overlay.records)) {
     const record = recordsById.get(woodId);
@@ -208,6 +211,12 @@ export function applyContentOverlay(database: WoodDatabase, overlay: ContentOver
         throw new ContentOverlayError(
           `Translation for ${woodId}.${path} must be a non-empty string.`,
         );
+      }
+      if (path === 'identity.primaryName' && !localizedCommonNameIds.has(woodId)) {
+        if (value !== record.identity.primaryName && !record.identity.aliases.includes(value)) {
+          record.identity.aliases.push(value);
+        }
+        continue;
       }
       setLocalizedValue(record, path, value);
     }
@@ -286,6 +295,10 @@ export function buildWoodSearchText(record: WoodRecord) {
     record.fireSafety.notes,
     ...record.endUses,
     ...record.endUseNotes,
+    ...(record.additionalDetails ?? []).flatMap((section) => [
+      section.title,
+      ...section.fields.flatMap((field) => [field.label, field.value]),
+    ]),
     ...record.images.map((image) => image.alt),
   ]
     .filter((value): value is string => Boolean(value))

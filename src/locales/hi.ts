@@ -11,7 +11,8 @@ export const hi = {
   aboutOpenSource: 'यह लकड़ी एटलस ओपन सोर्स है। इसका सोर्स कोड GitHub पर उपलब्ध है।',
   aboutDataSourcesTitle: 'डेटा स्रोत',
   aboutDataSources:
-    'इस एटलस का सारा लकड़ी डेटा Tropix डेटाबेस और CIRAD की BioWooEB अनुसंधान इकाई से आता है।',
+    'इस एटलस का अधिकांश डेटा Tropix, CIRAD की BioWooEB इकाई, USDA Forest Products Laboratory और Brazilian Forest Service के Forest Products Laboratory (LPF/SFB) से आता है। अतिरिक्त रिकॉर्ड अपने पृष्ठों पर अपने स्रोत बताते हैं।',
+  contact: 'संपर्क',
   atlas: 'लकड़ी एटलस',
   searchPlaceholder: 'नाम, उपयोग या देश खोजें…',
   clearSearch: 'खोज साफ़ करें',
@@ -60,6 +61,7 @@ export const hi = {
   materialMap: 'सामग्री मानचित्र',
   hardnessVsRadialShrinkage: 'कठोरता बनाम रेडियल संकुचन',
   monninHardness: 'मोनिन कठोरता',
+  jankaHardness: 'जांका कठोरता',
   radialShrinkage: 'रेडियल संकुचन',
   distribution: 'वितरण',
   specificGravity: 'आपेक्षिक घनत्व',

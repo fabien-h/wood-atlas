@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-flowering-dogwood",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "de482d297e10c0820a5c3b1f7e180da706a9a9a325970a8abfb4d1d3e6092694",
+      "sourceWidth": 2492,
+      "sourceHeight": 1556,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

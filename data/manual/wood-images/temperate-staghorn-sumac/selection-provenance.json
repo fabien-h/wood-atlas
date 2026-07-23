@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-staghorn-sumac",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c046fe3e20c1c8b91a3e31b29a5867711eba3a05e3279f6ef71e771ddbd8801c",
+      "sourceWidth": 2312,
+      "sourceHeight": 1394,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

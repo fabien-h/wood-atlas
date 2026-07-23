@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lignumvitae",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "b6034e50a3e379209df8c05319da2c198ec5e1a05f1ed914302c179c8bcb1cd9",
+      "sourceWidth": 2099,
+      "sourceHeight": 1084,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

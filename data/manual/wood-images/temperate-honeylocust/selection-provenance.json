@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-honeylocust",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "af1d8e89fb4e56512c76c2c6ded6475aec7090e77fa75a5d724387e2293831eb",
+      "sourceWidth": 2022,
+      "sourceHeight": 1382,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-tamarack",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "e3c6adbad2a2e2f64c8577c39a03563a670133135d1f38a3807c41c6239125f8",
+      "sourceWidth": 2364,
+      "sourceHeight": 1461,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

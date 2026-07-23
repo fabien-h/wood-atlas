@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-silverbell",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "3af945bdadbf367c340430326c70760ec8b9c98b348ca7af9b3b33afaa61f6a9",
+      "sourceWidth": 1124,
+      "sourceHeight": 476,
+      "outputFile": "radial.jpg",
+      "outputWidth": 476,
+      "outputHeight": 476,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "9c415b3543f723d10029f91e6d2e3f0b90b108d6daa0336f8c7390b190ad3beb",
+      "sourceWidth": 1235,
+      "sourceHeight": 444,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 444,
+      "outputHeight": 444,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-serviceberry",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "fe5ecea6b87bdeeced5cf44d72c2b4f5db922d6ef4c24705096ce337a4262b82",
+      "sourceWidth": 2358,
+      "sourceHeight": 1299,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

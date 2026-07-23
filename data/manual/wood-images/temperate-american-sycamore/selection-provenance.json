@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-american-sycamore",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "75fd3ecbe659408039b6b8427aaff83d46665ee9c6fe75812c2e45b9b64de112",
+      "sourceWidth": 1320,
+      "sourceHeight": 535,
+      "outputFile": "radial.jpg",
+      "outputWidth": 535,
+      "outputHeight": 535,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_13.jpg",
+        "query": "\"Platanus occidentalis\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 13 prints PLATANUS OCCIDENTALIS and RADIAL SECTION for the middle specimen.",
+        "visualCheckNotes": "Opened at native crop size. A physical exposed radial wood face fills the image and shows strong sycamore ray fleck; no tree, leaf, bark-only subject, furniture, flooring, diagram, or microscopy is present.",
+        "derivedCrop": {
+          "left": 295,
+          "top": 1015,
+          "width": 1320,
+          "height": 535
+        },
+        "width": 1320,
+        "height": 535,
+        "format": "jpeg",
+        "sha256": "75fd3ecbe659408039b6b8427aaff83d46665ee9c6fe75812c2e45b9b64de112",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "07a9144f44802b566523ae6057dbc95ebb9665efdde9553b988a6a0b43a698c0",
+      "sourceWidth": 1315,
+      "sourceHeight": 515,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 515,
+      "outputHeight": 515,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_13.jpg",
+        "query": "\"Platanus occidentalis\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 13 prints PLATANUS OCCIDENTALIS and TANGENTIAL SECTION for the lower specimen.",
+        "visualCheckNotes": "Opened at native crop size. A clean physical tangential wood face fills the image; no living plant, bark, finished object, stock texture, or microscopy is present.",
+        "derivedCrop": {
+          "left": 295,
+          "top": 1725,
+          "width": 1315,
+          "height": 515
+        },
+        "width": 1315,
+        "height": 515,
+        "format": "jpeg",
+        "sha256": "07a9144f44802b566523ae6057dbc95ebb9665efdde9553b988a6a0b43a698c0",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

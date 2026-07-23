@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-white-cypress-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "d3d98a10f10ea4f76d33c2424b19b079712260f6a63ae76c953fb4d65b560cf4",
+      "sourceWidth": 2787,
+      "sourceHeight": 1612,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

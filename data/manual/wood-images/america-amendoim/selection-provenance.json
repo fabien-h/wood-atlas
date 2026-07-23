@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-amendoim",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "0bcbd113ddf63d7e959f007456b99b7651868c9d0c9cc24dbd3b65ee65936e87",
+      "sourceWidth": 1500,
+      "sourceHeight": 785,
+      "outputFile": "radial.jpg",
+      "outputWidth": 785,
+      "outputHeight": 785,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:9504b-Pterogyne_nitens_(Amendoim_bravo).jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/9504b-Pterogyne_nitens_%28Amendoim_bravo%29.jpg",
+        "query": "site:commons.wikimedia.org/wiki/File \"Pterogyne nitens\" polished wood",
+        "intendedViewHint": "unknown",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Commons description explicitly says Polished wood of Pterogyne nitens, known as Amendoim bravo.",
+        "visualCheckNotes": "Opened at native 1500 × 785. A polished longitudinal wood face fills the image, with continuous warm-brown grain; there is no tree, leaf, fruit, bark-only area, furniture, diagram, or microscopic slide.",
+        "width": 1500,
+        "height": 785,
+        "format": "jpeg",
+        "sha256": "0bcbd113ddf63d7e959f007456b99b7651868c9d0c9cc24dbd3b65ee65936e87",
+        "agent": "pilot_temperate",
+        "creator": "Vojtěch Zavadil",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "e05bf06528d274d3a54303a327de05fc2904f2a1bd560a32665e7ef06d5bc2cf",
+      "sourceWidth": 600,
+      "sourceHeight": 300,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 300,
+      "outputHeight": 300,
+      "matchedCandidate": null
+    }
+  ]
+}

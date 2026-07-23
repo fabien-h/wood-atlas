@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-north-american-maple",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "b89ad149eb24e0a7268f2b5b842768fcf6ca4911cb7f507c5b72d7eac18093a4",
+      "sourceWidth": 2345,
+      "sourceHeight": 1547,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

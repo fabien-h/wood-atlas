@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-honduras-rosewood",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "72801de01d3e8e3a02e70f96be94536ee45af24bd8efef07abe4fd1945d8d3dc",
+      "sourceWidth": 1678,
+      "sourceHeight": 909,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

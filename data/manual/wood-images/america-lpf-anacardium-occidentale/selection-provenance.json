@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-anacardium-occidentale",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "7a34434c487dc0e27938acf583fbefaebef9a4aca3e45be95c745d22e729002b",
+      "sourceWidth": 2442,
+      "sourceHeight": 1197,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "units": [
+    {
+      "scope": "durability.fungi.value",
+      "source": "class 2-5 - durable to not durable",
+      "translations": {
+        "ar": "الفئة 2-5 - من متين إلى غير متين",
+        "bn": "শ্রেণি 2-5 - টেকসই থেকে অটেকসই",
+        "de": "Klasse 2–5 – dauerhaft bis nicht dauerhaft",
+        "es": "clase 2-5 - de durable a no durable",
+        "hi": "वर्ग 2-5 - टिकाऊ से गैर-टिकाऊ",
+        "id": "kelas 2-5 - awet hingga tidak awet",
+        "it": "classe 2-5 - da durabile a non durabile",
+        "ja": "クラス2-5 - 耐久性あり〜耐久性なし",
+        "ko": "등급 2-5 - 내구성 있음부터 내구성 없음까지",
+        "pt": "classe 2-5 - de durável a não durável",
+        "ru": "класс 2–5 — от стойкой до нестойкой",
+        "tr": "sınıf 2-5 - dayanıklıdan dayanıksıza",
+        "ur": "درجہ 2-5 - پائیدار سے غیر پائیدار",
+        "vi": "cấp 2-5 - từ bền đến không bền",
+        "zh-Hans": "2-5级 - 从耐久到不耐久"
+      }
+    },
+    {
+      "scope": "durability.fungi.value",
+      "source": "class 3-5 - moderately durable to not durable",
+      "translations": {
+        "ar": "الفئة 3-5 - من متوسط المتانة إلى غير متين",
+        "bn": "শ্রেণি 3-5 - মাঝারি টেকসই থেকে অটেকসই",
+        "de": "Klasse 3–5 – mäßig dauerhaft bis nicht dauerhaft",
+        "es": "clase 3-5 - de moderadamente durable a no durable",
+        "hi": "वर्ग 3-5 - मध्यम टिकाऊ से गैर-टिकाऊ",
+        "id": "kelas 3-5 - cukup awet hingga tidak awet",
+        "it": "classe 3-5 - da moderatamente durabile a non durabile",
+        "ja": "クラス3-5 - 中程度の耐久性〜耐久性なし",
+        "ko": "등급 3-5 - 보통 내구성부터 내구성 없음까지",
+        "pt": "classe 3-5 - de moderadamente durável a não durável",
+        "ru": "класс 3–5 — от умеренно стойкой до нестойкой",
+        "tr": "sınıf 3-5 - orta dayanıklıdan dayanıksıza",
+        "ur": "درجہ 3-5 - معتدل پائیدار سے غیر پائیدار",
+        "vi": "cấp 3-5 - từ bền vừa đến không bền",
+        "zh-Hans": "3-5级 - 从中等耐久到不耐久"
+      }
+    }
+  ]
+}

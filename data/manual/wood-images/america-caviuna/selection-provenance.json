@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-caviuna",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "ac376c124948b8918ae1ad537a0d3316bbdc3ee1154a64e4dbaf0d565afb3ce7",
+      "sourceWidth": 2365,
+      "sourceHeight": 1438,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

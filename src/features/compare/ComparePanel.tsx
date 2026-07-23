@@ -1,5 +1,6 @@
 import { X } from 'lucide-react';
 import {
+  commonName,
   durabilityScore,
   formatMeasure,
   primaryGrainImage,
@@ -41,6 +42,7 @@ export function ComparePanel({
               </th>
               {woods.map((wood) => {
                 const grainImage = primaryGrainImage(wood);
+                const name = commonName(wood);
                 return (
                   <th scope="col" key={wood.id}>
                     <div className={styles.woodHeading}>
@@ -51,12 +53,12 @@ export function ComparePanel({
                           aria-hidden="true"
                         />
                       )}
-                      <span className={styles.woodName}>{wood.identity.displayName}</span>
+                      <span className={styles.woodName}>{name}</span>
                       <button
                         type="button"
                         onClick={() => onRemove(wood.id)}
-                        title={`${copy.remove} ${wood.identity.displayName}`}
-                        aria-label={`${copy.remove} ${wood.identity.displayName}`}
+                        title={`${copy.remove} ${name}`}
+                        aria-label={`${copy.remove} ${name}`}
                       >
                         <X size={14} aria-hidden="true" />
                       </button>

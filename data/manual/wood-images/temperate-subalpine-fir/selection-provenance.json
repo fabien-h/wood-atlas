@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-subalpine-fir",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "75779a7f2ed87f1c9e7739afe999179a6669e34b9359917f60f53fac27bb6d48",
+      "sourceWidth": 2565,
+      "sourceHeight": 1626,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

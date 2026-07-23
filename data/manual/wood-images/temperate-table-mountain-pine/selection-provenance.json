@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-table-mountain-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "b5a17b96e33d95b0e2f0d22b40dedaa80f875eb229c0542fd7f08cbec05f2845",
+      "sourceWidth": 2458,
+      "sourceHeight": 1594,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-manilkara-sp",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "e2e0bf5a1b12e4f4b57594151ad3acdf9fc77680056279671f775047f20013a0",
+      "sourceWidth": 2585,
+      "sourceHeight": 1527,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

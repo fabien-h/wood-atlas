@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-baldcypress",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "11dbafa051dc7776b205713e86f45661a9c0e7d94df68f0b6d60f10c321a35a8",
+      "sourceWidth": 1345,
+      "sourceHeight": 515,
+      "outputFile": "radial.jpg",
+      "outputWidth": 515,
+      "outputHeight": 515,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_119.jpg",
+        "query": "\"Taxodium distichum\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 119 prints TAXODIUM DISTICHUM and RADIAL SECTION for the middle specimen.",
+        "visualCheckNotes": "Opened at native crop size. Only the physical radial wood face is visible, with fine horizontal growth lines; no cypress tree, knee, foliage, bark, furniture, flooring, or microscopy appears.",
+        "derivedCrop": {
+          "left": 275,
+          "top": 990,
+          "width": 1345,
+          "height": 515
+        },
+        "width": 1345,
+        "height": 515,
+        "format": "jpeg",
+        "sha256": "11dbafa051dc7776b205713e86f45661a9c0e7d94df68f0b6d60f10c321a35a8",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "9b320cd5b41c7fdf89cc2e39d04f22f0eb8628b0bc3f7af5b79604f4faea08df",
+      "sourceWidth": 1340,
+      "sourceHeight": 500,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 500,
+      "outputHeight": 500,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_119.jpg",
+        "query": "\"Taxodium distichum\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 119 prints TAXODIUM DISTICHUM and TANGENTIAL SECTION for the lower specimen.",
+        "visualCheckNotes": "Opened at native crop size. A physical tangential wood face fills the image with clear cathedral grain; no living plant, bark, product scene, generic flooring, or microscopy is present.",
+        "derivedCrop": {
+          "left": 275,
+          "top": 1710,
+          "width": 1340,
+          "height": 500
+        },
+        "width": 1340,
+        "height": 500,
+        "format": "jpeg",
+        "sha256": "9b320cd5b41c7fdf89cc2e39d04f22f0eb8628b0bc3f7af5b79604f4faea08df",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

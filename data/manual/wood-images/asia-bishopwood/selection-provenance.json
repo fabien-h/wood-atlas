@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-bishopwood",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "1c22260d82b4ad0dc6bbd7846e07c4b018f3b77aab79a3a12d47733f0e9e7cc7",
+      "sourceWidth": 2051,
+      "sourceHeight": 1372,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

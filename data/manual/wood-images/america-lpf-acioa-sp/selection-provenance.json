@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-acioa-sp",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "dbbf4c43a474abd0b9c896e64206330faabe23ff0e03992e33fe863a82353533",
+      "sourceWidth": 480,
+      "sourceHeight": 284,
+      "outputFile": "radial.jpg",
+      "outputWidth": 284,
+      "outputHeight": 284,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=3",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Acioa%20sp.jpg",
+        "query": "site:lpf.florestal.gov.br \"Acioa sp\" madeira",
+        "intendedViewHint": "unknown",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The requested LPF record is genus-level Acioa sp.; the Brazilian Forest Service page explicitly identifies Acioa sp. and uses this file as the record's principal wood image.",
+        "visualCheckNotes": "Opened at original resolution. The image shows a clean reddish-brown exposed longitudinal wood surface with fine continuous grain; no living plant, bark exterior, furniture, generic texture, diagram, or microscopy appears. The page does not label the cut plane, so it is not guessed.",
+        "width": 480,
+        "height": 284,
+        "format": "jpeg",
+        "sha256": "dbbf4c43a474abd0b9c896e64206330faabe23ff0e03992e33fe863a82353533",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

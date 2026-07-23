@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-cordia",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "1a2f9f268db652d80a09fd24da17e12aa031d93dfb0f7cbf5cf952832d741ad0",
+      "sourceWidth": 2387,
+      "sourceHeight": 1504,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

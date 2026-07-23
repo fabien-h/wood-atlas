@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-macrolobium-acacifolium",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "09cd763e6144dc9d489779c489e6475b02838f8bbff92ae666ae5beffcd4d2f6",
+      "sourceWidth": 479,
+      "sourceHeight": 279,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 279,
+      "outputHeight": 279,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=146",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Macrolobium%20acacifolium3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Macrolobium acacifolium\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies Macrolobium acacifolium and captions this image Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. A continuous brown exposed longitudinal wood face fills the frame and shows natural figure; no tree, leaves, bark exterior, manufactured object, generic texture, diagram, or microscopy appears.",
+        "width": 479,
+        "height": 279,
+        "format": "jpeg",
+        "sha256": "09cd763e6144dc9d489779c489e6475b02838f8bbff92ae666ae5beffcd4d2f6",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

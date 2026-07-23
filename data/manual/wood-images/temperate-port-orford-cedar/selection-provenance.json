@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-port-orford-cedar",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "2669ac74164c019a8dab4c1ec4f6089d816f48a6b31aa087dcf817d6f3203b48",
+      "sourceWidth": 1562,
+      "sourceHeight": 988,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

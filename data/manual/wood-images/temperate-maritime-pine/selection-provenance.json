@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-maritime-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "057d5d56dd5de1e56e148d3d403b774cbe4b3f6ff232245bdcb377bbb819cfff",
+      "sourceWidth": 2152,
+      "sourceHeight": 1535,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

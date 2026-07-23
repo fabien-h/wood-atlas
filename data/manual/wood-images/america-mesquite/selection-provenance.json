@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-mesquite",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "967843c08e4e38737a2eae26d5b6a0edb65e83b7b28107944b9bd6f11e94469c",
+      "sourceWidth": 1316,
+      "sourceHeight": 510,
+      "outputFile": "radial.jpg",
+      "outputWidth": 510,
+      "outputHeight": 510,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_129.jpg",
+        "query": "\"Prosopis spp.\" OR \"Prosopis alba\" OR \"Prosopis affinis\" OR \"Prosopis glandulosa\" OR \"Prosopis juliflora\" OR \"Prosopis kuntzei\" OR \"Prosopis nigra\" Hough radial tangential wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 129 prints Prosopis Julifora, Dc. and labels its radial wood section. GBIF maps the historical name to Prosopis juliflora, matching the atlas name Prosopis juliflora.",
+        "visualCheckNotes": "Native-resolution crop of the plate’s explicitly labeled radial physical wood face. Visually reviewed: exposed wood specimen only; no tree, leaf, bark-only view, furniture, or microscopy. No upscaling was applied.",
+        "derivedCrop": {
+          "left": 267,
+          "top": 990,
+          "width": 1316,
+          "height": 510
+        },
+        "width": 1316,
+        "height": 510,
+        "format": "jpeg",
+        "sha256": "967843c08e4e38737a2eae26d5b6a0edb65e83b7b28107944b9bd6f11e94469c",
+        "agent": "root-hough",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public-domain source publication (1888–1910)",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open",
+        "rightsNotes": "NCSU provides the reproduction for research access and asks users to credit the source and assess publication rights.",
+        "sourceRightsUrl": "https://www.lib.ncsu.edu/scrc/copyright",
+        "taxonomicEvidenceUrl": "https://api.gbif.org/v1/species/5358460"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "f2232857b08ec4743bbe808c5fa49d76b4186fef2405e9cccda743b55f64adb7",
+      "sourceWidth": 1241,
+      "sourceHeight": 460,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 460,
+      "outputHeight": 460,
+      "matchedCandidate": null
+    }
+  ]
+}

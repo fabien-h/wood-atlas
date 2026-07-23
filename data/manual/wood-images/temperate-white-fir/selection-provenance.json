@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-white-fir",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "bbccb9c085544d64d99babaabc3bf49f4ca387d0c475fde4547c6288b7f01ec8",
+      "sourceWidth": 1266,
+      "sourceHeight": 752,
+      "outputFile": "radial.jpg",
+      "outputWidth": 752,
+      "outputHeight": 752,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "7c793afe2cf2fe3cba7118e3d1fd6e9584d03c0d13c309dbc593845d8a14b229",
+      "sourceWidth": 2878,
+      "sourceHeight": 1553,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

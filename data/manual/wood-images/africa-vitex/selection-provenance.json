@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-vitex",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "2c2e5b7db9ae35a469499690cb63df192093db2418c0faa8ae3c793c7b1dc593",
+      "sourceWidth": 560,
+      "sourceHeight": 407,
+      "outputFile": "radial.jpg",
+      "outputWidth": 407,
+      "outputHeight": 407,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c5630b292157c8756ff09beb21c73bc2338d4bdfdc5c0195ebeb2ef2b516cd80",
+      "sourceWidth": 556,
+      "sourceHeight": 498,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 498,
+      "outputHeight": 498,
+      "matchedCandidate": null
+    }
+  ]
+}

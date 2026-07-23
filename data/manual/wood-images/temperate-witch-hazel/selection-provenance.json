@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-witch-hazel",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "a5fb791590659f2df926d15300e39f10a528282567fcc509c42620be12a80441",
+      "sourceWidth": 943,
+      "sourceHeight": 512,
+      "outputFile": "radial.jpg",
+      "outputWidth": 512,
+      "outputHeight": 512,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "a1380aa4851ed9512bc5ce28b820527253352e469bf146de7a2db8c19e2ade04",
+      "sourceWidth": 1301,
+      "sourceHeight": 512,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 512,
+      "outputHeight": 512,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_281.jpg",
+        "query": "\"Hamamelis virginiana\" Hough radial tangential wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 281 prints Hamamelis Virginiana L. and labels its tangential wood section. The printed binomial matches the atlas name Hamamelis virginiana.",
+        "visualCheckNotes": "Native-resolution crop of the plate’s explicitly labeled tangential physical wood face. Visually reviewed: exposed wood specimen only; no tree, leaf, bark-only view, furniture, or microscopy. No upscaling was applied.",
+        "derivedCrop": {
+          "left": 264,
+          "top": 1676,
+          "width": 1301,
+          "height": 512
+        },
+        "width": 1301,
+        "height": 512,
+        "format": "jpeg",
+        "sha256": "a1380aa4851ed9512bc5ce28b820527253352e469bf146de7a2db8c19e2ade04",
+        "agent": "root-hough",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public-domain source publication (1888–1910)",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open",
+        "rightsNotes": "NCSU provides the reproduction for research access and asks users to credit the source and assess publication rights.",
+        "sourceRightsUrl": "https://www.lib.ncsu.edu/scrc/copyright",
+        "taxonomicEvidenceUrl": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-black-mangrove",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "f02916b42dbb04859d2ef62491119dafb36bf5bc467d52a7280f0cc03b9fa822",
+      "sourceWidth": 967,
+      "sourceHeight": 415,
+      "outputFile": "radial.jpg",
+      "outputWidth": 415,
+      "outputHeight": 415,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "2429f4d729e4e5d8afca89149a1936b98dce60c78c5f7add66bdb899729eb7ce",
+      "sourceWidth": 944,
+      "sourceHeight": 369,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 369,
+      "outputHeight": 369,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -80,6 +80,12 @@ function withPublicImageUrls(database: WoodDatabase): WoodDatabase {
         ...image,
         src: publicUrl(image.src),
       })),
+      thumbnail: record.thumbnail
+        ? {
+            ...record.thumbnail,
+            src: publicUrl(record.thumbnail.src),
+          }
+        : null,
     })),
   };
 }

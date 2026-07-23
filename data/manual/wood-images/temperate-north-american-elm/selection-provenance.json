@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-north-american-elm",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "a9f0654253910cb2475cbf13b75aa54d87fd4ffd7e5d9c1060aaba5b31fdb94d",
+      "sourceWidth": 2061,
+      "sourceHeight": 1293,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "da8f2a712093cee88c046d55e02dc1c58dd00fa30b70da874af84761576aebce",
+      "sourceWidth": 1579,
+      "sourceHeight": 1040,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

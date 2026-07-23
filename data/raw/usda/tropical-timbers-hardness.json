@@ -1,0 +1,2130 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "title": "Tropical Timbers of the World (Agriculture Handbook 607)",
+    "provider": "USDA Forest Service, Forest Products Laboratory",
+    "url": "https://research.fs.usda.gov/download/treesearch/69634.pdf",
+    "year": 1984,
+    "extractionDate": "2026-07-23",
+    "conversion": "1 lbf = 4.4482216153 N"
+  },
+  "matchedAtlasProfiles": 169,
+  "profilesWithComparableJankaHardness": 127,
+  "profiles": [
+    {
+      "id": "america-espave",
+      "page": 21,
+      "headings": ["Anacardium excelsum", "Espave"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 470,
+        "maxPounds": 470,
+        "valuePounds": 470,
+        "minNewtons": 2091,
+        "maxNewtons": 2091,
+        "valueNewtons": 2091
+      }
+    },
+    {
+      "id": "america-curupay",
+      "page": 22,
+      "headings": [
+        "Anadenanthera macrocarpa",
+        "syn. Piptadenia macrocarpa",
+        "Curupay"
+      ],
+      "hardness": {
+        "condition": "moisture condition not stated",
+        "minPounds": 3840,
+        "maxPounds": 3840,
+        "valuePounds": 3840,
+        "minNewtons": 17081,
+        "maxNewtons": 17081,
+        "valueNewtons": 17081
+      }
+    },
+    {
+      "id": "america-duru",
+      "page": 25,
+      "headings": ["Apeiba spp.", "Duru"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 250,
+        "maxPounds": 250,
+        "valuePounds": 250,
+        "minNewtons": 1112,
+        "maxNewtons": 1112,
+        "valueNewtons": 1112
+      }
+    },
+    {
+      "id": "america-peroba-rosa",
+      "page": 28,
+      "headings": ["Aspidosperma spp. (Peroba group)", "Peroba Rosa"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1732,
+        "maxPounds": 1732,
+        "valuePounds": 1732,
+        "minNewtons": 7704,
+        "maxNewtons": 7704,
+        "valueNewtons": 7704
+      }
+    },
+    {
+      "id": "america-pochote",
+      "page": 33,
+      "headings": ["Bombacopsis quínata", "Pochote"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 720,
+        "maxPounds": 720,
+        "valuePounds": 720,
+        "minNewtons": 3203,
+        "maxNewtons": 3203,
+        "valueNewtons": 3203
+      }
+    },
+    {
+      "id": "america-capomo-brosimum",
+      "page": 35,
+      "headings": ["Brosimum spp. (Alicastrum group)", "Capomo", "Ojoche"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1340,
+        "maxPounds": 1700,
+        "valuePounds": 1520,
+        "minNewtons": 5961,
+        "maxNewtons": 7562,
+        "valueNewtons": 6762
+      }
+    },
+    {
+      "id": "america-yellow-sanders",
+      "page": 37,
+      "headings": ["Buchenavia capitata", "Yellow Sanders"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1220,
+        "maxPounds": 1220,
+        "valuePounds": 1220,
+        "minNewtons": 5427,
+        "maxNewtons": 5427,
+        "valueNewtons": 5427
+      }
+    },
+    {
+      "id": "america-verawood",
+      "page": 39,
+      "headings": ["Bulnesia arbórea", "Verawood", "Maracaibo Lignum-Vitae"],
+      "hardness": null
+    },
+    {
+      "id": "america-gumbo-limbo",
+      "page": 40,
+      "headings": ["Bursera simaruba", "Gumbo-Limbo", "Almacigo"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 230,
+        "maxPounds": 270,
+        "valuePounds": 250,
+        "minNewtons": 1023,
+        "maxNewtons": 1201,
+        "valueNewtons": 1112
+      }
+    },
+    {
+      "id": "america-serrette",
+      "page": 41,
+      "headings": [
+        "Byrsonima coriácea var. spicata",
+        "and Byrsonima spp.",
+        "Serrette"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1530,
+        "maxPounds": 1530,
+        "valuePounds": 1530,
+        "minNewtons": 6806,
+        "maxNewtons": 6806,
+        "valueNewtons": 6806
+      }
+    },
+    {
+      "id": "america-cangerana",
+      "page": 42,
+      "headings": ["Cab ralea can ge rana", "Cangerana"],
+      "hardness": null
+    },
+    {
+      "id": "america-partridgewood",
+      "page": 43,
+      "headings": [
+        "Caesalplnia spp.",
+        "syn. Libidibia spp.",
+        "Partridgewood",
+        "Coffeewood"
+      ],
+      "hardness": null
+    },
+    {
+      "id": "america-degame",
+      "page": 45,
+      "headings": ["Calycophyllum candidissimum", "Degame", "Lemonwood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1940,
+        "maxPounds": 1940,
+        "valuePounds": 1940,
+        "minNewtons": 8630,
+        "maxNewtons": 8630,
+        "valueNewtons": 8630
+      }
+    },
+    {
+      "id": "america-sajo",
+      "page": 46,
+      "headings": ["Campnosperma panamensis", "Sajo", "Orey"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 425,
+        "maxPounds": 425,
+        "valuePounds": 425,
+        "minNewtons": 1890,
+        "maxNewtons": 1890,
+        "valueNewtons": 1890
+      }
+    },
+    {
+      "id": "america-baromalli",
+      "page": 51,
+      "headings": ["Catostemma spp.", "Baromalli"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 720,
+        "maxPounds": 720,
+        "valuePounds": 720,
+        "minNewtons": 3203,
+        "maxNewtons": 3203,
+        "valueNewtons": 3203
+      }
+    },
+    {
+      "id": "america-trumpet",
+      "page": 52,
+      "headings": ["Cecropía peltata", "Trumpet-Wood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 320,
+        "maxPounds": 320,
+        "valuePounds": 320,
+        "minNewtons": 1423,
+        "maxNewtons": 1423,
+        "valueNewtons": 1423
+      }
+    },
+    {
+      "id": "america-arariba",
+      "page": 56,
+      "headings": [
+        "Centrolobium spp.",
+        "Arariba",
+        "Porcupine Wood",
+        "Canary Wood"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1030,
+        "maxPounds": 1030,
+        "valuePounds": 1030,
+        "minNewtons": 4582,
+        "maxNewtons": 4582,
+        "valueNewtons": 4582
+      }
+    },
+    {
+      "id": "america-oiticica",
+      "page": 58,
+      "headings": ["Clarisia racemosa", "Oiticica", "Amarela", "Aji"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1400,
+        "maxPounds": 1400,
+        "valuePounds": 1400,
+        "minNewtons": 6228,
+        "maxNewtons": 6228,
+        "valueNewtons": 6228
+      }
+    },
+    {
+      "id": "america-aromata",
+      "page": 59,
+      "headings": ["Clathrotropis spp-", "Aromata"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2960,
+        "maxPounds": 2960,
+        "valuePounds": 2960,
+        "minNewtons": 13167,
+        "maxNewtons": 13167,
+        "valueNewtons": 13167
+      }
+    },
+    {
+      "id": "america-canalete",
+      "page": 61,
+      "headings": [
+        "Cordia spp.",
+        "(hard-wooded, dark-colored Gerascanthus group)",
+        "Canalete"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2200,
+        "maxPounds": 2200,
+        "valuePounds": 2200,
+        "minNewtons": 9786,
+        "maxNewtons": 9786,
+        "valueNewtons": 9786
+      }
+    },
+    {
+      "id": "america-cow-tree-couma",
+      "page": 64,
+      "headings": ["Couma macrocarpa", "Cow Tree"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 980,
+        "maxPounds": 980,
+        "valuePounds": 980,
+        "minNewtons": 4359,
+        "maxNewtons": 4359,
+        "valueNewtons": 4359
+      }
+    },
+    {
+      "id": "america-mexican-cypress",
+      "page": 67,
+      "headings": ["Cupressus lusitanlca", "Mexican Cypress"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 460,
+        "maxPounds": 460,
+        "valuePounds": 460,
+        "minNewtons": 2046,
+        "maxNewtons": 2046,
+        "valueNewtons": 2046
+      }
+    },
+    {
+      "id": "america-primavera",
+      "page": 68,
+      "headings": [
+        "Cybistax donnelhsmithii",
+        "syn. Tabebuia donnelhsmithii",
+        "Primavera"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 680,
+        "maxPounds": 680,
+        "valuePounds": 680,
+        "minNewtons": 3025,
+        "maxNewtons": 3025,
+        "valueNewtons": 3025
+      }
+    },
+    {
+      "id": "america-caimito",
+      "page": 69,
+      "headings": [
+        "Cynodendron spp-",
+        "and Chrysophyllum spp.",
+        "Caimito",
+        "Star-Apple"
+      ],
+      "hardness": null
+    },
+    {
+      "id": "america-cocobolo",
+      "page": 72,
+      "headings": ["Dalbergia retusa", "Cocobolo"],
+      "hardness": null
+    },
+    {
+      "id": "america-honduras-rosewood",
+      "page": 73,
+      "headings": ["Dalbergia stevensonii", "Honduras Rosewood"],
+      "hardness": null
+    },
+    {
+      "id": "america-angelica-tree",
+      "page": 74,
+      "headings": ["Dendropanax arboreus", "Angelica Tree"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 530,
+        "maxPounds": 725,
+        "valuePounds": 628,
+        "minNewtons": 2358,
+        "maxNewtons": 3225,
+        "valueNewtons": 2792
+      }
+    },
+    {
+      "id": "america-jutahy",
+      "page": 75,
+      "headings": ["Dialium guianense", "Jutahy"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 4000,
+        "maxPounds": 4000,
+        "valuePounds": 4000,
+        "minNewtons": 17793,
+        "maxNewtons": 17793,
+        "valueNewtons": 17793
+      }
+    },
+    {
+      "id": "america-cuangare",
+      "page": 76,
+      "headings": ["Dialyanthera spp.", "Cuangare", "\"Virola\""],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 375,
+        "maxPounds": 375,
+        "valuePounds": 375,
+        "minNewtons": 1668,
+        "maxNewtons": 1668,
+        "valueNewtons": 1668
+      }
+    },
+    {
+      "id": "america-manbarklak",
+      "page": 84,
+      "headings": ["Eschweilera spp.", "Manbarklak", "Kakeralli"],
+      "hardness": null
+    },
+    {
+      "id": "america-ulmo",
+      "page": 85,
+      "headings": ["Eucryphia cordifolia", "Ulmo"],
+      "hardness": null
+    },
+    {
+      "id": "america-alerce",
+      "page": 87,
+      "headings": ["Fîtzroya cupressoides", "Alerce"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 560,
+        "maxPounds": 560,
+        "valuePounds": 560,
+        "minNewtons": 2491,
+        "maxNewtons": 2491,
+        "valueNewtons": 2491
+      }
+    },
+    {
+      "id": "america-jagua",
+      "page": 88,
+      "headings": ["Genipa americana", "Jagua", "Genipa"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1410,
+        "maxPounds": 1410,
+        "valuePounds": 1410,
+        "minNewtons": 6272,
+        "maxNewtons": 6272,
+        "valueNewtons": 6272
+      }
+    },
+    {
+      "id": "america-west-indian-boxwood",
+      "page": 89,
+      "headings": [
+        "Gossypiospermum praecox",
+        "West Indian Boxwood",
+        "Maracaibo Boxwood"
+      ],
+      "hardness": null
+    },
+    {
+      "id": "america-lignumvitae",
+      "page": 91,
+      "headings": ["Guaiacum spp.", "Lignumvitae"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 4500,
+        "maxPounds": 4500,
+        "valuePounds": 4500,
+        "minNewtons": 20017,
+        "maxNewtons": 20017,
+        "valueNewtons": 20017
+      }
+    },
+    {
+      "id": "america-cramantee",
+      "page": 92,
+      "headings": ["Guarea spp.", "Cramantee", "American Muskwood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 800,
+        "maxPounds": 1330,
+        "valuePounds": 1065,
+        "minNewtons": 3559,
+        "maxNewtons": 5916,
+        "valueNewtons": 4738
+      }
+    },
+    {
+      "id": "america-leche-perra",
+      "page": 93,
+      "headings": ["Helicostylis tomentosa", "Leche Perra"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2700,
+        "maxPounds": 2700,
+        "valuePounds": 2700,
+        "minNewtons": 12010,
+        "maxNewtons": 12010,
+        "valueNewtons": 12010
+      }
+    },
+    {
+      "id": "america-blue-mahoe",
+      "page": 96,
+      "headings": ["Hibiscus eiatus", "and H. tiliaceus", "Blue Mahoe"],
+      "hardness": null
+    },
+    {
+      "id": "america-jarana",
+      "page": 97,
+      "headings": ["Holopyxidium jarana", "Jarana"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 3500,
+        "maxPounds": 3500,
+        "valuePounds": 3500,
+        "minNewtons": 15569,
+        "maxNewtons": 15569,
+        "valueNewtons": 15569
+      }
+    },
+    {
+      "id": "america-tauroniro",
+      "page": 98,
+      "headings": ["H um i ría balsam¡fera", "Tauroniro", "Umiri"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1610,
+        "maxPounds": 1610,
+        "valuePounds": 1610,
+        "minNewtons": 7162,
+        "maxNewtons": 7162,
+        "valueNewtons": 7162
+      }
+    },
+    {
+      "id": "america-suradan",
+      "page": 100,
+      "headings": [
+        "Hyeronima alchorneoides",
+        "and Hyeronima laxiflora",
+        "Suradan",
+        "Pilón"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1700,
+        "maxPounds": 1700,
+        "valuePounds": 1700,
+        "minNewtons": 7562,
+        "maxNewtons": 7562,
+        "valueNewtons": 7562
+      }
+    },
+    {
+      "id": "america-kirikawa",
+      "page": 103,
+      "headings": ["Iryanthera spp.", "Kirikawa", "Marakaipo"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 850,
+        "maxPounds": 1010,
+        "valuePounds": 930,
+        "minNewtons": 3781,
+        "maxNewtons": 4493,
+        "valueNewtons": 4137
+      }
+    },
+    {
+      "id": "america-marishballi",
+      "page": 107,
+      "headings": ["Licania spp.", "Marishballi", "Kauta", "Anaura"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 3570,
+        "maxPounds": 3570,
+        "valuePounds": 3570,
+        "minNewtons": 15880,
+        "maxNewtons": 15880,
+        "valueNewtons": 15880
+      }
+    },
+    {
+      "id": "america-kaneelhart",
+      "page": 108,
+      "headings": ["Licaría spp.", "Kaneelhart", "Brown Silverballi"],
+      "hardness": null
+    },
+    {
+      "id": "america-estribeiro",
+      "page": 110,
+      "headings": ["Luehea spp.", "Estribeiro", "Guacimo"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 900,
+        "maxPounds": 900,
+        "valuePounds": 900,
+        "minNewtons": 4003,
+        "maxNewtons": 4003,
+        "valueNewtons": 4003
+      }
+    },
+    {
+      "id": "america-sabicu",
+      "page": 111,
+      "headings": ["Lyslloma spp.", "Sabicú", "T'Zalam"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1400,
+        "maxPounds": 1400,
+        "valuePounds": 1400,
+        "minNewtons": 6228,
+        "maxNewtons": 6228,
+        "valueNewtons": 6228
+      }
+    },
+    {
+      "id": "america-caviuna",
+      "page": 112,
+      "headings": ["Machaerium spp.", "Caviuna", "Pau Ferro"],
+      "hardness": null
+    },
+    {
+      "id": "america-carne-d-anta",
+      "page": 115,
+      "headings": ["Maytenus spp.", "Carne D'Anta"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2240,
+        "maxPounds": 2240,
+        "valuePounds": 2240,
+        "minNewtons": 9964,
+        "maxNewtons": 9964,
+        "valueNewtons": 9964
+      }
+    },
+    {
+      "id": "africa-albizzia",
+      "page": 186,
+      "headings": ["Albizia spp.", "Albizzia"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 750,
+        "maxPounds": 1160,
+        "valuePounds": 955,
+        "minNewtons": 3336,
+        "maxNewtons": 5160,
+        "valueNewtons": 4248
+      }
+    },
+    {
+      "id": "africa-nkobakoba",
+      "page": 193,
+      "headings": ["Baíkiaea insignis subsp. minor", "Nkobakoba"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1770,
+        "maxPounds": 1770,
+        "valuePounds": 1770,
+        "minNewtons": 7873,
+        "maxNewtons": 7873,
+        "valueNewtons": 7873
+      }
+    },
+    {
+      "id": "africa-rhodesian-teak",
+      "page": 194,
+      "headings": ["Baikiaea pluríjuga", "Rhodesian-Teak"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2990,
+        "maxPounds": 2990,
+        "valuePounds": 2990,
+        "minNewtons": 13300,
+        "maxNewtons": 13300,
+        "valueNewtons": 13300
+      }
+    },
+    {
+      "id": "africa-mtundu",
+      "page": 200,
+      "headings": ["Brachystegia spiciformís", "Mtundu"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1830,
+        "maxPounds": 1830,
+        "valuePounds": 1830,
+        "minNewtons": 8140,
+        "maxNewtons": 8140,
+        "valueNewtons": 8140
+      }
+    },
+    {
+      "id": "africa-burkea",
+      "page": 201,
+      "headings": ["Burkea africana", "Burkea"],
+      "hardness": null
+    },
+    {
+      "id": "africa-muirungi",
+      "page": 204,
+      "headings": ["Casearia battiscombei", "Muirungi"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 720,
+        "maxPounds": 720,
+        "valuePounds": 720,
+        "minNewtons": 3203,
+        "maxNewtons": 3203,
+        "valueNewtons": 3203
+      }
+    },
+    {
+      "id": "africa-pillarwood",
+      "page": 205,
+      "headings": ["Cassipourea malosana", "Pillarwood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1250,
+        "maxPounds": 1650,
+        "valuePounds": 1450,
+        "minNewtons": 5560,
+        "maxNewtons": 7340,
+        "valueNewtons": 6450
+      }
+    },
+    {
+      "id": "africa-mtambara",
+      "page": 208,
+      "headings": ["Cephalosphaera usambarensis", "Mtambara"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 740,
+        "maxPounds": 740,
+        "valuePounds": 740,
+        "minNewtons": 3292,
+        "maxNewtons": 3292,
+        "valueNewtons": 3292
+      }
+    },
+    {
+      "id": "africa-cordyla",
+      "page": 212,
+      "headings": ["Cordyla africana", "Cordyla"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1580,
+        "maxPounds": 1580,
+        "valuePounds": 1580,
+        "minNewtons": 7028,
+        "maxNewtons": 7028,
+        "valueNewtons": 7028
+      }
+    },
+    {
+      "id": "africa-musine",
+      "page": 213,
+      "headings": ["Crotón megalocarpus", "Musine"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1350,
+        "maxPounds": 1350,
+        "valuePounds": 1350,
+        "minNewtons": 6005,
+        "maxNewtons": 6005,
+        "valueNewtons": 6005
+      }
+    },
+    {
+      "id": "africa-muhimbi",
+      "page": 215,
+      "headings": ["Cynometra alexandri", "Muhimbi"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2540,
+        "maxPounds": 3410,
+        "valuePounds": 2975,
+        "minNewtons": 11298,
+        "maxNewtons": 15168,
+        "valueNewtons": 13233
+      }
+    },
+    {
+      "id": "africa-adjouaba",
+      "page": 216,
+      "headings": ["Dacryodes spp.", "Adjouaba"],
+      "hardness": null
+    },
+    {
+      "id": "africa-ekebergia",
+      "page": 223,
+      "headings": ["Ekebergia rueppelliana", "Ekebergia"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 900,
+        "maxPounds": 900,
+        "valuePounds": 900,
+        "minNewtons": 4003,
+        "maxNewtons": 4003,
+        "valueNewtons": 4003
+      }
+    },
+    {
+      "id": "africa-east-african-satinwood",
+      "page": 230,
+      "headings": ["Pagara macrophylla", "East African Satinwood"],
+      "hardness": null
+    },
+    {
+      "id": "africa-mafu",
+      "page": 231,
+      "headings": ["Fagaropsís angolensís", "Mafu"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1370,
+        "maxPounds": 1370,
+        "valuePounds": 1370,
+        "minNewtons": 6094,
+        "maxNewtons": 6094,
+        "valueNewtons": 6094
+      }
+    },
+    {
+      "id": "africa-kamassi",
+      "page": 233,
+      "headings": ["Goni orna kamassi", "Kamassi"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2730,
+        "maxPounds": 2730,
+        "valuePounds": 2730,
+        "minNewtons": 12144,
+        "maxNewtons": 12144,
+        "valueNewtons": 12144
+      }
+    },
+    {
+      "id": "africa-african-homalium",
+      "page": 239,
+      "headings": ["Homalium spp.", "African Homalium"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2050,
+        "maxPounds": 2050,
+        "valuePounds": 2050,
+        "minNewtons": 9119,
+        "maxNewtons": 9119,
+        "valueNewtons": 9119
+      }
+    },
+    {
+      "id": "africa-mbarika",
+      "page": 241,
+      "headings": ["Isoberlinia schaffleri", "Mbarika"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1420,
+        "maxPounds": 1420,
+        "valuePounds": 1420,
+        "minNewtons": 6316,
+        "maxNewtons": 6316,
+        "valueNewtons": 6316
+      }
+    },
+    {
+      "id": "africa-african-pencil-cedar",
+      "page": 243,
+      "headings": ["Juniperus procera", "African Pencil Cedar"],
+      "hardness": null
+    },
+    {
+      "id": "africa-african-corkwood",
+      "page": 258,
+      "headings": ["Musanga cecropioides", "African Corkwood", "Umbrella Tree"],
+      "hardness": null
+    },
+    {
+      "id": "asia-australian-blackwood",
+      "page": 301,
+      "headings": ["Acacia melanoxylon", "Australian Blackwood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1100,
+        "maxPounds": 1100,
+        "valuePounds": 1100,
+        "minNewtons": 4893,
+        "maxNewtons": 4893,
+        "valueNewtons": 4893
+      }
+    },
+    {
+      "id": "asia-batai",
+      "page": 305,
+      "headings": [
+        "Albizla falcataria",
+        "syn. A. falcata",
+        "Batai",
+        "Molucca Albizzia"
+      ],
+      "hardness": null
+    },
+    {
+      "id": "asia-kokko",
+      "page": 307,
+      "headings": ["Albizia lebbek", "Kokko"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1240,
+        "maxPounds": 1440,
+        "valuePounds": 1340,
+        "minNewtons": 5516,
+        "maxNewtons": 6405,
+        "valueNewtons": 5961
+      }
+    },
+    {
+      "id": "asia-amoora",
+      "page": 309,
+      "headings": ["Amoora spp.", "Amoora", "Thitnl"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 895,
+        "maxPounds": 895,
+        "valuePounds": 895,
+        "minNewtons": 3981,
+        "maxNewtons": 3981,
+        "valueNewtons": 3981
+      }
+    },
+    {
+      "id": "asia-kadam",
+      "page": 311,
+      "headings": ["Anthocephalus chinensis", "syn. A. cadamba", "Kadam"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 600,
+        "maxPounds": 600,
+        "valuePounds": 600,
+        "minNewtons": 2669,
+        "maxNewtons": 2669,
+        "valueNewtons": 2669
+      }
+    },
+    {
+      "id": "asia-hoop-pine",
+      "page": 312,
+      "headings": ["Araucaria spp.", "Hoop-Pine", "Klínki-Pine"],
+      "hardness": null
+    },
+    {
+      "id": "asia-neem",
+      "page": 314,
+      "headings": ["Azadirachta spp.", "Neem", "Maranggo"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1460,
+        "maxPounds": 1460,
+        "valuePounds": 1460,
+        "minNewtons": 6494,
+        "maxNewtons": 6494,
+        "valueNewtons": 6494
+      }
+    },
+    {
+      "id": "asia-tawa",
+      "page": 316,
+      "headings": ["Beilschmiedia tawa", "Tawa"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1405,
+        "maxPounds": 1405,
+        "valuePounds": 1405,
+        "minNewtons": 6250,
+        "maxNewtons": 6250,
+        "valueNewtons": 6250
+      }
+    },
+    {
+      "id": "asia-bishopwood",
+      "page": 317,
+      "headings": ["Bischofia javanica", "Bishopwood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1370,
+        "maxPounds": 1370,
+        "valuePounds": 1370,
+        "minNewtons": 6094,
+        "maxNewtons": 6094,
+        "valueNewtons": 6094
+      }
+    },
+    {
+      "id": "asia-pipli",
+      "page": 318,
+      "headings": ["Bucklandia populnea", "Pipli"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1145,
+        "maxPounds": 1145,
+        "valuePounds": 1145,
+        "minNewtons": 5093,
+        "maxNewtons": 5093,
+        "valueNewtons": 5093
+      }
+    },
+    {
+      "id": "asia-white-cypress-pine",
+      "page": 319,
+      "headings": [
+        "Callitris glauca",
+        "syn. C columellaris",
+        "White Cypress-Pine"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1375,
+        "maxPounds": 1375,
+        "valuePounds": 1375,
+        "minNewtons": 6116,
+        "maxNewtons": 6116,
+        "valueNewtons": 6116
+      }
+    },
+    {
+      "id": "asia-cananga",
+      "page": 321,
+      "headings": ["Canangium odoratum", "Cananga"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 330,
+        "maxPounds": 330,
+        "valuePounds": 330,
+        "minNewtons": 1468,
+        "maxNewtons": 1468,
+        "valueNewtons": 1468
+      }
+    },
+    {
+      "id": "asia-berangan",
+      "page": 323,
+      "headings": ["Castanopsis spp.", "Berangan"],
+      "hardness": null
+    },
+    {
+      "id": "asia-casuarina",
+      "page": 324,
+      "headings": ["Casuarina spp.", "Casuarina"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 3200,
+        "maxPounds": 3200,
+        "valuePounds": 3200,
+        "minNewtons": 14234,
+        "maxNewtons": 14234,
+        "valueNewtons": 14234
+      }
+    },
+    {
+      "id": "asia-toon",
+      "page": 325,
+      "headings": [
+        "Cedrela spp.",
+        "(mainly C toona)",
+        "Toon",
+        "Australian Red-Cedar"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 550,
+        "maxPounds": 1035,
+        "valuePounds": 793,
+        "minNewtons": 2447,
+        "maxNewtons": 4604,
+        "valueNewtons": 3526
+      }
+    },
+    {
+      "id": "asia-chickrassy",
+      "page": 327,
+      "headings": ["Chukrasia tabularis", "Chickrassy"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1310,
+        "maxPounds": 1310,
+        "valuePounds": 1310,
+        "minNewtons": 5827,
+        "maxNewtons": 5827,
+        "valueNewtons": 5827
+      }
+    },
+    {
+      "id": "asia-cinnamon",
+      "page": 328,
+      "headings": ["Cinnamomum spp.", "Cinnamon Wood", "Camphor Wood"],
+      "hardness": null
+    },
+    {
+      "id": "asia-cordia",
+      "page": 329,
+      "headings": ["Cordia spp.", "Cordia"],
+      "hardness": null
+    },
+    {
+      "id": "asia-rose-mapie",
+      "page": 332,
+      "headings": ["Cryptocarya spp.", "Rose-Mapie"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1515,
+        "maxPounds": 2095,
+        "valuePounds": 1805,
+        "minNewtons": 6739,
+        "maxNewtons": 9319,
+        "valueNewtons": 8029
+      }
+    },
+    {
+      "id": "asia-rimu",
+      "page": 334,
+      "headings": ["Dacrydium spp.", "Rimú"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 785,
+        "maxPounds": 785,
+        "valuePounds": 785,
+        "minNewtons": 3492,
+        "maxNewtons": 3492,
+        "valueNewtons": 3492
+      }
+    },
+    {
+      "id": "asia-jongkong",
+      "page": 335,
+      "headings": ["Dactylocladus stenostachys", "Jongkong"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 720,
+        "maxPounds": 720,
+        "valuePounds": 720,
+        "minNewtons": 3203,
+        "maxNewtons": 3203,
+        "valueNewtons": 3203
+      }
+    },
+    {
+      "id": "asia-paldao",
+      "page": 341,
+      "headings": ["Dracontomelum spp.", "Paldao", "Sengkuang"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 830,
+        "maxPounds": 1130,
+        "valuePounds": 980,
+        "minNewtons": 3692,
+        "maxNewtons": 5026,
+        "valueNewtons": 4359
+      }
+    },
+    {
+      "id": "asia-orientalwood",
+      "page": 346,
+      "headings": [
+        "Endiandra palmerstonii",
+        "Orientalwood",
+        "Queensland-Walnut"
+      ],
+      "hardness": null
+    },
+    {
+      "id": "asia-deglupta",
+      "page": 348,
+      "headings": ["Eucalyptus deglupta", "Deglupta"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 470,
+        "maxPounds": 470,
+        "valuePounds": 470,
+        "minNewtons": 2091,
+        "maxNewtons": 2091,
+        "valueNewtons": 2091
+      }
+    },
+    {
+      "id": "asia-bluegum",
+      "page": 350,
+      "headings": ["Eucalyptus globulus", "Bluegum"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1540,
+        "maxPounds": 2580,
+        "valuePounds": 2060,
+        "minNewtons": 6850,
+        "maxNewtons": 11476,
+        "valueNewtons": 9163
+      }
+    },
+    {
+      "id": "asia-tembusu",
+      "page": 354,
+      "headings": ["Fagraea spp.", "Tembusu", "Anan"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2120,
+        "maxPounds": 2120,
+        "valuePounds": 2120,
+        "minNewtons": 9430,
+        "maxNewtons": 9430,
+        "valueNewtons": 9430
+      }
+    },
+    {
+      "id": "asia-queensland-maple",
+      "page": 355,
+      "headings": ["Flindersia spp.", "Queensland-Maple"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 725,
+        "maxPounds": 725,
+        "valuePounds": 725,
+        "minNewtons": 3225,
+        "maxNewtons": 3225,
+        "valueNewtons": 3225
+      }
+    },
+    {
+      "id": "asia-kandis",
+      "page": 356,
+      "headings": ["Garcinia spp.", "Kandis"],
+      "hardness": null
+    },
+    {
+      "id": "asia-silky-oak",
+      "page": 360,
+      "headings": ["Grevíllea robusta", "Silky-Oak", "Grevíllea"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 840,
+        "maxPounds": 840,
+        "valuePounds": 840,
+        "minNewtons": 3737,
+        "maxNewtons": 3737,
+        "valueNewtons": 3737
+      }
+    },
+    {
+      "id": "asia-burma-lancewood",
+      "page": 362,
+      "headings": ["Homalium spp.", "Burma Lancewood", "Malas"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1850,
+        "maxPounds": 2690,
+        "valuePounds": 2270,
+        "minNewtons": 8229,
+        "maxNewtons": 11966,
+        "valueNewtons": 10098
+      }
+    },
+    {
+      "id": "asia-ranggu",
+      "page": 366,
+      "headings": ["Koordersiodendron pínnatum", "Ranggu"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1860,
+        "maxPounds": 1860,
+        "valuePounds": 1860,
+        "minNewtons": 8274,
+        "maxNewtons": 8274,
+        "valueNewtons": 8274
+      }
+    },
+    {
+      "id": "asia-medang",
+      "page": 368,
+      "headings": ["Litsea spp.", "Medang"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 525,
+        "maxPounds": 600,
+        "valuePounds": 563,
+        "minNewtons": 2335,
+        "maxNewtons": 2669,
+        "valueNewtons": 2502
+      }
+    },
+    {
+      "id": "asia-machilus",
+      "page": 370,
+      "headings": ["Machilus spp.", "Machilus"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 630,
+        "maxPounds": 630,
+        "valuePounds": 630,
+        "minNewtons": 2802,
+        "maxNewtons": 2802,
+        "valueNewtons": 2802
+      }
+    },
+    {
+      "id": "asia-broad-leaved-tea-tree",
+      "page": 372,
+      "headings": [
+        "Melaleuca quinquenervia",
+        "syn. lyi, ieucadendron",
+        "Broad-Leaved Tea-Tree",
+        "Cajeput"
+      ],
+      "hardness": null
+    },
+    {
+      "id": "asia-persian-lilac",
+      "page": 373,
+      "headings": ["Melia azedarach", "Persian Lilac", "Chinaberry Tree"],
+      "hardness": null
+    },
+    {
+      "id": "asia-gangaw",
+      "page": 374,
+      "headings": ["Mesua férrea", "Gangaw"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2890,
+        "maxPounds": 2890,
+        "valuePounds": 2890,
+        "minNewtons": 12855,
+        "maxNewtons": 12855,
+        "valueNewtons": 12855
+      }
+    },
+    {
+      "id": "asia-ohia",
+      "page": 375,
+      "headings": ["Metrosíderos collina subsp. polymorpha", "Ohia"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2090,
+        "maxPounds": 2090,
+        "valuePounds": 2090,
+        "minNewtons": 9297,
+        "maxNewtons": 9297,
+        "valueNewtons": 9297
+      }
+    },
+    {
+      "id": "asia-champaca",
+      "page": 376,
+      "headings": ["Michelia spp.", "Champaca"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 650,
+        "maxPounds": 800,
+        "valuePounds": 725,
+        "minNewtons": 2891,
+        "maxNewtons": 3559,
+        "valueNewtons": 3225
+      }
+    },
+    {
+      "id": "asia-darah-darah",
+      "page": 377,
+      "headings": ["Myristica spp.", "and Knema spp.", "Darah Darah"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1020,
+        "maxPounds": 1020,
+        "valuePounds": 1020,
+        "minNewtons": 4537,
+        "maxNewtons": 4537,
+        "valueNewtons": 4537
+      }
+    },
+    {
+      "id": "america-laurel-group",
+      "page": 120,
+      "headings": ["Nectandra spp.", "Canelo", "Laurel"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1060,
+        "maxPounds": 1060,
+        "valuePounds": 1060,
+        "minNewtons": 4715,
+        "maxNewtons": 4715,
+        "valueNewtons": 4715
+      }
+    },
+    {
+      "id": "america-rauli-coigue",
+      "page": 121,
+      "headings": [
+        "Nothofagus spp.",
+        "Rauli (N, procera)",
+        "Coigue (N, dombeyi)"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 990,
+        "maxPounds": 990,
+        "valuePounds": 990,
+        "minNewtons": 4404,
+        "maxNewtons": 4404,
+        "valueNewtons": 4404
+      }
+    },
+    {
+      "id": "america-west-indian-lancewood",
+      "page": 127,
+      "headings": ["Oxandra lanceolata", "West Indian Lancewood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2830,
+        "maxPounds": 2830,
+        "valuePounds": 2830,
+        "minNewtons": 12588,
+        "maxNewtons": 12588,
+        "valueNewtons": 12588
+      }
+    },
+    {
+      "id": "america-white-peroba",
+      "page": 128,
+      "headings": ["Paratecoma peroba", "White Peroba", "Peroba De Campos"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1600,
+        "maxPounds": 1600,
+        "valuePounds": 1600,
+        "minNewtons": 7117,
+        "maxNewtons": 7117,
+        "valueNewtons": 7117
+      }
+    },
+    {
+      "id": "america-burada",
+      "page": 129,
+      "headings": ["Parinari spp.", "Burada", "Foengoe"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1830,
+        "maxPounds": 1830,
+        "valuePounds": 1830,
+        "minNewtons": 8140,
+        "maxNewtons": 8140,
+        "valueNewtons": 8140
+      }
+    },
+    {
+      "id": "america-lingue",
+      "page": 131,
+      "headings": ["Persea spp.", "Lingue", "Canela-Rosa"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 860,
+        "maxPounds": 860,
+        "valuePounds": 860,
+        "minNewtons": 3825,
+        "maxNewtons": 3825,
+        "valueNewtons": 3825
+      }
+    },
+    {
+      "id": "america-san-domingo-boxwood",
+      "page": 133,
+      "headings": ["Phyllostylon brasiliensis", "San Domingo-Boxwood"],
+      "hardness": null
+    },
+    {
+      "id": "america-ocote-pine",
+      "page": 135,
+      "headings": ["Pinus oocarpa", "Ocote Pine"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 910,
+        "maxPounds": 910,
+        "valuePounds": 910,
+        "minNewtons": 4048,
+        "maxNewtons": 4048,
+        "valueNewtons": 4048
+      }
+    },
+    {
+      "id": "america-carbonero",
+      "page": 138,
+      "headings": ["Piptadenia pittieri", "and P. spp.", "Carbonero"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1550,
+        "maxPounds": 1680,
+        "valuePounds": 1615,
+        "minNewtons": 6895,
+        "maxNewtons": 7473,
+        "valueNewtons": 7184
+      }
+    },
+    {
+      "id": "america-letterwood",
+      "page": 139,
+      "headings": [
+        "Piratlnera guianensis",
+        "syn. Brosimum guianensis",
+        "Letterwood",
+        "Snakewood"
+      ],
+      "hardness": null
+    },
+    {
+      "id": "america-raintree",
+      "page": 140,
+      "headings": [
+        "Pithecellobium saman",
+        "syn. Samanea saman",
+        "Samán",
+        "Raintree"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 850,
+        "maxPounds": 850,
+        "valuePounds": 850,
+        "minNewtons": 3781,
+        "maxNewtons": 3781,
+        "valueNewtons": 3781
+      }
+    },
+    {
+      "id": "america-podocarp",
+      "page": 142,
+      "headings": ["Podocarpus spp.", "Podocarp", "Mañio"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 760,
+        "maxPounds": 760,
+        "valuePounds": 760,
+        "minNewtons": 3381,
+        "maxNewtons": 3381,
+        "valueNewtons": 3381
+      }
+    },
+    {
+      "id": "america-mastate",
+      "page": 143,
+      "headings": ["Poulsenia armata", "Mastate"],
+      "hardness": {
+        "condition": "moisture condition not stated",
+        "minPounds": 360,
+        "maxPounds": 360,
+        "valuePounds": 360,
+        "minNewtons": 1601,
+        "maxNewtons": 1601,
+        "valueNewtons": 1601
+      }
+    },
+    {
+      "id": "america-chupon",
+      "page": 144,
+      "headings": ["Pradosia spp.", "Chupón"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1880,
+        "maxPounds": 1880,
+        "valuePounds": 1880,
+        "minNewtons": 8363,
+        "maxNewtons": 8363,
+        "valueNewtons": 8363
+      }
+    },
+    {
+      "id": "america-cativo",
+      "page": 145,
+      "headings": ["Prioria copaifera", "Cativo"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 630,
+        "maxPounds": 630,
+        "valuePounds": 630,
+        "minNewtons": 2802,
+        "maxNewtons": 2802,
+        "valueNewtons": 2802
+      }
+    },
+    {
+      "id": "america-guachapele",
+      "page": 147,
+      "headings": ["Pseudosamanea guachapele", "Guachapele", "Frijolillo"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1040,
+        "maxPounds": 1040,
+        "valuePounds": 1040,
+        "minNewtons": 4626,
+        "maxNewtons": 4626,
+        "valueNewtons": 4626
+      }
+    },
+    {
+      "id": "america-sangre",
+      "page": 148,
+      "headings": ["Pterocarpus spp.", "Sangre"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 275,
+        "maxPounds": 380,
+        "valuePounds": 328,
+        "minNewtons": 1223,
+        "maxNewtons": 1690,
+        "valueNewtons": 1457
+      }
+    },
+    {
+      "id": "america-amendoim",
+      "page": 149,
+      "headings": ["Pterogyne nitens", "Amendoim", "Viraro"],
+      "hardness": null
+    },
+    {
+      "id": "america-tropical-oak",
+      "page": 151,
+      "headings": ["Quercus spp.", "Roble", "Encino", "Oak"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1600,
+        "maxPounds": 1600,
+        "valuePounds": 1600,
+        "minNewtons": 7117,
+        "maxNewtons": 7117,
+        "valueNewtons": 7117
+      }
+    },
+    {
+      "id": "america-pacuri",
+      "page": 152,
+      "headings": ["Rheedia spp.", "Pacuri", "Remelento"],
+      "hardness": null
+    },
+    {
+      "id": "america-red-mangrove",
+      "page": 153,
+      "headings": ["Rhízophora mangle", "Mangle Colorado", "Red Mangrove"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2760,
+        "maxPounds": 2760,
+        "valuePounds": 2760,
+        "minNewtons": 12277,
+        "maxNewtons": 12277,
+        "valueNewtons": 12277
+      }
+    },
+    {
+      "id": "america-lechero",
+      "page": 154,
+      "headings": ["Sapium spp.", "Lechero", "Curupi"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 700,
+        "maxPounds": 700,
+        "valuePounds": 700,
+        "minNewtons": 3114,
+        "maxNewtons": 3114,
+        "valueNewtons": 3114
+      }
+    },
+    {
+      "id": "america-quebracho",
+      "page": 155,
+      "headings": ["Schinopsis spp.", "Quebracho"],
+      "hardness": null
+    },
+    {
+      "id": "america-arariba-sickingia",
+      "page": 157,
+      "headings": ["Sickingia spp.", "Araríba"],
+      "hardness": null
+    },
+    {
+      "id": "america-jobo",
+      "page": 159,
+      "headings": ["Spondias mombin", "Jobo", "Hog Plum"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 335,
+        "maxPounds": 510,
+        "valuePounds": 423,
+        "minNewtons": 1490,
+        "maxNewtons": 2269,
+        "valueNewtons": 1880
+      }
+    },
+    {
+      "id": "america-chicha",
+      "page": 160,
+      "headings": ["Sterculia apétala", "Chicha"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 270,
+        "maxPounds": 530,
+        "valuePounds": 400,
+        "minNewtons": 1201,
+        "maxNewtons": 2358,
+        "valueNewtons": 1780
+      }
+    },
+    {
+      "id": "america-roble-tabebuia",
+      "page": 166,
+      "headings": ["Tabebuia spp. (Roble group)", "Roble", "Mayflower"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 960,
+        "maxPounds": 960,
+        "valuePounds": 960,
+        "minNewtons": 4270,
+        "maxNewtons": 4270,
+        "valueNewtons": 4270
+      }
+    },
+    {
+      "id": "america-white-cedar-tabebuia",
+      "page": 167,
+      "headings": [
+        "Tabebuia spp. (White-Cedar group)",
+        "White-Cedar",
+        "White Tabebuia"
+      ],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1160,
+        "maxPounds": 1400,
+        "valuePounds": 1280,
+        "minNewtons": 5160,
+        "maxNewtons": 6228,
+        "valueNewtons": 5694
+      }
+    },
+    {
+      "id": "america-long-john",
+      "page": 170,
+      "headings": ["Triplaris spp-", "Long John", "Mierenhout"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1040,
+        "maxPounds": 1820,
+        "valuePounds": 1430,
+        "minNewtons": 4626,
+        "maxNewtons": 8096,
+        "valueNewtons": 6361
+      }
+    },
+    {
+      "id": "america-ramon",
+      "page": 171,
+      "headings": ["Trophis spp.", "Ramón", "Morillo"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 770,
+        "maxPounds": 770,
+        "valuePounds": 770,
+        "minNewtons": 3425,
+        "maxNewtons": 3425,
+        "valueNewtons": 3425
+      }
+    },
+    {
+      "id": "america-fiddlewood",
+      "page": 174,
+      "headings": ["Vitex spp.", "Fiddlewood", "Aceituno"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1160,
+        "maxPounds": 1160,
+        "valuePounds": 1160,
+        "minNewtons": 5160,
+        "maxNewtons": 5160,
+        "valueNewtons": 5160
+      }
+    },
+    {
+      "id": "america-west-indian-satinwood",
+      "page": 177,
+      "headings": [
+        "Zanthoxylum flavum",
+        "syn. Fagara flava",
+        "West Indian Satinwood"
+      ],
+      "hardness": null
+    },
+    {
+      "id": "africa-east-african-camphorwood",
+      "page": 261,
+      "headings": ["Ocotea usambarensis", "East African Camphorwood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 930,
+        "maxPounds": 930,
+        "valuePounds": 930,
+        "minNewtons": 4137,
+        "maxNewtons": 4137,
+        "valueNewtons": 4137
+      }
+    },
+    {
+      "id": "africa-onzang",
+      "page": 262,
+      "headings": ["Odyendea spp.", "Onzang", "Mbanko"],
+      "hardness": null
+    },
+    {
+      "id": "africa-east-african-olive",
+      "page": 263,
+      "headings": ["Olea hochstetteri", "East African Olive"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2740,
+        "maxPounds": 2740,
+        "valuePounds": 2740,
+        "minNewtons": 12188,
+        "maxNewtons": 12188,
+        "valueNewtons": 12188
+      }
+    },
+    {
+      "id": "africa-podo",
+      "page": 269,
+      "headings": ["Podocarpus spp.", "Podo"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 830,
+        "maxPounds": 830,
+        "valuePounds": 830,
+        "minNewtons": 3692,
+        "maxNewtons": 3692,
+        "valueNewtons": 3692
+      }
+    },
+    {
+      "id": "africa-muninga",
+      "page": 271,
+      "headings": ["Pterocarpus angolensis", "Muninga"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1480,
+        "maxPounds": 1480,
+        "valuePounds": 1480,
+        "minNewtons": 6583,
+        "maxNewtons": 6583,
+        "valueNewtons": 6583
+      }
+    },
+    {
+      "id": "africa-african-cherry",
+      "page": 275,
+      "headings": ["Pygeum africanum", "syn. Prunus africanum", "Mueri"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1860,
+        "maxPounds": 1860,
+        "valuePounds": 1860,
+        "minNewtons": 8274,
+        "maxNewtons": 8274,
+        "valueNewtons": 8274
+      }
+    },
+    {
+      "id": "africa-afina",
+      "page": 282,
+      "headings": ["Strombosia glaucescens", "Afina"],
+      "hardness": null
+    },
+    {
+      "id": "africa-sugar-plum",
+      "page": 293,
+      "headings": ["Uapaca spp.", "Sugar-Plum"],
+      "hardness": null
+    },
+    {
+      "id": "africa-vitex",
+      "page": 294,
+      "headings": ["Vitex doniana", "Vitex", "Meru-Oak"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 680,
+        "maxPounds": 680,
+        "valuePounds": 680,
+        "minNewtons": 3025,
+        "maxNewtons": 3025,
+        "valueNewtons": 3025
+      }
+    },
+    {
+      "id": "africa-mlanje-cedar",
+      "page": 295,
+      "headings": ["Widdríngtonia whyteí", "Mlanje-Cedar"],
+      "hardness": null
+    },
+    {
+      "id": "asia-tasmanian-myrtle",
+      "page": 378,
+      "headings": ["Nothofagus spp.", "Tasmanian-Myrtle"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1325,
+        "maxPounds": 1325,
+        "valuePounds": 1325,
+        "minNewtons": 5894,
+        "maxNewtons": 5894,
+        "valueNewtons": 5894
+      }
+    },
+    {
+      "id": "asia-binuang",
+      "page": 379,
+      "headings": ["Octomeles sumatrana", "Binuang"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 355,
+        "maxPounds": 370,
+        "valuePounds": 363,
+        "minNewtons": 1579,
+        "maxNewtons": 1646,
+        "valueNewtons": 1613
+      }
+    },
+    {
+      "id": "asia-thitka",
+      "page": 382,
+      "headings": ["Pentace spp.", "Thitka"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 930,
+        "maxPounds": 1305,
+        "valuePounds": 1118,
+        "minNewtons": 4137,
+        "maxNewtons": 5805,
+        "valueNewtons": 4971
+      }
+    },
+    {
+      "id": "asia-putat-paya",
+      "page": 386,
+      "headings": ["Planchonia spp.", "Putat Paya"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1310,
+        "maxPounds": 1400,
+        "valuePounds": 1355,
+        "minNewtons": 5827,
+        "maxNewtons": 6228,
+        "valueNewtons": 6028
+      }
+    },
+    {
+      "id": "asia-podocarp",
+      "page": 387,
+      "headings": ["Podocarpus spp.", "Totara", "Thitmin"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 450,
+        "maxPounds": 860,
+        "valuePounds": 655,
+        "minNewtons": 2002,
+        "maxNewtons": 3825,
+        "valueNewtons": 2914
+      }
+    },
+    {
+      "id": "asia-burma-padauk",
+      "page": 392,
+      "headings": ["Pterocarpus macrocarpus", "Burma Padauk"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2170,
+        "maxPounds": 2170,
+        "valuePounds": 2170,
+        "minNewtons": 9653,
+        "maxNewtons": 9653,
+        "valueNewtons": 9653
+      }
+    },
+    {
+      "id": "asia-sandalwood",
+      "page": 393,
+      "headings": ["Santa/um album", "Sandalwood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1680,
+        "maxPounds": 1680,
+        "valuePounds": 1680,
+        "minNewtons": 7473,
+        "maxNewtons": 7473,
+        "valueNewtons": 7473
+      }
+    },
+    {
+      "id": "asia-schima",
+      "page": 394,
+      "headings": ["Schlma spp.", "Needlewood"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1245,
+        "maxPounds": 1245,
+        "valuePounds": 1245,
+        "minNewtons": 5538,
+        "maxNewtons": 5538,
+        "valueNewtons": 5538
+      }
+    },
+    {
+      "id": "asia-kulim",
+      "page": 395,
+      "headings": ["Scorodocarpus borneensis", "Kulim"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1370,
+        "maxPounds": 1370,
+        "valuePounds": 1370,
+        "minNewtons": 6094,
+        "maxNewtons": 6094,
+        "valueNewtons": 6094
+      }
+    },
+    {
+      "id": "asia-perepat",
+      "page": 403,
+      "headings": ["Sonneratia spp.", "Perepat"],
+      "hardness": null
+    },
+    {
+      "id": "asia-turpentine",
+      "page": 405,
+      "headings": ["Syncarpia glomulifera", "syn. S- laurifolia", "Turpentine"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2600,
+        "maxPounds": 2900,
+        "valuePounds": 2750,
+        "minNewtons": 11565,
+        "maxNewtons": 12900,
+        "valueNewtons": 12233
+      }
+    },
+    {
+      "id": "asia-white-chuglam",
+      "page": 407,
+      "headings": ["Terminalia bialata", "White Chuglam"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1190,
+        "maxPounds": 1190,
+        "valuePounds": 1190,
+        "minNewtons": 5293,
+        "maxNewtons": 5293,
+        "valueNewtons": 5293
+      }
+    },
+    {
+      "id": "asia-indian-almond",
+      "page": 408,
+      "headings": ["Terminalía catappa", "Indian Almond Wood"],
+      "hardness": null
+    },
+    {
+      "id": "asia-white-bombway",
+      "page": 409,
+      "headings": ["Terminalia procera", "White Bombay"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1070,
+        "maxPounds": 1070,
+        "valuePounds": 1070,
+        "minNewtons": 4760,
+        "maxNewtons": 4760,
+        "valueNewtons": 4760
+      }
+    },
+    {
+      "id": "asia-indian-laurel",
+      "page": 410,
+      "headings": ["Terminalia tomentosa complex", "Indian Laurel"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2100,
+        "maxPounds": 2340,
+        "valuePounds": 2220,
+        "minNewtons": 9341,
+        "maxNewtons": 10409,
+        "valueNewtons": 9875
+      }
+    },
+    {
+      "id": "asia-thitpok",
+      "page": 411,
+      "headings": ["Tetrameies nudiflora", "Thitpok"],
+      "hardness": null
+    },
+    {
+      "id": "asia-brush-box",
+      "page": 413,
+      "headings": ["Trístania spp.", "Brush Box"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 2045,
+        "maxPounds": 4130,
+        "valuePounds": 3088,
+        "minNewtons": 9097,
+        "maxNewtons": 18371,
+        "valueNewtons": 13734
+      }
+    },
+    {
+      "id": "asia-upun-batu",
+      "page": 414,
+      "headings": ["Upuna borneensis", "Upun Batu"],
+      "hardness": null
+    },
+    {
+      "id": "asia-molave",
+      "page": 415,
+      "headings": ["Vitex spp.", "Molave"],
+      "hardness": {
+        "condition": "dry or air-dry",
+        "minPounds": 1255,
+        "maxPounds": 1255,
+        "valuePounds": 1255,
+        "minNewtons": 5583,
+        "maxNewtons": 5583,
+        "valueNewtons": 5583
+      }
+    },
+    {
+      "id": "asia-banuyo",
+      "page": 416,
+      "headings": ["Wallaceodendron celebicum", "Banuyo"],
+      "hardness": null
+    }
+  ]
+}

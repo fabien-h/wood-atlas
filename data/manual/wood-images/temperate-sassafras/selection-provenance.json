@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-sassafras",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "324f4ee90910d6a6494871d823f2edaceaa7b5db703443d24ac03c70dde0b04e",
+      "sourceWidth": 1860,
+      "sourceHeight": 1279,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

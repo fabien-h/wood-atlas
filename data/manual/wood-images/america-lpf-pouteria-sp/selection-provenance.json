@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-pouteria-sp",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "993837004acd213a4a68244a7ae7e747994a905fd17b7d2fd24cb073f3afb575",
+      "sourceWidth": 473,
+      "sourceHeight": 268,
+      "outputFile": "radial.jpg",
+      "outputWidth": 268,
+      "outputHeight": 268,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=208",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Pouteria%20sp3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Pouteria sp\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The requested record is genus-level Pouteria sp.; the Brazilian Forest Service LPF page explicitly identifies this specimen as Pouteria sp. and captions the image Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. A continuous exposed longitudinal wood face fills the image and shows natural grain; no tree, foliage, bark, furniture, generic texture, diagram, or microscopy is present.",
+        "width": 473,
+        "height": 268,
+        "format": "jpeg",
+        "sha256": "993837004acd213a4a68244a7ae7e747994a905fd17b7d2fd24cb073f3afb575",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

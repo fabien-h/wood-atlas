@@ -11,7 +11,8 @@ export const ru = {
   aboutOpenSource: 'Этот атлас древесины имеет открытый исходный код, доступный на GitHub.',
   aboutDataSourcesTitle: 'Источники данных',
   aboutDataSources:
-    'Все данные о древесине в этом атласе получены из базы данных Tropix и исследовательского подразделения BioWooEB CIRAD.',
+    'Большая часть данных атласа получена из Tropix, подразделения BioWooEB CIRAD, Лаборатории лесных продуктов USDA и Лаборатории лесных продуктов Бразильской лесной службы (LPF/SFB). Дополнительные записи содержат ссылки на источники в своих карточках.',
+  contact: 'Контакты',
   atlas: 'Атлас древесины',
   searchPlaceholder: 'Поиск по названиям, применению, странам…',
   clearSearch: 'Очистить поиск',
@@ -60,6 +61,7 @@ export const ru = {
   materialMap: 'Карта материалов',
   hardnessVsRadialShrinkage: 'Твёрдость и радиальная усушка',
   monninHardness: 'Твёрдость по Моннину',
+  jankaHardness: 'Твёрдость по Янке',
   radialShrinkage: 'Радиальная усушка',
   distribution: 'Распространение',
   specificGravity: 'Относительная плотность',

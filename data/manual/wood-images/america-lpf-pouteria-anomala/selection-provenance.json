@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-pouteria-anomala",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "2c660c37170822fbf286fbe29f03aeda4a5867fb587e22b00d511ff0ac1bf608",
+      "sourceWidth": 467,
+      "sourceHeight": 305,
+      "outputFile": "radial.jpg",
+      "outputWidth": 305,
+      "outputHeight": 305,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=198",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/pouteria%20anomala.jpg",
+        "query": "site:lpf.florestal.gov.br \"Pouteria anomala\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies the specimen as Pouteria anomala and captions this image Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. This is a clean longitudinal wood face with fine, visible grain and no tree, leaf, fruit, bark-only area, furniture, diagram, or microscope slide.",
+        "width": 467,
+        "height": 305,
+        "format": "jpeg",
+        "sha256": "2c660c37170822fbf286fbe29f03aeda4a5867fb587e22b00d511ff0ac1bf608",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

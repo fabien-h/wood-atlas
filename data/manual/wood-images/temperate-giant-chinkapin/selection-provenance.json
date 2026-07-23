@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-giant-chinkapin",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "a2facbc694625e98482d83f203becedb9fb4f9a84a6ca461e21e5300656028ff",
+      "sourceWidth": 2110,
+      "sourceHeight": 1497,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

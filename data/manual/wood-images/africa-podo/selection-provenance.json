@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-podo",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "ad023504e737d80333bd25f6cd782a381878d7061e0a2cf7c4a8953302b5cfc6",
+      "sourceWidth": 392,
+      "sourceHeight": 295,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 295,
+      "outputHeight": 295,
+      "matchedCandidate": null
+    }
+  ]
+}

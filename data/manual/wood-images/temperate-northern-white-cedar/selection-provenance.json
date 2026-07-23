@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-northern-white-cedar",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "27836cda126d9fa11554acf94fccb1602bf4325a435c08e853225c522ce8591b",
+      "sourceWidth": 1210,
+      "sourceHeight": 777,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 777,
+      "outputHeight": 777,
+      "matchedCandidate": null
+    }
+  ]
+}

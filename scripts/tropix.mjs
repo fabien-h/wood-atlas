@@ -23,10 +23,17 @@ const PUBLIC_WOOD_DIR = path.join(ROOT, 'public', 'assets', 'woods');
 const TMP_IMAGE_DIR = path.join(ROOT, 'tmp', 'tropix-images');
 const MANUAL_IMAGE_MANIFEST_PATH = path.join(ROOT, 'data', 'manual', 'wood-images.json');
 const MANUAL_IMAGE_SOURCE_DIR = path.join(ROOT, 'data', 'manual', 'wood-images');
-const GRAIN_IMAGE_SIZE = 400;
+const MANUAL_WOOD_MANIFEST_PATH = path.join(ROOT, 'data', 'manual', 'woods.json');
+const MANUAL_WOOD_MANIFEST_DIRECTORY = path.join(ROOT, 'data', 'manual', 'woods');
+const GRAIN_IMAGE_SIZE = 800;
+const THUMBNAIL_WIDTH = 100;
+const THUMBNAIL_HEIGHT = 100;
 const EXAMPLE_IMAGE_MAX_SIZE = 600;
 const WOOD_IMAGE_QUALITY = 70;
-const IMAGE_PIPELINE_VERSION = `grain-${GRAIN_IMAGE_SIZE}x${GRAIN_IMAGE_SIZE}-crop_example-max-${EXAMPLE_IMAGE_MAX_SIZE}_jpeg-q${WOOD_IMAGE_QUALITY}-v1`;
+const IMAGE_PIPELINE_VERSION =
+  `grain-max-${GRAIN_IMAGE_SIZE}x${GRAIN_IMAGE_SIZE}-centre-crop-no-upscale_` +
+  `thumbnail-${THUMBNAIL_WIDTH}x${THUMBNAIL_HEIGHT}-quarter-first-centre-crop_` +
+  `example-max-${EXAMPLE_IMAGE_MAX_SIZE}_jpeg-q${WOOD_IMAGE_QUALITY}-v3`;
 const IMAGE_VERSION_PATH = path.join(PUBLIC_WOOD_DIR, '.image-version');
 const BASE_URL = 'https://tropix.cirad.fr';
 
@@ -51,6 +58,7 @@ const REGION_MAP = new Map([
 const PHYSICS_RANGES = {
   specificGravity: [0.05, 2],
   monninHardness: [0, 30],
+  jankaHardness: [0, 30000],
   volumetricShrinkageCoefficient: [0, 2],
   totalTangentialShrinkage: [0, 25],
   totalRadialShrinkage: [0, 20],
@@ -133,6 +141,7 @@ const LANGUAGE_CONFIG = {
     physics: [
       ['Specific gravity', 'specificGravity', undefined],
       ['Monnin hardness', 'monninHardness', undefined],
+      ['Janka hardness', 'jankaHardness', 'N'],
       ['Coefficient of volumetric shrinkage', 'volumetricShrinkageCoefficient', '% per %'],
       ['Total tangential shrinkage', 'totalTangentialShrinkage', '%'],
       ['Total radial shrinkage', 'totalRadialShrinkage', '%'],
@@ -223,6 +232,7 @@ const LANGUAGE_CONFIG = {
     physics: [
       ['Densité', 'specificGravity', undefined],
       ['Dureté Monnin', 'monninHardness', undefined],
+      ['Dureté Janka', 'jankaHardness', 'N'],
       ['Coefficient de retrait volumique', 'volumetricShrinkageCoefficient', '% par %'],
       ['Retrait tangentiel total (Rt)', 'totalTangentialShrinkage', '%'],
       ['Retrait radial total (Rr)', 'totalRadialShrinkage', '%'],
@@ -242,7 +252,9 @@ const LANGUAGE_CONFIG = {
 };
 
 function usage() {
-  console.log('Usage: node scripts/tropix.mjs <sync|extract|normalize|manual-images|validate|all>');
+  console.log(
+    'Usage: node scripts/tropix.mjs <sync|extract|normalize|manual-data|manual-validate|manual-images|validate|all>',
+  );
 }
 
 async function main() {
@@ -253,6 +265,12 @@ async function main() {
     await extract();
   } else if (command === 'normalize') {
     await normalizeGeneratedDatabases();
+  } else if (command === 'manual-data') {
+    await applyManualDataToGeneratedDatabases({
+      skipImages: process.argv.includes('--skip-images'),
+    });
+  } else if (command === 'manual-validate') {
+    await validateManualData();
   } else if (command === 'manual-images') {
     await applyManualImagesToGeneratedDatabases();
   } else if (command === 'validate') {
@@ -264,6 +282,19 @@ async function main() {
     usage();
     process.exitCode = 1;
   }
+}
+
+async function validateManualData() {
+  const manualWoods = await readManualWoodManifest();
+  const validation = validateDatabases(
+    { language: 'en', records: manualWoods.en },
+    { language: 'fr', records: manualWoods.fr },
+  );
+  console.log(
+    `Validated ${manualWoods.count} manual wood records with ${validation.checkedValues} ` +
+      `numeric values across ${validation.pairedRecords} bilingual records, plus ` +
+      `${manualWoods.supplementCount} supplemental records.`,
+  );
 }
 
 async function sync() {
@@ -370,6 +401,14 @@ async function extract() {
   );
 
   synchronizePairedMeasurements(englishRecords, frenchRecords);
+  const manualWoods = await readManualWoodManifest();
+  mergeManualWoodRecords(
+    [
+      { records: englishRecords, language: 'en' },
+      { records: frenchRecords, language: 'fr' },
+    ],
+    manualWoods,
+  );
   const manualImages = await publishManualImages();
   mergeManualImages(
     [
@@ -378,6 +417,14 @@ async function extract() {
     ],
     manualImages,
   );
+  await refreshPublishedImageMetadata([
+    { records: englishRecords, language: 'en' },
+    { records: frenchRecords, language: 'fr' },
+  ]);
+  const publishedThumbnails = await publishThumbnails([
+    { records: englishRecords, language: 'en' },
+    { records: frenchRecords, language: 'fr' },
+  ]);
   for (const record of [...englishRecords, ...frenchRecords]) {
     record.extraction = qualityReport(record);
     record.searchText = makeSearchText(record);
@@ -402,6 +449,8 @@ async function extract() {
       frenchListing: LISTINGS.fr,
       englishSheets: englishLinks.length,
       frenchSheets: frenchLinks.length,
+      manualRecords: manualWoods.count,
+      supplementalRecords: manualWoods.supplementCount,
     },
     records,
   });
@@ -423,7 +472,12 @@ async function extract() {
   console.log(
     `Validated ${validation.checkedValues} numeric values across ${validation.pairedRecords} bilingual records.`,
   );
+  console.log(
+    `Published ${manualWoods.count} manually sourced wood records and applied ` +
+      `${manualWoods.supplementCount} supplemental records.`,
+  );
   console.log(`Published ${manualImages.length} manually sourced images.`);
+  console.log(`Published ${publishedThumbnails} table thumbnails.`);
 }
 
 async function normalizeGeneratedDatabases() {
@@ -433,10 +487,12 @@ async function normalizeGeneratedDatabases() {
   ]);
 
   for (const record of englishDatabase.records) {
+    ensureRecordShape(record);
     normalizeWoodCategories(record, 'en');
     record.searchText = makeSearchText(record);
   }
   for (const record of frenchDatabase.records) {
+    ensureRecordShape(record);
     normalizeWoodCategories(record, 'fr');
     record.searchText = makeSearchText(record);
   }
@@ -448,8 +504,68 @@ async function normalizeGeneratedDatabases() {
     fsp.writeFile(LEGACY_OUTPUT_PATH, JSON.stringify(englishDatabase, null, 2)),
   ]);
   console.log(
-    `Normalized filter categories in ${englishDatabase.records.length} English and ` +
+    `Normalized categorical values in ${englishDatabase.records.length} English and ` +
       `${frenchDatabase.records.length} French records; validated ${validation.checkedValues} numeric values.`,
+  );
+}
+
+async function applyManualDataToGeneratedDatabases({ skipImages = false } = {}) {
+  const [englishDatabase, frenchDatabase, manualWoods] = await Promise.all([
+    fsp.readFile(outputPath('en'), 'utf8').then(JSON.parse),
+    fsp.readFile(outputPath('fr'), 'utf8').then(JSON.parse),
+    readManualWoodManifest(),
+  ]);
+  const databases = [
+    { records: englishDatabase.records, language: 'en' },
+    { records: frenchDatabase.records, language: 'fr' },
+  ];
+  const preservedMedia = skipImages ? captureRecordMedia(databases) : null;
+
+  mergeManualWoodRecords(databases, manualWoods);
+  let manualImageCount = 0;
+  let publishedThumbnails = 0;
+  if (skipImages) {
+    restoreRecordMedia(databases, preservedMedia);
+  } else {
+    const manualImages = await publishManualImages();
+    manualImageCount = manualImages.length;
+    mergeManualImages(databases, manualImages);
+    await refreshPublishedImageMetadata(databases);
+    publishedThumbnails = await publishThumbnails(databases);
+  }
+
+  const generatedAt = new Date().toISOString();
+  for (const database of [englishDatabase, frenchDatabase]) {
+    database.generatedAt = generatedAt;
+    database.source.manualRecords = manualWoods.count;
+    database.source.supplementalRecords = manualWoods.supplementCount;
+    for (const record of database.records) {
+      ensureRecordShape(record);
+      normalizeWoodCategories(record, database.language);
+      record.extraction = qualityReport(record);
+      record.searchText = makeSearchText(record);
+    }
+    database.records.sort((left, right) =>
+      left.identity.displayName.localeCompare(right.identity.displayName, database.language),
+    );
+  }
+
+  const validation = validateDatabases(englishDatabase, frenchDatabase);
+  await Promise.all([
+    fsp.writeFile(outputPath('en'), JSON.stringify(englishDatabase, null, 2)),
+    fsp.writeFile(outputPath('fr'), JSON.stringify(frenchDatabase, null, 2)),
+    fsp.writeFile(LEGACY_OUTPUT_PATH, JSON.stringify(englishDatabase, null, 2)),
+  ]);
+  console.log(
+    `Published ${manualWoods.count} manually sourced wood records and applied ` +
+      `${manualWoods.supplementCount} supplemental records; ` +
+      `${
+        skipImages
+          ? 'preserved existing image metadata'
+          : `published ${manualImageCount} manually sourced images with ${publishedThumbnails} table thumbnails`
+      }; ` +
+      `validated ${validation.checkedValues} numeric values across ` +
+      `${validation.pairedRecords} bilingual records.`,
   );
 }
 
@@ -466,8 +582,17 @@ async function applyManualImagesToGeneratedDatabases() {
     ],
     manualImages,
   );
+  await refreshPublishedImageMetadata([
+    { records: englishDatabase.records, language: 'en' },
+    { records: frenchDatabase.records, language: 'fr' },
+  ]);
+  const publishedThumbnails = await publishThumbnails([
+    { records: englishDatabase.records, language: 'en' },
+    { records: frenchDatabase.records, language: 'fr' },
+  ]);
 
   for (const record of [...englishDatabase.records, ...frenchDatabase.records]) {
+    ensureRecordShape(record);
     record.extraction = qualityReport(record);
     record.searchText = makeSearchText(record);
   }
@@ -479,17 +604,23 @@ async function applyManualImagesToGeneratedDatabases() {
     fsp.writeFile(LEGACY_OUTPUT_PATH, JSON.stringify(englishDatabase, null, 2)),
   ]);
   console.log(
-    `Published ${manualImages.length} manually sourced images and validated ` +
+    `Published ${manualImages.length} manually sourced images with ${publishedThumbnails} ` +
+      `table thumbnails and validated ` +
       `${validation.checkedValues} numeric values across ${validation.pairedRecords} bilingual records.`,
   );
 }
 
 async function validateGeneratedDatabases() {
   await readManualImageManifest();
-  const [englishDatabase, frenchDatabase] = await Promise.all([
+  const [englishDatabase, frenchDatabase, manualWoods] = await Promise.all([
     fsp.readFile(outputPath('en'), 'utf8').then(JSON.parse),
     fsp.readFile(outputPath('fr'), 'utf8').then(JSON.parse),
+    readManualWoodManifest(),
   ]);
+  for (const record of [...englishDatabase.records, ...frenchDatabase.records]) {
+    ensureRecordShape(record);
+  }
+  assertManualRecordsPublished(englishDatabase, frenchDatabase, manualWoods);
   const validation = validateDatabases(englishDatabase, frenchDatabase);
   console.log(
     `Validated ${validation.checkedValues} numeric values across ${validation.pairedRecords} bilingual records.`,
@@ -522,7 +653,7 @@ function validateDatabases(englishDatabase, frenchDatabase) {
       if (
         JSON.stringify(categoryEntries(record)) !== JSON.stringify(categoryEntries(canonicalRecord))
       ) {
-        errors.push(`${database.language}:${record.id} has noncanonical filter categories`);
+        errors.push(`${database.language}:${record.id} has noncanonical categorical values`);
       }
 
       for (const [key, [minimum, maximum]] of Object.entries(PHYSICS_RANGES)) {
@@ -1346,8 +1477,10 @@ function parseWoodRecord(link, rawText) {
       ? readLegacyNotes(legacyBlocks.endUses)
       : notes(readField(endUsesSection, fields.notes, config)),
     images: [],
+    thumbnail: null,
     source: {
       provider: 'CIRAD Tropix',
+      kind: 'tropix',
       listingUrls: LISTINGS,
       pdfs: {
         [link.language]: sourcePdf(link),
@@ -1363,6 +1496,537 @@ function parseWoodRecord(link, rawText) {
     },
     searchText: '',
   };
+}
+
+async function readManualWoodManifest() {
+  const manifests = await readManualManifests(
+    MANUAL_WOOD_MANIFEST_PATH,
+    MANUAL_WOOD_MANIFEST_DIRECTORY,
+  );
+  const records = { en: [], fr: [] };
+  const supplements = { en: [], fr: [] };
+  const seenIds = new Set();
+  const nameOverrideEntries = [];
+  let count = 0;
+  let supplementCount = 0;
+  for (const { manifestPath, manifest } of manifests) {
+    const manifestSupplementIds = new Set();
+    if (manifest?.schemaVersion !== 1 || !Array.isArray(manifest.records)) {
+      throw new Error(`${manifestPath} must use schemaVersion 1 and contain records`);
+    }
+    nameOverrideEntries.push(...(manifest.nameOverrides ?? []));
+    for (const [index, entry] of manifest.records.entries()) {
+      const label = `${path.relative(ROOT, manifestPath)} record ${index + 1}`;
+      if (typeof entry?.id !== 'string' || !entry.id.trim()) {
+        throw new Error(`${label} has an invalid id`);
+      }
+      if (seenIds.has(entry.id)) throw new Error(`${label} duplicates ${entry.id}`);
+      seenIds.add(entry.id);
+      count += 1;
+      validateManualWoodSource(entry.source, label);
+      validateManualFrenchLocalization(entry.locales?.fr, label);
+
+      for (const language of ['en', 'fr']) {
+        if (!entry.locales?.[language] || typeof entry.locales[language] !== 'object') {
+          throw new Error(`${label} is missing its ${language} locale`);
+        }
+        const record = {
+          id: entry.id,
+          ...structuredClone(entry.locales[language]),
+          images: [],
+          thumbnail: null,
+          source: structuredClone(entry.source),
+          rawSections: {},
+          extraction: {
+            parsedFields: 0,
+            missingImportantFields: [],
+            warnings: [],
+          },
+          searchText: '',
+        };
+        ensureRecordShape(record);
+        validateManualWoodRecord(record, `${label} (${language})`);
+        normalizeWoodCategories(record, language);
+        record.extraction = qualityReport(record);
+        record.searchText = makeSearchText(record);
+        records[language].push(record);
+      }
+    }
+
+    if (manifest.supplements !== undefined && !Array.isArray(manifest.supplements)) {
+      throw new Error(`${manifestPath} supplements must be an array`);
+    }
+    for (const [index, entry] of (manifest.supplements ?? []).entries()) {
+      const label = `${path.relative(ROOT, manifestPath)} supplement ${index + 1}`;
+      if (typeof entry?.id !== 'string' || !entry.id.trim()) {
+        throw new Error(`${label} has an invalid id`);
+      }
+      if (manifestSupplementIds.has(entry.id)) throw new Error(`${label} duplicates ${entry.id}`);
+      manifestSupplementIds.add(entry.id);
+      supplementCount += 1;
+      validateManualWoodSource(entry.source, label);
+      validateManualFrenchLocalization(entry.locales?.fr, label);
+
+      for (const language of ['en', 'fr']) {
+        if (!entry.locales?.[language] || typeof entry.locales[language] !== 'object') {
+          throw new Error(`${label} is missing its ${language} locale`);
+        }
+        const record = {
+          id: entry.id,
+          ...structuredClone(entry.locales[language]),
+          images: [],
+          thumbnail: null,
+          source: structuredClone(entry.source),
+          rawSections: {},
+          extraction: {
+            parsedFields: 0,
+            missingImportantFields: [],
+            warnings: [],
+          },
+          searchText: '',
+        };
+        ensureRecordShape(record);
+        validateManualWoodRecord(record, `${label} (${language})`);
+        normalizeWoodCategories(record, language);
+        record.extraction = qualityReport(record);
+        record.searchText = makeSearchText(record);
+        supplements[language].push(record);
+      }
+    }
+  }
+
+  synchronizePairedMeasurements(records.en, records.fr);
+  synchronizePairedMeasurements(supplements.en, supplements.fr);
+  return {
+    ...records,
+    supplements,
+    count,
+    supplementCount,
+    nameOverrides: validateManualNameOverrides(nameOverrideEntries),
+  };
+}
+
+function validateManualFrenchLocalization(localized, label) {
+  if (!localized || typeof localized !== 'object') return;
+  const englishWords =
+    /\b(?:and|drying|from|green|heartwood|moisture|properties|reported|sapwood|shrinkage|strength|the|when|while|with|wood|working)\b/giu;
+
+  const visit = (value, fieldPath, allowEnglish = false) => {
+    if (typeof value === 'string') {
+      if (allowEnglish) return;
+      if (value.length < 60) return;
+      const matches = new Set(
+        [...value.matchAll(englishWords)].map((match) => match[0].toLocaleLowerCase('en')),
+      );
+      if (matches.size >= 4) {
+        throw new Error(
+          `${label} has apparently untranslated French text at locales.fr.${fieldPath}`,
+        );
+      }
+      return;
+    }
+    if (Array.isArray(value)) {
+      value.forEach((item, index) => visit(item, `${fieldPath}.${index}`, allowEnglish));
+      return;
+    }
+    if (!value || typeof value !== 'object') return;
+    const hasEnglishSourceValue = value.valueLanguage === 'en';
+    for (const [key, item] of Object.entries(value)) {
+      visit(
+        item,
+        fieldPath ? `${fieldPath}.${key}` : key,
+        allowEnglish || (hasEnglishSourceValue && key === 'value'),
+      );
+    }
+  };
+
+  visit(localized, '');
+}
+
+async function readManualManifests(manifestPath, manifestDirectory) {
+  const manifestPaths = [manifestPath];
+  try {
+    const entries = await fsp.readdir(manifestDirectory, { withFileTypes: true });
+    manifestPaths.push(
+      ...entries
+        .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
+        .map((entry) => path.join(manifestDirectory, entry.name))
+        .sort(),
+    );
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+  }
+  return Promise.all(
+    manifestPaths.map(async (currentPath) => ({
+      manifestPath: currentPath,
+      manifest: JSON.parse(await fsp.readFile(currentPath, 'utf8')),
+    })),
+  );
+}
+
+function validateManualNameOverrides(entries) {
+  if (!Array.isArray(entries)) throw new Error('Manual nameOverrides must be an array');
+  const seenIds = new Set();
+  return entries.map((entry, index) => {
+    const label = `manual name override ${index + 1}`;
+    if (typeof entry?.id !== 'string' || !entry.id.trim()) {
+      throw new Error(`${label} has an invalid id`);
+    }
+    if (seenIds.has(entry.id)) throw new Error(`${label} duplicates ${entry.id}`);
+    seenIds.add(entry.id);
+
+    for (const language of ['en', 'fr']) {
+      const localized = entry.locales?.[language];
+      if (
+        typeof localized?.primaryName !== 'string' ||
+        !localized.primaryName.trim() ||
+        !Array.isArray(localized.aliases) ||
+        localized.aliases.some((alias) => typeof alias !== 'string' || !alias.trim())
+      ) {
+        throw new Error(`${label} has an invalid ${language} locale`);
+      }
+    }
+    return entry;
+  });
+}
+
+function validateManualWoodSource(source, label) {
+  if (
+    source?.kind !== 'manual' ||
+    typeof source.provider !== 'string' ||
+    !source.provider.trim() ||
+    !Array.isArray(source.references) ||
+    source.references.length === 0
+  ) {
+    throw new Error(`${label} must declare a manual source provider with references`);
+  }
+  if (typeof source.extractionDate !== 'string' || !source.extractionDate.trim()) {
+    throw new Error(`${label} source has an invalid extractionDate`);
+  }
+  for (const [index, reference] of source.references.entries()) {
+    const referenceLabel = `${label} reference ${index + 1}`;
+    for (const key of ['title', 'url', 'publisher']) {
+      if (typeof reference?.[key] !== 'string' || !reference[key].trim()) {
+        throw new Error(`${referenceLabel} has an invalid ${key}`);
+      }
+    }
+    const url = new URL(reference.url);
+    if (!['http:', 'https:'].includes(url.protocol)) {
+      throw new Error(`${referenceLabel} has an unsupported URL protocol`);
+    }
+    if (reference.year !== null && !Number.isInteger(reference.year)) {
+      throw new Error(`${referenceLabel} has an invalid year`);
+    }
+  }
+}
+
+function validateManualWoodRecord(record, label) {
+  const allowedRegions = new Set(['Africa', 'America', 'Asia', 'Temperate', 'Unknown']);
+  const requiredObjects = [
+    'identity',
+    'origin',
+    'cites',
+    'log',
+    'appearance',
+    'physics',
+    'durability',
+    'drying',
+    'machining',
+    'assembly',
+    'grading',
+    'fireSafety',
+  ];
+  for (const key of requiredObjects) {
+    if (!record[key] || typeof record[key] !== 'object' || Array.isArray(record[key])) {
+      throw new Error(`${label} is missing its ${key} object`);
+    }
+  }
+  for (const key of ['botanicalNames', 'aliases', 'localNames', 'notes']) {
+    if (!Array.isArray(record.identity[key])) {
+      throw new Error(`${label} identity.${key} must be an array`);
+    }
+  }
+  for (const key of ['schedule', 'scheduleNotes', 'notes']) {
+    if (!Array.isArray(record.drying[key])) {
+      throw new Error(`${label} drying.${key} must be an array`);
+    }
+  }
+  if (!Array.isArray(record.endUses) || !Array.isArray(record.endUseNotes)) {
+    throw new Error(`${label} endUses and endUseNotes must be arrays`);
+  }
+  const invalidEndUse = record.endUses.find(
+    (value) =>
+      typeof value !== 'string' ||
+      !value.trim() ||
+      value.length > 80 ||
+      /[.;:]|^(?:and|or)\b|\b(?:has|have) been\b|\b(?:is|are|was|were) (?:used|recommended|suggested)\b/iu.test(
+        value,
+      ),
+  );
+  if (invalidEndUse !== undefined) {
+    throw new Error(`${label} has a sentence fragment in endUses: ${String(invalidEndUse)}`);
+  }
+  if (!allowedRegions.has(record.origin.region)) {
+    throw new Error(`${label} has an invalid origin.region: ${String(record.origin.region)}`);
+  }
+  for (const key of ['primaryName', 'displayName', 'slug']) {
+    if (typeof record.identity[key] !== 'string' || !record.identity[key].trim()) {
+      throw new Error(`${label} identity.${key} must be a non-empty string`);
+    }
+  }
+  if (
+    record.identity.botanicalNames.some(
+      (item) => typeof item?.name !== 'string' || typeof item.isSynonym !== 'boolean',
+    )
+  ) {
+    throw new Error(`${label} has an invalid botanical name`);
+  }
+
+  const numericMeasurements = [
+    ['log.diameterCm', record.log.diameterCm],
+    ['physics.specificGravity', record.physics.specificGravity],
+    ['physics.monninHardness', record.physics.monninHardness],
+    ['physics.jankaHardness', record.physics.jankaHardness],
+    ['physics.volumetricShrinkageCoefficient', record.physics.volumetricShrinkageCoefficient],
+    ['physics.totalTangentialShrinkage', record.physics.totalTangentialShrinkage],
+    ['physics.totalRadialShrinkage', record.physics.totalRadialShrinkage],
+    ['physics.shrinkageRatio', record.physics.shrinkageRatio],
+    ['physics.fibreSaturationPoint', record.physics.fibreSaturationPoint],
+    ['physics.thermalConductivity', record.physics.thermalConductivity],
+    ['physics.lowerHeatingValue', record.physics.lowerHeatingValue],
+    ['physics.crushingStrength', record.physics.crushingStrength],
+    ['physics.staticBendingStrength', record.physics.staticBendingStrength],
+    ['physics.modulusOfElasticity', record.physics.modulusOfElasticity],
+  ];
+  for (const [fieldPath, measure] of numericMeasurements) {
+    validateManualNumericMeasure(measure, `${label} ${fieldPath}`);
+  }
+
+  const density = record.physics.specificGravity;
+  for (const key of ['value', 'min', 'max']) {
+    if (density[key] !== null && (density[key] <= 0 || density[key] > 1.5)) {
+      throw new Error(
+        `${label} physics.specificGravity.${key} must be a relative-density number from 0 to 1.5`,
+      );
+    }
+  }
+}
+
+function validateManualNumericMeasure(measure, label) {
+  if (!measure || typeof measure !== 'object' || Array.isArray(measure)) {
+    throw new Error(`${label} must be a numeric measurement`);
+  }
+  for (const key of ['value', 'min', 'max']) {
+    if (measure[key] !== null && !Number.isFinite(measure[key])) {
+      throw new Error(`${label}.${key} must be a finite number or null`);
+    }
+  }
+  if (measure.min !== null && measure.max !== null && measure.min > measure.max) {
+    throw new Error(`${label}.min cannot be greater than .max`);
+  }
+  if (
+    measure.value !== null &&
+    ((measure.min !== null && measure.value < measure.min) ||
+      (measure.max !== null && measure.value > measure.max))
+  ) {
+    throw new Error(`${label}.value must fall between .min and .max`);
+  }
+}
+
+function ensureRecordShape(record) {
+  record.physics ??= {};
+  record.physics.jankaHardness ??= {
+    raw: '',
+    value: null,
+    min: null,
+    max: null,
+    unit: 'N',
+  };
+  record.source ??= {};
+  record.source.kind ??= 'tropix';
+  record.thumbnail ??= null;
+}
+
+function mergeManualWoodRecords(databases, manualWoods) {
+  for (const database of databases) {
+    const localizedManualRecords = manualWoods[database.language];
+    const existingById = new Map(database.records.map((record) => [record.id, record]));
+    for (const manualRecord of localizedManualRecords) {
+      const existing = existingById.get(manualRecord.id);
+      if (existing && existing.source?.kind !== 'manual') {
+        throw new Error(
+          `Manual wood ${manualRecord.id} collides with a ${existing.source?.provider ?? 'generated'} record`,
+        );
+      }
+    }
+    database.records.splice(
+      0,
+      database.records.length,
+      ...database.records.filter((record) => record.source?.kind !== 'manual'),
+      ...localizedManualRecords.map((record) => structuredClone(record)),
+    );
+
+    const recordsById = new Map(database.records.map((record) => [record.id, record]));
+    for (const override of manualWoods.nameOverrides) {
+      const record = recordsById.get(override.id);
+      if (!record) {
+        throw new Error(`${database.language}:${override.id} name override has no wood record`);
+      }
+      const localized = override.locales[database.language];
+      record.identity.primaryName = localized.primaryName;
+      record.identity.aliases = [
+        ...new Set([...localized.aliases, ...record.identity.aliases]),
+      ].filter((alias) => alias !== localized.primaryName);
+    }
+
+    for (const supplementalRecord of manualWoods.supplements[database.language]) {
+      const record = recordsById.get(supplementalRecord.id);
+      if (!record) {
+        throw new Error(
+          `${database.language}:${supplementalRecord.id} supplemental record has no target`,
+        );
+      }
+      mergeSupplementalWoodRecord(record, supplementalRecord);
+    }
+  }
+}
+
+function mergeSupplementalWoodRecord(target, supplemental) {
+  for (const [key, value] of Object.entries(supplemental)) {
+    if (
+      ['id', 'source', 'images', 'thumbnail', 'rawSections', 'extraction', 'searchText'].includes(
+        key,
+      )
+    ) {
+      continue;
+    }
+    mergeMissingWoodValue(target, key, value);
+  }
+
+  const provider = supplemental.source.provider;
+  if (!target.source.provider.includes(provider)) {
+    target.source.provider = `${target.source.provider} · ${provider}`;
+  }
+  target.source.references = [
+    ...(target.source.references ?? []),
+    ...supplemental.source.references.filter(
+      (reference) =>
+        !(target.source.references ?? []).some((existing) => existing.url === reference.url),
+    ),
+  ];
+}
+
+function mergeMissingWoodValue(target, key, supplementalValue) {
+  const targetValue = target[key];
+  if (supplementalValue === null || supplementalValue === '') return;
+
+  if (Array.isArray(supplementalValue)) {
+    if (!Array.isArray(targetValue)) {
+      target[key] = structuredClone(supplementalValue);
+      return;
+    }
+    const signatures = new Set(targetValue.map(stableValueSignature));
+    for (const item of supplementalValue) {
+      const signature = stableValueSignature(item);
+      if (signatures.has(signature)) continue;
+      targetValue.push(structuredClone(item));
+      signatures.add(signature);
+    }
+    return;
+  }
+
+  if (supplementalValue && typeof supplementalValue === 'object') {
+    if (!targetValue || typeof targetValue !== 'object' || Array.isArray(targetValue)) {
+      target[key] = structuredClone(supplementalValue);
+      return;
+    }
+    if (Object.hasOwn(supplementalValue, 'raw') && Object.hasOwn(supplementalValue, 'value')) {
+      if (targetValue.value === null && supplementalValue.value !== null) {
+        target[key] = structuredClone(supplementalValue);
+      }
+      return;
+    }
+    for (const [nestedKey, nestedValue] of Object.entries(supplementalValue)) {
+      mergeMissingWoodValue(targetValue, nestedKey, nestedValue);
+    }
+    return;
+  }
+
+  if (targetValue === null || targetValue === '') target[key] = supplementalValue;
+}
+
+function stableValueSignature(value) {
+  if (!value || typeof value !== 'object') return `${typeof value}:${String(value)}`;
+  if (typeof value.country === 'string' && typeof value.name === 'string') {
+    return `local-name:${value.country}:${value.name}`;
+  }
+  if (typeof value.name === 'string') return `name:${value.name}`;
+  return JSON.stringify(value);
+}
+
+function captureRecordMedia(databases) {
+  return new Map(
+    databases.flatMap(({ records, language }) =>
+      records.map((record) => [
+        `${language}\u0000${record.id}`,
+        {
+          images: structuredClone(record.images ?? []),
+          thumbnail: structuredClone(record.thumbnail ?? null),
+        },
+      ]),
+    ),
+  );
+}
+
+function restoreRecordMedia(databases, mediaByRecord) {
+  for (const { records, language } of databases) {
+    for (const record of records) {
+      const media = mediaByRecord.get(`${language}\u0000${record.id}`);
+      if (!media) continue;
+      record.images = media.images;
+      record.thumbnail = media.thumbnail;
+    }
+  }
+}
+
+function assertManualRecordsPublished(englishDatabase, frenchDatabase, manualWoods) {
+  for (const [database, language] of [
+    [englishDatabase, 'en'],
+    [frenchDatabase, 'fr'],
+  ]) {
+    const recordsById = new Map(database.records.map((record) => [record.id, record]));
+    for (const expected of manualWoods[language]) {
+      const published = recordsById.get(expected.id);
+      if (!published || published.source?.kind !== 'manual') {
+        throw new Error(`${language}:${expected.id} manual record is not published`);
+      }
+    }
+    for (const override of manualWoods.nameOverrides) {
+      const published = recordsById.get(override.id);
+      const expected = override.locales[language];
+      if (published?.identity.primaryName !== expected.primaryName) {
+        throw new Error(`${language}:${override.id} common-name override is not published`);
+      }
+      for (const alias of expected.aliases) {
+        if (alias !== expected.primaryName && !published.identity.aliases.includes(alias)) {
+          throw new Error(`${language}:${override.id} is missing common-name alias ${alias}`);
+        }
+      }
+    }
+    for (const supplemental of manualWoods.supplements[language]) {
+      const published = recordsById.get(supplemental.id);
+      if (!published) {
+        throw new Error(`${language}:${supplemental.id} supplemental record is not published`);
+      }
+      for (const reference of supplemental.source.references) {
+        if (!published.source.references?.some((item) => item.url === reference.url)) {
+          throw new Error(
+            `${language}:${supplemental.id} is missing supplemental source ${reference.url}`,
+          );
+        }
+      }
+    }
+  }
 }
 
 async function readManualImageManifest() {
@@ -1402,6 +2066,12 @@ async function readManualImageManifest() {
     const metadata = await sharp(sourcePath).metadata();
     if (!metadata.width || !metadata.height) throw new Error(`${label} is not a readable image`);
     if (metadata.format !== 'jpeg') throw new Error(`${label} must be a JPEG image`);
+    if (metadata.width !== metadata.height) {
+      throw new Error(`${label} must be a square image`);
+    }
+    if (metadata.width > GRAIN_IMAGE_SIZE) {
+      throw new Error(`${label} must not exceed ${GRAIN_IMAGE_SIZE}x${GRAIN_IMAGE_SIZE}`);
+    }
 
     const creditKeys = ['sourceUrl', 'creator', 'license', 'licenseUrl'];
     const providedCreditKeys = creditKeys.filter(
@@ -1460,7 +2130,15 @@ async function publishManualImages() {
       const fileName = `${kebabCase(image.kind)}.jpg`;
       const output = path.join(PUBLIC_WOOD_DIR, image.woodId, fileName);
       await fsp.mkdir(path.dirname(output), { recursive: true });
-      await fsp.copyFile(manualImageSourcePath(image.sourceFile), output);
+      await sharp(manualImageSourcePath(image.sourceFile))
+        .resize(GRAIN_IMAGE_SIZE, GRAIN_IMAGE_SIZE, {
+          fit: 'cover',
+          position: 'centre',
+          withoutEnlargement: true,
+        })
+        .flatten({ background: '#fff' })
+        .jpeg({ quality: WOOD_IMAGE_QUALITY, mozjpeg: true })
+        .toFile(output);
       const metadata = await sharp(output).metadata();
       return {
         ...image,
@@ -1480,6 +2158,7 @@ function mergeManualImages(databases, manualImages) {
       const record = recordsById.get(manualImage.woodId);
       if (!record) continue;
       unmatched.delete(`${manualImage.woodId}|${manualImage.kind}`);
+      const existingImage = record.images.find((item) => item.kind === manualImage.kind);
       const credit = manualImage.creator
         ? {
             creator: manualImage.creator,
@@ -1491,7 +2170,7 @@ function mergeManualImages(databases, manualImages) {
       const image = {
         kind: manualImage.kind,
         src: manualImage.src,
-        alt: '',
+        alt: existingImage?.alt ?? '',
         width: manualImage.width,
         height: manualImage.height,
         ...(credit ? { credit } : {}),
@@ -1504,6 +2183,88 @@ function mergeManualImages(databases, manualImages) {
   if (unmatched.size > 0) {
     throw new Error(`Manual images target unknown wood records: ${[...unmatched].join(', ')}`);
   }
+}
+
+async function refreshPublishedImageMetadata(databases) {
+  const imagesBySrc = new Map();
+  for (const { records } of databases) {
+    for (const record of records) {
+      for (const image of record.images) {
+        const matches = imagesBySrc.get(image.src) ?? [];
+        matches.push(image);
+        imagesBySrc.set(image.src, matches);
+      }
+    }
+  }
+
+  await runLimited([...imagesBySrc.entries()], 8, async ([src, images]) => {
+    const metadata = await sharp(publicWoodAssetPath(src)).metadata();
+    if (!metadata.width || !metadata.height) {
+      throw new Error(`Published wood image has no dimensions: ${src}`);
+    }
+    for (const image of images) {
+      image.width = metadata.width;
+      image.height = metadata.height;
+    }
+  });
+}
+
+async function publishThumbnails(databases) {
+  const recordsById = new Map();
+  for (const { records } of databases) {
+    for (const record of records) {
+      const matches = recordsById.get(record.id) ?? [];
+      matches.push(record);
+      recordsById.set(record.id, matches);
+    }
+  }
+
+  let published = 0;
+  await runLimited([...recordsById.entries()], 8, async ([woodId, records]) => {
+    const sourceRecord =
+      records.find((record) => record.images.some((image) => image.kind === 'quarterSawn')) ??
+      records.find((record) => record.images.some((image) => image.kind === 'flatSawn'));
+    const sourceImage =
+      sourceRecord?.images.find((image) => image.kind === 'quarterSawn') ??
+      sourceRecord?.images.find((image) => image.kind === 'flatSawn');
+
+    if (!sourceImage) {
+      for (const record of records) record.thumbnail = null;
+      return;
+    }
+
+    const input = publicWoodAssetPath(sourceImage.src);
+    const fileName = 'thumbnail.jpg';
+    const output = path.join(PUBLIC_WOOD_DIR, woodId, fileName);
+    await fsp.mkdir(path.dirname(output), { recursive: true });
+    await sharp(input)
+      .resize(THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, {
+        fit: 'cover',
+        position: 'centre',
+      })
+      .flatten({ background: '#fff' })
+      .jpeg({ quality: WOOD_IMAGE_QUALITY, mozjpeg: true })
+      .toFile(output);
+
+    const thumbnail = {
+      src: `/assets/woods/${woodId}/${fileName}`,
+      width: THUMBNAIL_WIDTH,
+      height: THUMBNAIL_HEIGHT,
+    };
+    for (const record of records) record.thumbnail = { ...thumbnail };
+    published += 1;
+  });
+
+  return published;
+}
+
+function publicWoodAssetPath(src) {
+  const assetPath = path.resolve(ROOT, 'public', src.replace(/^\/+/, ''));
+  const relativePath = path.relative(PUBLIC_WOOD_DIR, assetPath);
+  if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
+    throw new Error(`Public wood image escapes its asset directory: ${src}`);
+  }
+  return assetPath;
 }
 
 function imageKindOrder(kind) {
@@ -2074,7 +2835,7 @@ function qualityReport(record) {
   const checks = [
     ['family', record.identity.family],
     ['specificGravity', record.physics.specificGravity.value],
-    ['monninHardness', record.physics.monninHardness.value],
+    ['hardness', record.physics.monninHardness.value ?? record.physics.jankaHardness.value],
     ['totalRadialShrinkage', record.physics.totalRadialShrinkage.value],
     ['fungiResistance', record.durability.fungi.value],
     ['termiteResistance', record.durability.termites.value],
@@ -2119,6 +2880,7 @@ function makeSearchText(record) {
     record.appearance.texture.value,
     record.appearance.grain.value,
     record.durability.fungi.value,
+    record.durability.dryWoodBorers.value,
     record.durability.termites.value,
     ...record.endUses,
   ]

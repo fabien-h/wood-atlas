@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-alligator-juniper",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "9048a29a328497c0bbec5db5e69507938f5327f5d30cbe3f21eafdac24d997b5",
+      "sourceWidth": 1339,
+      "sourceHeight": 515,
+      "outputFile": "radial.jpg",
+      "outputWidth": 515,
+      "outputHeight": 515,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_242.jpg",
+        "query": "\"Juniperus pachyphloea\" \"radial section\" wood Hough",
+        "intendedViewHint": "radial",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU's 600-dpi Hough plate 242 is headed JUNIPERUS PACHYPHLOEA and Alligator Juniper; Juniperus pachyphloea is a documented synonym of Juniperus deppeana. The middle specimen is printed as RADIAL SECTION.",
+        "visualCheckNotes": "Opened after derivation at original crop resolution. This is an exposed longitudinal wood face with strong horizontal banding and fine ray figure; no bark-only area, tree, foliage, product scene, or microscopy appears.",
+        "derivedCrop": {
+          "left": 290,
+          "top": 1000,
+          "width": 1339,
+          "height": 515
+        },
+        "width": 1339,
+        "height": 515,
+        "format": "jpeg",
+        "sha256": "9048a29a328497c0bbec5db5e69507938f5327f5d30cbe3f21eafdac24d997b5",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "0cb0bcb0f737d64307dc3ec24867a3711a4026120dd17fbe8335e2cf06db6111",
+      "sourceWidth": 1339,
+      "sourceHeight": 542,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 542,
+      "outputHeight": 542,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_242.jpg",
+        "query": "\"Juniperus pachyphloea\" \"tangential section\" wood Hough",
+        "intendedViewHint": "tangential",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU's Hough plate 242 labels the species JUNIPERUS PACHYPHLOEA / Alligator Juniper and the lower specimen TANGENTIAL SECTION; J. pachyphloea is a documented synonym of Juniperus deppeana.",
+        "visualCheckNotes": "Opened after derivation at original crop resolution. The crop is entirely the exposed tangential specimen face, with curved growth-ring figure and no living plant, bark-only surface, furniture, flooring, or microscopy.",
+        "derivedCrop": {
+          "left": 290,
+          "top": 1692,
+          "width": 1339,
+          "height": 542
+        },
+        "width": 1339,
+        "height": 542,
+        "format": "jpeg",
+        "sha256": "0cb0bcb0f737d64307dc3ec24867a3711a4026120dd17fbe8335e2cf06db6111",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

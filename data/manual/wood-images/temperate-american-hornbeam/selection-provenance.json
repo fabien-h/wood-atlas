@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-american-hornbeam",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "1fa91129eca308cd32d05497c349b8df2de4a95426a995288753650a785195ad",
+      "sourceWidth": 1333,
+      "sourceHeight": 525,
+      "outputFile": "radial.jpg",
+      "outputWidth": 525,
+      "outputHeight": 525,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_42.jpg",
+        "query": "\"Carpinus carolineana\" \"radial section\" Hough Hornbeam wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 42 prints CARPINUS CAROLINEANA / Hornbeam and labels the middle specimen RADIAL SECTION. Modern ITIS-backed nomenclature documents Carpinus carolineana as the historical spelling of Carpinus caroliniana.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The pale exposed radial face fills the image and shows subtle horizontal figure and ray fleck; no tree, bark, leaves, furniture, flooring, or microscopy appears.",
+        "derivedCrop": {
+          "left": 292,
+          "top": 962,
+          "width": 1333,
+          "height": 525
+        },
+        "width": 1333,
+        "height": 525,
+        "format": "jpeg",
+        "sha256": "1fa91129eca308cd32d05497c349b8df2de4a95426a995288753650a785195ad",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "f4e76736c9055340bb567e09cb99a06694f67623ac1c07a3db15786285963c24",
+      "sourceWidth": 1334,
+      "sourceHeight": 510,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 510,
+      "outputHeight": 510,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_42.jpg",
+        "query": "\"Carpinus carolineana\" \"tangential section\" Hough Hornbeam wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 42 prints CARPINUS CAROLINEANA / Hornbeam and labels the lower specimen TANGENTIAL SECTION. ITIS-backed nomenclature identifies the current spelling as Carpinus caroliniana.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The pale exposed tangential face fills the frame with soft cathedral figure and a few natural darker marks; no living plant, bark-only area, finished product, or microscopy appears.",
+        "derivedCrop": {
+          "left": 294,
+          "top": 1670,
+          "width": 1334,
+          "height": 510
+        },
+        "width": 1334,
+        "height": 510,
+        "format": "jpeg",
+        "sha256": "f4e76736c9055340bb567e09cb99a06694f67623ac1c07a3db15786285963c24",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

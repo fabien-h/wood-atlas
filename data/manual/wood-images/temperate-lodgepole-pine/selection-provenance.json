@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-lodgepole-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "f4d017dc86ab081ea44f7de0aff177ebbc6153bb26cd0c74d6925a1858bf3f8d",
+      "sourceWidth": 2418,
+      "sourceHeight": 1546,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

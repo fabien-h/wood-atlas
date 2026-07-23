@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-jack-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "8a0271bfc7327ad6c4b9e1512a0c49a585ee491baf657f49c7a3d4967d7c25ef",
+      "sourceWidth": 2340,
+      "sourceHeight": 1467,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

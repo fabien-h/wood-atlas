@@ -1,8 +1,9 @@
-import { X } from 'lucide-react';
+import { ExternalLink, X } from 'lucide-react';
 import { useEffect, useState, type ReactNode } from 'react';
 import { Dialog, Heading, Modal, ModalOverlay } from 'react-aria-components';
 import { PhysicalProfileChart } from '../../components/PhysicalProfileChart';
 import {
+  commonName,
   formatMeasure,
   formatNumber,
   hasMeasure,
@@ -60,8 +61,10 @@ function DetailContent({
   onClose: () => void;
   elevated: boolean;
 }) {
+  const [zoomedImage, setZoomedImage] = useState<WoodImage | null>(null);
   const grainImages = wood.images.filter((image) => image.kind !== 'example');
   const exampleImages = wood.images.filter((image) => image.kind === 'example');
+  const name = commonName(wood);
   const localizedEndUses = [...new Set(wood.endUses)];
   const hasIdentity =
     [
@@ -81,6 +84,7 @@ function DetailContent({
     [
       wood.physics.specificGravity,
       wood.physics.monninHardness,
+      wood.physics.jankaHardness,
       wood.physics.volumetricShrinkageCoefficient,
       wood.physics.totalTangentialShrinkage,
       wood.physics.totalRadialShrinkage,
@@ -143,7 +147,7 @@ function DetailContent({
     <>
       <header className={`${styles.header} ${elevated ? styles.elevated : ''}`}>
         <Heading slot="title" className={styles.heading}>
-          {wood.identity.displayName}
+          {name}
           <button
             type="button"
             className={styles.closeButton}
@@ -161,15 +165,19 @@ function DetailContent({
       </header>
 
       {grainImages.length > 0 && (
-        <div className={styles.imagePair}>
+        <div
+          className={styles.imagePair}
+          role="group"
+          aria-label={`${name} — ${copy.descriptionOfWood}`}
+        >
           {grainImages.slice(0, 2).map((image) => (
-            <figure key={image.src}>
-              <img src={image.src} alt={woodImageAlt(image, wood, copy)} />
-              <figcaption>
-                <span>{image.kind === 'flatSawn' ? copy.flatSawn : copy.quarterSawn}</span>
-                <ImageCredit credit={image.credit} />
-              </figcaption>
-            </figure>
+            <WoodImageFigure
+              image={image}
+              name={name}
+              copy={copy}
+              onZoom={() => setZoomedImage(image)}
+              key={image.src}
+            />
           ))}
         </div>
       )}
@@ -208,6 +216,19 @@ function DetailContent({
         </DetailSection>
       )}
 
+      {wood.additionalDetails?.map((section) => (
+        <DetailSection title={section.title} key={section.id}>
+          {section.fields.map((field) => (
+            <KV
+              label={field.label}
+              value={field.value}
+              valueLanguage={field.valueLanguage}
+              key={`${field.label}:${field.value}`}
+            />
+          ))}
+        </DetailSection>
+      ))}
+
       {hasPhysics && (
         <DetailSection title={copy.physicsAndMechanics}>
           <PhysicalProfileChart wood={wood} copy={copy} />
@@ -222,6 +243,7 @@ function DetailContent({
             measure={wood.physics.monninHardness}
             copy={copy}
           />
+          <MeasureKV label={copy.jankaHardness} measure={wood.physics.jankaHardness} copy={copy} />
           <MeasureKV
             label={copy.volumetricShrinkage}
             measure={wood.physics.volumetricShrinkageCoefficient}
@@ -396,23 +418,124 @@ function DetailContent({
         <DetailSection title={copy.example}>
           <div className={styles.exampleImages}>
             {exampleImages.map((image) => (
-              <img src={image.src} alt={woodImageAlt(image, wood, copy)} key={image.src} />
+              <ZoomableImage
+                image={image}
+                name={name}
+                copy={copy}
+                onZoom={() => setZoomedImage(image)}
+                key={image.src}
+              />
             ))}
           </div>
         </DetailSection>
       )}
+
+      <SourceSection wood={wood} copy={copy} />
+
+      <ImageLightbox
+        image={zoomedImage}
+        name={name}
+        copy={copy}
+        onClose={() => setZoomedImage(null)}
+      />
     </>
   );
 }
 
-function woodImageAlt(image: WoodImage, wood: WoodRecord, copy: Translation) {
+function WoodImageFigure({
+  image,
+  name,
+  copy,
+  onZoom,
+}: {
+  image: WoodImage;
+  name: string;
+  copy: Translation;
+  onZoom: () => void;
+}) {
+  return (
+    <figure>
+      <ZoomableImage image={image} name={name} copy={copy} onZoom={onZoom} />
+      <figcaption>
+        <span>{image.kind === 'flatSawn' ? copy.flatSawn : copy.quarterSawn}</span>
+        <ImageCredit credit={image.credit} />
+      </figcaption>
+    </figure>
+  );
+}
+
+function ZoomableImage({
+  image,
+  name,
+  copy,
+  onZoom,
+}: {
+  image: WoodImage;
+  name: string;
+  copy: Translation;
+  onZoom: () => void;
+}) {
+  const alt = woodImageAlt(image, name, copy);
+  return (
+    <button type="button" className={styles.imageButton} aria-haspopup="dialog" onClick={onZoom}>
+      <img src={image.src} alt={alt} />
+    </button>
+  );
+}
+
+function ImageLightbox({
+  image,
+  name,
+  copy,
+  onClose,
+}: {
+  image: WoodImage | null;
+  name: string;
+  copy: Translation;
+  onClose: () => void;
+}) {
+  if (!image) return null;
+  const alt = woodImageAlt(image, name, copy);
   const label =
     image.kind === 'flatSawn'
       ? copy.flatSawn
       : image.kind === 'quarterSawn'
         ? copy.quarterSawn
         : copy.example;
-  return `${wood.identity.displayName} — ${label}`;
+
+  return (
+    <ModalOverlay
+      isOpen
+      isDismissable
+      className={styles.lightboxOverlay}
+      onOpenChange={(open) => {
+        if (!open) onClose();
+      }}
+      onClick={onClose}
+    >
+      <Modal className={styles.lightboxModal}>
+        <Dialog aria-label={alt} className={styles.lightboxDialog}>
+          <figure>
+            <img className={styles.lightboxImage} src={image.src} alt={alt} />
+            <figcaption>
+              <span>{label}</span>
+              <ImageCredit credit={image.credit} />
+            </figcaption>
+          </figure>
+        </Dialog>
+      </Modal>
+    </ModalOverlay>
+  );
+}
+
+function woodImageAlt(image: WoodImage, woodName: string, copy: Translation) {
+  const label =
+    image.kind === 'flatSawn'
+      ? copy.flatSawn
+      : image.kind === 'quarterSawn'
+        ? copy.quarterSawn
+        : copy.example;
+  return `${woodName} — ${label}`;
 }
 
 function ImageCredit({ credit }: { credit: WoodImage['credit'] }) {
@@ -435,12 +558,22 @@ function DetailSection({ title, children }: { title: string; children: ReactNode
   );
 }
 
-function KV({ label, value }: { label: string; value: string | null | undefined }) {
+function KV({
+  label,
+  value,
+  valueLanguage,
+}: {
+  label: string;
+  value: string | null | undefined;
+  valueLanguage?: string;
+}) {
   if (!isMeaningful(value)) return null;
   return (
     <div className={styles.kv}>
       <span>{label}</span>
-      <strong dir="auto">{value}</strong>
+      <strong dir="auto" lang={valueLanguage}>
+        {value}
+      </strong>
     </div>
   );
 }
@@ -480,6 +613,54 @@ function NotesList({ notes }: { notes: string[] | undefined }) {
         <p key={`${index}-${item}`}>{item}</p>
       ))}
     </div>
+  );
+}
+
+function SourceSection({ wood, copy }: { wood: WoodRecord; copy: Translation }) {
+  const sourceLanguage = copy.locale.startsWith('fr') ? 'fr' : 'en';
+  const listingUrl =
+    wood.source.listingUrls?.[sourceLanguage] ??
+    wood.source.listingUrls?.en ??
+    wood.source.listingUrls?.fr;
+  const sourceLinks = [
+    ...(listingUrl
+      ? [
+          {
+            title: wood.source.provider,
+            url: listingUrl,
+            detail: null,
+          },
+        ]
+      : []),
+    ...(wood.source.references ?? []).map((reference) => ({
+      title: reference.title,
+      url: reference.url,
+      detail: [reference.publisher, reference.year]
+        .filter((value) => value !== null && value !== '')
+        .join(' · '),
+    })),
+  ].filter(
+    (link, index, links) => links.findIndex((candidate) => candidate.url === link.url) === index,
+  );
+
+  if (!isMeaningful(wood.source.provider) && sourceLinks.length === 0) return null;
+  return (
+    <DetailSection title={copy.aboutDataSourcesTitle}>
+      <p className={styles.sourceProvider}>{wood.source.provider}</p>
+      {sourceLinks.length > 0 && (
+        <div className={styles.sourceLinks}>
+          {sourceLinks.map((link) => (
+            <a href={link.url} target="_blank" rel="noreferrer" key={link.url}>
+              <span>
+                <strong>{link.title}</strong>
+                {link.detail && <small>{link.detail}</small>}
+              </span>
+              <ExternalLink size={16} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      )}
+    </DetailSection>
   );
 }
 

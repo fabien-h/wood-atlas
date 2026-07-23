@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-buttonwood",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "220a86d78a9f517d624e3a3f76358e2f4a120c83bd8be42e9855d03a50d56b63",
+      "sourceWidth": 859,
+      "sourceHeight": 495,
+      "outputFile": "radial.jpg",
+      "outputWidth": 495,
+      "outputHeight": 495,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "e301a945d891c3de73b2d3e2cde18a36beab7f2382b008e2e8dc70b198928b23",
+      "sourceWidth": 1046,
+      "sourceHeight": 488,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 488,
+      "outputHeight": 488,
+      "matchedCandidate": null
+    }
+  ]
+}

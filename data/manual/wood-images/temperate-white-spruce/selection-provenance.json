@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-white-spruce",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "06aaca9b698393dac15ad5c3980e4993225b1f83e8f28a1a6d5e9bc462c48e3d",
+      "sourceWidth": 1897,
+      "sourceHeight": 1167,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "edbb4828ca05d6e69161c50d6b1a3567301e6b1c5c934235f1f93a5b355fe498",
+      "sourceWidth": 2768,
+      "sourceHeight": 1512,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

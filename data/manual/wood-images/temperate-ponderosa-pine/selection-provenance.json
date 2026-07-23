@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-ponderosa-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "e6294c4cfa6eab6f79f9df1c83c82a0701378251db864c052529f2b94a9ce514",
+      "sourceWidth": 2333,
+      "sourceHeight": 1419,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

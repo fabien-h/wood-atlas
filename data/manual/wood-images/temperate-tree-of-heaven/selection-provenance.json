@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-tree-of-heaven",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "69b7d1ec2b575c8ea16ddd8bc0c557daf8755e622dac0d85c458e364ce85103e",
+      "sourceWidth": 2051,
+      "sourceHeight": 1486,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

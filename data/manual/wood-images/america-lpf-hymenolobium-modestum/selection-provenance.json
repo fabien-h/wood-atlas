@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-hymenolobium-modestum",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "fcea6f13fac5df6201d8b31108b4e46e720a5fefdacd79a7927c3b62388908fe",
+      "sourceWidth": 480,
+      "sourceHeight": 284,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 284,
+      "outputHeight": 284,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=125",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Hymenolobium%20modestum3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Hymenolobium modestum\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies Hymenolobium modestum and captions this image Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. A continuous reddish, strongly figured longitudinal wood surface fills the frame; no tree, foliage, bark exterior, furniture, generic texture, diagram, or microscopy appears.",
+        "width": 480,
+        "height": 284,
+        "format": "jpeg",
+        "sha256": "fcea6f13fac5df6201d8b31108b4e46e720a5fefdacd79a7927c3b62388908fe",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

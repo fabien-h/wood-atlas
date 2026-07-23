@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-north-american-magnolia",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "d85aa4ccddd73b7704b58b107c5153f15ddce3cab6049550a9206a877f069472",
+      "sourceWidth": 1455,
+      "sourceHeight": 936,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

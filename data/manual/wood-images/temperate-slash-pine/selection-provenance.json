@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-slash-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "2b9d66a719b5886a7467892ac08c431cfdf0ffbc033433b29b50b8b7ce6239f7",
+      "sourceWidth": 2461,
+      "sourceHeight": 1493,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "units": [
+    {
+      "scope": "durability.treatability.value",
+      "source": "variable",
+      "translations": {
+        "ar": "متغير",
+        "bn": "পরিবর্তনশীল",
+        "de": "variabel",
+        "es": "variable",
+        "hi": "परिवर्तनशील",
+        "id": "bervariasi",
+        "it": "variabile",
+        "ja": "変動する",
+        "ko": "가변적",
+        "pt": "variável",
+        "ru": "переменная",
+        "tr": "değişken",
+        "ur": "متغیر",
+        "vi": "thay đổi",
+        "zh-Hans": "不定"
+      }
+    }
+  ]
+}

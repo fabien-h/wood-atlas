@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-eastern-white-pine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "d36eae76d5cfaeb4be55254f4366507fd0a1f9f5a461dc139e7aa405d31dc959",
+      "sourceWidth": 2200,
+      "sourceHeight": 1628,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

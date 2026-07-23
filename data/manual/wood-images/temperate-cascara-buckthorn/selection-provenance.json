@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-cascara-buckthorn",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "2a443b159a8bc01860de161f107f8eb753d4fface89adcae9c44e39ccc1dbbfa",
+      "sourceWidth": 827,
+      "sourceHeight": 510,
+      "outputFile": "radial.jpg",
+      "outputWidth": 510,
+      "outputHeight": 510,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "b7d3668e74fd8c9aff99bccd92102017f26579661461959de1f4fd618abf9fbf",
+      "sourceWidth": 921,
+      "sourceHeight": 479,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 479,
+      "outputHeight": 479,
+      "matchedCandidate": null
+    }
+  ]
+}

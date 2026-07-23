@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-deglupta",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "7e77a3430fe2d9e1e8d624a3b2e6adc0db72cfc27475d6146b25890281085046",
+      "sourceWidth": 2457,
+      "sourceHeight": 1479,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

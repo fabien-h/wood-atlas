@@ -1,5 +1,6 @@
 import type { Translation } from '../i18n';
 import type { NumericMeasure, WoodRecord } from '../types/wood';
+import { commonName } from '../domain/woods';
 import styles from './PhysicalProfileChart.module.css';
 
 type BandLabel =
@@ -112,7 +113,7 @@ const rulerHeight = 32;
 export function PhysicalProfileChart({ wood, copy }: { wood: WoodRecord; copy: Translation }) {
   const values = rows.map((row) => measureFor(wood, row.key).value);
   const path = profilePath(values);
-  const title = `${copy.physicsAndMechanics}: ${wood.identity.displayName}`;
+  const title = `${copy.physicsAndMechanics}: ${commonName(wood)}`;
   const rtl = copy.locale.startsWith('ar') || copy.locale.startsWith('ur');
 
   return (

@@ -8,7 +8,7 @@
 }
 
 .shell.filtersOpen {
-  grid-template-columns: 350px minmax(0, 1fr);
+  grid-template-columns: 400px minmax(0, 1fr);
 }
 
 .workspace {
@@ -40,7 +40,7 @@
     grid-template-columns: 0 minmax(0, 1fr);
   }
   .shell.filtersOpen {
-    grid-template-columns: 350px minmax(0, 1fr);
+    grid-template-columns: 400px minmax(0, 1fr);
   }
 }
 

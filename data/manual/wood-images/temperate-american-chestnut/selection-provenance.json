@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-american-chestnut",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "9697fa426d418fb6ea824bc45bacba4004198409c437ce047b1c6070fab70972",
+      "sourceWidth": 1340,
+      "sourceHeight": 525,
+      "outputFile": "radial.jpg",
+      "outputWidth": 525,
+      "outputHeight": 525,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_40.jpg",
+        "query": "\"Castanea dentata\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 40 prints CASTANEA DENTATA / Chestnut and labels the middle physical specimen RADIAL SECTION.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. A close exposed radial face fills the image and shows strong horizontal ray fleck; there is no tree, leaf, burr, bark-only area, product scene, diagram, or microscopy.",
+        "derivedCrop": {
+          "left": 260,
+          "top": 952,
+          "width": 1340,
+          "height": 525
+        },
+        "width": 1340,
+        "height": 525,
+        "format": "jpeg",
+        "sha256": "9697fa426d418fb6ea824bc45bacba4004198409c437ce047b1c6070fab70972",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c9dece15b6aece0cea9780737b448dfad500462c66924a1d55d8fe845fb0a07b",
+      "sourceWidth": 1340,
+      "sourceHeight": 535,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 535,
+      "outputHeight": 535,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_40.jpg",
+        "query": "\"Castanea dentata\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 40 prints CASTANEA DENTATA / Chestnut and labels the lower physical specimen TANGENTIAL SECTION.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The exposed tangential face fills the image, with pronounced cathedral bands and ring-porous texture; no living plant, bark, finished product, or microscopy is present.",
+        "derivedCrop": {
+          "left": 260,
+          "top": 1635,
+          "width": 1340,
+          "height": 535
+        },
+        "width": 1340,
+        "height": 535,
+        "format": "jpeg",
+        "sha256": "c9dece15b6aece0cea9780737b448dfad500462c66924a1d55d8fe845fb0a07b",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

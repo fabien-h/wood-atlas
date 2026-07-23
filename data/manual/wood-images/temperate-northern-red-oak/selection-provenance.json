@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-northern-red-oak",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "128994fc40ec775eb0dcb368c98f370c8bf57ae35e61191badf48477fce9c42b",
+      "sourceWidth": 2560,
+      "sourceHeight": 1601,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "bd101bab324c7414d0814dfef23f32c8192f5756f7ff79d55fa8602501e8728a",
+      "sourceWidth": 1786,
+      "sourceHeight": 1403,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

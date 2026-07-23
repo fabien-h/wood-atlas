@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-eastern-redcedar",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c537b492723f43012448eec2086d61d3a0cf9d248ce2795afd1584ff792be55a",
+      "sourceWidth": 1883,
+      "sourceHeight": 1251,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

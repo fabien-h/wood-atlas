@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-lueheopsis-duckeana",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "a050c8776437f636da58b2e3aa5c413475ec1f3c5c86a84610e9b426017d6ac4",
+      "sourceWidth": 479,
+      "sourceHeight": 281,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 281,
+      "outputHeight": 281,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=143",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Lueheopsis%20duckeana%20R3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Lueheopsis duckeana\" \"Corte radial\"",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF species page explicitly identifies Lueheopsis duckeana and captions this image Corte radial.",
+        "visualCheckNotes": "Opened at original resolution. The image is entirely a clean exposed longitudinal wood surface with visible grain; it contains no tree, leaves, bark exterior, furniture, illustration, or microscopic section.",
+        "width": 479,
+        "height": 281,
+        "format": "jpeg",
+        "sha256": "a050c8776437f636da58b2e3aa5c413475ec1f3c5c86a84610e9b426017d6ac4",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

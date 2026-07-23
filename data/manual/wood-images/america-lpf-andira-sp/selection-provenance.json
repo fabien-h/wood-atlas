@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-andira-sp",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c679e70330f48fee402f13b5c066fe6a53afb5c1a98064f94dbd7f8c991f2869",
+      "sourceWidth": 475,
+      "sourceHeight": 268,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 268,
+      "outputHeight": 268,
+      "matchedCandidate": null
+    }
+  ]
+}

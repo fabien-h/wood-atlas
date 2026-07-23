@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-yellow-poplar",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "5a5ac0d702b6354422dbd2e716bbe6153d54b59a296dcc129632da7c127e14d4",
+      "sourceWidth": 2187,
+      "sourceHeight": 1492,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

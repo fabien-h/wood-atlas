@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-black-walnut",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "9dcc574a1fb9cb2c5816c41abdae7a8c441053c0f281021d4019cd6c9416d4e0",
+      "sourceWidth": 1310,
+      "sourceHeight": 530,
+      "outputFile": "radial.jpg",
+      "outputWidth": 530,
+      "outputHeight": 530,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_35.jpg",
+        "query": "\"Juglans nigra\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The NCSU Hough source image prints JUGLANS NIGRA and RADIAL SECTION for the middle specimen.",
+        "visualCheckNotes": "Opened at native crop size. A physical radial wood face fills the image and clearly shows sapwood/heartwood contrast and ray figure; no tree, nut, leaf, bark, furniture, flooring, or microscopy is present.",
+        "derivedCrop": {
+          "left": 260,
+          "top": 1040,
+          "width": 1310,
+          "height": 530
+        },
+        "width": 1310,
+        "height": 530,
+        "format": "jpeg",
+        "sha256": "9dcc574a1fb9cb2c5816c41abdae7a8c441053c0f281021d4019cd6c9416d4e0",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "b9477df510dcaeb20080c71788d0ad80c72802f6dc5c638fc70f59017e3de825",
+      "sourceWidth": 1310,
+      "sourceHeight": 530,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 530,
+      "outputHeight": 530,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_35.jpg",
+        "query": "\"Juglans nigra\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The NCSU Hough source image prints JUGLANS NIGRA and TANGENTIAL SECTION for the lower specimen.",
+        "visualCheckNotes": "Opened at native crop size. A physical tangential black-walnut face fills the frame with strong cathedral grain and a small natural knot; no living plant, bark, product scene, flooring, or microscopy appears.",
+        "derivedCrop": {
+          "left": 260,
+          "top": 1745,
+          "width": 1310,
+          "height": 530
+        },
+        "width": 1310,
+        "height": 530,
+        "format": "jpeg",
+        "sha256": "b9477df510dcaeb20080c71788d0ad80c72802f6dc5c638fc70f59017e3de825",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

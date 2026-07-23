@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-african-pencil-cedar",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "aea6393a529b03895e27e08ef8d12ca3514e39301547392c506b8842814d6934",
+      "sourceWidth": 2768,
+      "sourceHeight": 1663,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

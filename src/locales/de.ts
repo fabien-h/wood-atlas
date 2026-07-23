@@ -11,7 +11,8 @@ export const de = {
   aboutOpenSource: 'Dieser Holzatlas ist Open Source. Der Quellcode ist auf GitHub verfügbar.',
   aboutDataSourcesTitle: 'Datenquellen',
   aboutDataSources:
-    'Alle Holzdaten in diesem Atlas stammen aus der Tropix-Datenbank und von der CIRAD-Forschungseinheit BioWooEB.',
+    'Die meisten Daten dieses Atlas stammen aus Tropix, der CIRAD-Einheit BioWooEB, dem USDA Forest Products Laboratory und dem Labor für Forstprodukte des brasilianischen Forstdienstes (LPF/SFB). Zusätzliche Datensätze nennen ihre Quellen im jeweiligen Datenblatt.',
+  contact: 'Kontakt',
   atlas: 'Holzatlas',
   searchPlaceholder: 'Namen, Verwendungen, Länder durchsuchen…',
   clearSearch: 'Suche löschen',
@@ -60,6 +61,7 @@ export const de = {
   materialMap: 'Werkstoffkarte',
   hardnessVsRadialShrinkage: 'Härte vs. radiales Schwinden',
   monninHardness: 'Monnin-Härte',
+  jankaHardness: 'Janka-Härte',
   radialShrinkage: 'Radiales Schwindmaß',
   distribution: 'Verbreitung',
   specificGravity: 'Spezifisches Gewicht',

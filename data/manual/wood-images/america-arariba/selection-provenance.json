@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-arariba",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "f400b69cf80b50e71b936707c5c16ef28306d9ace47f0a2bb4b815ae5af4fe3e",
+      "sourceWidth": 2537,
+      "sourceHeight": 1548,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-burkea",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "83674cbd57febaccf39c900dd705112b434287363dec6f7e80928158627c416e",
+      "sourceWidth": 232,
+      "sourceHeight": 225,
+      "outputFile": "radial.jpg",
+      "outputWidth": 225,
+      "outputHeight": 225,
+      "matchedCandidate": null
+    }
+  ]
+}

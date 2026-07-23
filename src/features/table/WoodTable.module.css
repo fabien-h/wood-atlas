@@ -47,9 +47,11 @@
   background: #fff;
   cursor: pointer;
 }
-.table tbody tr:hover,
 .table tbody tr.activeRow {
   background: #fff;
+}
+.table tbody tr:hover {
+  background: color-mix(in srgb, var(--line) 25%, #fff);
 }
 .table th:first-child,
 .table td:first-child {
@@ -88,7 +90,7 @@
   z-index: 2;
   background: inherit;
 }
-.table tbody td:nth-child(n + 4):nth-child(-n + 8) {
+.table tbody td:nth-child(n + 8):nth-child(-n + 12) {
   font-size: 0.8rem;
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
@@ -133,22 +135,22 @@
   color: var(--ink);
   text-align: start;
 }
-.grainImage,
-.grainPlaceholder {
+.thumbnailImage,
+.thumbnailPlaceholder {
   flex: 0 0 auto;
   align-self: stretch;
   width: 54px;
   height: auto;
   background: var(--field);
 }
-.grainImage {
+.thumbnailImage {
   display: block;
   overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
 }
-.grainPlaceholder {
+.thumbnailPlaceholder {
   display: block;
   background: #fff;
 }
@@ -196,7 +198,7 @@
 :global([dir='rtl']) .table tbody tr.activeRow .openIcon {
   transform: translateX(-2px) rotate(180deg);
 }
-:global([dir='rtl']) .table td:nth-child(n + 4):nth-child(-n + 9) {
+:global([dir='rtl']) .table td:nth-child(n + 4):nth-child(-n + 12) {
   direction: ltr;
   unicode-bidi: isolate;
 }
@@ -222,8 +224,8 @@
   .nameButton {
     min-width: 200px;
   }
-  .grainImage,
-  .grainPlaceholder {
+  .thumbnailImage,
+  .thumbnailPlaceholder {
     display: none;
   }
 }

@@ -11,7 +11,8 @@ export const ar = {
   aboutOpenSource: 'أطلس الأخشاب هذا مفتوح المصدر، ورمزه المصدري متاح على GitHub.',
   aboutDataSourcesTitle: 'مصادر البيانات',
   aboutDataSources:
-    'تأتي جميع بيانات الأخشاب في هذا الأطلس من قاعدة بيانات Tropix ووحدة أبحاث BioWooEB التابعة لـ CIRAD.',
+    'تأتي معظم بيانات هذا الأطلس من Tropix ووحدة BioWooEB التابعة لـ CIRAD ومختبر منتجات الغابات التابع لوزارة الزراعة الأمريكية (USDA) ومختبر منتجات الغابات التابع لخدمة الغابات البرازيلية (LPF/SFB). وتذكر السجلات الإضافية مصادرها في صفحاتها.',
+  contact: 'الاتصال',
   atlas: 'أطلس الأخشاب',
   searchPlaceholder: 'ابحث عن أسماء أو استخدامات أو بلدان…',
   clearSearch: 'مسح البحث',
@@ -60,6 +61,7 @@ export const ar = {
   materialMap: 'خريطة المواد',
   hardnessVsRadialShrinkage: 'الصلادة مقابل الانكماش الشعاعي',
   monninHardness: 'صلادة مونان',
+  jankaHardness: 'صلادة جانكا',
   radialShrinkage: 'الانكماش الشعاعي',
   distribution: 'التوزيع',
   specificGravity: 'الكثافة النوعية',

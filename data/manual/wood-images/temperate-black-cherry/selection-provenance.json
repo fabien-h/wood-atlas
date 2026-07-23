@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-black-cherry",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "a6cbd65a1739c0560c9882d465818d8aede9e6f523bd4c3fdcc99f79e0cd115a",
+      "sourceWidth": 1330,
+      "sourceHeight": 510,
+      "outputFile": "radial.jpg",
+      "outputWidth": 510,
+      "outputHeight": 510,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_29.jpg",
+        "query": "\"Prunus serotina\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 29 prints PRUNUS SEROTINA and RADIAL SECTION for the middle specimen.",
+        "visualCheckNotes": "Opened at native crop size. A physical radial wood face fills the image with strong ray fleck and heartwood/sapwood contrast; no tree, fruit, flower, bark, furniture, flooring, or microscopy is present.",
+        "derivedCrop": {
+          "left": 270,
+          "top": 990,
+          "width": 1330,
+          "height": 510
+        },
+        "width": 1330,
+        "height": 510,
+        "format": "jpeg",
+        "sha256": "a6cbd65a1739c0560c9882d465818d8aede9e6f523bd4c3fdcc99f79e0cd115a",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "d76323d0f9d287d15e5dfcb10423745b27a3b98b8d653ae6bff12dcc5207f2f9",
+      "sourceWidth": 1330,
+      "sourceHeight": 510,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 510,
+      "outputHeight": 510,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_29.jpg",
+        "query": "\"Prunus serotina\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 29 prints PRUNUS SEROTINA and TANGENTIAL SECTION for the lower specimen.",
+        "visualCheckNotes": "Opened at native crop size. A clean physical tangential wood face fills the frame with fine natural grain; no living plant, bark-only image, finished object, stock flooring, or microscopy is present.",
+        "derivedCrop": {
+          "left": 270,
+          "top": 1670,
+          "width": 1330,
+          "height": 510
+        },
+        "width": 1330,
+        "height": 510,
+        "format": "jpeg",
+        "sha256": "d76323d0f9d287d15e5dfcb10423745b27a3b98b8d653ae6bff12dcc5207f2f9",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

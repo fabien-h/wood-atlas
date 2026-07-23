@@ -29,9 +29,24 @@ const LOCALES = [
   'vi',
   'zh-Hans',
 ];
-const EXPECTED_UNIT_COUNT = 4_040;
-const EXPECTED_RECORD_COUNT = 312;
-const EXPECTED_CONTEXT_COUNT = 30_134;
+const EXPECTED_UNIT_COUNT = 5_958;
+const EXPECTED_RECORD_COUNT = 728;
+const EXPECTED_CONTEXT_COUNT = 40_472;
+const EXPECTED_DRY_WOOD_BORER_VALUES = new Set([
+  'class d - durable',
+  'class d - durable (heartwood durable but sapwood not clearly demarcated)',
+  'class d - durable (sapwood demarcated, risk limited to sapwood)',
+  'class s - susceptible (risk in all the wood)',
+]);
+const EXPECTED_TREATABILITY_VALUES = new Set([
+  'class 1 - easily permeable',
+  'class 1-2 - moderately to easily permeable',
+  'class 2 - moderately permeable',
+  'class 2-3 - poorly to moderately permeable',
+  'class 3 - poorly permeable',
+  'class 3-4 - poorly or not permeable',
+  'class 4 - not permeable',
+]);
 const OVERLAY_KEYS = new Set([
   'schemaVersion',
   'locale',
@@ -56,7 +71,6 @@ const FIXED_OVERLAY_PATHS = new Set([
 ]);
 
 const INDEXED_OVERLAY_PATHS = [
-  /^identity\.aliases\.\d+$/,
   /^identity\.localNames\.\d+\.country$/,
   /^identity\.notes\.\d+$/,
   /^origin\.countries\.\d+$/,
@@ -86,6 +100,7 @@ const NUMERIC_MEASURE_PATHS = [
   'log.diameterCm',
   'physics.specificGravity',
   'physics.monninHardness',
+  'physics.jankaHardness',
   'physics.volumetricShrinkageCoefficient',
   'physics.totalTangentialShrinkage',
   'physics.totalRadialShrinkage',
@@ -252,6 +267,7 @@ function validateSourceAndManifest(databaseText, database, source) {
     throw new Error('English source database has empty or duplicate wood ids');
   }
   validateNormalizedCategories(database.records, 'en');
+  validateCanonicalDurabilityValues(database.records);
 }
 
 function validateNormalizedCategories(records, locale) {
@@ -262,6 +278,44 @@ function validateNormalizedCategories(records, locale) {
         throw new Error(`${record.id}:${recordPath} is not normalized lowercase for ${locale}`);
       }
     }
+  }
+}
+
+function validateCanonicalDurabilityValues(records) {
+  const dryWoodBorerValues = new Set(
+    records.map((record) => record.durability.dryWoodBorers.value).filter(Boolean),
+  );
+  if (
+    dryWoodBorerValues.size !== EXPECTED_DRY_WOOD_BORER_VALUES.size ||
+    [...dryWoodBorerValues].some((value) => !EXPECTED_DRY_WOOD_BORER_VALUES.has(value))
+  ) {
+    throw new Error(
+      `dry-wood-borer categories are not canonical: ${[...dryWoodBorerValues].join(' | ')}`,
+    );
+  }
+
+  const treatabilityValues = new Set(
+    records.map((record) => record.durability.treatability.value).filter(Boolean),
+  );
+  if (
+    treatabilityValues.size !== EXPECTED_TREATABILITY_VALUES.size ||
+    [...treatabilityValues].some((value) => !EXPECTED_TREATABILITY_VALUES.has(value))
+  ) {
+    throw new Error(
+      `treatability categories are not canonical: ${[...treatabilityValues].join(' | ')}`,
+    );
+  }
+
+  const naturalUseClassValues = new Set(
+    records.map((record) => record.durability.naturalUseClass.value).filter(Boolean),
+  );
+  if (
+    naturalUseClassValues.size !== 15 ||
+    [...naturalUseClassValues].some((value) => !value.startsWith('class '))
+  ) {
+    throw new Error(
+      `natural-use-class categories are not canonical: ${[...naturalUseClassValues].join(' | ')}`,
+    );
   }
 }
 

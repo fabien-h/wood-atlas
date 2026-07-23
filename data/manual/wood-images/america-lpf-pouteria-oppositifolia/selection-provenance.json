@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-pouteria-oppositifolia",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "f0a133d1afbcb12eb8f2c53735ed75a93b0588e8722a2577af46d9cae9e9781a",
+      "sourceWidth": 474,
+      "sourceHeight": 275,
+      "outputFile": "radial.jpg",
+      "outputWidth": 275,
+      "outputHeight": 275,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=205",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/Pouteria%20oppositifolia%20R3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Pouteria oppositifolia\" \"Corte radial\"",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF record explicitly names Pouteria oppositifolia and captions this file Corte radial.",
+        "visualCheckNotes": "Opened at original resolution. A clean reddish-brown longitudinal wood surface fills the image and visibly shows grain; there are no tree, leaf, bark, furniture, diagram, or microscopic subjects.",
+        "width": 474,
+        "height": 275,
+        "format": "jpeg",
+        "sha256": "f0a133d1afbcb12eb8f2c53735ed75a93b0588e8722a2577af46d9cae9e9781a",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c2746fc0a6cbb3e1e9d6d16d169fd237bada1d7adfca3b2d2ff638b01d51d3b9",
+      "sourceWidth": 1024,
+      "sourceHeight": 1024,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

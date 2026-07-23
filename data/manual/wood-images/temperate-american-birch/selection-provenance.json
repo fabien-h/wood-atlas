@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-american-birch",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "afcac6f3b09566a58cbc07da6cbba42fcb95c1f252c204cf7294b61f2d305300",
+      "sourceWidth": 1340,
+      "sourceHeight": 520,
+      "outputFile": "radial.jpg",
+      "outputWidth": 520,
+      "outputHeight": 520,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_17.jpg",
+        "query": "\"Betula lutea\" \"radial section\" Hough Yellow Birch wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "NCSU Hough plate 17 identifies BETULA LUTEA / Yellow Birch; Betula lutea is a documented synonym of the atlas's primary Betula alleghaniensis. The middle specimen is printed RADIAL SECTION.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The exposed radial birch face fills the image and shows fine ray figure plus a darker longitudinal band; no tree, bark, leaves, furniture, product scene, or microscopy appears.",
+        "derivedCrop": {
+          "left": 260,
+          "top": 944,
+          "width": 1340,
+          "height": 520
+        },
+        "width": 1340,
+        "height": 520,
+        "format": "jpeg",
+        "sha256": "afcac6f3b09566a58cbc07da6cbba42fcb95c1f252c204cf7294b61f2d305300",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "260f448c0aa3f1efd1d01a12237cb5d31f54f3eb682362a1ee11a5b58e28f52a",
+      "sourceWidth": 1339,
+      "sourceHeight": 541,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 541,
+      "outputHeight": 541,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_17.jpg",
+        "query": "\"Betula lutea\" \"tangential section\" Hough Yellow Birch wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "documentedSynonym",
+        "identityEvidence": "Hough plate 17 identifies BETULA LUTEA / Yellow Birch, a documented synonym of Betula alleghaniensis, and prints TANGENTIAL SECTION below the lower specimen.",
+        "visualCheckNotes": "Opened at the derived native crop resolution. The exposed tangential face shows strong cathedral figure; an old split and small repair are visible at the top, but the subject is clearly a wood specimen with no plant exterior or finished product.",
+        "derivedCrop": {
+          "left": 261,
+          "top": 1626,
+          "width": 1339,
+          "height": 541
+        },
+        "width": 1339,
+        "height": 541,
+        "format": "jpeg",
+        "sha256": "260f448c0aa3f1efd1d01a12237cb5d31f54f3eb682362a1ee11a5b58e28f52a",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

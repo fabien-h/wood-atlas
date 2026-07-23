@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-california-red-fir",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "e69b6c50c759bfe1767c714458f0d878e8b6be069c8454e00a717793aa3e243b",
+      "sourceWidth": 2475,
+      "sourceHeight": 1604,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -11,7 +11,8 @@ export const id = {
   aboutOpenSource: 'Atlas kayu ini bersifat sumber terbuka. Kode sumbernya tersedia di GitHub.',
   aboutDataSourcesTitle: 'Sumber data',
   aboutDataSources:
-    'Semua data kayu dalam atlas ini berasal dari basis data Tropix dan unit penelitian BioWooEB CIRAD.',
+    'Sebagian besar data atlas ini berasal dari Tropix, unit BioWooEB CIRAD, USDA Forest Products Laboratory, dan Laboratorium Produk Hutan Brazilian Forest Service (LPF/SFB). Catatan tambahan mencantumkan sumbernya pada lembar masing-masing.',
+  contact: 'Kontak',
   atlas: 'Atlas Kayu',
   searchPlaceholder: 'Cari nama, kegunaan, negara…',
   clearSearch: 'Hapus pencarian',
@@ -60,6 +61,7 @@ export const id = {
   materialMap: 'Peta material',
   hardnessVsRadialShrinkage: 'Kekerasan vs. susut radial',
   monninHardness: 'Kekerasan Monnin',
+  jankaHardness: 'Kekerasan Janka',
   radialShrinkage: 'Penyusutan radial',
   distribution: 'Persebaran',
   specificGravity: 'Berat jenis',

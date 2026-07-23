@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-mountain-laurel",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "ad79de4f19bb0ce75e1d4f7e90d5770b0d2afada5dea09afe976c0bd5101a069",
+      "sourceWidth": 2155,
+      "sourceHeight": 1534,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

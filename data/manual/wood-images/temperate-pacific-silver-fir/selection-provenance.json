@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-pacific-silver-fir",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "97d1713446ba04d691b5c8e4012823fde15381e86c3ce52b8f4e4961fb9696a9",
+      "sourceWidth": 2299,
+      "sourceHeight": 1406,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

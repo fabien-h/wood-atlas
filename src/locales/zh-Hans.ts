@@ -10,7 +10,9 @@ export const zhHans = {
   closeAbout: '关闭关于面板',
   aboutOpenSource: '本木材图鉴为开源项目，源代码可在 GitHub 上查看。',
   aboutDataSourcesTitle: '数据来源',
-  aboutDataSources: '本图鉴中的所有木材数据均来自 Tropix 数据库和 CIRAD 的 BioWooEB 研究部门。',
+  aboutDataSources:
+    '本图鉴的大部分数据来自 Tropix、CIRAD 的 BioWooEB 部门、USDA 林产品实验室和巴西林业局林产品实验室（LPF/SFB）。补充记录会在各自详情页中注明来源。',
+  contact: '联系方式',
   atlas: '木材图鉴',
   searchPlaceholder: '搜索名称、用途、国家…',
   clearSearch: '清除搜索',
@@ -59,6 +61,7 @@ export const zhHans = {
   materialMap: '材料图谱',
   hardnessVsRadialShrinkage: '硬度与径向收缩率',
   monninHardness: '蒙宁硬度',
+  jankaHardness: '詹卡硬度',
   radialShrinkage: '径向收缩率',
   distribution: '分布',
   specificGravity: '比重',

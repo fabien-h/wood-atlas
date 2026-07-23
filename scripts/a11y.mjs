@@ -67,7 +67,9 @@ try {
     console.log('Clear search checked.');
 
     await page.goto(`${origin}/?lang=en&q=Chestnut`);
-    await page.getByRole('button', { name: 'Open details for Chestnut', exact: true }).waitFor();
+    await page
+      .getByRole('button', { name: 'Open details for Sweet chestnut', exact: true })
+      .waitFor();
     assert(
       (await page.getByText('Castanea Sativa', { exact: true }).count()) === 0,
       'the English table uses the Chestnut botanical name instead of its common name',
@@ -80,7 +82,37 @@ try {
       (await page.getByText('Castanea Sativa', { exact: true }).count()) === 0,
       'the French table uses the Chestnut botanical name instead of its common name',
     );
+
+    await page.goto(`${origin}/?lang=en&q=maple`);
+    await page
+      .getByRole('button', { name: 'Open details for Sycamore (Maple)', exact: true })
+      .waitFor();
+    await page.goto(`${origin}/?lang=en&q=oak`);
+    await page.getByRole('button', { name: 'Open details for White oak', exact: true }).waitFor();
+    await page.goto(`${origin}/?lang=de&q=Bergahorn`);
+    await page.getByText('Bergahorn', { exact: true }).waitFor();
+    await page.goto(`${origin}/?lang=zh-Hans&q=欧洲枫木`);
+    await page.getByText('假悬铃木槭（欧洲枫木）', { exact: true }).waitFor();
+    await page.goto(`${origin}/?lang=de&q=Afrikanisches%20Ebenholz`);
+    await page.getByText('African Ebony', { exact: true }).waitFor();
     console.log('Localized common names checked.');
+
+    for (const [woodName, expectedDensity] of [
+      ['Honeylocust', '0.75'],
+      ['Sweetbay', '0.47'],
+      ['Tanoak', '0.66'],
+    ]) {
+      await page.goto(`${origin}/?lang=en&q=${encodeURIComponent(woodName)}`);
+      const row = page
+        .getByRole('button', { name: `Open details for ${woodName}`, exact: true })
+        .locator('xpath=ancestor::tr');
+      await row.waitFor();
+      assert(
+        (await row.locator('td').nth(8).innerText()) === expectedDensity,
+        `${woodName} has a nonnumeric density value in the main table`,
+      );
+    }
+    console.log('Manual density values checked.');
 
     await page.goto(`${origin}/?lang=en&q=Scots%20Pine`);
     const scotsPineButton = page.getByRole('button', {
@@ -91,8 +123,8 @@ try {
     const scotsPineThumbnail = scotsPineButton.locator('[style*="background-image"]');
     assert(
       (await scotsPineThumbnail.count()) === 1 &&
-        (await scotsPineThumbnail.getAttribute('style'))?.includes('/flat-sawn.jpg'),
-      'the Scots Pine flat-sawn image is missing from its table thumbnail',
+        (await scotsPineThumbnail.getAttribute('style'))?.includes('/thumbnail.jpg'),
+      'the Scots Pine generated thumbnail is missing from the table',
     );
     await scotsPineButton.click();
     const scotsPineDialog = page.getByRole('dialog');
@@ -152,6 +184,17 @@ try {
         'https://ur-biowooeb.cirad.fr/',
       'the About drawer has an incorrect BioWooEB URL',
     );
+    assert(
+      (await aboutDialog.getByRole('link', { name: /LPF\/SFB/ }).getAttribute('href')) ===
+        'https://dados.florestal.gov.br/dataset/banco-de-dados-de-madeiras-brasileiras-do-lpf-sfb',
+      'the About drawer has an incorrect Brazilian LPF/SFB URL',
+    );
+    assert(
+      (await aboutDialog
+        .getByRole('link', { name: 'fabien.huet@gmail.com', exact: true })
+        .getAttribute('href')) === 'mailto:fabien.huet@gmail.com',
+      'the About drawer has an incorrect contact email',
+    );
     await audit(page, 'About drawer');
     await aboutDialog.getByRole('button', { name: 'Close About' }).click();
     await aboutDialog.waitFor({ state: 'hidden' });
@@ -183,16 +226,24 @@ try {
     await page.goto(`${origin}/?lang=en`);
     await page.locator('tbody tr').first().waitFor();
 
-    const densityHeader = page.locator('thead th').nth(3);
+    const densityHeader = page.locator('thead th').nth(8);
     await densityHeader.getByRole('button').click();
     assert(
       (await densityHeader.getAttribute('aria-sort')) === 'ascending',
       'first sort click did not sort ascending',
     );
+    assert(
+      (await page.locator('tbody tr').last().locator('td').nth(8).innerText()) === '-',
+      'ascending density sort did not keep missing values at the end',
+    );
     await densityHeader.getByRole('button').click();
     assert(
       (await densityHeader.getAttribute('aria-sort')) === 'descending',
       'second sort click did not sort descending',
+    );
+    assert(
+      (await page.locator('tbody tr').last().locator('td').nth(8).innerText()) === '-',
+      'descending density sort did not keep missing values at the end',
     );
     await densityHeader.getByRole('button').click();
     assert(
@@ -200,6 +251,21 @@ try {
       'third sort click did not clear sorting',
     );
     assert(!new URL(page.url()).searchParams.has('sort'), 'cleared sorting remains in the URL');
+
+    for (const [columnIndex, label] of [
+      [3, 'Natural use class'],
+      [4, 'Fungi'],
+      [5, 'Termites'],
+      [6, 'Treatability'],
+    ]) {
+      const classHeader = page.locator('thead th').nth(columnIndex);
+      await classHeader.getByRole('button').click();
+      await assertClassColumnOrder(page, columnIndex, 'ascending', label);
+      await classHeader.getByRole('button').click();
+      await assertClassColumnOrder(page, columnIndex, 'descending', label);
+      await classHeader.getByRole('button').click();
+    }
+    console.log('Class range sorting checked.');
 
     await page.getByRole('searchbox').fill('a');
     await page.getByRole('button', { name: 'Show filters' }).click();
@@ -236,6 +302,57 @@ try {
         Math.abs(filterHeaderAfterScroll.y - filterHeaderBeforeScroll.y) < 1,
       'filter header moved when the filter list scrolled',
     );
+
+    const dryWoodBorerSelect = filterPanel.getByLabel('Dry wood borers', { exact: true });
+    const dryWoodBorerOptions = await dryWoodBorerSelect.locator('option').allTextContents();
+    assert(
+      dryWoodBorerOptions.length === 5 &&
+        dryWoodBorerOptions.slice(1).every((value) => value === value.toLocaleLowerCase('en')),
+      `dry-wood-borer filter options are missing or not normalized: ${JSON.stringify(dryWoodBorerOptions)}`,
+    );
+    const dryWoodBorerValue = 'class s - susceptible (risk in all the wood)';
+    await dryWoodBorerSelect.selectOption(dryWoodBorerValue);
+    assert(
+      new URL(page.url()).searchParams.get('dryWoodBorer') === dryWoodBorerValue,
+      'dry-wood-borer filter is missing from the URL',
+    );
+    await page
+      .getByRole('button', {
+        name: `Remove Dry wood borers: ${dryWoodBorerValue}`,
+        exact: true,
+      })
+      .waitFor();
+    await dryWoodBorerSelect.selectOption('');
+
+    const treatabilitySelect = filterPanel.getByLabel('Treatability', { exact: true });
+    const treatabilityOptions = await treatabilitySelect.locator('option').allTextContents();
+    assert(
+      treatabilityOptions.length === 8 &&
+        treatabilityOptions.slice(1).every((value) => value === value.toLocaleLowerCase('en')),
+      `treatability filter options are missing or not normalized: ${JSON.stringify(treatabilityOptions)}`,
+    );
+
+    const naturalUseClassSelect = filterPanel.getByLabel('Natural use class', { exact: true });
+    const naturalUseClassOptions = await naturalUseClassSelect.locator('option').allTextContents();
+    assert(
+      naturalUseClassOptions.length === 16 &&
+        naturalUseClassOptions.slice(1).every((value) => value === value.toLocaleLowerCase('en')),
+      `natural-use-class filter options are missing or not normalized: ${JSON.stringify(naturalUseClassOptions)}`,
+    );
+    const naturalUseClassValue = 'class 1 - inside (no dampness)';
+    await naturalUseClassSelect.selectOption(naturalUseClassValue);
+    assert(
+      new URL(page.url()).searchParams.get('naturalUseClass') === naturalUseClassValue,
+      'natural-use-class filter is missing from the URL',
+    );
+    await page
+      .getByRole('button', {
+        name: `Remove Natural use class: ${naturalUseClassValue}`,
+        exact: true,
+      })
+      .waitFor();
+    await naturalUseClassSelect.selectOption('');
+
     await audit(page, 'open filters');
     console.log('Filters checked.');
 
@@ -277,10 +394,23 @@ try {
     await page.getByRole('searchbox').click();
     console.log('Detail lifecycle and focus checked.');
 
+    await page.goto(`${origin}/?lang=de&wood=america-abarco`);
+    const germanDetail = page.getByRole('dialog');
+    await germanDetail.waitFor();
+    const germanDryingRateLabel = germanDetail.getByText('Trocknungsgeschwindigkeit', {
+      exact: true,
+    });
+    await germanDryingRateLabel.waitFor();
+    assert(
+      await germanDryingRateLabel.evaluate((element) => element.scrollWidth <= element.clientWidth),
+      'long German detail labels overflow their grid column',
+    );
+    console.log('German detail label wrapping checked.');
+
     await page.goto(`${origin}/?lang=fr`);
     const search = page.getByRole('searchbox');
     await search.fill('chene');
-    await page.getByText('Chêne', { exact: true }).first().waitFor();
+    await page.getByText('Chêne blanc européen', { exact: true }).first().waitFor();
     await page.getByRole('button', { name: 'Afficher les filtres' }).click();
     await page.getByRole('button', { name: 'Tempéré', exact: true }).click();
     await page.locator('tbody button[aria-label^="Ouvrir la fiche de"]').first().click();
@@ -306,7 +436,38 @@ try {
     await page.getByRole('dialog').waitFor({ state: 'hidden' });
 
     await page.setViewportSize({ width: 700, height: 800 });
+    const mobileFilterPanel = page.locator('#filter-panel');
+    if ((await mobileFilterPanel.getAttribute('aria-hidden')) === 'true') {
+      await page.locator('button[aria-controls="filter-panel"]').click();
+    }
+    const mobileFilterPanelBox = await mobileFilterPanel.boundingBox();
+    assert(mobileFilterPanelBox, 'mobile filter panel could not be measured');
+    assert(
+      mobileFilterPanelBox.y >= -1 && mobileFilterPanelBox.y + mobileFilterPanelBox.height <= 801,
+      `mobile filter panel overflows the viewport: ${JSON.stringify(mobileFilterPanelBox)}`,
+    );
+    const filterBackdrop = page.getByTestId('filter-backdrop');
+    const filterBackdropState = await filterBackdrop.evaluate((element) => {
+      const style = getComputedStyle(element);
+      return {
+        backgroundColor: style.backgroundColor,
+        pointerEvents: style.pointerEvents,
+      };
+    });
+    assert(
+      filterBackdropState.backgroundColor === 'rgba(0, 0, 0, 0.25)',
+      `mobile filter backdrop has the wrong color: ${filterBackdropState.backgroundColor}`,
+    );
+    assert(
+      filterBackdropState.pointerEvents === 'auto',
+      `open mobile filter backdrop is not interactive: ${filterBackdropState.pointerEvents}`,
+    );
     await audit(page, 'mobile filter drawer');
+    await filterBackdrop.click({ position: { x: 699, y: 400 } });
+    assert(
+      (await mobileFilterPanel.getAttribute('aria-hidden')) === 'true',
+      'clicking the mobile filter backdrop did not close the panel',
+    );
     console.log('Mobile checked.');
     assert(
       pageErrors.length === 0,
@@ -367,6 +528,47 @@ async function findChrome() {
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
+}
+
+async function assertClassColumnOrder(page, columnIndex, direction, label) {
+  const values = (
+    await page.locator(`tbody tr td:nth-child(${columnIndex + 1})`).allTextContents()
+  ).map((value) => value.trim());
+  const firstMissingIndex = values.indexOf('-');
+  if (firstMissingIndex !== -1) {
+    assert(
+      values.slice(firstMissingIndex).every((value) => value === '-'),
+      `${direction} ${label} sort did not keep missing values at the end`,
+    );
+  }
+  const classKeys = values
+    .slice(0, firstMissingIndex === -1 ? undefined : firstMissingIndex)
+    .map(parseDisplayedClass)
+    .filter(Boolean);
+  assert(classKeys.length > 0, `${label} did not expose any sortable class values`);
+  for (let index = 1; index < classKeys.length; index += 1) {
+    const previous = classKeys[index - 1];
+    const current = classKeys[index];
+    const comparison = previous[0] - current[0] || previous[1] - current[1];
+    assert(
+      direction === 'ascending' ? comparison <= 0 : comparison >= 0,
+      `${direction} ${label} sort has ${previous.join('–')} before ${current.join('–')}`,
+    );
+  }
+}
+
+function parseDisplayedClass(value) {
+  const match = value.match(/^Class\s+(\d+(?:\.\d+)?|[DMS])(?:–(\d+(?:\.\d+)?|[DMS]))?$/i);
+  if (!match) return null;
+  const start = displayedClassTokenValue(match[1]);
+  const end = match[2] ? displayedClassTokenValue(match[2]) : start;
+  return start === null || end === null ? null : [start, end];
+}
+
+function displayedClassTokenValue(value) {
+  const numeric = Number(value);
+  if (Number.isFinite(numeric)) return numeric;
+  return { D: 1, M: 2, S: 3 }[value.toUpperCase()] ?? null;
 }
 
 function urlStateWithoutLanguage(value) {

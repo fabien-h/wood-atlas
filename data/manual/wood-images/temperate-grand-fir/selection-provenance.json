@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-grand-fir",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "ed3794c0a8c7c3eb2c7f1a7113b40e41067a802850e8f9fba336b598c94d3ffe",
+      "sourceWidth": 1310,
+      "sourceHeight": 866,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

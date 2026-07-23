@@ -11,7 +11,8 @@ export const tr = {
   aboutOpenSource: 'Bu ahşap atlası açık kaynaklıdır. Kaynak kodu GitHub’da mevcuttur.',
   aboutDataSourcesTitle: 'Veri kaynakları',
   aboutDataSources:
-    'Bu atlastaki tüm ahşap verileri Tropix veri tabanından ve CIRAD BioWooEB araştırma biriminden gelmektedir.',
+    'Bu atlastaki verilerin çoğu Tropix, CIRAD BioWooEB birimi, USDA Orman Ürünleri Laboratuvarı ve Brezilya Orman Servisi Orman Ürünleri Laboratuvarından (LPF/SFB) gelir. Ek kayıtlar kendi sayfalarında kaynaklarını belirtir.',
+  contact: 'İletişim',
   atlas: 'Ahşap Atlası',
   searchPlaceholder: 'İsim, kullanım alanı veya ülke ara…',
   clearSearch: 'Aramayı temizle',
@@ -60,6 +61,7 @@ export const tr = {
   materialMap: 'Malzeme haritası',
   hardnessVsRadialShrinkage: 'Sertlik ve radyal daralma',
   monninHardness: 'Monnin sertliği',
+  jankaHardness: 'Janka sertliği',
   radialShrinkage: 'Radyal daralma',
   distribution: 'Dağılım',
   specificGravity: 'Özgül ağırlık',

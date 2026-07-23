@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-black-willow",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "f36c374241aa42ac0bbfaca63da3d3504f68da9fcb92447f5bddaa05802692d3",
+      "sourceWidth": 1330,
+      "sourceHeight": 500,
+      "outputFile": "radial.jpg",
+      "outputWidth": 500,
+      "outputHeight": 500,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_45.jpg",
+        "query": "\"Salix nigra\" \"radial section\" Hough wood",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 45 prints SALIX NIGRA and RADIAL SECTION for the middle specimen.",
+        "visualCheckNotes": "Opened at native crop size after trimming the mounting edge. A physical radial wood face fills the image with subtle ray figure; no willow tree, leaf, catkin, bark, furniture, flooring, or microscopy is present.",
+        "derivedCrop": {
+          "left": 270,
+          "top": 990,
+          "width": 1330,
+          "height": 500
+        },
+        "width": 1330,
+        "height": 500,
+        "format": "jpeg",
+        "sha256": "f36c374241aa42ac0bbfaca63da3d3504f68da9fcb92447f5bddaa05802692d3",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "e49b0f24ddd80f97db69b078afa6233cd52b58f8e9ef7e26f195ed272d8fe0fd",
+      "sourceWidth": 1325,
+      "sourceHeight": 495,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 495,
+      "outputHeight": 495,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/toc.html",
+        "imageUrl": "https://www.lib.ncsu.edu/specialcollections/forestry/hough/vlgimage/plate_45.jpg",
+        "query": "\"Salix nigra\" \"tangential section\" Hough wood",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "NCSU Hough plate 45 prints SALIX NIGRA and TANGENTIAL SECTION for the lower specimen.",
+        "visualCheckNotes": "Opened at native crop size after tightening the crop to the specimen. A physical tangential wood face fills the frame and includes a small natural knot; no living plant, bark-only image, finished object, flooring, or microscopy appears.",
+        "derivedCrop": {
+          "left": 270,
+          "top": 1665,
+          "width": 1325,
+          "height": 495
+        },
+        "width": 1325,
+        "height": 495,
+        "format": "jpeg",
+        "sha256": "e49b0f24ddd80f97db69b078afa6233cd52b58f8e9ef7e26f195ed272d8fe0fd",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; digitized by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

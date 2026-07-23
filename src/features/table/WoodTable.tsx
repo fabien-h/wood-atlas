@@ -2,7 +2,6 @@ import { ArrowDown, ArrowUp, Check, ChevronRight } from 'lucide-react';
 import {
   commonName,
   formatMeasure,
-  primaryGrainImage,
   shortClass,
   type SortKey,
   type WoodSort,
@@ -38,13 +37,15 @@ export function WoodTable({
   const headers: Array<[SortKey, string]> = [
     ['name', `${woods.length.toLocaleString(copy.locale)} ${copy.wood}`],
     ['region', copy.origin],
-    ['density', copy.density],
+    ['naturalUseClass', copy.naturalUseClass],
+    ['fungi', copy.fungi],
+    ['termites', copy.termites],
+    ['treatability', copy.treatability],
     ['hardness', copy.hardness],
+    ['density', copy.density],
     ['radialShrinkage', copy.radial],
     ['tangentialShrinkage', copy.tangential],
     ['modulus', copy.elasticityMpa],
-    ['fungi', copy.fungi],
-    ['termites', copy.termites],
   ];
 
   return (
@@ -91,7 +92,7 @@ export function WoodTable({
             <tr>
               <td
                 className={styles.status}
-                colSpan={10}
+                colSpan={12}
                 role={status === 'error' ? 'alert' : 'status'}
               >
                 {status === 'error' ? copy.loadError : copy.loadingWoods}
@@ -99,14 +100,14 @@ export function WoodTable({
             </tr>
           ) : woods.length === 0 ? (
             <tr>
-              <td className={styles.status} colSpan={10}>
+              <td className={styles.status} colSpan={12}>
                 {copy.noWoods}
               </td>
             </tr>
           ) : (
             woods.map((wood) => {
               const selected = selectedIds.includes(wood.id);
-              const grainImage = primaryGrainImage(wood);
+              const thumbnail = wood.thumbnail;
               const name = commonName(wood);
               return (
                 <tr
@@ -138,32 +139,40 @@ export function WoodTable({
                       aria-label={`${copy.openWoodDetails} ${name}`}
                       title={`${copy.openWoodDetails} ${name}`}
                     >
-                      {grainImage ? (
+                      {thumbnail ? (
                         <span
-                          className={styles.grainImage}
-                          style={{ backgroundImage: `url("${grainImage.src}")` }}
+                          className={styles.thumbnailImage}
+                          style={{ backgroundImage: `url("${thumbnail.src}")` }}
                           aria-hidden="true"
                         />
                       ) : (
-                        <span className={styles.grainPlaceholder} aria-hidden="true" />
+                        <span className={styles.thumbnailPlaceholder} aria-hidden="true" />
                       )}
                       <span className={styles.nameText}>
                         <strong>{name}</strong>
-                        <span>{wood.identity.family ?? copy.unknownFamily}</span>
+                        <span>{wood.identity.family ?? '-'}</span>
                       </span>
                       <ChevronRight className={styles.openIcon} size={16} aria-hidden="true" />
                     </button>
                   </td>
                   <td>
-                    <RegionBadge region={wood.origin.region} copy={copy} />
+                    {wood.origin.region === 'Unknown' ? (
+                      '-'
+                    ) : (
+                      <RegionBadge region={wood.origin.region} copy={copy} />
+                    )}
                   </td>
-                  <td>{formatMeasure(wood.physics.specificGravity, undefined, copy)}</td>
-                  <td>{formatMeasure(wood.physics.monninHardness, undefined, copy)}</td>
-                  <td>{formatMeasure(wood.physics.totalRadialShrinkage, '%', copy)}</td>
-                  <td>{formatMeasure(wood.physics.totalTangentialShrinkage, '%', copy)}</td>
-                  <td>{formatMeasure(wood.physics.modulusOfElasticity, null, copy)}</td>
-                  <td>{shortClass(wood.durability.fungi.raw, copy)}</td>
-                  <td>{shortClass(wood.durability.termites.raw, copy)}</td>
+                  <td>{formatTableClass(wood.durability.naturalUseClass.raw, copy)}</td>
+                  <td>{formatTableClass(wood.durability.fungi.raw, copy, 'fungi')}</td>
+                  <td>{formatTableClass(wood.durability.termites.raw, copy, 'termites')}</td>
+                  <td>
+                    {formatTableClass(wood.durability.treatability.raw, copy, 'treatability')}
+                  </td>
+                  <td>{formatTableMeasure(wood.physics.monninHardness, undefined, copy)}</td>
+                  <td>{formatTableMeasure(wood.physics.specificGravity, undefined, copy)}</td>
+                  <td>{formatTableMeasure(wood.physics.totalRadialShrinkage, '%', copy)}</td>
+                  <td>{formatTableMeasure(wood.physics.totalTangentialShrinkage, '%', copy)}</td>
+                  <td>{formatTableMeasure(wood.physics.modulusOfElasticity, null, copy)}</td>
                 </tr>
               );
             })
@@ -172,4 +181,21 @@ export function WoodTable({
       </table>
     </div>
   );
+}
+
+function formatTableMeasure(
+  measure: WoodRecord['physics']['specificGravity'],
+  unit: string | null | undefined,
+  copy: Translation,
+) {
+  return measure.value === null ? '-' : formatMeasure(measure, unit, copy);
+}
+
+function formatTableClass(
+  value: string | null,
+  copy: Translation,
+  kind: 'fungi' | 'termites' | 'treatability' | 'naturalUseClass' = 'fungi',
+) {
+  const formatted = shortClass(value, copy, kind);
+  return formatted === copy.unknown ? '-' : formatted;
 }

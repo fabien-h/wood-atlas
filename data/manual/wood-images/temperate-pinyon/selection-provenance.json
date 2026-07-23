@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-pinyon",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "cf9ad498154885c612b53fad09feb577f56d1fb2dec4ab6e09046d5f65225b36",
+      "sourceWidth": 2265,
+      "sourceHeight": 1493,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

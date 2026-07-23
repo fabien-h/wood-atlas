@@ -1,0 +1,701 @@
+{
+  "schemaVersion": 1,
+  "nameOverrides": [
+    {
+      "id": "temperate-cedar",
+      "locales": {
+        "en": {
+          "primaryName": "Atlas cedar",
+          "aliases": ["Cedar", "Atlas cedar"]
+        },
+        "fr": {
+          "primaryName": "Cèdre de l’Atlas",
+          "aliases": ["Cèdre", "Cèdre de l’Atlas"]
+        }
+      }
+    },
+    {
+      "id": "temperate-chestnut",
+      "locales": {
+        "en": {
+          "primaryName": "Sweet chestnut",
+          "aliases": ["Chestnut", "European chestnut", "Sweet chestnut"]
+        },
+        "fr": {
+          "primaryName": "Châtaignier",
+          "aliases": ["Châtaignier", "Châtaignier commun"]
+        }
+      }
+    },
+    {
+      "id": "temperate-fir",
+      "locales": {
+        "en": {
+          "primaryName": "European silver fir",
+          "aliases": ["Fir", "European silver fir", "Silver fir"]
+        },
+        "fr": {
+          "primaryName": "Sapin blanc",
+          "aliases": ["Sapin", "Sapin blanc", "Sapin pectiné"]
+        }
+      }
+    },
+    {
+      "id": "temperate-oak",
+      "locales": {
+        "en": {
+          "primaryName": "White oak",
+          "aliases": ["Oak", "English oak", "European oak", "White oak"]
+        },
+        "fr": {
+          "primaryName": "Chêne blanc européen",
+          "aliases": ["Chêne", "Chêne blanc européen", "Chêne européen"]
+        }
+      }
+    },
+    {
+      "id": "temperate-spruce",
+      "locales": {
+        "en": {
+          "primaryName": "Norway spruce",
+          "aliases": ["Spruce", "Common spruce", "European spruce", "Norway spruce"]
+        },
+        "fr": {
+          "primaryName": "Épicéa commun",
+          "aliases": ["Épicéa", "Épicéa commun", "Épicéa de Norvège"]
+        }
+      }
+    },
+    {
+      "id": "temperate-sycamore",
+      "locales": {
+        "en": {
+          "primaryName": "Sycamore (Maple)",
+          "aliases": ["Maple", "Sycamore", "Sycamore maple"]
+        },
+        "fr": {
+          "primaryName": "Érable sycomore",
+          "aliases": ["Érable", "Érable sycomore", "Sycomore"]
+        }
+      }
+    },
+    {
+      "id": "temperate-walnut",
+      "locales": {
+        "en": {
+          "primaryName": "European walnut",
+          "aliases": ["English walnut", "European walnut", "Walnut"]
+        },
+        "fr": {
+          "primaryName": "Noyer commun",
+          "aliases": ["Noyer", "Noyer commun", "Noyer européen"]
+        }
+      }
+    }
+  ],
+  "records": [
+    {
+      "id": "temperate-northern-red-oak",
+      "source": {
+        "provider": "USDA Forest Products Laboratory · FCBA · SerQ — Forest Innovation and Competence Centre",
+        "kind": "manual",
+        "references": [
+          {
+            "title": "Hardwoods of North America (FPL–GTR–83)",
+            "url": "https://www.fpl.fs.usda.gov/documnts/fplgtr/fplgtr83.pdf",
+            "publisher": "USDA Forest Service, Forest Products Laboratory",
+            "year": 1995
+          },
+          {
+            "title": "Accelerating the Kiln Drying of Oak (FPL 378)",
+            "url": "https://www.fpl.fs.usda.gov/documnts/fplrp/fplrp378.pdf",
+            "publisher": "USDA Forest Service, Forest Products Laboratory",
+            "year": 1980
+          },
+          {
+            "title": "Le guide des essences de bois — Chêne rouge d’Amérique",
+            "url": "https://www.cndb.org/site/wp-content/uploads/2019/01/Le_Guide_des_Essences_de_Bois_Yves_Benoit_FCBA_Eyrolles.pdf",
+            "publisher": "FCBA and Éditions Eyrolles",
+            "year": 2008
+          },
+          {
+            "title": "Carvalho vermelho — Quercus rubra",
+            "url": "https://madeq.serq.pt/pt/especies/carvalho-vermelho-1",
+            "publisher": "SerQ — Centro de Inovação e Competências da Floresta",
+            "year": null
+          }
+        ],
+        "lastUpdateDate": null,
+        "extractionDate": "2026-07-23"
+      },
+      "locales": {
+        "en": {
+          "identity": {
+            "primaryName": "Northern red oak",
+            "displayName": "Northern red oak",
+            "slug": "northern-red-oak",
+            "family": "Fagaceae",
+            "botanicalNames": [{ "name": "Quercus rubra", "isSynonym": false }],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": { "raw": "", "value": null },
+            "notes": []
+          },
+          "origin": {
+            "region": "Temperate",
+            "continent": "North America",
+            "countries": []
+          },
+          "cites": { "raw": null, "listed": null },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": { "raw": "", "value": null },
+            "floats": { "raw": "", "value": null },
+            "durability": { "raw": "", "value": null },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": { "raw": "Red brown", "value": "red brown" },
+            "sapwood": {
+              "raw": "White to very light brown",
+              "value": "White to very light brown"
+            },
+            "texture": { "raw": "Coarse", "value": "coarse" },
+            "grain": { "raw": "Straight", "value": "straight" },
+            "interlockedGrain": { "raw": "", "value": null },
+            "notes": [
+              "The heartwood is reddish brown.",
+              "Fast-grown oak with wide rings is stronger and heavier than slow-grown oak."
+            ]
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "0.63 at 12% moisture content",
+              "value": 0.63,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "FCBA Monnin hardness at 12% moisture content: 4.0",
+              "value": 4,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "5737.92 N at 12% moisture content",
+              "value": 5737.92,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "SerQ volumetric shrinkage coefficient: 0.52% per %",
+              "value": 0.52,
+              "min": null,
+              "max": null,
+              "unit": "% per %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "8.6% from green to oven-dry",
+              "value": 8.6,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "4.0% from green to oven-dry",
+              "value": 4,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "2.15",
+              "value": 2.15,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "46.610 MPa",
+              "value": 46.61,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "98.599 MPa",
+              "value": 98.599,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "12,549 MPa",
+              "value": 12549,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": { "raw": "", "value": null },
+            "notes": [
+              "Mechanical values are reference values for clear, dry wood and are not design properties.",
+              "Total shrinkage is measured from green to oven-dry condition.",
+              "The shrinkage ratio is derived from the published tangential and radial shrinkage values."
+            ]
+          },
+          "durability": {
+            "fungi": {
+              "raw": "Slightly to nonresistant",
+              "value": "slightly to nonresistant"
+            },
+            "dryWoodBorers": { "raw": "", "value": null },
+            "termites": { "raw": "", "value": null },
+            "treatability": { "raw": "", "value": null },
+            "naturalUseClass": { "raw": "", "value": null },
+            "coversUseClass5": { "raw": "", "value": null },
+            "preservativeTreatment": {
+              "dryWoodBorer": { "raw": "", "value": null },
+              "temporaryHumidification": { "raw": "", "value": null },
+              "permanentHumidification": { "raw": "", "value": null },
+              "notes": []
+            },
+            "notes": [
+              "The heartwood of the red oak group is more easily penetrated by preservatives than that of the white oak group."
+            ]
+          },
+          "drying": {
+            "rate": { "raw": "", "value": null },
+            "distortionRisk": { "raw": "", "value": null },
+            "casehardeningRisk": { "raw": "", "value": null },
+            "checkingRisk": { "raw": "", "value": null },
+            "collapseRisk": { "raw": "", "value": null },
+            "notes": [],
+            "schedule": [
+              {
+                "phase": "Drying",
+                "durationHours": null,
+                "moistureContent": "50+",
+                "temperatureC": "43.3",
+                "wetBulbTemperatureC": "41.1",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Drying",
+                "durationHours": null,
+                "moistureContent": "50",
+                "temperatureC": "43.3",
+                "wetBulbTemperatureC": "40.6",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Drying",
+                "durationHours": null,
+                "moistureContent": "40",
+                "temperatureC": "43.3",
+                "wetBulbTemperatureC": "38.9",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Drying",
+                "durationHours": null,
+                "moistureContent": "35",
+                "temperatureC": "43.3",
+                "wetBulbTemperatureC": "35.6",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Drying",
+                "durationHours": null,
+                "moistureContent": "30",
+                "temperatureC": "48.9",
+                "wetBulbTemperatureC": "32.2",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Drying",
+                "durationHours": null,
+                "moistureContent": "25",
+                "temperatureC": "54.4",
+                "wetBulbTemperatureC": "26.7",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Drying",
+                "durationHours": null,
+                "moistureContent": "20",
+                "temperatureC": "60",
+                "wetBulbTemperatureC": "32.2",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Drying",
+                "durationHours": null,
+                "moistureContent": "15",
+                "temperatureC": "82.2",
+                "wetBulbTemperatureC": "54.4",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              }
+            ],
+            "scheduleNotes": [
+              "USDA schedule T4-D2 for 4/4 northern red oak lumber.",
+              "Temperatures were converted from Fahrenheit to Celsius.",
+              "Kiln operation requires professional judgment and moisture monitoring."
+            ]
+          },
+          "machining": {
+            "bluntingEffect": { "raw": "", "value": null },
+            "sawteethRecommended": { "raw": "", "value": null },
+            "cuttingTools": { "raw": "", "value": null },
+            "peeling": { "raw": "", "value": null },
+            "slicing": { "raw": "", "value": null },
+            "notes": [
+              "Oak machines and glues well, holds fasteners extremely well, and finishes well. It tends to split when nailed unless predrilled."
+            ]
+          },
+          "assembly": {
+            "nailingAndScrewing": { "raw": "", "value": null },
+            "gluing": { "raw": "", "value": null },
+            "notes": []
+          },
+          "grading": { "appearance": null, "structural": null },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": { "raw": "", "value": null },
+            "notes": null
+          },
+          "endUses": [
+            "boxes and crates",
+            "coffin",
+            "current furniture or furniture components",
+            "flooring",
+            "interior panelling",
+            "pallet",
+            "sleepers",
+            "vehicle or container flooring",
+            "veneer for back or face of plywood",
+            "veneer for interior of plywood"
+          ],
+          "endUseNotes": []
+        },
+        "fr": {
+          "identity": {
+            "primaryName": "Chêne rouge d’Amérique",
+            "displayName": "Chêne rouge d’Amérique",
+            "slug": "chene-rouge-amerique",
+            "family": "Fagaceae",
+            "botanicalNames": [{ "name": "Quercus rubra", "isSynonym": false }],
+            "aliases": [],
+            "localNames": [],
+            "commercialRestrictions": { "raw": "", "value": null },
+            "notes": []
+          },
+          "origin": {
+            "region": "Temperate",
+            "continent": "Amérique du Nord",
+            "countries": []
+          },
+          "cites": { "raw": null, "listed": null },
+          "log": {
+            "diameterCm": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "cm"
+            },
+            "sapwoodThickness": { "raw": "", "value": null },
+            "floats": { "raw": "", "value": null },
+            "durability": { "raw": "", "value": null },
+            "notes": []
+          },
+          "appearance": {
+            "colourReference": { "raw": "Brun rouge", "value": "brun rouge" },
+            "sapwood": {
+              "raw": "Blanc à brun très clair",
+              "value": "Blanc à brun très clair"
+            },
+            "texture": { "raw": "Grossier", "value": "grossier" },
+            "grain": { "raw": "Droit", "value": "droit" },
+            "interlockedGrain": { "raw": "", "value": null },
+            "notes": [
+              "Le duramen est brun rougeâtre.",
+              "Le chêne à croissance rapide et à cernes larges est plus résistant et plus lourd que le chêne à croissance lente."
+            ]
+          },
+          "physics": {
+            "specificGravity": {
+              "raw": "0,63 à 12 % d’humidité",
+              "value": 0.63,
+              "min": null,
+              "max": null
+            },
+            "monninHardness": {
+              "raw": "Dureté Monnin FCBA à 12 % d’humidité : 4,0",
+              "value": 4,
+              "min": null,
+              "max": null
+            },
+            "jankaHardness": {
+              "raw": "5 737,92 N à 12 % d’humidité",
+              "value": 5737.92,
+              "min": null,
+              "max": null,
+              "unit": "N"
+            },
+            "volumetricShrinkageCoefficient": {
+              "raw": "Coefficient de retrait volumique SerQ : 0,52 % par %",
+              "value": 0.52,
+              "min": null,
+              "max": null,
+              "unit": "% par %"
+            },
+            "totalTangentialShrinkage": {
+              "raw": "8,6 % de l’état vert à l’état anhydre",
+              "value": 8.6,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "totalRadialShrinkage": {
+              "raw": "4,0 % de l’état vert à l’état anhydre",
+              "value": 4,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "shrinkageRatio": {
+              "raw": "2,15",
+              "value": 2.15,
+              "min": null,
+              "max": null
+            },
+            "fibreSaturationPoint": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "%"
+            },
+            "thermalConductivity": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "W/(m.K)"
+            },
+            "lowerHeatingValue": {
+              "raw": "",
+              "value": null,
+              "min": null,
+              "max": null,
+              "unit": "kJ/kg"
+            },
+            "crushingStrength": {
+              "raw": "46,610 MPa",
+              "value": 46.61,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "staticBendingStrength": {
+              "raw": "98,599 MPa",
+              "value": 98.599,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "modulusOfElasticity": {
+              "raw": "12 549 MPa",
+              "value": 12549,
+              "min": null,
+              "max": null,
+              "unit": "MPa"
+            },
+            "stability": { "raw": "", "value": null },
+            "notes": [
+              "Les valeurs mécaniques sont des valeurs de référence pour du bois sans défaut et sec, et non des propriétés de calcul.",
+              "Le retrait total est mesuré de l’état vert à l’état anhydre.",
+              "Le ratio des retraits est calculé à partir des valeurs publiées de retrait tangentiel et radial."
+            ]
+          },
+          "durability": {
+            "fungi": {
+              "raw": "Faiblement à non durable",
+              "value": "faiblement à non durable"
+            },
+            "dryWoodBorers": { "raw": "", "value": null },
+            "termites": { "raw": "", "value": null },
+            "treatability": { "raw": "", "value": null },
+            "naturalUseClass": { "raw": "", "value": null },
+            "coversUseClass5": { "raw": "", "value": null },
+            "preservativeTreatment": {
+              "dryWoodBorer": { "raw": "", "value": null },
+              "temporaryHumidification": { "raw": "", "value": null },
+              "permanentHumidification": { "raw": "", "value": null },
+              "notes": []
+            },
+            "notes": [
+              "Le duramen du groupe des chênes rouges est plus facilement pénétré par les produits de préservation que celui du groupe des chênes blancs."
+            ]
+          },
+          "drying": {
+            "rate": { "raw": "", "value": null },
+            "distortionRisk": { "raw": "", "value": null },
+            "casehardeningRisk": { "raw": "", "value": null },
+            "checkingRisk": { "raw": "", "value": null },
+            "collapseRisk": { "raw": "", "value": null },
+            "notes": [],
+            "schedule": [
+              {
+                "phase": "Séchage",
+                "durationHours": null,
+                "moistureContent": "50+",
+                "temperatureC": "43,3",
+                "wetBulbTemperatureC": "41,1",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Séchage",
+                "durationHours": null,
+                "moistureContent": "50",
+                "temperatureC": "43,3",
+                "wetBulbTemperatureC": "40,6",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Séchage",
+                "durationHours": null,
+                "moistureContent": "40",
+                "temperatureC": "43,3",
+                "wetBulbTemperatureC": "38,9",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Séchage",
+                "durationHours": null,
+                "moistureContent": "35",
+                "temperatureC": "43,3",
+                "wetBulbTemperatureC": "35,6",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Séchage",
+                "durationHours": null,
+                "moistureContent": "30",
+                "temperatureC": "48,9",
+                "wetBulbTemperatureC": "32,2",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Séchage",
+                "durationHours": null,
+                "moistureContent": "25",
+                "temperatureC": "54,4",
+                "wetBulbTemperatureC": "26,7",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Séchage",
+                "durationHours": null,
+                "moistureContent": "20",
+                "temperatureC": "60",
+                "wetBulbTemperatureC": "32,2",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              },
+              {
+                "phase": "Séchage",
+                "durationHours": null,
+                "moistureContent": "15",
+                "temperatureC": "82,2",
+                "wetBulbTemperatureC": "54,4",
+                "relativeHumidityPercent": null,
+                "uglPercent": null
+              }
+            ],
+            "scheduleNotes": [
+              "Programme USDA T4-D2 pour des sciages de chêne rouge d’Amérique de 4/4.",
+              "Les températures ont été converties des degrés Fahrenheit en degrés Celsius.",
+              "La conduite d’un séchoir exige un jugement professionnel et un suivi de l’humidité."
+            ]
+          },
+          "machining": {
+            "bluntingEffect": { "raw": "", "value": null },
+            "sawteethRecommended": { "raw": "", "value": null },
+            "cuttingTools": { "raw": "", "value": null },
+            "peeling": { "raw": "", "value": null },
+            "slicing": { "raw": "", "value": null },
+            "notes": [
+              "Le chêne s’usine et se colle bien, retient très bien les fixations et se finit bien. Il tend à fendre au clouage sans avant-trou."
+            ]
+          },
+          "assembly": {
+            "nailingAndScrewing": { "raw": "", "value": null },
+            "gluing": { "raw": "", "value": null },
+            "notes": []
+          },
+          "grading": { "appearance": null, "structural": null },
+          "fireSafety": {
+            "frenchGrading": null,
+            "euroclass": { "raw": "", "value": null },
+            "notes": null
+          },
+          "endUses": [
+            "emballage-caisserie",
+            "cercueil",
+            "meuble courant ou éléments meublants",
+            "parquet",
+            "lambris",
+            "palette",
+            "traverses",
+            "fond de véhicule ou de conteneur",
+            "face ou contreface de contreplaqué",
+            "intérieur de contreplaqué"
+          ],
+          "endUseNotes": []
+        }
+      }
+    }
+  ]
+}

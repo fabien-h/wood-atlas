@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-trattinnickia-burserifolia",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "93aa66d156969bf926d1c45013b9fd55dcbf55afbb27a8eeccd9f0e1b2563756",
+      "sourceWidth": 480,
+      "sourceHeight": 288,
+      "outputFile": "radial.jpg",
+      "outputWidth": 288,
+      "outputHeight": 288,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lpf.florestal.gov.br/index.php?option=com_madeirasbrasileiras&view=especieestudada&especieestudadaid=259",
+        "imageUrl": "https://lpf.florestal.gov.br/images/madeirasbrasileiras/amesclao3.jpg",
+        "query": "site:lpf.florestal.gov.br \"Trattinnickia burserifolia\" \"Corte tangencial\"",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Brazilian Forest Service LPF page explicitly identifies Trattinnickia burserifolia and captions this file Corte tangencial.",
+        "visualCheckNotes": "Opened at original resolution. A clean exposed longitudinal wood face fills the frame with natural grain and no external tree parts, finished object, generic texture, diagram, or microscopy.",
+        "width": 480,
+        "height": 288,
+        "format": "jpeg",
+        "sha256": "93aa66d156969bf926d1c45013b9fd55dcbf55afbb27a8eeccd9f0e1b2563756",
+        "agent": "pilot_brazil",
+        "creator": "Serviço Florestal Brasileiro, Laboratório de Produtos Florestais (LPF/SFB)",
+        "license": null,
+        "licenseUrl": null,
+        "licenseStatus": "unknown"
+      }
+    }
+  ]
+}

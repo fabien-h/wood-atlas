@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-rhodesian-teak",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "d714c0e256a961a088e3c031ce072c4a22afe315dec85476b26b3eb6de81ecf6",
+      "sourceWidth": 2865,
+      "sourceHeight": 1590,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

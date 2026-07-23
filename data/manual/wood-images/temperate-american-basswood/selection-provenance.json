@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-american-basswood",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "96f59726e25133f09dc1fe3c93de44fc5e850031f47f771050a3dbeb5533af4f",
+      "sourceWidth": 1353,
+      "sourceHeight": 513,
+      "outputFile": "radial.jpg",
+      "outputWidth": 513,
+      "outputHeight": 513,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tilia_americana_sections.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Tilia_americana_sections.jpg",
+        "query": "site:commons.wikimedia.org \"Tilia americana sections\" wood radial",
+        "intendedViewHint": "radial",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Commons file describes Hough's Tilia americana sections plate; the middle physical specimen is printed as RADIAL SECTION on the source.",
+        "visualCheckNotes": "Opened after derivation at original crop resolution. The crop shows only an exposed longitudinal wood specimen with fine straight grain and a darker central band; no tree, leaf, bark-only area, furniture, diagram, or microscopy appears.",
+        "derivedCrop": {
+          "left": 293,
+          "top": 996,
+          "width": 1353,
+          "height": 513
+        },
+        "width": 1353,
+        "height": 513,
+        "format": "jpeg",
+        "sha256": "96f59726e25133f09dc1fe3c93de44fc5e850031f47f771050a3dbeb5533af4f",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; source scan by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "8c2162c02517e647d48abbfc3b7137180a41edc7a6c744406eab3394cf65ce74",
+      "sourceWidth": 1353,
+      "sourceHeight": 540,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 540,
+      "outputHeight": 540,
+      "matchedCandidate": {
+        "filename": "candidate-02.jpg",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tilia_americana_sections.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Tilia_americana_sections.jpg",
+        "query": "site:commons.wikimedia.org \"Tilia americana sections\" wood tangential",
+        "intendedViewHint": "tangential",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "The Commons file describes Hough's Tilia americana sections plate; the lower physical specimen is printed as TANGENTIAL SECTION on the source.",
+        "visualCheckNotes": "Opened after derivation at original crop resolution. The frame is the exposed tangential specimen face with subtle curved figure; no living plant, bark, log exterior, furniture, flooring scene, or microscopy is present.",
+        "derivedCrop": {
+          "left": 293,
+          "top": 1685,
+          "width": 1353,
+          "height": 540
+        },
+        "width": 1353,
+        "height": 540,
+        "format": "jpeg",
+        "sha256": "8c2162c02517e647d48abbfc3b7137180a41edc7a6c744406eab3394cf65ce74",
+        "agent": "pilot_temperate",
+        "creator": "Romeyn B. Hough; source scan by NCSU Libraries",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "licenseStatus": "verified-open"
+      }
+    }
+  ]
+}

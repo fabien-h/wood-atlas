@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-sabicu",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "d416f202502b6683d25e42160126437de18e69eeef0553bfce3f1ad857c36314",
+      "sourceWidth": 2451,
+      "sourceHeight": 1520,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

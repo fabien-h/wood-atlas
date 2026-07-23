@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-mountain-hemlock",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "8ddf50b5dff08ebfe9c5ca3ddc4331b71eb35580e386152db068d827e8359970",
+      "sourceWidth": 1820,
+      "sourceHeight": 1461,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

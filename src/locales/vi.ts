@@ -11,7 +11,8 @@ export const vi = {
   aboutOpenSource: 'Atlas gỗ này là mã nguồn mở. Mã nguồn được công bố trên GitHub.',
   aboutDataSourcesTitle: 'Nguồn dữ liệu',
   aboutDataSources:
-    'Toàn bộ dữ liệu gỗ trong atlas này đến từ cơ sở dữ liệu Tropix và đơn vị nghiên cứu BioWooEB của CIRAD.',
+    'Phần lớn dữ liệu trong atlas đến từ Tropix, đơn vị BioWooEB của CIRAD, Phòng thí nghiệm Lâm sản USDA và Phòng thí nghiệm Lâm sản của Cơ quan Lâm nghiệp Brazil (LPF/SFB). Các bản ghi bổ sung nêu nguồn trong từng phiếu.',
+  contact: 'Liên hệ',
   atlas: 'Atlas gỗ',
   searchPlaceholder: 'Tìm tên, công dụng, quốc gia…',
   clearSearch: 'Xóa tìm kiếm',
@@ -60,6 +61,7 @@ export const vi = {
   materialMap: 'Bản đồ vật liệu',
   hardnessVsRadialShrinkage: 'Độ cứng và co rút xuyên tâm',
   monninHardness: 'Độ cứng Monnin',
+  jankaHardness: 'Độ cứng Janka',
   radialShrinkage: 'Co rút xuyên tâm',
   distribution: 'Phân bố',
   specificGravity: 'Tỷ trọng',

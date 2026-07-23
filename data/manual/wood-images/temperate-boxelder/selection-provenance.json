@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "temperate-boxelder",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "734a3e32afee3f1c60c161ef07ae4a23a0276a6a928451bc2cbf0cf689ff7b6c",
+      "sourceWidth": 2099,
+      "sourceHeight": 1443,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}
