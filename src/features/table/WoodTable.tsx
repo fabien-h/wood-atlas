@@ -2,6 +2,7 @@ import { ArrowDown, ArrowUp, Check, ChevronRight } from 'lucide-react';
 import {
   commonName,
   formatMeasure,
+  preferredHardness,
   shortClass,
   type SortKey,
   type WoodSort,
@@ -113,6 +114,7 @@ export function WoodTable({
               const thumbnail = wood.thumbnail;
               const name = commonName(wood);
               const family = identityFamily({ taxonomy }, wood.identity);
+              const hardness = preferredHardness(wood);
               return (
                 <tr
                   className={activeId === wood.id ? styles.activeRow : ''}
@@ -166,13 +168,23 @@ export function WoodTable({
                       <RegionBadge region={wood.origin.region} copy={copy} />
                     )}
                   </td>
-                  <td>{formatTableClass(wood.durability.naturalUseClass.raw, copy)}</td>
-                  <td>{formatTableClass(wood.durability.fungi.raw, copy, 'fungi')}</td>
-                  <td>{formatTableClass(wood.durability.termites.raw, copy, 'termites')}</td>
+                  <td>{formatTableClass(wood.durability.naturalUseClass.value, copy)}</td>
+                  <td>{formatTableClass(wood.durability.fungi.value, copy, 'fungi')}</td>
+                  <td>{formatTableClass(wood.durability.termites.value, copy, 'termites')}</td>
                   <td>
-                    {formatTableClass(wood.durability.treatability.raw, copy, 'treatability')}
+                    {formatTableClass(wood.durability.treatability.value, copy, 'treatability')}
                   </td>
-                  <td>{formatTableMeasure(wood.physics.monninHardness, undefined, copy)}</td>
+                  <td
+                    title={
+                      hardness
+                        ? hardness.scale === 'monnin'
+                          ? copy.monninHardness
+                          : copy.jankaHardness
+                        : undefined
+                    }
+                  >
+                    {hardness ? formatMeasure(hardness.measure, undefined, copy) : '-'}
+                  </td>
                   <td>{formatTableMeasure(wood.physics.specificGravity, undefined, copy)}</td>
                   <td>{formatTableMeasure(wood.physics.totalRadialShrinkage, '%', copy)}</td>
                   <td>{formatTableMeasure(wood.physics.totalTangentialShrinkage, '%', copy)}</td>

@@ -9,6 +9,13 @@ import { format } from 'prettier';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FACTS_PATH = path.join(ROOT, 'data', 'raw', 'lpf', 'website-facts.json');
 const MANIFEST_PATH = path.join(ROOT, 'data', 'manual', 'woods', 'lpf-website.json');
+const LPF_DATASET_MANIFEST_PATH = path.join(
+  ROOT,
+  'data',
+  'manual',
+  'woods',
+  'lpf-brazilian-woods.json',
+);
 const ENGLISH_DATABASE_PATH = path.join(ROOT, 'public', 'data', 'woods.generated.en.json');
 const FRENCH_DATABASE_PATH = path.join(ROOT, 'public', 'data', 'woods.generated.fr.json');
 
@@ -106,6 +113,65 @@ const CHARACTERISTIC_LABELS = [
   'Color',
 ];
 
+const WEBSITE_NUMERIC_FIELDS = {
+  specificGravity: {
+    labels: {
+      en: 'LPF dry density (g/cm³)',
+      fr: 'Masse volumique sèche LPF (g/cm³)',
+    },
+    unit: undefined,
+  },
+  jankaHardness: {
+    labels: {
+      en: 'LPF dry Janka hardness transverse to grain',
+      fr: 'Dureté Janka LPF sèche perpendiculaire au fil',
+    },
+    unit: 'N',
+  },
+  totalTangentialShrinkage: {
+    labels: {
+      en: 'LPF total tangential shrinkage',
+      fr: 'Retrait tangentiel total LPF',
+    },
+    unit: '%',
+  },
+  totalRadialShrinkage: {
+    labels: {
+      en: 'LPF total radial shrinkage',
+      fr: 'Retrait radial total LPF',
+    },
+    unit: '%',
+  },
+  shrinkageRatio: {
+    labels: {
+      en: 'LPF tangential/radial shrinkage ratio',
+      fr: 'Rapport LPF des retraits tangentiel/radial',
+    },
+    unit: undefined,
+  },
+  crushingStrength: {
+    labels: {
+      en: 'LPF dry compression strength parallel to grain',
+      fr: 'Résistance LPF en compression parallèle au fil à l’état sec',
+    },
+    unit: 'MPa',
+  },
+  staticBendingStrength: {
+    labels: {
+      en: 'LPF dry static bending strength',
+      fr: 'Résistance LPF en flexion statique à l’état sec',
+    },
+    unit: 'MPa',
+  },
+  modulusOfElasticity: {
+    labels: {
+      en: 'LPF dry modulus of elasticity',
+      fr: 'Module d’élasticité LPF à l’état sec',
+    },
+    unit: 'MPa',
+  },
+};
+
 const command = process.argv[2] ?? 'all';
 if (command === 'sync') {
   await sync();
@@ -189,8 +255,10 @@ async function sync() {
     factualProfiles: facts.filter(
       (entry) =>
         Object.values(entry.facts).some(Boolean) ||
-        Object.values(entry.page.sections).some(Boolean),
+        Object.values(entry.page.sections).some(Boolean) ||
+        hasNonNullLeaf(entry.page.structured.measurements),
     ).length,
+    measurementCoverage: countMeasurementCoverage(facts),
     profiles: facts.sort((left, right) => left.sourceId - right.sourceId),
   });
   console.log(
@@ -198,36 +266,92 @@ async function sync() {
   );
 }
 
+function hasNonNullLeaf(value) {
+  if (value === null || value === undefined) return false;
+  if (Array.isArray(value)) return value.some(hasNonNullLeaf);
+  if (typeof value === 'object') return Object.values(value).some(hasNonNullLeaf);
+  return true;
+}
+
+function countMeasurementCoverage(profiles) {
+  const paths = [
+    'physical.dryDensity',
+    'physical.greenDensity',
+    'physical.basicDensity',
+    'physical.apparentDensity',
+    'physical.totalTangentialShrinkage',
+    'physical.totalRadialShrinkage',
+    'physical.totalVolumetricShrinkage',
+    'physical.shrinkageRatio',
+    ...['green', 'dry'].flatMap((condition) => [
+      ...[
+        'staticBendingStrength',
+        'modulusOfElasticity',
+        'crushingStrength',
+        'compressionPerpendicular',
+        'jankaHardnessParallel',
+        'jankaHardnessTransverse',
+      ].map((field) => `mechanical.primary.${condition}.${field}`),
+      ...[
+        'tensionPerpendicular',
+        'cleavageStrength',
+        'shearStrength',
+        'nailExtractionParallel',
+        'nailExtractionTransverse',
+      ].map((field) => `mechanical.secondary.${condition}.${field}`),
+    ]),
+  ];
+  return Object.fromEntries(
+    paths.map((measurementPath) => [
+      measurementPath,
+      profiles.filter(
+        (profile) =>
+          getAtPath(profile.page.structured.measurements, measurementPath) !== null &&
+          getAtPath(profile.page.structured.measurements, measurementPath) !== undefined,
+      ).length,
+    ]),
+  );
+}
+
 async function generate() {
-  const [facts, englishDatabase, frenchDatabase, previousManifest] = await Promise.all([
-    readJson(FACTS_PATH),
-    readJson(ENGLISH_DATABASE_PATH),
-    readJson(FRENCH_DATABASE_PATH),
-    readOptionalJson(MANIFEST_PATH),
-  ]);
+  const [facts, englishDatabase, frenchDatabase, previousManifest, lpfDatasetManifest] =
+    await Promise.all([
+      readJson(FACTS_PATH),
+      readJson(ENGLISH_DATABASE_PATH),
+      readJson(FRENCH_DATABASE_PATH),
+      readOptionalJson(MANIFEST_PATH),
+      readJson(LPF_DATASET_MANIFEST_PATH),
+    ]);
   const profilesByName = indexProfiles(facts.profiles);
   const frenchById = new Map(frenchDatabase.records.map((record) => [record.id, record]));
+  const lpfTargetsById = new Map(
+    [...lpfDatasetManifest.records, ...lpfDatasetManifest.supplements].map((target) => [
+      target.id,
+      target.locales.en.identity,
+    ]),
+  );
   const previousById = new Map(
-    (previousManifest?.dataset?.generatorVersion === 1 ? previousManifest.supplements : []).map(
+    (previousManifest?.dataset?.generatorVersion >= 1 ? previousManifest.supplements : []).map(
       (supplement) => [supplement.id, supplement],
     ),
   );
   const fieldCounts = new Map();
-  let exactMatchCount = 0;
+  const matchCounts = new Map();
   let unpairedMatchCount = 0;
   const supplements = [];
 
   for (const english of englishDatabase.records) {
-    const profiles = uniqueProfiles([
-      ...english.identity.botanicalNames.flatMap(
-        ({ name }) => profilesByName.get(nameKey(name)) ?? [],
-      ),
-      ...facts.profiles.filter(
-        (profile) => PROFILE_TARGET_IDS.get(profile.sourceId) === english.id,
-      ),
-    ]);
+    const targetIdentity = lpfTargetsById.get(english.id);
+    if (!targetIdentity) continue;
+    const match = resolveProfilesForRecord(
+      english.id,
+      targetIdentity,
+      profilesByName,
+      facts.profiles,
+    );
+    matchCounts.set(match.type, (matchCounts.get(match.type) ?? 0) + 1);
+    const profiles = match.profiles;
     if (profiles.length === 0) continue;
-    exactMatchCount += 1;
     const french = frenchById.get(english.id);
     if (!french) {
       unpairedMatchCount += 1;
@@ -260,13 +384,15 @@ async function generate() {
   await writeJson(MANIFEST_PATH, {
     schemaVersion: 1,
     dataset: {
-      generatorVersion: 1,
+      generatorVersion: 2,
       title: facts.source.title,
       provider: SOURCE_PROVIDER,
       url: LIST_URL,
       studiedSpeciesPages: facts.studiedSpeciesPages,
       factualProfiles: facts.factualProfiles,
-      exactAtlasMatches: exactMatchCount,
+      atlasMatches: Object.fromEntries(
+        [...matchCounts].sort(([left], [right]) => left.localeCompare(right)),
+      ),
       unpairedAtlasMatchesSkipped: unpairedMatchCount,
       supplementedRecords: supplements.length,
       supplementedFields: Object.fromEntries(
@@ -277,7 +403,9 @@ async function generate() {
     supplements: supplements.sort((left, right) => left.id.localeCompare(right.id)),
   });
   console.log(
-    `Generated ${supplements.length} LPF website supplements from ${exactMatchCount} exact matches: ${JSON.stringify(Object.fromEntries(fieldCounts))}`,
+    `Generated ${supplements.length} LPF website supplements from ` +
+      `${[...matchCounts].filter(([type]) => !['unmatched', 'group-skipped'].includes(type)).reduce((sum, [, count]) => sum + count, 0)} conservative matches: ` +
+      `${JSON.stringify(Object.fromEntries(fieldCounts))}`,
   );
 }
 
@@ -303,6 +431,7 @@ function parseSpeciesPage(html) {
   const paragraphs = paragraphFields(html);
   const paragraphText = (label) => paragraphs.get(label)?.text ?? null;
   const tables = headingTables(html);
+  const pageTables = allHtmlTables(html);
   return {
     identity: {
       primaryName: firstHeading(html, 'h4'),
@@ -325,6 +454,7 @@ function parseSpeciesPage(html) {
         paragraphText('general characteristics') ?? '',
         CHARACTERISTIC_LABELS,
       ),
+      measurements: parseMeasurements(pageTables),
     },
     tables: {
       workabilitySummary: parseFirstTable(paragraphs.get('workability')?.html),
@@ -332,6 +462,101 @@ function parseSpeciesPage(html) {
       treatability: tables.get('treatability of wood') ?? null,
     },
   };
+}
+
+function allHtmlTables(html) {
+  return [...html.matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/giu)].map((match) => {
+    const rows = parseHtmlTable(match[1]);
+    return {
+      text: rows.flat().join(' '),
+      rows,
+    };
+  });
+}
+
+function parseMeasurements(tables) {
+  const physicalTable = tables.find(
+    (table) => /density \(g\/cm³\)/iu.test(table.text) && /shrinkage \(%\)/iu.test(table.text),
+  );
+  const primaryMechanicalTable = tables.find(
+    (table) =>
+      /static bending \(mpa\)/iu.test(table.text) && /janka hardness \(n\)/iu.test(table.text),
+  );
+  const secondaryMechanicalTable = tables.find(
+    (table) =>
+      /tension \(mpa\)/iu.test(table.text) && /shear parallel to grain \(mpa\)/iu.test(table.text),
+  );
+  return {
+    physical: parsePhysicalMeasurements(physicalTable?.rows),
+    mechanical: {
+      primary: parseConditionalMeasurements(primaryMechanicalTable?.rows, [
+        ['staticBendingStrength', 1, 1],
+        ['modulusOfElasticity', 2, 1000],
+        ['crushingStrength', 3, 1],
+        ['compressionPerpendicular', 4, 1],
+        ['jankaHardnessParallel', 5, 1],
+        ['jankaHardnessTransverse', 6, 1],
+      ]),
+      secondary: parseConditionalMeasurements(secondaryMechanicalTable?.rows, [
+        ['tensionPerpendicular', 1, 1],
+        ['cleavageStrength', 2, 1],
+        ['shearStrength', 3, 1],
+        ['nailExtractionParallel', 4, 1],
+        ['nailExtractionTransverse', 5, 1],
+      ]),
+    },
+  };
+}
+
+function parsePhysicalMeasurements(rows) {
+  const values = rows?.find(
+    (row) => row.length >= 8 && row.slice(0, 8).some((value) => numericCell(value) !== null),
+  );
+  if (!values) return null;
+  return Object.fromEntries(
+    [
+      'dryDensity',
+      'greenDensity',
+      'basicDensity',
+      'apparentDensity',
+      'totalTangentialShrinkage',
+      'totalRadialShrinkage',
+      'totalVolumetricShrinkage',
+      'shrinkageRatio',
+    ].map((key, index) => [key, numericCell(values[index])]),
+  );
+}
+
+function parseConditionalMeasurements(rows, fields) {
+  return Object.fromEntries(
+    ['green', 'dry'].map((condition) => {
+      const row = rows?.find((candidate) => normalizeText(candidate[0]) === condition);
+      return [
+        condition,
+        row
+          ? Object.fromEntries(
+              fields.map(([key, index, multiplier]) => {
+                const value = numericCell(row[index]);
+                return [key, value === null ? null : round(value * multiplier, 3)];
+              }),
+            )
+          : null,
+      ];
+    }),
+  );
+}
+
+function numericCell(value) {
+  const normalized = String(value ?? '')
+    .trim()
+    .replace(/\s+/gu, '');
+  if (!normalized || !/^-?\d[\d.,]*$/u.test(normalized)) return null;
+  const decimal =
+    normalized.includes(',') && normalized.includes('.')
+      ? normalized.replace(/,/gu, '')
+      : normalized.replace(/,/gu, '.');
+  const number = Number(decimal);
+  return Number.isFinite(number) ? number : null;
 }
 
 function paragraphFields(html) {
@@ -590,11 +815,49 @@ function indexProfiles(profiles) {
   return index;
 }
 
+function resolveProfilesForRecord(recordId, identity, profilesByName, allProfiles) {
+  const targeted = allProfiles.filter(
+    (profile) => PROFILE_TARGET_IDS.get(profile.sourceId) === recordId,
+  );
+  if (targeted.length > 0) return { type: 'curated-observation', profiles: targeted };
+
+  const acceptedNames = uniqueText(
+    identity.botanicalNames.filter((name) => !name.isSynonym).map(({ name }) => name),
+  );
+  if (acceptedNames.length !== 1) {
+    return { type: 'group-skipped', profiles: [] };
+  }
+
+  const acceptedProfiles = uniqueProfiles(profilesByName.get(nameKey(acceptedNames[0])) ?? []);
+  if (acceptedProfiles.length > 0) return { type: 'accepted', profiles: acceptedProfiles };
+
+  const matchingSynonyms = uniqueText(
+    identity.botanicalNames
+      .filter((name) => name.isSynonym && isConcreteSpeciesName(name.name))
+      .map(({ name }) => name)
+      .filter((name) => profilesByName.has(nameKey(name))),
+  );
+  if (matchingSynonyms.length !== 1) {
+    return { type: matchingSynonyms.length > 1 ? 'ambiguous' : 'unmatched', profiles: [] };
+  }
+  return {
+    type: 'synonym',
+    profiles: uniqueProfiles(profilesByName.get(nameKey(matchingSynonyms[0])) ?? []),
+  };
+}
+
+function isConcreteSpeciesName(value) {
+  const tokens = nameKey(value).split(' ').filter(Boolean);
+  if (tokens.length < 2) return false;
+  return !new Set(['sp', 'spp', 'p']).has(tokens.at(-1));
+}
+
 function uniqueProfiles(profiles) {
   return [...new Map(profiles.map((profile) => [profile.sourceId, profile])).values()];
 }
 
 function combineProfiles(profiles) {
+  const measurements = combineWebsiteMeasurements(profiles);
   const combined = {
     commonNames: uniqueText(
       profiles.flatMap((profile) => [
@@ -647,10 +910,18 @@ function combineProfiles(profiles) {
         interlockedGrainCategory(profile.page.structured.generalCharacteristics.grain),
       ),
     ),
+    specificGravity: measurements.physical.dryDensity,
+    jankaHardness: measurements.mechanical.dry.jankaHardnessTransverse,
+    totalTangentialShrinkage: measurements.physical.totalTangentialShrinkage,
+    totalRadialShrinkage: measurements.physical.totalRadialShrinkage,
+    shrinkageRatio: measurements.physical.shrinkageRatio,
+    crushingStrength: measurements.mechanical.dry.crushingStrength,
+    staticBendingStrength: measurements.mechanical.dry.staticBendingStrength,
+    modulusOfElasticity: measurements.mechanical.dry.modulusOfElasticity,
     endUses: uniqueText(
       profiles.flatMap((profile) => canonicalEndUses(profile.page.sections.endUses)),
     ),
-    additionalDetails: additionalDetailSections(profiles),
+    additionalDetails: additionalDetailSections(profiles, measurements),
   };
   for (const field of ['treatability', 'fungi', 'termites', 'dryWoodBorers']) {
     const values = [
@@ -669,7 +940,77 @@ function combineProfiles(profiles) {
   return combined;
 }
 
-function additionalDetailSections(profiles) {
+function combineWebsiteMeasurements(profiles) {
+  const combine = (getValue) =>
+    combineMeasurements(
+      profiles.map((profile) => {
+        const value = getValue(profile.page.structured.measurements);
+        return value === null || value === undefined ? null : { value, min: null, max: null };
+      }),
+    );
+  const conditions = Object.fromEntries(
+    ['green', 'dry'].map((condition) => [
+      condition,
+      {
+        staticBendingStrength: combine(
+          (measurements) => measurements?.mechanical?.primary?.[condition]?.staticBendingStrength,
+        ),
+        modulusOfElasticity: combine(
+          (measurements) => measurements?.mechanical?.primary?.[condition]?.modulusOfElasticity,
+        ),
+        crushingStrength: combine(
+          (measurements) => measurements?.mechanical?.primary?.[condition]?.crushingStrength,
+        ),
+        compressionPerpendicular: combine(
+          (measurements) =>
+            measurements?.mechanical?.primary?.[condition]?.compressionPerpendicular,
+        ),
+        jankaHardnessParallel: combine(
+          (measurements) => measurements?.mechanical?.primary?.[condition]?.jankaHardnessParallel,
+        ),
+        jankaHardnessTransverse: combine(
+          (measurements) => measurements?.mechanical?.primary?.[condition]?.jankaHardnessTransverse,
+        ),
+        tensionPerpendicular: combine(
+          (measurements) => measurements?.mechanical?.secondary?.[condition]?.tensionPerpendicular,
+        ),
+        cleavageStrength: combine(
+          (measurements) => measurements?.mechanical?.secondary?.[condition]?.cleavageStrength,
+        ),
+        shearStrength: combine(
+          (measurements) => measurements?.mechanical?.secondary?.[condition]?.shearStrength,
+        ),
+        nailExtractionParallel: combine(
+          (measurements) =>
+            measurements?.mechanical?.secondary?.[condition]?.nailExtractionParallel,
+        ),
+        nailExtractionTransverse: combine(
+          (measurements) =>
+            measurements?.mechanical?.secondary?.[condition]?.nailExtractionTransverse,
+        ),
+      },
+    ]),
+  );
+  return {
+    physical: {
+      dryDensity: combine((measurements) => measurements?.physical?.dryDensity),
+      greenDensity: combine((measurements) => measurements?.physical?.greenDensity),
+      basicDensity: combine((measurements) => measurements?.physical?.basicDensity),
+      apparentDensity: combine((measurements) => measurements?.physical?.apparentDensity),
+      totalTangentialShrinkage: combine(
+        (measurements) => measurements?.physical?.totalTangentialShrinkage,
+      ),
+      totalRadialShrinkage: combine((measurements) => measurements?.physical?.totalRadialShrinkage),
+      totalVolumetricShrinkage: combine(
+        (measurements) => measurements?.physical?.totalVolumetricShrinkage,
+      ),
+      shrinkageRatio: combine((measurements) => measurements?.physical?.shrinkageRatio),
+    },
+    mechanical: conditions,
+  };
+}
+
+function additionalDetailSections(profiles, measurements) {
   const sections = [];
   const tree = combinedDetailFields(profiles, [
     ['commercialHeight', (profile) => profile.page.structured.tree['commercial height']],
@@ -717,7 +1058,53 @@ function additionalDetailSections(profiles) {
       fields: preservation,
     });
   }
+  const physicalMeasurements = measurementDetailFields([
+    ['dryDensity', measurements.physical.dryDensity, 'g/cm³'],
+    ['greenDensity', measurements.physical.greenDensity, 'g/cm³'],
+    ['basicDensity', measurements.physical.basicDensity, 'g/cm³'],
+    ['apparentDensity', measurements.physical.apparentDensity, 'g/cm³'],
+    ['totalTangentialShrinkage', measurements.physical.totalTangentialShrinkage, '%'],
+    ['totalRadialShrinkage', measurements.physical.totalRadialShrinkage, '%'],
+    ['totalVolumetricShrinkage', measurements.physical.totalVolumetricShrinkage, '%'],
+    ['shrinkageRatio', measurements.physical.shrinkageRatio, null],
+  ]);
+  if (physicalMeasurements.length > 0) {
+    sections.push({
+      id: 'lpf-physical-measurements',
+      title: 'physicalMeasurements',
+      fields: physicalMeasurements,
+    });
+  }
+  for (const condition of ['green', 'dry']) {
+    const values = measurements.mechanical[condition];
+    const fields = measurementDetailFields([
+      ['staticBendingStrength', values.staticBendingStrength, 'MPa'],
+      ['modulusOfElasticity', values.modulusOfElasticity, 'MPa'],
+      ['crushingStrength', values.crushingStrength, 'MPa'],
+      ['compressionPerpendicular', values.compressionPerpendicular, 'MPa'],
+      ['jankaHardnessParallel', values.jankaHardnessParallel, 'N'],
+      ['jankaHardnessTransverse', values.jankaHardnessTransverse, 'N'],
+      ['tensionPerpendicular', values.tensionPerpendicular, 'MPa'],
+      ['cleavageStrength', values.cleavageStrength, 'N/cm'],
+      ['shearStrength', values.shearStrength, 'MPa'],
+      ['nailExtractionParallel', values.nailExtractionParallel, 'N'],
+      ['nailExtractionTransverse', values.nailExtractionTransverse, 'N'],
+    ]);
+    if (fields.length > 0) {
+      sections.push({
+        id: `lpf-mechanical-measurements-${condition}`,
+        title: condition === 'green' ? 'mechanicalMeasurementsGreen' : 'mechanicalMeasurementsDry',
+        fields,
+      });
+    }
+  }
   return sections;
+}
+
+function measurementDetailFields(definitions) {
+  return definitions.flatMap(([label, measurement, unit]) =>
+    measurement ? [{ label, measurement, unit }] : [],
+  );
 }
 
 function combinedDetailFields(profiles, definitions) {
@@ -1129,6 +1516,14 @@ function selectFields(record, facts, previous) {
     ['appearance.texture', facts.texture],
     ['appearance.grain', facts.grain],
     ['appearance.interlockedGrain', facts.interlockedGrain],
+    ['physics.specificGravity', facts.specificGravity],
+    ['physics.jankaHardness', facts.jankaHardness],
+    ['physics.totalTangentialShrinkage', facts.totalTangentialShrinkage],
+    ['physics.totalRadialShrinkage', facts.totalRadialShrinkage],
+    ['physics.shrinkageRatio', facts.shrinkageRatio],
+    ['physics.crushingStrength', facts.crushingStrength],
+    ['physics.staticBendingStrength', facts.staticBendingStrength],
+    ['physics.modulusOfElasticity', facts.modulusOfElasticity],
   ]
     .filter(([, value]) => value != null)
     .filter(([field]) => {
@@ -1209,6 +1604,16 @@ function buildLocale(base, facts, fields, language) {
       locale.appearance.interlockedGrain = categoryValue(facts.interlockedGrain, language);
       continue;
     }
+    if (field.startsWith('physics.')) {
+      const key = field.split('.').at(-1);
+      const definition = WEBSITE_NUMERIC_FIELDS[key];
+      locale.physics[key] = localizedMeasure(
+        facts[key],
+        definition.labels[language],
+        definition.unit,
+      );
+      continue;
+    }
     if (field === 'endUses') {
       locale.endUses = facts.endUses.map((use) => localizedEndUse(use, language));
       continue;
@@ -1234,6 +1639,15 @@ function localizedAdditionalDetails(sections, language) {
     additionalCharacteristics: ['Additional characteristics', 'Caractéristiques complémentaires'],
     workability: ['Workability', 'Usinage'],
     preservationDetails: ['Preservation details', 'Détails de préservation'],
+    physicalMeasurements: ['Physical measurements', 'Mesures physiques'],
+    mechanicalMeasurementsGreen: [
+      'Mechanical measurements — green wood',
+      'Mesures mécaniques — bois vert',
+    ],
+    mechanicalMeasurementsDry: [
+      'Mechanical measurements — dry wood',
+      'Mesures mécaniques — bois sec',
+    ],
   };
   const labels = {
     commercialHeight: ['Commercial height', 'Hauteur commerciale'],
@@ -1261,23 +1675,75 @@ function localizedAdditionalDetails(sections, language) {
     ease: ['Ease', 'Facilité'],
     retention: ['Retention', 'Rétention'],
     penetration: ['Penetration', 'Pénétration'],
+    dryDensity: ['Dry density', 'Masse volumique sèche'],
+    greenDensity: ['Green density', 'Masse volumique à l’état vert'],
+    basicDensity: ['Basic density', 'Infradensité'],
+    apparentDensity: ['Apparent density', 'Masse volumique apparente'],
+    totalTangentialShrinkage: ['Total tangential shrinkage', 'Retrait tangentiel total'],
+    totalRadialShrinkage: ['Total radial shrinkage', 'Retrait radial total'],
+    totalVolumetricShrinkage: ['Total volumetric shrinkage', 'Retrait volumique total'],
+    shrinkageRatio: ['Tangential/radial shrinkage ratio', 'Rapport des retraits tangentiel/radial'],
+    staticBendingStrength: ['Static bending strength', 'Résistance en flexion statique'],
+    modulusOfElasticity: ['Modulus of elasticity', 'Module d’élasticité'],
+    crushingStrength: ['Compression strength parallel to grain', 'Compression parallèle au fil'],
+    compressionPerpendicular: [
+      'Compression perpendicular to grain',
+      'Compression perpendiculaire au fil',
+    ],
+    jankaHardnessParallel: ['Janka hardness parallel to grain', 'Dureté Janka parallèle au fil'],
+    jankaHardnessTransverse: [
+      'Janka hardness transverse to grain',
+      'Dureté Janka perpendiculaire au fil',
+    ],
+    tensionPerpendicular: ['Tension perpendicular to grain', 'Traction perpendiculaire au fil'],
+    cleavageStrength: ['Cleavage strength', 'Résistance au fendage'],
+    shearStrength: ['Shear strength parallel to grain', 'Cisaillement parallèle au fil'],
+    nailExtractionParallel: [
+      'Nail extraction parallel to grain',
+      'Arrachement de clou parallèle au fil',
+    ],
+    nailExtractionTransverse: [
+      'Nail extraction transverse to grain',
+      'Arrachement de clou perpendiculaire au fil',
+    ],
   };
   const index = language === 'fr' ? 1 : 0;
   return sections.map((section) => ({
     id: section.id,
     title: titles[section.title]?.[index] ?? section.title,
-    fields: section.fields.map(({ label, value }) => {
-      const translatedValue = language === 'fr' ? translateAdditionalDetailValue(value) : value;
+    fields: section.fields.map(({ label, value, measurement, unit }) => {
+      const translatedValue = measurement
+        ? formatMeasurementDetail(measurement, unit, language)
+        : language === 'fr'
+          ? translateAdditionalDetailValue(value)
+          : value;
       return {
         label: label
           .split('.')
           .map((part) => labels[part]?.[index] ?? part)
           .join(' — '),
         value: translatedValue,
-        ...(language === 'fr' && translatedValue === value ? { valueLanguage: 'en' } : {}),
+        ...(language === 'fr' && !measurement && translatedValue === value
+          ? { valueLanguage: 'en' }
+          : {}),
       };
     }),
   }));
+}
+
+function formatMeasurementDetail(measurement, unit, language) {
+  const locale = language === 'fr' ? 'fr-FR' : 'en-GB';
+  const format = (value) =>
+    new Intl.NumberFormat(locale, { maximumFractionDigits: 3 }).format(value);
+  const unitSuffix = unit ? ` ${unit}` : '';
+  const mean = `${format(measurement.value)}${unitSuffix}`;
+  if (measurement.observations <= 1 || measurement.min === null || measurement.max === null) {
+    return mean;
+  }
+  const range = `${format(measurement.min)}–${format(measurement.max)}${unitSuffix}`;
+  return language === 'fr'
+    ? `${mean} (plage ${range} ; ${measurement.observations} observations)`
+    : `${mean} (range ${range}; ${measurement.observations} observations)`;
 }
 
 function translateAdditionalDetailValue(value) {

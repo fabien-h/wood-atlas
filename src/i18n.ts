@@ -600,11 +600,173 @@ const continentRegionCodes: Record<ContinentCode, string> = {
   SA: '005',
 };
 
+const continentNameFallbacks: Record<string, Record<ContinentCode, string>> = {
+  ar: {
+    AF: 'أفريقيا',
+    AN: 'أنتاركتيكا',
+    AS: 'آسيا',
+    EU: 'أوروبا',
+    NA: 'أمريكا الشمالية',
+    OC: 'أوقيانوسيا',
+    SA: 'أمريكا الجنوبية',
+  },
+  bn: {
+    AF: 'আফ্রিকা',
+    AN: 'অ্যান্টার্কটিকা',
+    AS: 'এশিয়া',
+    EU: 'ইউরোপ',
+    NA: 'উত্তর আমেরিকা',
+    OC: 'ওশেনিয়া',
+    SA: 'দক্ষিণ আমেরিকা',
+  },
+  de: {
+    AF: 'Afrika',
+    AN: 'Antarktika',
+    AS: 'Asien',
+    EU: 'Europa',
+    NA: 'Nordamerika',
+    OC: 'Ozeanien',
+    SA: 'Südamerika',
+  },
+  en: {
+    AF: 'Africa',
+    AN: 'Antarctica',
+    AS: 'Asia',
+    EU: 'Europe',
+    NA: 'North America',
+    OC: 'Oceania',
+    SA: 'South America',
+  },
+  es: {
+    AF: 'África',
+    AN: 'Antártida',
+    AS: 'Asia',
+    EU: 'Europa',
+    NA: 'América del Norte',
+    OC: 'Oceanía',
+    SA: 'América del Sur',
+  },
+  fr: {
+    AF: 'Afrique',
+    AN: 'Antarctique',
+    AS: 'Asie',
+    EU: 'Europe',
+    NA: 'Amérique du Nord',
+    OC: 'Océanie',
+    SA: 'Amérique du Sud',
+  },
+  hi: {
+    AF: 'अफ़्रीका',
+    AN: 'अंटार्कटिका',
+    AS: 'एशिया',
+    EU: 'यूरोप',
+    NA: 'उत्तरी अमेरिका',
+    OC: 'ओशिनिया',
+    SA: 'दक्षिण अमेरिका',
+  },
+  id: {
+    AF: 'Afrika',
+    AN: 'Antarktika',
+    AS: 'Asia',
+    EU: 'Eropa',
+    NA: 'Amerika Utara',
+    OC: 'Oseania',
+    SA: 'Amerika Selatan',
+  },
+  it: {
+    AF: 'Africa',
+    AN: 'Antartide',
+    AS: 'Asia',
+    EU: 'Europa',
+    NA: 'America del Nord',
+    OC: 'Oceania',
+    SA: 'America del Sud',
+  },
+  ja: {
+    AF: 'アフリカ',
+    AN: '南極大陸',
+    AS: 'アジア',
+    EU: 'ヨーロッパ',
+    NA: '北アメリカ',
+    OC: 'オセアニア',
+    SA: '南アメリカ',
+  },
+  ko: {
+    AF: '아프리카',
+    AN: '남극',
+    AS: '아시아',
+    EU: '유럽',
+    NA: '북아메리카',
+    OC: '오세아니아',
+    SA: '남아메리카',
+  },
+  pt: {
+    AF: 'África',
+    AN: 'Antártida',
+    AS: 'Ásia',
+    EU: 'Europa',
+    NA: 'América do Norte',
+    OC: 'Oceania',
+    SA: 'América do Sul',
+  },
+  ru: {
+    AF: 'Африка',
+    AN: 'Антарктида',
+    AS: 'Азия',
+    EU: 'Европа',
+    NA: 'Северная Америка',
+    OC: 'Океания',
+    SA: 'Южная Америка',
+  },
+  tr: {
+    AF: 'Afrika',
+    AN: 'Antarktika',
+    AS: 'Asya',
+    EU: 'Avrupa',
+    NA: 'Kuzey Amerika',
+    OC: 'Okyanusya',
+    SA: 'Güney Amerika',
+  },
+  ur: {
+    AF: 'افریقہ',
+    AN: 'انٹارکٹیکا',
+    AS: 'ایشیا',
+    EU: 'یورپ',
+    NA: 'شمالی امریکہ',
+    OC: 'اوقیانوسیہ',
+    SA: 'جنوبی امریکہ',
+  },
+  vi: {
+    AF: 'Châu Phi',
+    AN: 'Châu Nam Cực',
+    AS: 'Châu Á',
+    EU: 'Châu Âu',
+    NA: 'Bắc Mỹ',
+    OC: 'Châu Đại Dương',
+    SA: 'Nam Mỹ',
+  },
+  zh: {
+    AF: '非洲',
+    AN: '南极洲',
+    AS: '亚洲',
+    EU: '欧洲',
+    NA: '北美洲',
+    OC: '大洋洲',
+    SA: '南美洲',
+  },
+};
+
 export function displayContinentNames(codes: readonly ContinentCode[], locale: string): string[] {
-  return displayRegionNames(
+  const localizedNames = displayRegionNames(
     codes.map((code) => continentRegionCodes[code]),
     locale,
   );
+  const language = locale.toLocaleLowerCase().split('-')[0];
+  const fallbacks = continentNameFallbacks[language] ?? continentNameFallbacks.en;
+  return localizedNames.map((name, index) => {
+    const regionCode = continentRegionCodes[codes[index]];
+    return name === regionCode || /^\d{3}$/u.test(name) ? fallbacks[codes[index]] : name;
+  });
 }
 
 export function displayCountryNames(codes: readonly string[], locale: string): string[] {

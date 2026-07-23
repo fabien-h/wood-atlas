@@ -34,6 +34,7 @@ const IMAGE_PIPELINE_VERSION =
   `grain-max-${GRAIN_IMAGE_SIZE}x${GRAIN_IMAGE_SIZE}-centre-crop-no-upscale_` +
   `thumbnail-${THUMBNAIL_WIDTH}x${THUMBNAIL_HEIGHT}-quarter-first-centre-crop_` +
   `example-max-${EXAMPLE_IMAGE_MAX_SIZE}_jpeg-q${WOOD_IMAGE_QUALITY}-v3`;
+const REVERSED_GRAIN_IMAGE_ORDER = new Set(['america-abarco']);
 const IMAGE_VERSION_PATH = path.join(PUBLIC_WOOD_DIR, '.image-version');
 const BASE_URL = 'https://tropix.cirad.fr';
 
@@ -2675,7 +2676,15 @@ async function extractImages(link, record) {
   }
 
   const outputs = selected.map((item, idx) => {
-    const kind = item.kind === 'example' ? 'example' : idx === 0 ? 'flatSawn' : 'quarterSawn';
+    const standardGrainKind = idx === 0 ? 'flatSawn' : 'quarterSawn';
+    const kind =
+      item.kind === 'example'
+        ? 'example'
+        : REVERSED_GRAIN_IMAGE_ORDER.has(record.id)
+          ? standardGrainKind === 'flatSawn'
+            ? 'quarterSawn'
+            : 'flatSawn'
+          : standardGrainKind;
     const count = selected
       .slice(0, idx + 1)
       .filter((candidate, cIdx) => cIdx > 1 && candidate.kind === 'example').length;

@@ -3,6 +3,7 @@ import {
   commonName,
   durabilityScore,
   formatMeasure,
+  preferredHardness,
   primaryGrainImage,
   winningIndexes,
 } from '../../domain/woods';
@@ -99,9 +100,9 @@ function compareRows(copy: Translation) {
     },
     {
       label: copy.hardness,
-      unit: '',
+      unit: undefined,
       better: 'high' as const,
-      get: (wood: WoodRecord) => wood.physics.monninHardness,
+      get: (wood: WoodRecord) => preferredHardness(wood)?.measure ?? wood.physics.monninHardness,
     },
     {
       label: copy.radialShrinkage,
@@ -132,19 +133,19 @@ function compareRows(copy: Translation) {
     {
       label: copy.fungi,
       getValue: (wood: WoodRecord) => wood.durability.fungi.value ?? copy.unknown,
-      getScore: (wood: WoodRecord) => durabilityScore(wood.durability.fungi.raw),
+      getScore: (wood: WoodRecord) => durabilityScore(wood.durability.fungi.value ?? ''),
       better: 'low' as const,
     },
     {
       label: copy.termites,
       getValue: (wood: WoodRecord) => wood.durability.termites.value ?? copy.unknown,
-      getScore: (wood: WoodRecord) => durabilityScore(wood.durability.termites.raw),
+      getScore: (wood: WoodRecord) => durabilityScore(wood.durability.termites.value ?? ''),
       better: 'low' as const,
     },
     {
       label: copy.treatability,
       getValue: (wood: WoodRecord) => wood.durability.treatability.value ?? copy.unknown,
-      getScore: (wood: WoodRecord) => durabilityScore(wood.durability.treatability.raw),
+      getScore: (wood: WoodRecord) => durabilityScore(wood.durability.treatability.value ?? ''),
       better: 'low' as const,
     },
   ];

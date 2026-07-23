@@ -1,4 +1,4 @@
-import { access } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
@@ -16,6 +16,7 @@ const server = await createServer({
   logLevel: 'silent',
   server: { host, port, strictPort: true },
 });
+const publishedCoverage = await auditPublishedLpfMeasurements();
 await server.listen();
 console.log('A11y server started.');
 
@@ -50,6 +51,24 @@ try {
       'the detail drawer should be closed by default',
     );
     await audit(page, 'default table');
+    for (const [columnIndex, expected, label] of [
+      [3, publishedCoverage.naturalUseClass, 'natural-use classes'],
+      [4, publishedCoverage.fungi, 'fungal-durability classes'],
+      [5, publishedCoverage.termites, 'termite-resistance classes'],
+      [6, publishedCoverage.treatability, 'treatability classes'],
+      [7, publishedCoverage.hardness, 'hardness values'],
+      [8, publishedCoverage.density, 'density values'],
+      [9, publishedCoverage.radialShrinkage, 'radial-shrinkage values'],
+      [10, publishedCoverage.tangentialShrinkage, 'tangential-shrinkage values'],
+      [11, publishedCoverage.modulus, 'elasticity values'],
+    ]) {
+      const displayed = await countNonMissingCells(page, columnIndex);
+      assert(
+        displayed === expected,
+        `the main table displayed ${displayed}/${expected} published ${label}`,
+      );
+    }
+    console.log('Published main-table coverage checked.');
     console.log('Default table checked.');
 
     const defaultSearch = page.getByRole('searchbox');
@@ -113,6 +132,29 @@ try {
       );
     }
     console.log('Manual density values checked.');
+
+    await page.goto(`${origin}/?lang=en&q=Abacatirana`);
+    const abacatiranaRow = page
+      .getByRole('button', { name: 'Open details for Abacatirana', exact: true })
+      .locator('xpath=ancestor::tr');
+    await abacatiranaRow.waitFor();
+    const abacatiranaCells = await abacatiranaRow.locator('td').allTextContents();
+    assert(
+      abacatiranaCells[7].trim() === '4,560.1 N',
+      `the main table hid Abacatirana's LPF Janka hardness: ${abacatiranaCells[7]}`,
+    );
+    assert(
+      abacatiranaCells[8].trim() === '0.62' &&
+        abacatiranaCells[9].trim() === '3.94 %' &&
+        abacatiranaCells[10].trim() === '6.59 %' &&
+        abacatiranaCells[11].trim() === '9,900',
+      `the main table hid Abacatirana's LPF physical data: ${JSON.stringify(abacatiranaCells.slice(8, 12))}`,
+    );
+    assert(
+      (await abacatiranaRow.locator('td').nth(7).getAttribute('title')) === 'Janka hardness',
+      'the main table does not identify the displayed hardness scale',
+    );
+    console.log('LPF measurements in the main table checked.');
 
     await page.goto(`${origin}/?lang=en&q=Scots%20Pine`);
     const scotsPineButton = page.getByRole('button', {
@@ -388,6 +430,45 @@ try {
     await page.getByRole('searchbox').click();
     console.log('Detail lifecycle and focus checked.');
 
+    await page.addInitScript(() => {
+      const NativeDisplayNames = Intl.DisplayNames;
+      Intl.DisplayNames = class extends NativeDisplayNames {
+        of(code) {
+          return /^\d{3}$/u.test(code) ? code : super.of(code);
+        }
+      };
+    });
+    await page.goto(`${origin}/?lang=en&wood=america-lpf-ocotea-aciphylla`);
+    const southAmericanDetail = page.getByRole('dialog');
+    await southAmericanDetail.waitFor();
+    await southAmericanDetail.getByText('South America', { exact: true }).waitFor();
+    assert(
+      (await southAmericanDetail.getByText('005', { exact: true }).count()) === 0,
+      'continent display exposed the UN M49 identifier instead of its name',
+    );
+    console.log('Continent-name fallback checked.');
+
+    await page.goto(`${origin}/?lang=en&wood=america-lpf-pouteria-oppositifolia`);
+    const lpfDetail = page.getByRole('dialog');
+    await lpfDetail.waitFor();
+    await lpfDetail.getByRole('heading', { name: 'Physical measurements' }).waitFor();
+    await lpfDetail.getByText('0.74 g/cm³', { exact: true }).waitFor();
+    await lpfDetail.getByText('12.5 %', { exact: true }).waitFor();
+    await lpfDetail
+      .getByRole('heading', { name: 'Mechanical measurements — green wood' })
+      .waitFor();
+    await lpfDetail.getByText('10,690 MPa', { exact: true }).waitFor();
+    assert(
+      (
+        await lpfDetail
+          .getByRole('link', { name: /LPF Brazilian Woods — Pouteria oppositifolia/ })
+          .getAttribute('href')
+      )?.endsWith('especieestudadaid=205'),
+      'LPF measurements do not link to the exact studied-species page',
+    );
+    await audit(page, 'LPF online measurements');
+    console.log('LPF online measurements checked.');
+
     await page.goto(`${origin}/?lang=de&wood=america-abarco`);
     const germanDetail = page.getByRole('dialog');
     await germanDetail.waitFor();
@@ -499,6 +580,96 @@ async function audit(page, label) {
   );
 }
 
+async function auditPublishedLpfMeasurements() {
+  const [manifest, facts, database] = await Promise.all([
+    readJson(new URL('../data/manual/woods/lpf-website.json', import.meta.url)),
+    readJson(new URL('../data/raw/lpf/website-facts.json', import.meta.url)),
+    readJson(new URL('../public/data/woods.generated.en.json', import.meta.url)),
+  ]);
+  const recordsById = new Map(database.records.map((record) => [record.id, record]));
+  const profilesBySourceId = new Map(facts.profiles.map((profile) => [profile.sourceId, profile]));
+  assert(
+    manifest.supplements.length === manifest.dataset.supplementedRecords,
+    'the LPF website manifest record count is inconsistent',
+  );
+
+  for (const supplement of manifest.supplements) {
+    const record = recordsById.get(supplement.id);
+    assert(record, `LPF record ${supplement.id} is missing from the published database`);
+    const profiles = supplement.source.references.map((reference) => {
+      const sourceId = Number(new URL(reference.url).searchParams.get('especieestudadaid'));
+      const profile = profilesBySourceId.get(sourceId);
+      assert(profile, `LPF source profile ${sourceId} is missing for ${supplement.id}`);
+      return profile;
+    });
+    const measurements = profiles.map((profile) => profile.page.structured.measurements);
+    assert(
+      record.physics.specificGravity.value !== null,
+      `LPF density is missing from the published record ${supplement.id}`,
+    );
+    assert(
+      record.physics.totalTangentialShrinkage.value !== null,
+      `LPF tangential shrinkage is missing from the published record ${supplement.id}`,
+    );
+    assert(
+      record.physics.totalRadialShrinkage.value !== null,
+      `LPF radial shrinkage is missing from the published record ${supplement.id}`,
+    );
+    if (
+      measurements.some(
+        (measurement) =>
+          measurement?.mechanical?.primary?.dry?.jankaHardnessTransverse !== null &&
+          measurement?.mechanical?.primary?.dry?.jankaHardnessTransverse !== undefined,
+      )
+    ) {
+      assert(
+        record.physics.jankaHardness.value !== null,
+        `LPF Janka hardness is missing from the published record ${supplement.id}`,
+      );
+    }
+    if (
+      measurements.some(
+        (measurement) =>
+          measurement?.mechanical?.primary?.dry?.modulusOfElasticity !== null &&
+          measurement?.mechanical?.primary?.dry?.modulusOfElasticity !== undefined,
+      )
+    ) {
+      assert(
+        record.physics.modulusOfElasticity.value !== null,
+        `LPF modulus of elasticity is missing from the published record ${supplement.id}`,
+      );
+    }
+  }
+  console.log(`Published LPF measurements checked for ${manifest.supplements.length} woods.`);
+  return {
+    naturalUseClass: database.records.filter(
+      (record) => record.durability.naturalUseClass.value !== null,
+    ).length,
+    fungi: database.records.filter((record) => record.durability.fungi.value !== null).length,
+    termites: database.records.filter((record) => record.durability.termites.value !== null).length,
+    treatability: database.records.filter((record) => record.durability.treatability.value !== null)
+      .length,
+    hardness: database.records.filter(
+      (record) =>
+        record.physics.monninHardness.value !== null || record.physics.jankaHardness.value !== null,
+    ).length,
+    density: database.records.filter((record) => record.physics.specificGravity.value !== null)
+      .length,
+    radialShrinkage: database.records.filter(
+      (record) => record.physics.totalRadialShrinkage.value !== null,
+    ).length,
+    tangentialShrinkage: database.records.filter(
+      (record) => record.physics.totalTangentialShrinkage.value !== null,
+    ).length,
+    modulus: database.records.filter((record) => record.physics.modulusOfElasticity.value !== null)
+      .length,
+  };
+}
+
+async function readJson(url) {
+  return JSON.parse(await readFile(url, 'utf8'));
+}
+
 async function findChrome() {
   const configured = process.env.CHROME_PATH;
   const candidates = [
@@ -577,6 +748,13 @@ async function assertNumericColumnOrder(page, columnIndex, direction, label) {
       `${direction} ${label} sort has ${previous} before ${current}`,
     );
   }
+}
+
+async function countNonMissingCells(page, zeroBasedColumnIndex) {
+  const values = await page
+    .locator(`tbody tr td:nth-child(${zeroBasedColumnIndex + 1})`)
+    .allTextContents();
+  return values.filter((value) => value.trim() !== '-').length;
 }
 
 function parseDisplayedClass(value) {

@@ -23,6 +23,10 @@ export interface SearchIndexEntry {
   text: string;
   terms: string[];
 }
+export interface HardnessReading {
+  measure: NumericMeasure;
+  scale: 'monnin' | 'janka';
+}
 type ClassKind = 'fungi' | 'termites' | 'treatability' | 'naturalUseClass';
 interface ClassSortValue {
   type: 'class';
@@ -61,6 +65,16 @@ export function commonName(wood: WoodRecord) {
   return wood.identity.primaryName || wood.identity.displayName;
 }
 
+export function preferredHardness(wood: WoodRecord): HardnessReading | null {
+  if (wood.physics.monninHardness.value !== null) {
+    return { measure: wood.physics.monninHardness, scale: 'monnin' };
+  }
+  if (wood.physics.jankaHardness.value !== null) {
+    return { measure: wood.physics.jankaHardness, scale: 'janka' };
+  }
+  return null;
+}
+
 export function woodMatches(
   wood: WoodRecord,
   normalizedQuery: string,
@@ -97,7 +111,7 @@ export function woodMatches(
   if (filters.cites === 'not-listed' && wood.cites.listed !== false) return false;
   if (filters.cites === 'unknown' && wood.cites.listed !== null) return false;
   if (!rangeMatches(wood.physics.specificGravity.value, filters.density)) return false;
-  if (!rangeMatches(wood.physics.monninHardness.value, filters.hardness)) return false;
+  if (!rangeMatches(preferredHardness(wood)?.measure.value ?? null, filters.hardness)) return false;
   if (!rangeMatches(wood.physics.totalRadialShrinkage.value, filters.radialShrinkage)) return false;
   if (!rangeMatches(wood.physics.totalTangentialShrinkage.value, filters.tangentialShrinkage))
     return false;
@@ -324,7 +338,7 @@ function sortValue(wood: WoodRecord, key: SortKey) {
     case 'density':
       return wood.physics.specificGravity.value;
     case 'hardness':
-      return wood.physics.monninHardness.value;
+      return preferredHardness(wood)?.measure.value ?? null;
     case 'radialShrinkage':
       return wood.physics.totalRadialShrinkage.value;
     case 'tangentialShrinkage':
@@ -332,13 +346,13 @@ function sortValue(wood: WoodRecord, key: SortKey) {
     case 'modulus':
       return wood.physics.modulusOfElasticity.value;
     case 'fungi':
-      return classSortValue(wood.durability.fungi.raw, 'fungi');
+      return classSortValue(wood.durability.fungi.value, 'fungi');
     case 'termites':
-      return classSortValue(wood.durability.termites.raw, 'termites');
+      return classSortValue(wood.durability.termites.value, 'termites');
     case 'treatability':
-      return classSortValue(wood.durability.treatability.raw, 'treatability');
+      return classSortValue(wood.durability.treatability.value, 'treatability');
     case 'naturalUseClass':
-      return classSortValue(wood.durability.naturalUseClass.raw, 'naturalUseClass');
+      return classSortValue(wood.durability.naturalUseClass.value, 'naturalUseClass');
   }
 }
 

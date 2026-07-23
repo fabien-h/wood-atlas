@@ -206,7 +206,7 @@ async function generate() {
     const profiles = match.profileUrls.map((url) => profilesByUrl.get(url)).filter(Boolean);
     if (profiles.length === 0) continue;
 
-    const aggregated = aggregateProfiles(profiles);
+    const aggregated = aggregateProfiles(profiles, { targetIsGroup: match.targetIsGroup });
     const previous = previousById.get(english.id);
     const fields = selectSupplementFields(english, previous, aggregated, skippedExistingCounts);
     const proposalFields = [];
@@ -446,30 +446,64 @@ function indexCatalog(entries) {
 }
 
 function resolveRecordMatches(record, catalogIndex) {
-  const acceptedNames = record.identity.botanicalNames
-    .filter((name) => !name.isSynonym)
-    .map(({ name }) => name);
-  const synonymNames = record.identity.botanicalNames
-    .filter((name) => name.isSynonym)
-    .map(({ name }) => name);
+  const acceptedNames = uniqueBy(
+    record.identity.botanicalNames.filter((name) => !name.isSynonym).map(({ name }) => name),
+    scientificNameKey,
+  );
+  const synonymNames = uniqueBy(
+    record.identity.botanicalNames.filter((name) => name.isSynonym).map(({ name }) => name),
+    scientificNameKey,
+  );
+  const targetIsGroup = acceptedNames.length !== 1 || !isConcreteSpeciesName(acceptedNames[0]);
   const accepted = resolveBotanicalNames(acceptedNames, catalogIndex);
-  if (accepted.entries.length > 0) {
+  const acceptedMatchIsComplete =
+    acceptedNames.length > 0 &&
+    accepted.matchedNames.length === acceptedNames.length &&
+    accepted.ambiguousNames.length === 0 &&
+    accepted.unmatchedNames.length === 0;
+  if (acceptedMatchIsComplete) {
     return {
       id: record.id,
       matchType: 'accepted',
+      targetAcceptedNameCount: acceptedNames.length,
+      targetIsGroup,
       matchedNames: accepted.matchedNames,
       ambiguousNames: accepted.ambiguousNames,
+      unmatchedNames: [],
       entries: accepted.entries,
     };
   }
 
+  if (accepted.entries.length > 0 || accepted.ambiguousNames.length > 0) {
+    return {
+      id: record.id,
+      matchType: accepted.ambiguousNames.length > 0 ? 'ambiguous' : 'partial',
+      targetAcceptedNameCount: acceptedNames.length,
+      targetIsGroup,
+      matchedNames: accepted.matchedNames,
+      ambiguousNames: accepted.ambiguousNames,
+      unmatchedNames: accepted.unmatchedNames,
+      entries: [],
+    };
+  }
+
   const synonyms = resolveBotanicalNames(synonymNames, catalogIndex);
-  if (synonyms.entries.length === 1 && synonyms.ambiguousNames.length === 0) {
+  const concreteSynonymMatch =
+    acceptedNames.length === 1 &&
+    isConcreteSpeciesName(acceptedNames[0]) &&
+    synonyms.entries.length === 1 &&
+    synonyms.matchedNames.length > 0 &&
+    synonyms.matchedNames.every(isConcreteSpeciesName) &&
+    synonyms.ambiguousNames.length === 0;
+  if (concreteSynonymMatch) {
     return {
       id: record.id,
       matchType: 'synonym',
+      targetAcceptedNameCount: acceptedNames.length,
+      targetIsGroup: false,
       matchedNames: synonyms.matchedNames,
       ambiguousNames: [],
+      unmatchedNames: synonyms.unmatchedNames,
       entries: synonyms.entries,
     };
   }
@@ -481,12 +515,15 @@ function resolveRecordMatches(record, catalogIndex) {
       synonyms.entries.length > 1
         ? 'ambiguous'
         : 'unmatched',
+    targetAcceptedNameCount: acceptedNames.length,
+    targetIsGroup,
     matchedNames: [],
     ambiguousNames: [
       ...accepted.ambiguousNames,
       ...synonyms.ambiguousNames,
       ...(synonyms.entries.length > 1 ? synonymNames : []),
     ],
+    unmatchedNames: [...accepted.unmatchedNames, ...synonyms.unmatchedNames],
     entries: [],
   };
 }
@@ -495,6 +532,7 @@ function resolveBotanicalNames(names, catalogIndex) {
   const entries = [];
   const matchedNames = [];
   const ambiguousNames = [];
+  const unmatchedNames = [];
   for (const name of names) {
     const candidates = uniqueBy(
       catalogIndex.get(scientificNameKey(name)) ?? [],
@@ -505,12 +543,15 @@ function resolveBotanicalNames(names, catalogIndex) {
       matchedNames.push(name);
     } else if (candidates.length > 1) {
       ambiguousNames.push(name);
+    } else {
+      unmatchedNames.push(name);
     }
   }
   return {
     entries: uniqueBy(entries, (entry) => entry.detailUrl),
     matchedNames: [...new Set(matchedNames)],
     ambiguousNames: [...new Set(ambiguousNames)],
+    unmatchedNames: [...new Set(unmatchedNames)],
   };
 }
 
@@ -712,32 +753,38 @@ function numericRowValue(rows, labelPattern, expectedUnit, multiplier) {
   return value === null ? null : round(value * multiplier, 6);
 }
 
-function aggregateProfiles(profiles) {
+function aggregateProfiles(profiles, { targetIsGroup }) {
   const conflicts = [];
-  const taxonomyPath = commonTaxonomyPath(profiles.map((profile) => profile.facts.taxonomyPath));
-  const continentCodes = sortedUnique(profiles.flatMap((profile) => profile.facts.continentCodes));
-  const countryCodes = sortedUnique(profiles.flatMap((profile) => profile.facts.countryCodes));
+  const taxonomyPath = commonTaxonomyPath(
+    completeProfileValues(profiles, (profile) => profile.facts.taxonomyPath),
+  ).filter((node) => !targetIsGroup || node.rank !== 'species');
+  const continentCodes = sortedUnique(
+    completeProfileValues(profiles, (profile) => profile.facts.continentCodes).flat(),
+  );
+  const countryCodes = sortedUnique(
+    completeProfileValues(profiles, (profile) => profile.facts.countryCodes).flat(),
+  );
   const fungi = aggregateRangeCategory(
-    profiles.map((profile) => profile.facts.durability.fungi).filter(Boolean),
+    completeProfileValues(profiles, (profile) => profile.facts.durability.fungi),
     FUNGAL_CODES,
     'durability.fungi',
     conflicts,
   );
   const heartwoodTreatability = aggregateRangeCategory(
-    profiles.map((profile) => profile.facts.durability.heartwoodTreatability).filter(Boolean),
+    completeProfileValues(profiles, (profile) => profile.facts.durability.heartwoodTreatability),
     TREATABILITY_CODES,
     'durability.treatability',
     conflicts,
   );
   const sapwoodTreatability = aggregateRangeCategory(
-    profiles.map((profile) => profile.facts.durability.sapwoodTreatability).filter(Boolean),
+    completeProfileValues(profiles, (profile) => profile.facts.durability.sapwoodTreatability),
     TREATABILITY_CODES,
     'durability.sapwoodTreatability',
     conflicts,
   );
   const dryWoodBorers = aggregateDryWoodBorers(profiles, conflicts);
   const termites = aggregateExactCategory(
-    profiles.map((profile) => profile.facts.durability.termites).filter(Boolean),
+    completeProfileValues(profiles, (profile) => profile.facts.durability.termites),
     'durability.termites',
     conflicts,
   );
@@ -748,7 +795,7 @@ function aggregateProfiles(profiles) {
     countryCodes,
     fungi,
     fungalBasis: commonValue(
-      profiles.map((profile) => profile.facts.durability.fungalBasis).filter(Boolean),
+      completeProfileValues(profiles, (profile) => profile.facts.durability.fungalBasis),
     ),
     dryWoodBorers,
     termites,
@@ -756,38 +803,48 @@ function aggregateProfiles(profiles) {
     sapwoodTreatability,
     physics: {
       specificGravity: aggregateMeasures(
-        profiles.map((profile) => profile.facts.physics.specificGravity).filter(Boolean),
+        completeProfileValues(profiles, (profile) => profile.facts.physics.specificGravity),
       ),
       totalTangentialShrinkage: aggregateMeasures(
-        profiles.map((profile) => profile.facts.physics.totalTangentialShrinkage).filter(Boolean),
+        completeProfileValues(
+          profiles,
+          (profile) => profile.facts.physics.totalTangentialShrinkage,
+        ),
       ),
       totalRadialShrinkage: aggregateMeasures(
-        profiles.map((profile) => profile.facts.physics.totalRadialShrinkage).filter(Boolean),
+        completeProfileValues(profiles, (profile) => profile.facts.physics.totalRadialShrinkage),
       ),
       fibreSaturationPoint: aggregateMeasures(
-        profiles.map((profile) => profile.facts.physics.fibreSaturationPoint).filter(Boolean),
+        completeProfileValues(profiles, (profile) => profile.facts.physics.fibreSaturationPoint),
       ),
       thermalConductivity: aggregateMeasures(
-        profiles.map((profile) => profile.facts.physics.thermalConductivity).filter(Boolean),
+        completeProfileValues(profiles, (profile) => profile.facts.physics.thermalConductivity),
       ),
     },
     mechanics: {
       crushingStrength: aggregateMeasures(
-        profiles.map((profile) => profile.facts.mechanics.crushingStrength).filter(Boolean),
+        completeProfileValues(profiles, (profile) => profile.facts.mechanics.crushingStrength),
       ),
       staticBendingStrength: aggregateMeasures(
-        profiles.map((profile) => profile.facts.mechanics.staticBendingStrength).filter(Boolean),
+        completeProfileValues(profiles, (profile) => profile.facts.mechanics.staticBendingStrength),
       ),
       modulusOfElasticity: aggregateMeasures(
-        profiles.map((profile) => profile.facts.mechanics.modulusOfElasticity).filter(Boolean),
+        completeProfileValues(profiles, (profile) => profile.facts.mechanics.modulusOfElasticity),
       ),
     },
     conflicts,
   };
 }
 
+function completeProfileValues(profiles, valueForProfile) {
+  const values = profiles.map(valueForProfile);
+  return values.some((value) => value == null || (Array.isArray(value) && value.length === 0))
+    ? []
+    : values;
+}
+
 function aggregateMeasures(measures) {
-  if (measures.length === 0) return null;
+  if (measures.length === 0 || measures.some((measure) => measure.value === null)) return null;
   const units = sortedUnique(measures.map((measure) => measure.unit ?? ''));
   if (units.length > 1) return null;
   const lowerValues = measures
@@ -1217,6 +1274,7 @@ function aggregateDryWoodBorers(profiles, conflicts) {
   const individualClasses = profiles.map((profile) =>
     sortedUnique(Object.values(profile.facts.durability.dryWoodBorerClasses ?? {}).filter(Boolean)),
   );
+  if (individualClasses.some((classes) => classes.length === 0)) return null;
   const conflictingProfileClasses = individualClasses.filter((classes) => classes.length > 1);
   if (conflictingProfileClasses.length > 0) {
     conflicts.push({
@@ -1416,6 +1474,12 @@ function scientificNameKey(value) {
     .toLocaleLowerCase('en');
 }
 
+function isConcreteSpeciesName(value) {
+  const tokens = scientificNameKey(value).split(' ').filter(Boolean);
+  if (tokens.length < 2) return false;
+  return !new Set(['sp', 'spp', 'species', 'p']).has(tokens.at(-1));
+}
+
 function normalizeText(value) {
   return String(value ?? '')
     .normalize('NFKD')
@@ -1459,8 +1523,11 @@ function serializeMatch(match) {
   return {
     id: match.id,
     matchType: match.matchType,
+    targetAcceptedNameCount: match.targetAcceptedNameCount,
+    targetIsGroup: match.targetIsGroup,
     matchedNames: match.matchedNames,
     ambiguousNames: match.ambiguousNames,
+    unmatchedNames: match.unmatchedNames,
     profileUrls: match.entries.map((entry) => entry.detailUrl).sort(),
   };
 }
@@ -1470,6 +1537,7 @@ function countMatches(matches) {
     atlasRecordCount: matches.length,
     acceptedMatchRecords: matches.filter((match) => match.matchType === 'accepted').length,
     synonymMatchRecords: matches.filter((match) => match.matchType === 'synonym').length,
+    partialMatchRecords: matches.filter((match) => match.matchType === 'partial').length,
     ambiguousRecords: matches.filter((match) => match.matchType === 'ambiguous').length,
     unmatchedRecords: matches.filter((match) => match.matchType === 'unmatched').length,
     multiSpeciesGroupRecords: matches.filter(
