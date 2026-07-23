@@ -55,5 +55,7 @@ export function identityFamily(
   database: Pick<WoodDatabase, 'taxonomy'>,
   identity: Pick<Identity, 'family' | 'taxonomyId'>,
 ): string | null {
-  return taxonAtRank(database.taxonomy, identity.taxonomyId, 'family')?.name ?? identity.family ?? null;
+  return (
+    taxonAtRank(database.taxonomy, identity.taxonomyId, 'family')?.name ?? identity.family ?? null
+  );
 }

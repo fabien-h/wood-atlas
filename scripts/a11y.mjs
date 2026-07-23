@@ -232,19 +232,13 @@ try {
       (await densityHeader.getAttribute('aria-sort')) === 'ascending',
       'first sort click did not sort ascending',
     );
-    assert(
-      (await page.locator('tbody tr').last().locator('td').nth(8).innerText()) === '-',
-      'ascending density sort did not keep missing values at the end',
-    );
+    await assertNumericColumnOrder(page, 8, 'ascending', 'Density');
     await densityHeader.getByRole('button').click();
     assert(
       (await densityHeader.getAttribute('aria-sort')) === 'descending',
       'second sort click did not sort descending',
     );
-    assert(
-      (await page.locator('tbody tr').last().locator('td').nth(8).innerText()) === '-',
-      'descending density sort did not keep missing values at the end',
-    );
+    await assertNumericColumnOrder(page, 8, 'descending', 'Density');
     await densityHeader.getByRole('button').click();
     assert(
       (await densityHeader.getAttribute('aria-sort')) === 'none',
@@ -553,6 +547,34 @@ async function assertClassColumnOrder(page, columnIndex, direction, label) {
     assert(
       direction === 'ascending' ? comparison <= 0 : comparison >= 0,
       `${direction} ${label} sort has ${previous.join('–')} before ${current.join('–')}`,
+    );
+  }
+}
+
+async function assertNumericColumnOrder(page, columnIndex, direction, label) {
+  const values = (
+    await page.locator(`tbody tr td:nth-child(${columnIndex + 1})`).allTextContents()
+  ).map((value) => value.trim());
+  const firstMissingIndex = values.indexOf('-');
+  if (firstMissingIndex !== -1) {
+    assert(
+      values.slice(firstMissingIndex).every((value) => value === '-'),
+      `${direction} ${label} sort did not keep missing values at the end`,
+    );
+  }
+  const numbers = values
+    .slice(0, firstMissingIndex === -1 ? undefined : firstMissingIndex)
+    .map((value) => Number(value.replaceAll(',', '')));
+  assert(
+    numbers.length > 0 && numbers.every(Number.isFinite),
+    `${label} did not expose sortable numeric values`,
+  );
+  for (let index = 1; index < numbers.length; index += 1) {
+    const previous = numbers[index - 1];
+    const current = numbers[index];
+    assert(
+      direction === 'ascending' ? previous <= current : previous >= current,
+      `${direction} ${label} sort has ${previous} before ${current}`,
     );
   }
 }

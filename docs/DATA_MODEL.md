@@ -17,9 +17,14 @@ interface WoodDatabase {
     manualRecords?: number;
     supplementalRecords?: number;
   };
+  taxonomy: TaxonomyNode[];
   records: WoodRecord[];
 }
 ```
+
+`taxonomy` is a parent-linked dictionary of canonical botanical nodes. Each node has a deterministic
+numeric `id`, `parentId`, rank, and name. Records store only `identity.taxonomyId`; their kingdom,
+phylum, clade, class, order, family, genus, and species are resolved by walking the parent chain.
 
 ## Record Identity
 
@@ -28,13 +33,17 @@ Each `WoodRecord` represents one source sheet or manually curated species in one
 Important fields:
 
 - `identity.primaryName`, `identity.displayName`, `identity.slug`
-- `identity.family`
+- `identity.taxonomyId`
 - `identity.botanicalNames[]` with `isSynonym`
 - `identity.aliases[]`
 - `identity.localNames[]` as `{ country, name }`
 - `origin.region`: `Africa`, `America`, `Asia`, `Temperate`, or `Unknown`
-- `origin.continent`
+- `origin.continentCodes[]`: normalized continent codes, including multiple continents
+- `origin.countryCodes[]`: ISO 3166-1 alpha-2 distribution codes
 - `cites.raw` and `cites.listed`
+
+Country and continent names are localized at runtime rather than repeated in every translated
+database.
 
 ## Normalized Characteristics
 
@@ -74,7 +83,7 @@ Core qualitative fields:
 
 - log diameter, sapwood thickness, floatability, log durability
 - colour reference, sapwood demarcation, texture, grain, interlocked grain
-- fungi, dry wood borer, termite resistance, treatability, natural use class
+- fungi, dry wood borer, termite resistance, heartwood and sapwood impregnability, natural use class
 - preservative treatment requirements
 - drying risks and drying schedule
 - machining, assembly, commercial grading, fire grading
@@ -111,3 +120,9 @@ Manual records live in `data/manual/woods.json` and the partitioned manifests un
 Partitioned manifests may also contain `supplements`. A supplement targets an existing record by id, fills only fields that are currently unavailable, merges aliases and local names, and appends its source references. The LPF/SFB importer uses this mechanism so repeated Brazilian laboratory observations enrich an existing species rather than creating a duplicate card.
 
 The Brazilian Forest Service LPF source is synchronized and regenerated with `pnpm run data:lpf`. Its observation-level CSV is decoded from Windows-1252 and consolidated by scientific taxon. `pnpm run data:lpf:publish` applies the generated records and supplements without rewriting image assets, then rebuilds the content overlays.
+
+Lignumdata factual values are synchronized with `pnpm run data:lignumdata`. The importer retains
+only scientific classification, geographic codes, standardized durability and impregnability
+classes, and numeric physical or mechanical measurements. It excludes descriptions, remarks,
+application prose, illustrations, and photographs. Every supplement links to the exact species
+page used.

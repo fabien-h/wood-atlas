@@ -685,6 +685,7 @@ async function validateGeneratedDatabases() {
 
 function centralizeTaxonomy(databases) {
   const pathsByRecordId = new Map();
+  const originCodesByRecordId = new Map();
 
   for (const database of databases) {
     const existingTaxonomy = Array.isArray(database.taxonomy) ? database.taxonomy : [];
@@ -692,6 +693,14 @@ function centralizeTaxonomy(databases) {
 
     for (const record of database.records) {
       normalizeRecordGeography(record);
+      const originCodes = originCodesByRecordId.get(record.id) ?? {
+        continentCodes: new Set(),
+        countryCodes: new Set(),
+      };
+      record.origin.continentCodes.forEach((code) => originCodes.continentCodes.add(code));
+      record.origin.countryCodes.forEach((code) => originCodes.countryCodes.add(code));
+      originCodesByRecordId.set(record.id, originCodes);
+
       const suppliedPath = record.identity?.taxonomyPath;
       const existingPath =
         suppliedPath === undefined
@@ -699,7 +708,7 @@ function centralizeTaxonomy(databases) {
           : null;
       let path = normalizeTaxonomyPath(suppliedPath ?? existingPath, record.id);
       if (path.length === 0 && typeof record.identity?.family === 'string') {
-        const family = record.identity.family.trim();
+        const family = record.identity.family.replace(/\s*\([^)]*\)\s*$/, '').trim();
         if (family) path = [{ rank: 'family', name: family }];
       }
       if (path.length === 0) continue;
@@ -732,7 +741,7 @@ function centralizeTaxonomy(databases) {
       const parentKey = length === 1 ? null : taxonomyPathSignature(prefix.slice(0, -1));
       const entry = prefix.at(-1);
       const existing = descriptorsByKey.get(key);
-      if (!existing || stableStringCompare(entry.name, existing.name) < 0) {
+      if (!existing || preferredTaxonName(entry.name, existing.name) === entry.name) {
         descriptorsByKey.set(key, { key, parentKey, rank: entry.rank, name: entry.name });
       }
     }
@@ -753,7 +762,12 @@ function centralizeTaxonomy(databases) {
     database.taxonomy = structuredClone(taxonomy);
     for (const record of database.records) {
       const path = pathsByRecordId.get(record.id);
+      const originCodes = originCodesByRecordId.get(record.id);
       record.identity.taxonomyId = path ? (idByKey.get(taxonomyPathSignature(path)) ?? null) : null;
+      record.origin.continentCodes = CONTINENT_CODES.filter((code) =>
+        originCodes?.continentCodes.has(code),
+      );
+      record.origin.countryCodes = [...(originCodes?.countryCodes ?? [])].sort();
       delete record.identity.taxonomyPath;
       delete record.identity.family;
       delete record.origin.continent;
@@ -852,6 +866,13 @@ function taxonomyPathSignature(path) {
 function stableStringCompare(left, right) {
   if (left === right) return 0;
   return left < right ? -1 : 1;
+}
+
+function preferredTaxonName(left, right) {
+  const leftIsUppercase = left === left.toLocaleUpperCase();
+  const rightIsUppercase = right === right.toLocaleUpperCase();
+  if (leftIsUppercase !== rightIsUppercase) return leftIsUppercase ? right : left;
+  return stableStringCompare(left, right) <= 0 ? left : right;
 }
 
 function validateDatabases(englishDatabase, frenchDatabase) {

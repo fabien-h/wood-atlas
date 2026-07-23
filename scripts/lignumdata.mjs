@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { format } from 'prettier';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const CATALOG_PATH = path.join(ROOT, 'tmp', 'lignumdata-catalog.json');
+const LEGACY_CATALOG_PATH = path.join(ROOT, 'tmp', 'lignumdata-catalog.json');
+const CATALOG_PATH = path.join(ROOT, 'data', 'raw', 'lignumdata', 'catalog.json');
 const FACTS_PATH = path.join(ROOT, 'data', 'raw', 'lignumdata', 'facts.json');
 const MANIFEST_PATH = path.join(ROOT, 'data', 'manual', 'woods', 'lignumdata.json');
 const ENGLISH_DATABASE_PATH = path.join(ROOT, 'public', 'data', 'woods.generated.en.json');
@@ -21,6 +22,7 @@ const FETCH_CONCURRENCY = 4;
 const FETCH_RETRIES = 4;
 const FETCH_TIMEOUT_MS = 45_000;
 const BETWEEN_REQUEST_DELAY_MS = 150;
+const PROFILE_SCHEMA_VERSION = 2;
 const refresh = process.argv.includes('--refresh');
 
 const TAXONOMY_RANKS = [
@@ -79,19 +81,9 @@ const RESISTANCE_CODES = new Set(['D', 'M', 'S']);
 const DRY_BORER_CODES = new Set(['D', 'S']);
 const COUNTRY_ALIAS_TO_CODE = countryAliasIndex();
 
-const command = process.argv.find((argument) => ['sync', 'generate', 'all'].includes(argument)) ?? 'all';
-if (command === 'sync') {
-  await sync();
-} else if (command === 'generate') {
-  await generate();
-} else {
-  await sync();
-  await generate();
-}
-
 async function sync() {
   const [catalog, database, cachedFacts] = await Promise.all([
-    readJson(CATALOG_PATH),
+    loadCatalog(),
     readJson(ENGLISH_DATABASE_PATH),
     readOptionalJson(FACTS_PATH),
   ]);
@@ -112,26 +104,43 @@ async function sync() {
   let fetched = 0;
   let reused = 0;
 
-  const profiles = await mapWithConcurrency(
+  const profileResults = await mapWithConcurrency(
     selectedEntries,
     FETCH_CONCURRENCY,
     async (entry) => {
       const cached = cachedByUrl.get(entry.detailUrl);
-      if (!refresh && cached?.schemaVersion === 1) {
+      if (
+        !refresh &&
+        (cached?.schemaVersion === PROFILE_SCHEMA_VERSION ||
+          (cached?.schemaVersion === 1 &&
+            Object.hasOwn(cached.facts?.durability ?? {}, 'dryWoodBorerClasses')))
+      ) {
         reused += 1;
         completed += 1;
         logProgress(completed, selectedEntries.length, fetched, reused);
-        return cached;
+        return { ...cached, schemaVersion: PROFILE_SCHEMA_VERSION };
       }
-      const html = await fetchTextWithRetries(entry.detailUrl);
-      const profile = parseProfile(html, entry);
-      fetched += 1;
-      completed += 1;
-      logProgress(completed, selectedEntries.length, fetched, reused);
-      await delay(BETWEEN_REQUEST_DELAY_MS);
-      return profile;
+      try {
+        const html = await fetchTextWithRetries(entry.detailUrl);
+        const profile = parseProfile(html, entry);
+        fetched += 1;
+        return profile;
+      } catch (error) {
+        return {
+          failed: true,
+          scientificName: entry.scientificName,
+          url: entry.detailUrl,
+          error: error instanceof Error ? error.message : String(error),
+        };
+      } finally {
+        completed += 1;
+        logProgress(completed, selectedEntries.length, fetched, reused);
+        await delay(BETWEEN_REQUEST_DELAY_MS);
+      }
     },
   );
+  const failures = profileResults.filter((result) => result.failed);
+  const profiles = profileResults.filter((result) => !result.failed);
 
   const matchCounts = countMatches(matches);
   const fieldCoverage = countProfileCoverage(profiles);
@@ -155,6 +164,8 @@ async function sync() {
       selectedProfileCount: profiles.length,
       fetchedProfileCount: fetched,
       reusedProfileCount: reused,
+      failedProfileCount: failures.length,
+      failures,
       records: matches.map(serializeMatch),
     },
     fieldCoverage,
@@ -164,6 +175,7 @@ async function sync() {
   console.log(
     `Stored ${profiles.length} factual Lignumdata profiles: ${JSON.stringify(fieldCoverage)}`,
   );
+  if (failures.length > 0) console.warn(`Skipped ${failures.length} failed profile pages.`);
   console.log(`Atlas matching: ${JSON.stringify(matchCounts)}`);
 }
 
@@ -269,6 +281,156 @@ async function generate() {
   console.log(`Aggregation conflicts: ${JSON.stringify(sortedObject(conflictCounts))}`);
 }
 
+async function loadCatalog() {
+  if (!refresh) {
+    const committed = await readOptionalJson(CATALOG_PATH);
+    if (Array.isArray(committed?.entries) && committed.entries.length > 0) return committed;
+
+    const legacy = await readOptionalJson(LEGACY_CATALOG_PATH);
+    if (Array.isArray(legacy?.entries) && legacy.entries.length > 0) {
+      const migrated = normalizedCatalog(legacy.entries, legacy.generatedAt);
+      await writeJson(CATALOG_PATH, migrated);
+      console.log(
+        `Migrated ${migrated.entries.length} factual catalogue entries to ${relativePath(CATALOG_PATH)}`,
+      );
+      return migrated;
+    }
+  }
+
+  const firstPage = await fetchListingPage(1);
+  if (firstPage.pageCount < 200 || firstPage.totalSpecies < 4_000) {
+    throw new Error(
+      `Lignumdata listing reported only ${firstPage.totalSpecies} species across ${firstPage.pageCount} pages`,
+    );
+  }
+  const remainingPages = Array.from(
+    { length: firstPage.pageCount - 1 },
+    (_unused, index) => index + 2,
+  );
+  let completed = 1;
+  const remainingResults = await mapWithConcurrency(
+    remainingPages,
+    FETCH_CONCURRENCY,
+    async (page) => {
+      const result = await fetchListingPage(page);
+      completed += 1;
+      if (completed % 20 === 0 || completed === firstPage.pageCount) {
+        console.log(`Indexed ${completed}/${firstPage.pageCount} Lignumdata listing pages`);
+      }
+      await delay(BETWEEN_REQUEST_DELAY_MS);
+      return result;
+    },
+  );
+  const entries = [firstPage, ...remainingResults].flatMap((page) => page.entries);
+  const catalog = normalizedCatalog(entries);
+  if (catalog.entries.length < 4_000) {
+    throw new Error(
+      `Lignumdata listing yielded only ${catalog.entries.length} unique species pages`,
+    );
+  }
+  await writeJson(CATALOG_PATH, catalog);
+  console.log(`Stored ${catalog.entries.length} factual catalogue entries.`);
+  return catalog;
+}
+
+function normalizedCatalog(entries, generatedAt = new Date().toISOString()) {
+  return {
+    schemaVersion: PROFILE_SCHEMA_VERSION,
+    generatedAt,
+    sourceUrl: SOURCE_URL,
+    extractionPolicy:
+      'Only the scientific name and public species-detail URL are retained. Trade names, images, captions, and descriptive content are excluded.',
+    entries: uniqueBy(
+      entries.flatMap((entry) =>
+        typeof entry?.scientificName === 'string' &&
+        entry.scientificName.trim() &&
+        typeof entry?.detailUrl === 'string' &&
+        /^https:\/\/lignumdata[.]ch\/system\/holzarten\/[A-F0-9-]{36}[?]locale=en$/u.test(
+          entry.detailUrl,
+        )
+          ? [
+              {
+                scientificName: entry.scientificName.trim(),
+                normalizedScientificName: scientificNameKey(entry.scientificName),
+                detailUrl: entry.detailUrl,
+              },
+            ]
+          : [],
+      ),
+      (entry) => entry.detailUrl,
+    ).sort(
+      (left, right) =>
+        left.normalizedScientificName.localeCompare(right.normalizedScientificName) ||
+        left.detailUrl.localeCompare(right.detailUrl),
+    ),
+  };
+}
+
+async function fetchListingPage(page) {
+  const url = `${SOURCE_URL}&page=${page}`;
+  const responseText = await fetchTextWithRetries(url, {
+    Accept: 'text/javascript, application/javascript, */*; q=0.01',
+    'X-Requested-With': 'XMLHttpRequest',
+  });
+  const html = parseRemoteHtml(responseText);
+  const pageCount = Number(
+    html.match(/Page\s*<b>\d+<\/b>\s*of\s*(\d+)/iu)?.[1] ??
+      html.match(/Page\s+\d+\s+of\s+(\d+)/iu)?.[1] ??
+      1,
+  );
+  const totalSpecies = Number(
+    html.match(/There were\s*<b>(\d+)<\/b>\s*matching wood species/iu)?.[1] ?? 0,
+  );
+  const table = html.match(/<table\b[^>]*id="searchresult-table"[^>]*>([\s\S]*?)<\/table>/iu)?.[1];
+  const entries = [];
+  if (table) {
+    for (const block of table.split(/<tr class="row-1">/iu).slice(1)) {
+      const scientificName = stripTags(
+        block.match(
+          /<h[34]\b[^>]*class="[^"]*holzart-scientific-name[^"]*"[^>]*>([\s\S]*?)<\/h[34]>/iu,
+        )?.[1],
+      );
+      const detailPath = decodeHtml(
+        block.match(
+          /href="(\/system\/holzarten\/[A-F0-9-]{36}[?]locale=en)"[^>]*>[\s\S]*?<span>Detail<\/span>/iu,
+        )?.[1] ??
+          block.match(/href="(\/system\/holzarten\/[A-F0-9-]{36}[?]locale=en)"/iu)?.[1] ??
+          '',
+      );
+      if (!scientificName || !detailPath) continue;
+      entries.push({
+        scientificName,
+        detailUrl: new URL(detailPath, SOURCE_URL).href,
+      });
+    }
+  }
+  return { pageCount, totalSpecies, entries };
+}
+
+function parseRemoteHtml(responseText) {
+  const match = responseText.match(/[.]html\(("(?:\\.|[^"\\])*")\);?\s*$/su);
+  if (!match) return responseText;
+  const encoded = match[1].slice(1, -1);
+  return encoded.replace(
+    /\\(?:u([0-9a-f]{4})|x([0-9a-f]{2})|([0-7]{1,3})|([\s\S]))/giu,
+    (_escape, unicode, hexadecimal, octal, character) => {
+      if (unicode) return String.fromCodePoint(Number.parseInt(unicode, 16));
+      if (hexadecimal) return String.fromCodePoint(Number.parseInt(hexadecimal, 16));
+      if (octal) return String.fromCodePoint(Number.parseInt(octal, 8));
+      return (
+        {
+          b: '\b',
+          f: '\f',
+          n: '\n',
+          r: '\r',
+          t: '\t',
+          v: '\v',
+        }[character] ?? character
+      );
+    },
+  );
+}
+
 function indexCatalog(entries) {
   const byScientificName = new Map();
   for (const entry of entries) {
@@ -355,11 +517,8 @@ function resolveBotanicalNames(names, catalogIndex) {
 function parseProfile(html, catalogEntry) {
   const sections = parseSections(html);
   const detailScientificName = stripTags(
-    html.match(
-      /<h1\b[^>]*class="[^"]*holzart-scientific-name[^"]*"[^>]*>([\s\S]*?)<\/h1>/iu,
-    )?.[1],
-  )
-    .trim();
+    html.match(/<h1\b[^>]*class="[^"]*holzart-scientific-name[^"]*"[^>]*>([\s\S]*?)<\/h1>/iu)?.[1],
+  ).trim();
   const catalogNameKey = scientificNameKey(catalogEntry.scientificName);
   const detailNameKey = scientificNameKey(detailScientificName);
   if (detailNameKey !== catalogNameKey && !detailNameKey.startsWith(`${catalogNameKey} `)) {
@@ -386,6 +545,13 @@ function parseProfile(html, catalogEntry) {
     resistanceClass(rowValue(durabilityRows, 'common furniture beetle anobium')),
     resistanceClass(rowValue(durabilityRows, 'powderpost beetle lyctus')),
   ].filter(Boolean);
+  const dryWoodBorerClasses = {
+    houseLonghorn: resistanceClass(
+      rowValue(durabilityRows, 'house longhorn beetle hylotrupes bajulus'),
+    ),
+    commonFurniture: resistanceClass(rowValue(durabilityRows, 'common furniture beetle anobium')),
+    lyctus: resistanceClass(rowValue(durabilityRows, 'powderpost beetle lyctus')),
+  };
 
   return {
     schemaVersion: 1,
@@ -400,6 +566,7 @@ function parseProfile(html, catalogEntry) {
         fungi: fungalField ?? fungalLaboratory,
         fungalBasis: fungalField ? 'field' : fungalLaboratory ? 'laboratory' : null,
         dryWoodBorers: combineExactClasses(dryBorerValues, DRY_BORER_CODES),
+        dryWoodBorerClasses,
         termites: resistanceClass(rowValue(durabilityRows, 'termites')),
         heartwoodTreatability: treatabilityClass(
           rowValue(impregnabilityRows, 'impregnability of heartwood'),
@@ -416,14 +583,16 @@ function parseProfile(html, catalogEntry) {
 
 function parseSections(html) {
   const sections = [];
-  for (const match of html.matchAll(/<div\b[^>]*class="[^"]*\bsection\b[^"]*"[^>]*>([\s\S]*?)<\/div>/giu)) {
+  for (const match of html.matchAll(
+    /<div\b[^>]*class="[^"]*\bsection\b[^"]*"[^>]*>([\s\S]*?)<\/div>/giu,
+  )) {
     const block = match[1];
     const title = stripTags(block.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/iu)?.[1]);
     if (!title) continue;
     const rows = [];
     for (const rowMatch of block.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/giu)) {
-      const cells = [...rowMatch[1].matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/giu)].map(
-        (cell) => stripTags(cell[1]),
+      const cells = [...rowMatch[1].matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/giu)].map((cell) =>
+        stripTags(cell[1]),
       );
       if (cells.length < 2 || !cells[0]) continue;
       rows.push({
@@ -440,8 +609,8 @@ function parseSections(html) {
 
 function sectionRows(sections, titlePrefix) {
   return (
-    sections.find((section) => section.normalizedTitle.startsWith(normalizeText(titlePrefix)))?.rows ??
-    []
+    sections.find((section) => section.normalizedTitle.startsWith(normalizeText(titlePrefix)))
+      ?.rows ?? []
   );
 }
 
@@ -469,16 +638,18 @@ function parsePhysicalFacts(densityRows, physicalRows) {
     value: numericRowValue(densityRows, /density oven dry u 12 mean value/u, 'kg/m3', 1 / 1000),
     max: numericRowValue(densityRows, /density oven dry u 12 upper limit/u, 'kg/m3', 1 / 1000),
     unit: null,
-    sourceUnit: 'kg/m³ at 12% moisture',
+    sourceUnit: 'kg/m³@12%',
   };
   const allRows = [...densityRows, ...physicalRows];
   return {
     specificGravity:
       density.min !== null || density.value !== null || density.max !== null ? density : null,
-    totalTangentialShrinkage: numericMeasureFromRows(allRows, [
-      /total tangential shrinkage/u,
-      /tangential shrinkage total/u,
-    ], '%', 1),
+    totalTangentialShrinkage: numericMeasureFromRows(
+      allRows,
+      [/total tangential shrinkage/u, /tangential shrinkage total/u],
+      '%',
+      1,
+    ),
     totalRadialShrinkage: numericMeasureFromRows(
       allRows,
       [/total radial shrinkage/u, /radial shrinkage total/u],
@@ -491,12 +662,7 @@ function parsePhysicalFacts(densityRows, physicalRows) {
       '%',
       1,
     ),
-    thermalConductivity: numericMeasureFromRows(
-      allRows,
-      [/thermal conductivity/u],
-      'w/mk',
-      1,
-    ),
+    thermalConductivity: numericMeasureFromRows(allRows, [/thermal conductivity/u], 'w/mk', 1),
   };
 }
 
@@ -558,26 +724,18 @@ function aggregateProfiles(profiles) {
     conflicts,
   );
   const heartwoodTreatability = aggregateRangeCategory(
-    profiles
-      .map((profile) => profile.facts.durability.heartwoodTreatability)
-      .filter(Boolean),
+    profiles.map((profile) => profile.facts.durability.heartwoodTreatability).filter(Boolean),
     TREATABILITY_CODES,
     'durability.treatability',
     conflicts,
   );
   const sapwoodTreatability = aggregateRangeCategory(
-    profiles
-      .map((profile) => profile.facts.durability.sapwoodTreatability)
-      .filter(Boolean),
+    profiles.map((profile) => profile.facts.durability.sapwoodTreatability).filter(Boolean),
     TREATABILITY_CODES,
     'durability.sapwoodTreatability',
     conflicts,
   );
-  const dryWoodBorers = aggregateExactCategory(
-    profiles.map((profile) => profile.facts.durability.dryWoodBorers).filter(Boolean),
-    'durability.dryWoodBorers',
-    conflicts,
-  );
+  const dryWoodBorers = aggregateDryWoodBorers(profiles, conflicts);
   const termites = aggregateExactCategory(
     profiles.map((profile) => profile.facts.durability.termites).filter(Boolean),
     'durability.termites',
@@ -601,9 +759,7 @@ function aggregateProfiles(profiles) {
         profiles.map((profile) => profile.facts.physics.specificGravity).filter(Boolean),
       ),
       totalTangentialShrinkage: aggregateMeasures(
-        profiles
-          .map((profile) => profile.facts.physics.totalTangentialShrinkage)
-          .filter(Boolean),
+        profiles.map((profile) => profile.facts.physics.totalTangentialShrinkage).filter(Boolean),
       ),
       totalRadialShrinkage: aggregateMeasures(
         profiles.map((profile) => profile.facts.physics.totalRadialShrinkage).filter(Boolean),
@@ -831,9 +987,13 @@ function numericValue(field, measure, language) {
       : '';
   const sourceUnit = measure.sourceUnit ? ` ${measure.sourceUnit}` : '';
   const raw =
-    language === 'fr'
-      ? `Lignumdata — ${labels.fr[field]} : moyenne publiée ${measure.value}${sourceUnit}${range}`
-      : `Lignumdata — ${labels.en[field]}: published mean ${measure.value}${sourceUnit}${range}`;
+    field === 'physics.specificGravity'
+      ? language === 'fr'
+        ? `Lignumdata — ${labels.fr[field]} : densité relative moyenne publiée ${measure.value} (source en kg/m³ divisée par 1000)${range}`
+        : `Lignumdata — ${labels.en[field]}: published mean relative density ${measure.value} (source kg/m³ divided by 1000)${range}`
+      : language === 'fr'
+        ? `Lignumdata — ${labels.fr[field]} : moyenne publiée ${measure.value}${sourceUnit}${range}`
+        : `Lignumdata — ${labels.en[field]}: published mean ${measure.value}${sourceUnit}${range}`;
   return {
     raw,
     value: measure.value,
@@ -1022,7 +1182,9 @@ function emptyLocale(base, language) {
 
 function commonTaxonomyPath(paths) {
   if (paths.length === 0) return [];
-  const byRank = paths.map((taxonomyPath) => new Map(taxonomyPath.map((node) => [node.rank, node.name])));
+  const byRank = paths.map(
+    (taxonomyPath) => new Map(taxonomyPath.map((node) => [node.rank, node.name])),
+  );
   const common = [];
   for (const rank of TAXONOMY_RANKS) {
     const names = byRank.map((pathValue) => pathValue.get(rank)).filter(Boolean);
@@ -1051,6 +1213,22 @@ function aggregateExactCategory(values, field, conflicts) {
   return null;
 }
 
+function aggregateDryWoodBorers(profiles, conflicts) {
+  const individualClasses = profiles.map((profile) =>
+    sortedUnique(Object.values(profile.facts.durability.dryWoodBorerClasses ?? {}).filter(Boolean)),
+  );
+  const conflictingProfileClasses = individualClasses.filter((classes) => classes.length > 1);
+  if (conflictingProfileClasses.length > 0) {
+    conflicts.push({
+      field: 'durability.dryWoodBorers',
+      values: sortedUnique(conflictingProfileClasses.flat()),
+      reason: 'conflicting borer-specific classes',
+    });
+    return null;
+  }
+  return aggregateExactCategory(individualClasses.flat(), 'durability.dryWoodBorers', conflicts);
+}
+
 function durabilityClass(value) {
   const normalized = normalizeText(value)
     .replace(/^dc\s*/u, '')
@@ -1073,7 +1251,9 @@ function treatabilityClass(value) {
 }
 
 function resistanceClass(value) {
-  const code = String(value ?? '').trim().toUpperCase();
+  const code = String(value ?? '')
+    .trim()
+    .toUpperCase();
   return RESISTANCE_CODES.has(code) ? code : null;
 }
 
@@ -1097,14 +1277,13 @@ function continentCodes(value) {
 }
 
 function countryCodes(value) {
-  const normalized = normalizeText(value);
+  const normalized = normalizeText(value)
+    .replace(/\bnew mexico\b/gu, ' ')
+    .replace(/\bnew jersey\b/gu, ' ');
   const aliases = [...COUNTRY_ALIAS_TO_CODE.keys()].sort(
     (left, right) => right.length - left.length || left.localeCompare(right),
   );
-  const pattern = new RegExp(
-    `(?:^|\\b)(${aliases.map(escapeRegExp).join('|')})(?=\\b|$)`,
-    'gu',
-  );
+  const pattern = new RegExp(`(?:^|\\b)(${aliases.map(escapeRegExp).join('|')})(?=\\b|$)`, 'gu');
   const codes = [];
   for (const match of normalized.matchAll(pattern)) {
     const code = COUNTRY_ALIAS_TO_CODE.get(match[1]);
@@ -1171,12 +1350,15 @@ function countryAliasIndex() {
     'united kingdom': 'GB',
     'united states': 'US',
     'united states of america': 'US',
+    usa: 'US',
     venezuela: 'VE',
     vietnam: 'VN',
   };
   for (const [name, code] of Object.entries(manualAliases)) aliases.set(normalizeText(name), code);
   aliases.delete('congo');
+  aliases.delete('georgia');
   aliases.delete('guinea');
+  aliases.delete('jersey');
   aliases.delete('korea');
   return aliases;
 }
@@ -1192,11 +1374,15 @@ function isTaxonomyValue(value) {
 }
 
 function cleanTaxonomyValue(value) {
-  return String(value ?? '').replace(/\s+/gu, ' ').trim();
+  return String(value ?? '')
+    .replace(/\s+/gu, ' ')
+    .trim();
 }
 
 function parseNumeric(value) {
-  const normalized = String(value ?? '').trim().replace(',', '.');
+  const normalized = String(value ?? '')
+    .trim()
+    .replace(',', '.');
   if (!/^-?\d+(?:[.]\d+)?$/u.test(normalized)) return null;
   const result = Number(normalized);
   return Number.isFinite(result) ? result : null;
@@ -1207,10 +1393,7 @@ function unitMatches(actual, expected) {
 }
 
 function cleanUnit(value) {
-  return normalizeText(value)
-    .replace(/\s+/gu, '')
-    .replace(/³/gu, '3')
-    .replace(/[()]/gu, '');
+  return normalizeText(value).replace(/\s+/gu, '').replace(/³/gu, '3').replace(/[()]/gu, '');
 }
 
 function targetUnit(sourceUnit) {
@@ -1306,6 +1489,9 @@ function countProfileCoverage(profiles) {
     'countryCodes',
     'durability.fungi',
     'durability.dryWoodBorers',
+    'durability.dryWoodBorerClasses.houseLonghorn',
+    'durability.dryWoodBorerClasses.commonFurniture',
+    'durability.dryWoodBorerClasses.lyctus',
     'durability.termites',
     'durability.heartwoodTreatability',
     'durability.sapwoodTreatability',
@@ -1374,14 +1560,16 @@ function logProgress(completed, total, fetched, reused) {
   }
 }
 
-async function fetchTextWithRetries(url) {
+async function fetchTextWithRetries(url, headers = {}) {
   let lastError;
   for (let attempt = 1; attempt <= FETCH_RETRIES; attempt += 1) {
     try {
       const response = await fetch(url, {
         headers: {
           Accept: 'text/html,application/xhtml+xml',
-          'User-Agent': 'WoodAtlasFactualDataImporter/1.0 (+https://github.com/fabien-h/wood-atlas)',
+          'User-Agent':
+            'WoodAtlasFactualDataImporter/1.0 (+https://github.com/fabien-h/wood-atlas)',
+          ...headers,
         },
         signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
       });
@@ -1405,9 +1593,7 @@ async function mapWithConcurrency(values, concurrency, callback) {
       results[index] = await callback(values[index], index);
     }
   }
-  await Promise.all(
-    Array.from({ length: Math.min(concurrency, values.length) }, () => worker()),
-  );
+  await Promise.all(Array.from({ length: Math.min(concurrency, values.length) }, () => worker()));
   return results;
 }
 
@@ -1439,4 +1625,15 @@ async function writeJson(filePath, value) {
     printWidth: 100,
   });
   await fs.writeFile(filePath, output);
+}
+
+const command =
+  process.argv.find((argument) => ['sync', 'generate', 'all'].includes(argument)) ?? 'all';
+if (command === 'sync') {
+  await sync();
+} else if (command === 'generate') {
+  await generate();
+} else {
+  await sync();
+  await generate();
 }
