@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-cordyla",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "99013cadd8d0d7574b9f2e474a7c4ad59dd8bcff757cc3ada2d414e83a9637bc",
+      "sourceWidth": 584,
+      "sourceHeight": 281,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 281,
+      "outputHeight": 281,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import type { AppLanguage, SourceLanguage } from './types/wood';
+import type { AppLanguage, ContinentCode, SourceLanguage, TaxonomyRank } from './types/wood';
 import { ar } from './locales/ar';
 import { bn } from './locales/bn';
 import { de } from './locales/de';
@@ -67,6 +67,8 @@ export interface Translation {
   fungi: string;
   termites: string;
   treatability: string;
+  heartwoodTreatability: string;
+  sapwoodTreatability: string;
   all: string;
   listed: string;
   notListed: string;
@@ -109,6 +111,8 @@ export interface Translation {
   example: string;
   botanicalNamesUnavailable: string;
   identity: string;
+  botany: string;
+  taxonomyRanks: Record<TaxonomyRank, string>;
   descriptionOfLogs: string;
   descriptionOfWood: string;
   family: string;
@@ -264,6 +268,8 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     fungi: 'Fungi',
     termites: 'Termites',
     treatability: 'Treatability',
+    heartwoodTreatability: 'Heartwood impregnability',
+    sapwoodTreatability: 'Sapwood impregnability',
     all: 'All',
     listed: 'Listed',
     notListed: 'Not listed',
@@ -306,6 +312,17 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     example: 'Example',
     botanicalNamesUnavailable: 'Botanical names unavailable',
     identity: 'Identity',
+    botany: 'Botany',
+    taxonomyRanks: {
+      kingdom: 'Kingdom',
+      phylum: 'Phylum',
+      clade: 'Clade',
+      class: 'Class',
+      order: 'Order',
+      family: 'Family',
+      genus: 'Genus',
+      species: 'Species',
+    },
     descriptionOfLogs: 'Description of logs',
     descriptionOfWood: 'Description of wood',
     family: 'Family',
@@ -438,6 +455,8 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     fungi: 'Champignons',
     termites: 'Termites',
     treatability: 'Imprégnabilité',
+    heartwoodTreatability: 'Imprégnabilité du duramen',
+    sapwoodTreatability: 'Imprégnabilité de l’aubier',
     all: 'Tous',
     listed: 'Inscrite',
     notListed: 'Non inscrite',
@@ -480,6 +499,17 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     example: 'Exemple',
     botanicalNamesUnavailable: 'Noms botaniques indisponibles',
     identity: 'Identité',
+    botany: 'Botanique',
+    taxonomyRanks: {
+      kingdom: 'Règne',
+      phylum: 'Embranchement',
+      clade: 'Clade',
+      class: 'Classe',
+      order: 'Ordre',
+      family: 'Famille',
+      genus: 'Genre',
+      species: 'Espèce',
+    },
     descriptionOfLogs: 'Description de la grume',
     descriptionOfWood: 'Description du bois',
     family: 'Famille',
@@ -559,6 +589,48 @@ export const baseTranslations: Record<SourceLanguage, Translation> = {
     },
   },
 };
+
+const continentRegionCodes: Record<ContinentCode, string> = {
+  AF: '002',
+  AN: '010',
+  AS: '142',
+  EU: '150',
+  NA: '003',
+  OC: '009',
+  SA: '005',
+};
+
+export function displayContinentNames(codes: readonly ContinentCode[], locale: string): string[] {
+  return displayRegionNames(
+    codes.map((code) => continentRegionCodes[code]),
+    locale,
+  );
+}
+
+export function displayCountryNames(codes: readonly string[], locale: string): string[] {
+  return displayRegionNames(codes, locale);
+}
+
+export function formatLocalizedList(values: readonly string[], locale: string): string | null {
+  if (values.length === 0) return null;
+  try {
+    return new Intl.ListFormat(locale, { style: 'long', type: 'conjunction' }).format(values);
+  } catch {
+    return values.join(', ');
+  }
+}
+
+function displayRegionNames(codes: readonly string[], locale: string): string[] {
+  try {
+    const displayNames = new Intl.DisplayNames([locale], {
+      type: 'region',
+      fallback: 'code',
+    });
+    return codes.map((code) => displayNames.of(code) ?? code);
+  } catch {
+    return [...codes];
+  }
+}
 
 export const translations: Record<AppLanguage, Translation> = {
   ar,

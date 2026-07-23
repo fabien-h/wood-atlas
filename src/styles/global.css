@@ -38,6 +38,9 @@ body {
   margin: 0;
   background: #fff;
 }
+dl {
+  margin: 0;
+}
 
 button,
 input,

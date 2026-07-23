@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-drypetes-variabilis",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "0884aaef31d182affb8ca61188683d32aa892b0833df365d413173f2509741f5",
+      "sourceWidth": 578,
+      "sourceHeight": 283,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 283,
+      "outputHeight": 283,
+      "matchedCandidate": null
+    }
+  ]
+}

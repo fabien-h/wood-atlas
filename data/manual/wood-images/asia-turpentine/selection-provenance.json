@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-turpentine",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "af37d321c98a7b97336845e361d7f39a81eac1ed6ef47b1df4fe8674238fe4d6",
+      "sourceWidth": 592,
+      "sourceHeight": 289,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 289,
+      "outputHeight": 289,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-peltogyne-paniculata",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "cb1998f867e898c9b4b86b227a4f08f766cc58a6f50ec245ab4053b18464f316",
+      "sourceWidth": 4736,
+      "sourceHeight": 3622,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-tapirira-guianensis",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "383bce41a3a0e1ab100a69568bfd6797740feac30fc7507f439ab7d6c3dde30d",
+      "sourceWidth": 601,
+      "sourceHeight": 283,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 283,
+      "outputHeight": 283,
+      "matchedCandidate": null
+    }
+  ]
+}

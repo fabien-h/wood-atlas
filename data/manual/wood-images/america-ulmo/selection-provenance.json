@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-ulmo",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "5e0d66088a92bdfad41488abdd3b2e454b0876cb0247dc2e1ecc67869a2341f0",
+      "sourceWidth": 882,
+      "sourceHeight": 448,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 448,
+      "outputHeight": 448,
+      "matchedCandidate": null
+    }
+  ]
+}

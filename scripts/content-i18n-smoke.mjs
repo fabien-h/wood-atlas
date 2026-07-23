@@ -29,7 +29,7 @@ const LOCALES = [
   'vi',
   'zh-Hans',
 ];
-const EXPECTED_UNIT_COUNT = 5_958;
+const EXPECTED_UNIT_COUNT = 5_957;
 const EXPECTED_RECORD_COUNT = 728;
 const EXPECTED_CONTEXT_COUNT = 40_472;
 const EXPECTED_DRY_WOOD_BORER_VALUES = new Set([
@@ -78,7 +78,7 @@ const INDEXED_OVERLAY_PATHS = [
   /^appearance\.(?:colourReference|sapwood|texture|grain|interlockedGrain)\.value$/,
   /^appearance\.notes\.\d+$/,
   /^physics\.notes\.\d+$/,
-  /^durability\.(?:fungi|dryWoodBorers|termites|treatability|naturalUseClass|coversUseClass5)\.value$/,
+  /^durability\.(?:fungi|dryWoodBorers|termites|treatability|sapwoodTreatability|naturalUseClass|coversUseClass5)\.value$/,
   /^durability\.preservativeTreatment\.(?:dryWoodBorer|temporaryHumidification|permanentHumidification)\.value$/,
   /^durability\.preservativeTreatment\.notes\.\d+$/,
   /^durability\.notes\.\d+$/,
@@ -189,11 +189,11 @@ async function smokeLocale(locale, database, source, index, protectedSnapshotBef
   let changedSearchTexts = 0;
   const sourceById = new Map(database.records.map((record) => [record.id, record]));
   for (const record of localized.records) {
-    const generated = buildWoodSearchText(record);
+    const generated = buildWoodSearchText(record, localized.taxonomy, locale);
     if (typeof generated !== 'string' || !generated.trim()) {
       throw new Error(`cannot regenerate a non-empty searchText for ${record.id}`);
     }
-    if (generated !== buildWoodSearchText(record)) {
+    if (generated !== buildWoodSearchText(record, localized.taxonomy, locale)) {
       throw new Error(`searchText regeneration is not deterministic for ${record.id}`);
     }
     record.searchText = generated;
@@ -295,7 +295,12 @@ function validateCanonicalDurabilityValues(records) {
   }
 
   const treatabilityValues = new Set(
-    records.map((record) => record.durability.treatability.value).filter(Boolean),
+    records
+      .flatMap((record) => [
+        record.durability.treatability.value,
+        record.durability.sapwoodTreatability.value,
+      ])
+      .filter(Boolean),
   );
   if (
     treatabilityValues.size !== EXPECTED_TREATABILITY_VALUES.size ||
@@ -475,35 +480,66 @@ function applyOverlay(database, overlay) {
 function protectedSnapshot(database) {
   return JSON.stringify({
     source: database.source,
+    taxonomy: database.taxonomy,
     records: database.records.map((record) => ({
       id: record.id,
       numericMeasures: Object.fromEntries(
         NUMERIC_MEASURE_PATHS.map((measurePath) => [measurePath, getAtPath(record, measurePath)]),
       ),
       botanicalNames: record.identity.botanicalNames,
-      family: record.identity.family,
+      taxonomyId: record.identity.taxonomyId,
       source: record.source,
       rawSections: record.rawSections,
       extraction: record.extraction,
       localVernacularNames: record.identity.localNames.map(({ name }) => name),
       canonicalRegion: record.origin.region,
+      continentCodes: record.origin.continentCodes,
+      countryCodes: record.origin.countryCodes,
     })),
   });
 }
 
-function buildWoodSearchText(record) {
+function buildWoodSearchText(record, taxonomy, locale) {
+  const nodesById = new Map(taxonomy.map((node) => [node.id, node]));
+  const taxonomyNames = [];
+  const visited = new Set();
+  let node = nodesById.get(record.identity.taxonomyId);
+  while (node && !visited.has(node.id)) {
+    visited.add(node.id);
+    taxonomyNames.push(node.name);
+    node = node.parentId === null ? null : nodesById.get(node.parentId);
+  }
+  const continentRegionCodes = {
+    AF: '002',
+    AN: '010',
+    AS: '142',
+    EU: '150',
+    NA: '003',
+    OC: '009',
+    SA: '005',
+  };
+  let displayNames;
+  try {
+    displayNames = new Intl.DisplayNames([locale], { type: 'region', fallback: 'code' });
+  } catch {
+    displayNames = null;
+  }
   return [
     record.identity.displayName,
     record.identity.primaryName,
     ...record.identity.aliases,
-    record.identity.family,
+    ...taxonomyNames,
     ...record.identity.botanicalNames.map((item) => item.name),
     ...record.identity.localNames.flatMap((item) => [item.country, item.name]),
     record.identity.commercialRestrictions.value,
     ...record.identity.notes,
     record.origin.region,
-    record.origin.continent,
-    ...record.origin.countries,
+    ...record.origin.continentCodes,
+    ...record.origin.continentCodes.map(
+      (code) => displayNames?.of(continentRegionCodes[code]) ?? code,
+    ),
+    ...record.origin.countryCodes,
+    ...record.origin.countryCodes.map((code) => displayNames?.of(code) ?? code),
     record.cites.raw,
     record.log.sapwoodThickness.value,
     record.log.floats.value,
@@ -521,6 +557,7 @@ function buildWoodSearchText(record) {
     record.durability.dryWoodBorers.value,
     record.durability.termites.value,
     record.durability.treatability.value,
+    record.durability.sapwoodTreatability.value,
     record.durability.naturalUseClass.value,
     record.durability.coversUseClass5.value,
     ...record.durability.notes,

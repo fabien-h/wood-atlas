@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-jobo",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "b8c35f34d0c2f7607b34088e4a0bad02f80e94653a0c72c4ad59868806b479c9",
+      "sourceWidth": 1871,
+      "sourceHeight": 1450,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

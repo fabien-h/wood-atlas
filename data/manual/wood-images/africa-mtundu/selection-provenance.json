@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "africa-mtundu",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c716431e0c3afff530d5bf23c51e07c1712a0a5834c39a32b4df6509d31ce996",
+      "sourceWidth": 590,
+      "sourceHeight": 269,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 269,
+      "outputHeight": 269,
+      "matchedCandidate": null
+    }
+  ]
+}

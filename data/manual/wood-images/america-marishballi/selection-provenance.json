@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-marishballi",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c582beb78bde09349aba523f6eb5efd530c6f23e0122d3f811f3a855d763f7cd",
+      "sourceWidth": 588,
+      "sourceHeight": 269,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 269,
+      "outputHeight": 269,
+      "matchedCandidate": null
+    }
+  ]
+}

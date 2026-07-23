@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-micropholis-guyanensis",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "38e982590d3f9899da9d0ee77cc280e02111b787f131e5d57eee254488668713",
+      "sourceWidth": 568,
+      "sourceHeight": 295,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 295,
+      "outputHeight": 295,
+      "matchedCandidate": null
+    }
+  ]
+}

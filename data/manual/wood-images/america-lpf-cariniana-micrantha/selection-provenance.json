@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-cariniana-micrantha",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "41bf2b2b07853df820557c4dc3da845e7262d61146c5d696c03ae820ce4b2c8a",
+      "sourceWidth": 1930,
+      "sourceHeight": 1532,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-roupala-montana",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "74ba6da1335247af14262c65693977110bca240470c1bdb8f32483dbf948a862",
+      "sourceWidth": 590,
+      "sourceHeight": 299,
+      "outputFile": "radial.jpg",
+      "outputWidth": 299,
+      "outputHeight": 299,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "bf1a7bc1b78a65da132d2890bd03e7f627707846d11562cbd43bc478bb683224",
+      "sourceWidth": 1158,
+      "sourceHeight": 548,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 548,
+      "outputHeight": 548,
+      "matchedCandidate": null
+    }
+  ]
+}

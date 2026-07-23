@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-ocotea-neesiana",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "3125965e0a03aabf71fdb630040ec4608f45d217a368ad828acc0afbaea55c31",
+      "sourceWidth": 1894,
+      "sourceHeight": 1447,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

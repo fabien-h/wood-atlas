@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-orientalwood",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "517abc61960bf276194b572bb59a115c567e0c6cb0b5eaa3c0276447c99d373c",
+      "sourceWidth": 606,
+      "sourceHeight": 292,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 292,
+      "outputHeight": 292,
+      "matchedCandidate": null
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-mezilaurus-itauba",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "8ce50ad8f4df103b2d23b7f4ca9caed91b1ebaa89abee4c955b210bdaad4e23c",
+      "sourceWidth": 1891,
+      "sourceHeight": 1436,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "3bc7944d93e9c064afe489e5bac3ec0577056342bb34e1d838746f9e5f80d4f9",
+      "sourceWidth": 1024,
+      "sourceHeight": 1024,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

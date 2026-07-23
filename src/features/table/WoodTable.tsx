@@ -6,13 +6,15 @@ import {
   type SortKey,
   type WoodSort,
 } from '../../domain/woods';
+import { identityFamily } from '../../domain/taxonomy';
 import type { Translation } from '../../i18n';
-import type { WoodRecord } from '../../types/wood';
+import type { TaxonomyNode, WoodRecord } from '../../types/wood';
 import { RegionBadge } from '../../components/RegionBadge';
 import styles from './WoodTable.module.css';
 
 interface WoodTableProps {
   woods: WoodRecord[];
+  taxonomy: TaxonomyNode[];
   selectedIds: string[];
   activeId?: string;
   sort: WoodSort;
@@ -25,6 +27,7 @@ interface WoodTableProps {
 
 export function WoodTable({
   woods,
+  taxonomy,
   selectedIds,
   activeId,
   sort,
@@ -109,6 +112,7 @@ export function WoodTable({
               const selected = selectedIds.includes(wood.id);
               const thumbnail = wood.thumbnail;
               const name = commonName(wood);
+              const family = identityFamily({ taxonomy }, wood.identity);
               return (
                 <tr
                   className={activeId === wood.id ? styles.activeRow : ''}
@@ -150,7 +154,7 @@ export function WoodTable({
                       )}
                       <span className={styles.nameText}>
                         <strong>{name}</strong>
-                        <span>{wood.identity.family ?? '-'}</span>
+                        <span>{family ?? '-'}</span>
                       </span>
                       <ChevronRight className={styles.openIcon} size={16} aria-hidden="true" />
                     </button>

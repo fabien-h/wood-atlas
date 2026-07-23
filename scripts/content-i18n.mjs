@@ -20,6 +20,7 @@ const MANUAL_TRANSLATIONS = path.join(ROOT, 'data/manual/content-translations.js
 const MANUAL_TRANSLATION_DIRECTORY = path.join(ROOT, 'data/manual/content-translations');
 const CONTENT_DIRECTORY = path.join(ROOT, 'public/data/content');
 const SCHEMA_VERSION = 1;
+const RETIRED_SOURCE_SCOPES = new Set(['origin.continent', 'origin.countries[]']);
 
 const TEXT_VALUE_PATHS = [
   'identity.commercialRestrictions',
@@ -36,6 +37,7 @@ const TEXT_VALUE_PATHS = [
   'durability.dryWoodBorers',
   'durability.termites',
   'durability.treatability',
+  'durability.sapwoodTreatability',
   'durability.naturalUseClass',
   'durability.coversUseClass5',
   'durability.preservativeTreatment.dryWoodBorer',
@@ -237,7 +239,8 @@ async function planCatalogRebases(previousManifest, nextManifest, manualTranslat
       }
       return (
         !oldUnit ||
-        (oldUnit.scope !== 'identity.aliases[]' &&
+        (!RETIRED_SOURCE_SCOPES.has(oldUnit.scope) &&
+          oldUnit.scope !== 'identity.aliases[]' &&
           !isRemovedSourceCategory(oldUnit.scope, oldUnit.source))
       );
     });
@@ -323,7 +326,8 @@ async function readManualTranslationSeeds() {
       const normalizedSource = normalizeCategoryText(unit.source, 'en');
       if (
         (unit.scope === 'durability.fungi.value' ||
-          unit.scope === 'durability.treatability.value') &&
+          unit.scope === 'durability.treatability.value' ||
+          unit.scope === 'durability.sapwoodTreatability.value') &&
         normalizedSource !== source
       ) {
         continue;
@@ -367,7 +371,9 @@ async function readManualTranslationSeeds() {
 }
 
 function categoryKey(scope, source) {
-  return `${scope}\u0000${normalizedCategorySourceKey(scope, source)}`;
+  const translationScope =
+    scope === 'durability.sapwoodTreatability.value' ? 'durability.treatability.value' : scope;
+  return `${translationScope}\u0000${normalizedCategorySourceKey(scope, source)}`;
 }
 
 function normalizeCategoryTranslation(unit, translated, locale) {

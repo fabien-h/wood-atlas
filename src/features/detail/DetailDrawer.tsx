@@ -11,17 +11,25 @@ import {
   hasTextValue,
   isMeaningful,
 } from '../../domain/woods';
-import type { Translation } from '../../i18n';
-import type { NumericMeasure, WoodImage, WoodRecord } from '../../types/wood';
+import { originCodes } from '../../domain/geography';
+import { identityFamily, recordTaxonomy, TAXONOMY_RANKS } from '../../domain/taxonomy';
+import {
+  displayContinentNames,
+  displayCountryNames,
+  formatLocalizedList,
+  type Translation,
+} from '../../i18n';
+import type { NumericMeasure, TaxonomyNode, WoodImage, WoodRecord } from '../../types/wood';
 import styles from './DetailDrawer.module.css';
 
 interface DetailDrawerProps {
   wood?: WoodRecord;
+  taxonomy: TaxonomyNode[];
   copy: Translation;
   onClose: () => void;
 }
 
-export function DetailDrawer({ wood, copy, onClose }: DetailDrawerProps) {
+export function DetailDrawer({ wood, taxonomy, copy, onClose }: DetailDrawerProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => setIsScrolled(false), [wood?.id]);
 
@@ -42,7 +50,13 @@ export function DetailDrawer({ wood, copy, onClose }: DetailDrawerProps) {
           onScroll={(event) => setIsScrolled(event.currentTarget.scrollTop > 0)}
         >
           <Dialog className={styles.dialog}>
-            <DetailContent wood={wood} copy={copy} onClose={onClose} elevated={isScrolled} />
+            <DetailContent
+              wood={wood}
+              taxonomy={taxonomy}
+              copy={copy}
+              onClose={onClose}
+              elevated={isScrolled}
+            />
           </Dialog>
         </Modal>
       )}
@@ -52,11 +66,13 @@ export function DetailDrawer({ wood, copy, onClose }: DetailDrawerProps) {
 
 function DetailContent({
   wood,
+  taxonomy,
   copy,
   onClose,
   elevated,
 }: {
   wood: WoodRecord;
+  taxonomy: TaxonomyNode[];
   copy: Translation;
   onClose: () => void;
   elevated: boolean;
@@ -66,13 +82,33 @@ function DetailContent({
   const exampleImages = wood.images.filter((image) => image.kind === 'example');
   const name = commonName(wood);
   const localizedEndUses = [...new Set(wood.endUses)];
+  const lineage = recordTaxonomy({ taxonomy }, wood);
+  const family = identityFamily({ taxonomy }, wood.identity);
+  const taxonomyFields = TAXONOMY_RANKS.flatMap((rank) => {
+    const matchingNodes = lineage.filter((node) => node.rank === rank);
+    if (matchingNodes.length > 0) return matchingNodes;
+    return rank === 'family' && family
+      ? [{ id: -1, parentId: null, rank: 'family' as const, name: family }]
+      : [];
+  });
+  const normalizedOrigin = originCodes({
+    continentCodes: wood.origin.continentCodes ?? [],
+    countryCodes: wood.origin.countryCodes ?? [],
+  });
+  const continentNames = displayContinentNames(normalizedOrigin.continentCodes, copy.locale);
+  const countryNames = displayCountryNames(normalizedOrigin.countryCodes, copy.locale);
+  const continentValue =
+    continentNames.length > 0
+      ? formatLocalizedList(continentNames, copy.locale)
+      : wood.origin.continent;
+  const countryValue =
+    countryNames.length > 0
+      ? formatLocalizedList(countryNames, copy.locale)
+      : formatLocalizedList((wood.origin.countries ?? []).filter(isMeaningful), copy.locale);
   const hasIdentity =
-    [
-      wood.identity.family,
-      wood.origin.continent,
-      wood.cites.raw,
-      wood.identity.commercialRestrictions?.value,
-    ].some(isMeaningful) || hasNotes(wood.identity.notes);
+    [wood.cites.raw, wood.identity.commercialRestrictions?.value].some(isMeaningful) ||
+    hasNotes(wood.identity.notes);
+  const hasOrigin = [continentValue, countryValue].some(isMeaningful);
   const hasLog =
     hasMeasure(wood.log.diameterCm) ||
     [wood.log.sapwoodThickness, wood.log.floats, wood.log.durability].some(hasTextValue) ||
@@ -104,6 +140,7 @@ function DetailContent({
       wood.durability.dryWoodBorers,
       wood.durability.termites,
       wood.durability.treatability,
+      wood.durability.sapwoodTreatability,
       wood.durability.naturalUseClass,
       wood.durability.coversUseClass5,
     ].some(hasTextValue) || hasNotes(wood.durability.notes);
@@ -184,14 +221,31 @@ function DetailContent({
 
       {hasIdentity && (
         <DetailSection title={copy.identity}>
-          <KV label={copy.family} value={wood.identity.family} />
-          <KV label={copy.continent} value={wood.origin.continent} />
           <KV label="CITES" value={wood.cites.raw} />
           <KV
             label={copy.commercialRestrictions}
             value={wood.identity.commercialRestrictions?.value}
           />
           <NotesList notes={wood.identity.notes} />
+        </DetailSection>
+      )}
+
+      {hasOrigin && (
+        <DetailSection title={copy.origin}>
+          <KV label={copy.continent} value={continentValue} />
+          <KV label={copy.country} value={countryValue} />
+        </DetailSection>
+      )}
+
+      {taxonomyFields.length > 0 && (
+        <DetailSection title={copy.botany}>
+          {taxonomyFields.map((node) => (
+            <KV
+              label={copy.taxonomyRanks[node.rank]}
+              value={node.name}
+              key={node.id === -1 ? `fallback:${node.rank}` : node.id}
+            />
+          ))}
         </DetailSection>
       )}
 
@@ -304,7 +358,8 @@ function DetailContent({
           <KV label={copy.fungi} value={wood.durability.fungi.value} />
           <KV label={copy.dryWoodBorers} value={wood.durability.dryWoodBorers.value} />
           <KV label={copy.termites} value={wood.durability.termites.value} />
-          <KV label={copy.treatability} value={wood.durability.treatability.value} />
+          <KV label={copy.heartwoodTreatability} value={wood.durability.treatability.value} />
+          <KV label={copy.sapwoodTreatability} value={wood.durability.sapwoodTreatability?.value} />
           <KV label={copy.naturalUseClass} value={wood.durability.naturalUseClass.value} />
           <KV label={copy.coversUseClass5} value={wood.durability.coversUseClass5?.value} />
           <NotesList notes={wood.durability.notes} />
@@ -569,12 +624,12 @@ function KV({
 }) {
   if (!isMeaningful(value)) return null;
   return (
-    <div className={styles.kv}>
-      <span>{label}</span>
-      <strong dir="auto" lang={valueLanguage}>
+    <dl className={styles.kv}>
+      <dt>{label}</dt>
+      <dd dir="auto" lang={valueLanguage}>
         {value}
-      </strong>
-    </div>
+      </dd>
+    </dl>
   );
 }
 

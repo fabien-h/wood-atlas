@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-oiticica",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "6c374dba2b0e271d1b71ad7d2301f7d37513732ecab507e2e3fe7a99f463248b",
+      "sourceWidth": 617,
+      "sourceHeight": 304,
+      "outputFile": "radial.jpg",
+      "outputWidth": 304,
+      "outputHeight": 304,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "559c3ccff7431ab62d90c8228de7f6edcdce4e5d6cd7e84a4980169ec1b1692b",
+      "sourceWidth": 650,
+      "sourceHeight": 342,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 342,
+      "outputHeight": 342,
+      "matchedCandidate": null
+    }
+  ]
+}

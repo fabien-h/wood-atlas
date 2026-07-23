@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-astronium-ulei",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "28b1a4b221ae4f7fe92efa205c90e2d507d11c54ac5450b3650916e66717eb70",
+      "sourceWidth": 593,
+      "sourceHeight": 290,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 290,
+      "outputHeight": 290,
+      "matchedCandidate": null
+    }
+  ]
+}

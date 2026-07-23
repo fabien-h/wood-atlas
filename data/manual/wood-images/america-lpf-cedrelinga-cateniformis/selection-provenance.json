@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-cedrelinga-cateniformis",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "1a751f950473bcc15ecba1805ba07266481328c91c18918f1ea292f03dca9ebd",
+      "sourceWidth": 1897,
+      "sourceHeight": 1486,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

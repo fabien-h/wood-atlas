@@ -71,6 +71,56 @@ const PHYSICS_RANGES = {
   modulusOfElasticity: [1000, 100000],
 };
 
+const TAXONOMY_RANKS = [
+  'kingdom',
+  'phylum',
+  'clade',
+  'class',
+  'order',
+  'family',
+  'genus',
+  'species',
+];
+const TAXONOMY_RANK_INDEX = new Map(TAXONOMY_RANKS.map((rank, index) => [rank, index]));
+const CONTINENT_CODES = ['AF', 'AN', 'AS', 'EU', 'NA', 'OC', 'SA'];
+const CONTINENT_CODE_SET = new Set(CONTINENT_CODES);
+const ISO_ALPHA_2_CODES = new Set(
+  (
+    'AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ ' +
+    'CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR ' +
+    'GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP ' +
+    'KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT ' +
+    'MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW ' +
+    'SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG ' +
+    'UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW'
+  ).split(' '),
+);
+const LEGACY_CONTINENT_CODES = new Map([
+  ['africa', ['AF']],
+  ['afrique', ['AF']],
+  ['tropical africa', ['AF']],
+  ['afrique tropicale', ['AF']],
+  ['america', ['NA', 'SA']],
+  ['amérique', ['NA', 'SA']],
+  ['latin america', ['NA', 'SA']],
+  ['amérique latine', ['NA', 'SA']],
+  ['tropical america', ['NA', 'SA']],
+  ['amérique tropicale', ['NA', 'SA']],
+  ['north america', ['NA']],
+  ['amérique du nord', ['NA']],
+  ['south america', ['SA']],
+  ['amérique du sud', ['SA']],
+  ['asia', ['AS']],
+  ['asie', ['AS']],
+  ['asia-oceania', ['AS', 'OC']],
+  ['asie-océanie', ['AS', 'OC']],
+  ['southeast asia and oceania', ['AS', 'OC']],
+  ['asie du sud-est et océanie', ['AS', 'OC']],
+  ['europe', ['EU']],
+  ['europe and north america', ['EU', 'NA']],
+  ['europe et amérique du nord', ['EU', 'NA']],
+]);
+
 const LANGUAGE_CONFIG = {
   en: {
     sections: {
@@ -286,10 +336,12 @@ async function main() {
 
 async function validateManualData() {
   const manualWoods = await readManualWoodManifest();
-  const validation = validateDatabases(
+  const databases = [
     { language: 'en', records: manualWoods.en },
     { language: 'fr', records: manualWoods.fr },
-  );
+  ];
+  centralizeTaxonomy(databases);
+  const validation = validateDatabases(...databases);
   console.log(
     `Validated ${manualWoods.count} manual wood records with ${validation.checkedValues} ` +
       `numeric values across ${validation.pairedRecords} bilingual records, plus ` +
@@ -456,6 +508,7 @@ async function extract() {
   });
   const englishDatabase = databaseFor('en', publishableEnglishRecords);
   const frenchDatabase = databaseFor('fr', publishableFrenchRecords);
+  centralizeTaxonomy([englishDatabase, frenchDatabase]);
   const validation = validateDatabases(englishDatabase, frenchDatabase);
 
   await Promise.all([
@@ -497,6 +550,7 @@ async function normalizeGeneratedDatabases() {
     record.searchText = makeSearchText(record);
   }
 
+  centralizeTaxonomy([englishDatabase, frenchDatabase]);
   const validation = validateDatabases(englishDatabase, frenchDatabase);
   await Promise.all([
     fsp.writeFile(outputPath('en'), JSON.stringify(englishDatabase, null, 2)),
@@ -550,6 +604,7 @@ async function applyManualDataToGeneratedDatabases({ skipImages = false } = {}) 
     );
   }
 
+  centralizeTaxonomy([englishDatabase, frenchDatabase]);
   const validation = validateDatabases(englishDatabase, frenchDatabase);
   await Promise.all([
     fsp.writeFile(outputPath('en'), JSON.stringify(englishDatabase, null, 2)),
@@ -597,6 +652,7 @@ async function applyManualImagesToGeneratedDatabases() {
     record.searchText = makeSearchText(record);
   }
 
+  centralizeTaxonomy([englishDatabase, frenchDatabase]);
   const validation = validateDatabases(englishDatabase, frenchDatabase);
   await Promise.all([
     fsp.writeFile(outputPath('en'), JSON.stringify(englishDatabase, null, 2)),
@@ -627,16 +683,189 @@ async function validateGeneratedDatabases() {
   );
 }
 
+function centralizeTaxonomy(databases) {
+  const pathsByRecordId = new Map();
+
+  for (const database of databases) {
+    const existingTaxonomy = Array.isArray(database.taxonomy) ? database.taxonomy : [];
+    const existingNodesById = new Map(existingTaxonomy.map((node) => [node.id, node]));
+
+    for (const record of database.records) {
+      normalizeRecordGeography(record);
+      const suppliedPath = record.identity?.taxonomyPath;
+      const existingPath =
+        suppliedPath === undefined
+          ? taxonomyPathFromId(existingNodesById, record.identity?.taxonomyId, record.id)
+          : null;
+      let path = normalizeTaxonomyPath(suppliedPath ?? existingPath, record.id);
+      if (path.length === 0 && typeof record.identity?.family === 'string') {
+        const family = record.identity.family.trim();
+        if (family) path = [{ rank: 'family', name: family }];
+      }
+      if (path.length === 0) continue;
+
+      const signature = taxonomyPathSignature(path);
+      const previous = pathsByRecordId.get(record.id);
+      if (previous && taxonomyPathSignature(previous) !== signature) {
+        throw new Error(`${record.id} has different taxonomy paths across language datasets`);
+      }
+      pathsByRecordId.set(
+        record.id,
+        previous
+          ? previous.map((entry, index) => ({
+              ...entry,
+              name:
+                stableStringCompare(entry.name, path[index].name) <= 0
+                  ? entry.name
+                  : path[index].name,
+            }))
+          : path,
+      );
+    }
+  }
+
+  const descriptorsByKey = new Map();
+  for (const path of pathsByRecordId.values()) {
+    for (let length = 1; length <= path.length; length += 1) {
+      const prefix = path.slice(0, length);
+      const key = taxonomyPathSignature(prefix);
+      const parentKey = length === 1 ? null : taxonomyPathSignature(prefix.slice(0, -1));
+      const entry = prefix.at(-1);
+      const existing = descriptorsByKey.get(key);
+      if (!existing || stableStringCompare(entry.name, existing.name) < 0) {
+        descriptorsByKey.set(key, { key, parentKey, rank: entry.rank, name: entry.name });
+      }
+    }
+  }
+
+  const descriptors = [...descriptorsByKey.values()].sort((left, right) =>
+    stableStringCompare(left.key, right.key),
+  );
+  const idByKey = new Map(descriptors.map((descriptor, index) => [descriptor.key, index + 1]));
+  const taxonomy = descriptors.map((descriptor) => ({
+    id: idByKey.get(descriptor.key),
+    parentId: descriptor.parentKey === null ? null : idByKey.get(descriptor.parentKey),
+    rank: descriptor.rank,
+    name: descriptor.name,
+  }));
+
+  for (const database of databases) {
+    database.taxonomy = structuredClone(taxonomy);
+    for (const record of database.records) {
+      const path = pathsByRecordId.get(record.id);
+      record.identity.taxonomyId = path ? (idByKey.get(taxonomyPathSignature(path)) ?? null) : null;
+      delete record.identity.taxonomyPath;
+      delete record.identity.family;
+      delete record.origin.continent;
+      delete record.origin.countries;
+      record.searchText = makeSearchText(record, database.taxonomy, database.language);
+    }
+  }
+}
+
+function normalizeRecordGeography(record) {
+  const continentCodes = record.origin?.continentCodes;
+  const countryCodes = record.origin?.countryCodes;
+  if (!Array.isArray(continentCodes) || !Array.isArray(countryCodes)) {
+    throw new Error(`${record.id} origin codes must be arrays`);
+  }
+
+  const legacyContinents =
+    typeof record.origin.continent === 'string'
+      ? (LEGACY_CONTINENT_CODES.get(record.origin.continent.trim().toLocaleLowerCase()) ?? [])
+      : [];
+  const normalizedContinents = [...continentCodes, ...legacyContinents].map((code) =>
+    typeof code === 'string' ? code.trim().toUpperCase() : '',
+  );
+  if (normalizedContinents.some((code) => !CONTINENT_CODE_SET.has(code))) {
+    throw new Error(`${record.id} has an invalid origin.continentCodes value`);
+  }
+  record.origin.continentCodes = CONTINENT_CODES.filter((code) =>
+    normalizedContinents.includes(code),
+  );
+
+  const normalizedCountries = countryCodes.map((code) =>
+    typeof code === 'string' ? code.trim().toUpperCase() : '',
+  );
+  if (normalizedCountries.some((code) => !ISO_ALPHA_2_CODES.has(code))) {
+    throw new Error(`${record.id} has an invalid origin.countryCodes value`);
+  }
+  record.origin.countryCodes = [...new Set(normalizedCountries)].sort();
+}
+
+function normalizeTaxonomyPath(value, recordId) {
+  if (value === null || value === undefined) return [];
+  if (!Array.isArray(value)) {
+    throw new Error(`${recordId} identity.taxonomyPath must be an array`);
+  }
+
+  let previousRankIndex = -1;
+  return value.map((entry, index) => {
+    const rank = entry?.rank;
+    const name = typeof entry?.name === 'string' ? entry.name.replace(/\s+/g, ' ').trim() : '';
+    const rankIndex = TAXONOMY_RANK_INDEX.get(rank);
+    if (rankIndex === undefined || !name) {
+      throw new Error(`${recordId} identity.taxonomyPath.${index} is invalid`);
+    }
+    if (rankIndex <= previousRankIndex) {
+      throw new Error(`${recordId} identity.taxonomyPath ranks are not in hierarchical order`);
+    }
+    previousRankIndex = rankIndex;
+    return { rank, name };
+  });
+}
+
+function taxonomyPathFromId(nodesById, taxonomyId, recordId) {
+  if (taxonomyId === null || taxonomyId === undefined) return [];
+  if (!Number.isInteger(taxonomyId) || taxonomyId <= 0) {
+    throw new Error(`${recordId} has an invalid identity.taxonomyId`);
+  }
+
+  const reversedPath = [];
+  const visited = new Set();
+  let node = nodesById.get(taxonomyId);
+  if (!node) throw new Error(`${recordId} references a missing taxonomy node ${taxonomyId}`);
+
+  while (node) {
+    if (visited.has(node.id)) {
+      throw new Error(`${recordId} taxonomy lineage contains a cycle`);
+    }
+    visited.add(node.id);
+    reversedPath.push({ rank: node.rank, name: node.name });
+    if (node.parentId === null) break;
+    node = nodesById.get(node.parentId);
+    if (!node) throw new Error(`${recordId} taxonomy lineage has a missing parent`);
+  }
+
+  return reversedPath.reverse();
+}
+
+function taxonomyPathSignature(path) {
+  return path
+    .map(
+      ({ rank, name }) =>
+        `${rank}:${name.normalize('NFKC').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en')}`,
+    )
+    .join('/');
+}
+
+function stableStringCompare(left, right) {
+  if (left === right) return 0;
+  return left < right ? -1 : 1;
+}
+
 function validateDatabases(englishDatabase, frenchDatabase) {
   const errors = [];
   let checkedValues = 0;
 
   for (const database of [englishDatabase, frenchDatabase]) {
+    validateTaxonomy(database, errors);
     const seenIds = new Set();
     for (const record of database.records) {
       if (seenIds.has(record.id))
         errors.push(`${database.language}:${record.id} has a duplicate id`);
       seenIds.add(record.id);
+      validateRecordTaxonomyAndGeography(database, record, errors);
 
       for (const [recordPath, value] of categoryEntries(record)) {
         if (
@@ -709,11 +938,22 @@ function validateDatabases(englishDatabase, frenchDatabase) {
   }
 
   const englishById = new Map(englishDatabase.records.map((record) => [record.id, record]));
+  if (JSON.stringify(englishDatabase.taxonomy) !== JSON.stringify(frenchDatabase.taxonomy)) {
+    errors.push('English and French taxonomy dictionaries differ');
+  }
   let pairedRecords = 0;
   for (const frenchRecord of frenchDatabase.records) {
     const englishRecord = englishById.get(frenchRecord.id);
     if (!englishRecord) continue;
     pairedRecords += 1;
+    if (englishRecord.identity.taxonomyId !== frenchRecord.identity.taxonomyId) {
+      errors.push(`${frenchRecord.id}.identity.taxonomyId differs between English and French`);
+    }
+    for (const key of ['continentCodes', 'countryCodes']) {
+      if (JSON.stringify(englishRecord.origin[key]) !== JSON.stringify(frenchRecord.origin[key])) {
+        errors.push(`${frenchRecord.id}.origin.${key} differs between English and French`);
+      }
+    }
     for (const key of Object.keys(PHYSICS_RANGES)) {
       for (const part of ['value', 'min', 'max']) {
         const englishValue = englishRecord.physics[key][part];
@@ -758,6 +998,122 @@ function validateDatabases(englishDatabase, frenchDatabase) {
   }
 
   return { checkedValues, pairedRecords };
+}
+
+function validateTaxonomy(database, errors) {
+  if (!Array.isArray(database.taxonomy)) {
+    errors.push(`${database.language}: taxonomy must be an array`);
+    return;
+  }
+
+  const nodesById = new Map();
+  const nodeSignatures = new Set();
+  for (const node of database.taxonomy) {
+    if (!Number.isInteger(node?.id) || node.id <= 0) {
+      errors.push(`${database.language}: taxonomy has an invalid node id`);
+      continue;
+    }
+    if (nodesById.has(node.id)) {
+      errors.push(`${database.language}: taxonomy duplicates node id ${node.id}`);
+    }
+    nodesById.set(node.id, node);
+  }
+
+  for (const node of database.taxonomy) {
+    if (!nodesById.has(node.id)) continue;
+    if (!TAXONOMY_RANK_INDEX.has(node.rank)) {
+      errors.push(`${database.language}: taxonomy node ${node.id} has an invalid rank`);
+    }
+    if (typeof node.name !== 'string' || !node.name.trim() || node.name !== node.name.trim()) {
+      errors.push(`${database.language}: taxonomy node ${node.id} has an invalid name`);
+    }
+    if (node.parentId !== null && !nodesById.has(node.parentId)) {
+      errors.push(`${database.language}: taxonomy node ${node.id} has a missing parent`);
+    }
+
+    const parent = node.parentId === null ? null : nodesById.get(node.parentId);
+    if (
+      parent &&
+      TAXONOMY_RANK_INDEX.has(parent.rank) &&
+      TAXONOMY_RANK_INDEX.has(node.rank) &&
+      TAXONOMY_RANK_INDEX.get(parent.rank) >= TAXONOMY_RANK_INDEX.get(node.rank)
+    ) {
+      errors.push(`${database.language}: taxonomy node ${node.id} has an invalid parent rank`);
+    }
+    const signature = `${node.parentId ?? 'root'}|${node.rank}|${node.name
+      .normalize('NFKC')
+      .toLocaleLowerCase('en')}`;
+    if (nodeSignatures.has(signature)) {
+      errors.push(`${database.language}: taxonomy has duplicate node ${node.name}`);
+    }
+    nodeSignatures.add(signature);
+
+    const visited = new Set([node.id]);
+    let ancestor = parent;
+    while (ancestor) {
+      if (visited.has(ancestor.id)) {
+        errors.push(`${database.language}: taxonomy node ${node.id} belongs to a cycle`);
+        break;
+      }
+      visited.add(ancestor.id);
+      ancestor = ancestor.parentId === null ? null : nodesById.get(ancestor.parentId);
+    }
+  }
+}
+
+function validateRecordTaxonomyAndGeography(database, record, errors) {
+  const taxonomyId = record.identity?.taxonomyId;
+  const nodesById = new Map((database.taxonomy ?? []).map((node) => [node.id, node]));
+  if (taxonomyId !== null && (!Number.isInteger(taxonomyId) || !nodesById.has(taxonomyId))) {
+    errors.push(`${database.language}:${record.id}.identity.taxonomyId is invalid`);
+  }
+  if (Object.hasOwn(record.identity ?? {}, 'taxonomyPath')) {
+    errors.push(`${database.language}:${record.id}.identity.taxonomyPath was not centralized`);
+  }
+  if (
+    !record.durability?.sapwoodTreatability ||
+    typeof record.durability.sapwoodTreatability.raw !== 'string' ||
+    !Object.hasOwn(record.durability.sapwoodTreatability, 'value')
+  ) {
+    errors.push(`${database.language}:${record.id}.durability.sapwoodTreatability is invalid`);
+  }
+
+  if (Object.hasOwn(record.identity, 'family')) {
+    errors.push(`${database.language}:${record.id}.identity.family was not centralized`);
+  }
+  for (const legacyKey of ['continent', 'countries']) {
+    if (Object.hasOwn(record.origin, legacyKey)) {
+      errors.push(`${database.language}:${record.id}.origin.${legacyKey} was not normalized`);
+    }
+  }
+
+  if (!Array.isArray(record.origin?.continentCodes)) {
+    errors.push(`${database.language}:${record.id}.origin.continentCodes must be an array`);
+  } else {
+    const normalized = [
+      ...new Set(record.origin.continentCodes.map((code) => String(code).toUpperCase())),
+    ].sort((left, right) => CONTINENT_CODES.indexOf(left) - CONTINENT_CODES.indexOf(right));
+    if (
+      record.origin.continentCodes.some((code) => !CONTINENT_CODE_SET.has(code)) ||
+      JSON.stringify(record.origin.continentCodes) !== JSON.stringify(normalized)
+    ) {
+      errors.push(`${database.language}:${record.id}.origin.continentCodes is invalid`);
+    }
+  }
+
+  if (!Array.isArray(record.origin?.countryCodes)) {
+    errors.push(`${database.language}:${record.id}.origin.countryCodes must be an array`);
+  } else {
+    const normalized = [...new Set(record.origin.countryCodes)].sort();
+    if (
+      record.origin.countryCodes.some(
+        (code) => typeof code !== 'string' || !ISO_ALPHA_2_CODES.has(code),
+      ) ||
+      JSON.stringify(record.origin.countryCodes) !== JSON.stringify(normalized)
+    ) {
+      errors.push(`${database.language}:${record.id}.origin.countryCodes is invalid`);
+    }
+  }
 }
 
 function synchronizePairedMeasurements(englishRecords, frenchRecords) {
@@ -1304,6 +1660,7 @@ function parseWoodRecord(link, rawText) {
       displayName,
       slug: slugify(titleLine || link.sheetName),
       family,
+      taxonomyId: null,
       botanicalNames,
       aliases: parseAliases(sourceTitleLine, titleLine, displayName, link.sheetName),
       localNames,
@@ -1316,6 +1673,8 @@ function parseWoodRecord(link, rawText) {
       region: link.region,
       continent: originContinent,
       countries: [...new Set(localNames.map((item) => item.country))].sort(),
+      continentCodes: [],
+      countryCodes: [],
     },
     cites: {
       raw: citesRaw,
@@ -1381,6 +1740,7 @@ function parseWoodRecord(link, rawText) {
         readField(durabilitySection, fieldLabels(config, 'treatability'), config) ||
           readLegacyField(text, legacy.treatability),
       ),
+      sapwoodTreatability: textValue(''),
       naturalUseClass: textValue(
         readField(durabilitySection, fieldLabels(config, 'naturalUseClass'), config) ||
           readLegacyField(text, legacy.naturalUseClass),
@@ -1834,6 +2194,16 @@ function validateManualNumericMeasure(measure, label) {
 }
 
 function ensureRecordShape(record) {
+  record.identity ??= {};
+  record.identity.taxonomyId ??= null;
+  record.origin ??= {};
+  record.origin.continentCodes ??= [];
+  record.origin.countryCodes ??= [];
+  record.durability ??= {};
+  record.durability.sapwoodTreatability ??= {
+    raw: '',
+    value: null,
+  };
   record.physics ??= {};
   record.physics.jankaHardness ??= {
     raw: '',
@@ -2866,16 +3236,49 @@ function countParsedFields(record) {
   return count;
 }
 
-function makeSearchText(record) {
+function makeSearchText(record, taxonomy = [], language = 'en') {
+  const taxonomyNames = [];
+  const taxonomyById = new Map(taxonomy.map((node) => [node.id, node]));
+  const visitedTaxonomy = new Set();
+  let taxon = taxonomyById.get(record.identity.taxonomyId);
+  while (taxon && !visitedTaxonomy.has(taxon.id)) {
+    visitedTaxonomy.add(taxon.id);
+    taxonomyNames.push(taxon.name);
+    taxon = taxon.parentId === null ? null : taxonomyById.get(taxon.parentId);
+  }
+  const continentRegionCodes = {
+    AF: '002',
+    AN: '010',
+    AS: '142',
+    EU: '150',
+    NA: '003',
+    OC: '009',
+    SA: '005',
+  };
+  let displayNames;
+  try {
+    displayNames = new Intl.DisplayNames([language], { type: 'region', fallback: 'code' });
+  } catch {
+    displayNames = null;
+  }
+  const localizedContinents = record.origin.continentCodes.map(
+    (code) => displayNames?.of(continentRegionCodes[code]) ?? code,
+  );
+  const localizedCountries = record.origin.countryCodes.map(
+    (code) => displayNames?.of(code) ?? code,
+  );
   return [
     record.identity.displayName,
     record.identity.primaryName,
     ...record.identity.aliases,
-    record.identity.family,
+    ...taxonomyNames,
     ...record.identity.botanicalNames.map((item) => item.name),
     ...record.identity.localNames.flatMap((item) => [item.country, item.name]),
     record.origin.region,
-    record.origin.continent,
+    ...record.origin.continentCodes,
+    ...localizedContinents,
+    ...record.origin.countryCodes,
+    ...localizedCountries,
     record.appearance.colourReference.value,
     record.appearance.texture.value,
     record.appearance.grain.value,

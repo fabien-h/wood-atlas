@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-vochysia-ferruginea",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "c027021bbe5805d01207168fb7074dadcc5433d8d6a4fa49e0a296f872856d26",
+      "sourceWidth": 1120,
+      "sourceHeight": 480,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 480,
+      "outputHeight": 480,
+      "matchedCandidate": null
+    }
+  ]
+}

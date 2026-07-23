@@ -164,6 +164,7 @@ async function buildInventory() {
       resolution:
         'Prefer the original full-resolution file with at least 800 pixels on both axes. Smaller exact specimens are acceptable when no better source exists.',
       sourcePriority: [
+        'Lignumdata exact scientific-name matches, retained as private review candidates only because its imprint requires advance written reproduction permission',
         'Wikimedia Commons or Wikipedia file pages with structured attribution',
         'NCSU Libraries 600-dpi plates from Romeyn B. Hough’s public-domain The American Woods',
         'Institutional xylaria, universities, museums, and forestry agencies with explicit reuse terms',
@@ -246,6 +247,7 @@ Candidate folders exist only for woods that currently have no published image of
 4. Rename the one selected radial image to \`radial.<extension>\` and the one selected tangential image to \`tangential.<extension>\`. Keep at most one of each per folder.
 5. Leave \`candidates.json\` in place. Its hashes let the later import script recover provenance after a candidate is renamed.
 6. A candidate with \`licenseStatus: "unknown"\` still needs permission or a verified reuse license before it can be published.
+7. Lignumdata candidates are private research copies only. Its imprint requires advance written permission from the copyright holder before reproduction, so do not select or publish them until that permission is recorded.
 
 When review is complete, the import step will crop, resize, compress, register attribution, and generate the atlas assets. It must not enlarge a source silently; undersized selections will be reported for a processing decision.
 `;
@@ -556,6 +558,8 @@ async function auditCandidates() {
           license: candidate.license ?? null,
           licenseUrl: candidate.licenseUrl ?? null,
           licenseStatus: candidate.licenseStatus ?? 'unknown',
+          rightsNotes: candidate.rightsNotes ?? null,
+          sourceRightsUrl: candidate.sourceRightsUrl ?? null,
           agent: candidate.agent ?? manifest.agent ?? null,
         });
       } catch (error) {
@@ -628,6 +632,15 @@ function renderReviewPage(result, inventoryById) {
                 <p class="metadata">License: ${htmlEscape(
                   candidate.license ?? candidate.licenseStatus,
                 )}</p>
+                ${
+                  candidate.rightsNotes
+                    ? `<p class="metadata">Rights: ${htmlEscape(candidate.rightsNotes)}${
+                        candidate.sourceRightsUrl
+                          ? ` <a href="${htmlEscape(candidate.sourceRightsUrl)}" target="_blank" rel="noreferrer">Source terms</a>`
+                          : ''
+                      }</p>`
+                    : ''
+                }
                 <p><a href="${htmlEscape(candidate.sourcePageUrl)}" target="_blank" rel="noreferrer">Source page</a> ·
                   <a href="${htmlEscape(candidate.imageUrl)}" target="_blank" rel="noreferrer">Direct image</a></p>
               </div>

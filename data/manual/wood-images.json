@@ -46,6 +46,11 @@
       "sourceFile": "africa-burkea/radial.jpg"
     },
     {
+      "woodId": "africa-cordyla",
+      "kind": "flatSawn",
+      "sourceFile": "africa-cordyla/tangential.jpg"
+    },
+    {
       "woodId": "africa-ekki",
       "kind": "flatSawn",
       "sourceFile": "africa-ekki/tangential.jpg"
@@ -94,6 +99,11 @@
       "woodId": "africa-moabi",
       "kind": "quarterSawn",
       "sourceFile": "africa-moabi/radial.jpg"
+    },
+    {
+      "woodId": "africa-mtundu",
+      "kind": "flatSawn",
+      "sourceFile": "africa-mtundu/tangential.jpg"
     },
     {
       "woodId": "africa-muninga",
@@ -170,6 +180,11 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
     },
     {
+      "woodId": "america-angelica-tree",
+      "kind": "flatSawn",
+      "sourceFile": "america-angelica-tree/tangential.jpg"
+    },
+    {
       "woodId": "america-arariba",
       "kind": "flatSawn",
       "sourceFile": "america-arariba/tangential.jpg"
@@ -205,6 +220,11 @@
       "sourceFile": "america-buttonwood/radial.jpg"
     },
     {
+      "woodId": "america-cativo",
+      "kind": "flatSawn",
+      "sourceFile": "america-cativo/tangential.jpg"
+    },
+    {
       "woodId": "america-caviuna",
       "kind": "flatSawn",
       "sourceFile": "america-caviuna/tangential.jpg"
@@ -223,6 +243,16 @@
       "woodId": "america-degame",
       "kind": "flatSawn",
       "sourceFile": "america-degame/tangential.jpg"
+    },
+    {
+      "woodId": "america-espave",
+      "kind": "flatSawn",
+      "sourceFile": "america-espave/tangential.jpg"
+    },
+    {
+      "woodId": "america-espave",
+      "kind": "quarterSawn",
+      "sourceFile": "america-espave/radial.jpg"
     },
     {
       "woodId": "america-gumbo-limbo",
@@ -248,6 +278,11 @@
       "woodId": "america-ipe",
       "kind": "quarterSawn",
       "sourceFile": "america-ipe/radial.jpg"
+    },
+    {
+      "woodId": "america-jobo",
+      "kind": "quarterSawn",
+      "sourceFile": "america-jobo/radial.jpg"
     },
     {
       "woodId": "america-lechero",
@@ -285,9 +320,44 @@
       "sourceFile": "america-lpf-andira-surinamensis/tangential.jpg"
     },
     {
+      "woodId": "america-lpf-astronium-ulei",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-astronium-ulei/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-cariniana-micrantha",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-cariniana-micrantha/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-cedrelinga-cateniformis",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-cedrelinga-cateniformis/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-couratari-oblongifolia",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-couratari-oblongifolia/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-couratari-stellata",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-couratari-stellata/tangential.jpg"
+    },
+    {
       "woodId": "america-lpf-diploon-cuspidatum",
       "kind": "flatSawn",
       "sourceFile": "america-lpf-diploon-cuspidatum/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-drypetes-variabilis",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-drypetes-variabilis/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-endopleura-uchi",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-endopleura-uchi/radial.jpg"
     },
     {
       "woodId": "america-lpf-hymenolobium-modestum",
@@ -330,6 +400,26 @@
       "sourceFile": "america-lpf-manilkara-sp/radial.jpg"
     },
     {
+      "woodId": "america-lpf-maquira-sclerophylla",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-maquira-sclerophylla/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-mezilaurus-itauba",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-mezilaurus-itauba/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-mezilaurus-itauba",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-mezilaurus-itauba/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-micropholis-guyanensis",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-micropholis-guyanensis/tangential.jpg"
+    },
+    {
       "woodId": "america-lpf-micropholis-mensalis",
       "kind": "flatSawn",
       "sourceFile": "america-lpf-micropholis-mensalis/tangential.jpg"
@@ -340,9 +430,19 @@
       "sourceFile": "america-lpf-ocotea-aciphylla/tangential.jpg"
     },
     {
+      "woodId": "america-lpf-ocotea-neesiana",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-ocotea-neesiana/tangential.jpg"
+    },
+    {
       "woodId": "america-lpf-peltogyne-cf-subsessilis",
       "kind": "flatSawn",
       "sourceFile": "america-lpf-peltogyne-cf-subsessilis/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-peltogyne-paniculata",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-peltogyne-paniculata/tangential.jpg"
     },
     {
       "woodId": "america-lpf-pouteria-anomala",
@@ -370,6 +470,21 @@
       "sourceFile": "america-lpf-pouteria-sp/radial.jpg"
     },
     {
+      "woodId": "america-lpf-roupala-montana",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-roupala-montana/tangential.jpg"
+    },
+    {
+      "woodId": "america-lpf-roupala-montana",
+      "kind": "quarterSawn",
+      "sourceFile": "america-lpf-roupala-montana/radial.jpg"
+    },
+    {
+      "woodId": "america-lpf-tapirira-guianensis",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-tapirira-guianensis/tangential.jpg"
+    },
+    {
       "woodId": "america-lpf-trattinnickia-burserifolia",
       "kind": "quarterSawn",
       "sourceFile": "america-lpf-trattinnickia-burserifolia/radial.jpg"
@@ -385,9 +500,19 @@
       "sourceFile": "america-lpf-virola-michelii/tangential.jpg"
     },
     {
+      "woodId": "america-lpf-vochysia-ferruginea",
+      "kind": "flatSawn",
+      "sourceFile": "america-lpf-vochysia-ferruginea/tangential.jpg"
+    },
+    {
       "woodId": "america-lpf-zollernia-paraensis",
       "kind": "flatSawn",
       "sourceFile": "america-lpf-zollernia-paraensis/tangential.jpg"
+    },
+    {
+      "woodId": "america-marishballi",
+      "kind": "flatSawn",
+      "sourceFile": "america-marishballi/tangential.jpg"
     },
     {
       "woodId": "america-mesquite",
@@ -404,6 +529,16 @@
       "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
     },
     {
+      "woodId": "america-oiticica",
+      "kind": "flatSawn",
+      "sourceFile": "america-oiticica/tangential.jpg"
+    },
+    {
+      "woodId": "america-oiticica",
+      "kind": "quarterSawn",
+      "sourceFile": "america-oiticica/radial.jpg"
+    },
+    {
       "woodId": "america-purpleheart",
       "kind": "flatSawn",
       "sourceFile": "america-purpleheart/tangential.jpg"
@@ -417,6 +552,16 @@
       "woodId": "america-raintree",
       "kind": "flatSawn",
       "sourceFile": "america-raintree/tangential.jpg"
+    },
+    {
+      "woodId": "america-rauli-coigue",
+      "kind": "flatSawn",
+      "sourceFile": "america-rauli-coigue/tangential.jpg"
+    },
+    {
+      "woodId": "america-rauli-coigue",
+      "kind": "quarterSawn",
+      "sourceFile": "america-rauli-coigue/radial.jpg"
     },
     {
       "woodId": "america-red-mangrove",
@@ -437,6 +582,16 @@
       "woodId": "america-san-domingo-boxwood",
       "kind": "flatSawn",
       "sourceFile": "america-san-domingo-boxwood/tangential.jpg"
+    },
+    {
+      "woodId": "america-tauroniro",
+      "kind": "flatSawn",
+      "sourceFile": "america-tauroniro/tangential.jpg"
+    },
+    {
+      "woodId": "america-ulmo",
+      "kind": "flatSawn",
+      "sourceFile": "america-ulmo/tangential.jpg"
     },
     {
       "woodId": "america-verawood",
@@ -499,6 +654,16 @@
       "sourceFile": "asia-deglupta/tangential.jpg"
     },
     {
+      "woodId": "asia-indian-almond",
+      "kind": "quarterSawn",
+      "sourceFile": "asia-indian-almond/radial.jpg"
+    },
+    {
+      "woodId": "asia-orientalwood",
+      "kind": "flatSawn",
+      "sourceFile": "asia-orientalwood/tangential.jpg"
+    },
+    {
       "woodId": "asia-persian-lilac",
       "kind": "flatSawn",
       "sourceFile": "asia-persian-lilac/tangential.jpg"
@@ -509,9 +674,24 @@
       "sourceFile": "asia-silky-oak/radial.jpg"
     },
     {
+      "woodId": "asia-tasmanian-myrtle",
+      "kind": "flatSawn",
+      "sourceFile": "asia-tasmanian-myrtle/tangential.jpg"
+    },
+    {
       "woodId": "asia-toon",
       "kind": "flatSawn",
       "sourceFile": "asia-toon/tangential.jpg"
+    },
+    {
+      "woodId": "asia-turpentine",
+      "kind": "flatSawn",
+      "sourceFile": "asia-turpentine/tangential.jpg"
+    },
+    {
+      "woodId": "asia-white-chuglam",
+      "kind": "flatSawn",
+      "sourceFile": "asia-white-chuglam/tangential.jpg"
     },
     {
       "woodId": "asia-white-cypress-pine",

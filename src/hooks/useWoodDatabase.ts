@@ -17,6 +17,7 @@ const emptyDatabase = (language: SourceLanguage): WoodDatabase => ({
     englishSheets: 0,
     frenchSheets: 0,
   },
+  taxonomy: [],
   records: [],
 });
 

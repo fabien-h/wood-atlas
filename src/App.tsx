@@ -144,6 +144,7 @@ export default function App() {
         <section className={styles.dataZone} aria-label={copy.woodTableCaption}>
           <WoodTable
             woods={filteredWoods}
+            taxonomy={database.taxonomy ?? []}
             selectedIds={selectedIds}
             activeId={activeWood?.id}
             sort={sort}
@@ -156,7 +157,12 @@ export default function App() {
         </section>
       </section>
 
-      <DetailDrawer wood={activeWood} copy={copy} onClose={closeDetail} />
+      <DetailDrawer
+        wood={activeWood}
+        taxonomy={database.taxonomy ?? []}
+        copy={copy}
+        onClose={closeDetail}
+      />
       <AboutDrawer open={aboutOpen} copy={copy} onClose={() => setAboutOpen(false)} />
     </main>
   );

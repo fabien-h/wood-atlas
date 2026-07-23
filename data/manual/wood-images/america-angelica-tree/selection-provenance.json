@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-angelica-tree",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "47a6aaaf8d92ba45be3e6317fd99d4312d49b9ef3edf24a5e552802b50b4da70",
+      "sourceWidth": 292,
+      "sourceHeight": 632,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 292,
+      "outputHeight": 292,
+      "matchedCandidate": {
+        "filename": "candidate-01.jpg",
+        "sourcePageUrl": "https://lignumdata.ch/system/holzarten/D53D7F4C-9509-3652-B5F3-B6B0B75E97E3?locale=en",
+        "imageUrl": "https://lignumdata.s3.eu-west-1.amazonaws.com/img_files/holzarten/Dendropanax+arboreus_%C2%A9Dennis+Wilson.jpg",
+        "query": "\"Dendropanax arboreus\" wood site:lignumdata.ch",
+        "intendedViewHint": "unknown",
+        "identityBasis": "exactBotanicalName",
+        "identityEvidence": "Lignumdata lists this file in the Wood image group for Dendropanax arboreus; the atlas botanical name Dendropanax arboreus matches that catalogue entry exactly.",
+        "visualCheckNotes": "Contact-sheet review confirms an exposed wood or veneer face with visible longitudinal grain; it is not a tree, leaf, bark-only image, or finished object.",
+        "width": 292,
+        "height": 632,
+        "format": "jpeg",
+        "sha256": "47a6aaaf8d92ba45be3e6317fd99d4312d49b9ef3edf24a5e552802b50b4da70",
+        "agent": "root-lignumdata",
+        "creator": "Dennis Wilson",
+        "license": "All-rights-reserved; advance written permission required",
+        "licenseUrl": null,
+        "licenseStatus": "restricted-pending-permission",
+        "rightsNotes": "Lignumdata’s imprint requires advance written permission from the copyright holder to reproduce site images. Keep this as a private review candidate only; do not publish, crop, or redistribute it without permission.",
+        "sourceRightsUrl": "https://lignumdata.s3.eu-west-1.amazonaws.com/impressum_pdf/ImEN.pdf",
+        "sourceCaption": "Dendropanax arboreus, ©Dennis Wilson"
+      }
+    }
+  ]
+}

@@ -2876,11 +2876,7 @@
             "euroclass": { "raw": "", "value": null },
             "notes": null
           },
-          "endUses": [
-            "heavy construction",
-            "light carpentry",
-            "interior panelling"
-          ],
+          "endUses": ["heavy construction", "light carpentry", "interior panelling"],
           "endUseNotes": [],
           "additionalDetails": [
             {
@@ -3690,9 +3686,7 @@
             "displayName": "Angelim Vermelho",
             "slug": "angelim-vermelho",
             "family": "Fabaceae-Mimosoideae",
-            "botanicalNames": [
-              { "name": "Dinizia excelsa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Dinizia excelsa", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Angelim-vermelho" },
@@ -3946,9 +3940,7 @@
             "displayName": "Angelim Vermelho",
             "slug": "angelim-vermelho",
             "family": "Fabaceae-Mimosoideae",
-            "botanicalNames": [
-              { "name": "Dinizia excelsa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Dinizia excelsa", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Angelim-vermelho" },
@@ -5237,11 +5229,7 @@
             "euroclass": { "raw": "", "value": null },
             "notes": null
           },
-          "endUses": [
-            "construction lourde",
-            "charpente légère",
-            "articles tournés"
-          ],
+          "endUses": ["construction lourde", "charpente légère", "articles tournés"],
           "endUseNotes": [],
           "additionalDetails": [
             {
@@ -5799,9 +5787,7 @@
             "displayName": "Batibatra",
             "slug": "batibatra",
             "family": "Fabaceae-Mimosoideae",
-            "botanicalNames": [
-              { "name": "Enterolobium schomburgkii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Enterolobium schomburgkii", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Fava-orelha-de-negro" },
@@ -6085,9 +6071,7 @@
             "displayName": "Batibatra",
             "slug": "batibatra",
             "family": "Fabaceae-Mimosoideae",
-            "botanicalNames": [
-              { "name": "Enterolobium schomburgkii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Enterolobium schomburgkii", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Fava-orelha-de-negro" },
@@ -6419,9 +6403,7 @@
             "displayName": "Brazil Nut",
             "slug": "brazil-nut",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Bertholletia excelsa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Bertholletia excelsa", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Castanheira" },
@@ -6665,9 +6647,7 @@
             "displayName": "Castanheiro",
             "slug": "castanheiro",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Bertholletia excelsa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Bertholletia excelsa", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Castanheira" },
@@ -12622,9 +12602,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Planing — Surface finishing", "value": "Regular" }
-              ]
+              "fields": [{ "label": "Planing — Surface finishing", "value": "Regular" }]
             }
           ]
         },
@@ -15013,9 +14991,7 @@
             "displayName": "Jacaranda",
             "slug": "jacaranda",
             "family": "Bignoniaceae",
-            "botanicalNames": [
-              { "name": "Jacaranda copaia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Jacaranda copaia", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "CAROBA / PARAPARÁ" },
@@ -15268,9 +15244,7 @@
             "displayName": "Para-Para",
             "slug": "para-para",
             "family": "Bignoniaceae",
-            "botanicalNames": [
-              { "name": "Jacaranda copaia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Jacaranda copaia", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "CAROBA / PARAPARÁ" },
@@ -15554,9 +15528,7 @@
             "displayName": "Calophyllum Brasiliense",
             "slug": "jacareuba",
             "family": "Calophyllaceae",
-            "botanicalNames": [
-              { "name": "Calophyllum brasiliense", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Calophyllum brasiliense", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Jacareúba" },
@@ -15821,9 +15793,7 @@
             "displayName": "Calophyllum Brasiliense",
             "slug": "jacareuba",
             "family": "Calophyllaceae",
-            "botanicalNames": [
-              { "name": "Calophyllum brasiliense", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Calophyllum brasiliense", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Jacareúba" },
@@ -17496,9 +17466,7 @@
             "displayName": "Jutahy",
             "slug": "jutahy",
             "family": "Leguminosae",
-            "botanicalNames": [
-              { "name": "Dialium guianense", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Dialium guianense", "isSynonym": false }],
             "aliases": [
               "Jataipeba",
               "Azedinha",
@@ -17818,9 +17786,7 @@
             "displayName": "Jutahy",
             "slug": "jutahy",
             "family": "Leguminosae",
-            "botanicalNames": [
-              { "name": "Dialium guianense", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Dialium guianense", "isSynonym": false }],
             "aliases": [
               "Jataipeba",
               "Azedinha",
@@ -18079,11 +18045,7 @@
             "euroclass": { "raw": "", "value": null },
             "notes": null
           },
-          "endUses": [
-            "construction lourde",
-            "charpente légère",
-            "articles tournés"
-          ],
+          "endUses": ["construction lourde", "charpente légère", "articles tournés"],
           "endUseNotes": [],
           "additionalDetails": [
             {
@@ -19144,9 +19106,7 @@
             "family": "Chrysobalanaceae",
             "botanicalNames": [{ "name": "Acioa edulis", "isSynonym": false }],
             "aliases": [],
-            "localNames": [
-              { "country": "Brazil", "name": "Castanha-de-cutia" }
-            ],
+            "localNames": [{ "country": "Brazil", "name": "Castanha-de-cutia" }],
             "commercialRestrictions": { "raw": "", "value": null },
             "notes": []
           },
@@ -19341,9 +19301,7 @@
             "family": "Chrysobalanaceae",
             "botanicalNames": [{ "name": "Acioa edulis", "isSynonym": false }],
             "aliases": [],
-            "localNames": [
-              { "country": "Brésil", "name": "Castanha-de-cutia" }
-            ],
+            "localNames": [{ "country": "Brésil", "name": "Castanha-de-cutia" }],
             "commercialRestrictions": { "raw": "", "value": null },
             "notes": []
           },
@@ -20445,9 +20403,7 @@
             "displayName": "Seru",
             "slug": "seru",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Allantoma lineata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Allantoma lineata", "isSynonym": false }],
             "aliases": [
               "Abacaíba",
               "Castanha-da-serra",
@@ -20660,9 +20616,7 @@
             "displayName": "Seru",
             "slug": "seru",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Allantoma lineata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Allantoma lineata", "isSynonym": false }],
             "aliases": [
               "Abacaíba",
               "Castanha-da-serra",
@@ -20890,9 +20844,7 @@
             "displayName": "Cerejeira",
             "slug": "cerejeira",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Amburana acreana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Amburana acreana", "isSynonym": false }],
             "aliases": [
               "Amburana",
               "Amburana-de-cheiro",
@@ -21099,9 +21051,7 @@
             "displayName": "Cerejeira",
             "slug": "cerejeira",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Amburana acreana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Amburana acreana", "isSynonym": false }],
             "aliases": [
               "Amburana",
               "Amburana-de-cheiro",
@@ -21326,9 +21276,7 @@
             "displayName": "Cajuaçu",
             "slug": "cajuacu",
             "family": "Anacardiaceae",
-            "botanicalNames": [
-              { "name": "Anacardium giganteum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Anacardium giganteum", "isSynonym": false }],
             "aliases": [
               "Cajamirim",
               "Caju",
@@ -21529,9 +21477,7 @@
             "displayName": "Cajuaçu",
             "slug": "cajuacu",
             "family": "Anacardiaceae",
-            "botanicalNames": [
-              { "name": "Anacardium giganteum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Anacardium giganteum", "isSynonym": false }],
             "aliases": [
               "Cajamirim",
               "Caju",
@@ -22599,16 +22545,8 @@
             "displayName": "Cajuaçu",
             "slug": "cajuacu",
             "family": "Anacardiaceae",
-            "botanicalNames": [
-              { "name": "Anacardium spruceanum", "isSynonym": false }
-            ],
-            "aliases": [
-              "Cajamirim",
-              "Caju",
-              "Caju-da-mata",
-              "Cajuí",
-              "Cajuí-da-mata"
-            ],
+            "botanicalNames": [{ "name": "Anacardium spruceanum", "isSynonym": false }],
+            "aliases": ["Cajamirim", "Caju", "Caju-da-mata", "Cajuí", "Cajuí-da-mata"],
             "localNames": [
               { "country": "Brazil", "name": "Cajuaçu" },
               { "country": "Brazil", "name": "Cajamirim" },
@@ -22842,16 +22780,8 @@
             "displayName": "Cajuaçu",
             "slug": "cajuacu",
             "family": "Anacardiaceae",
-            "botanicalNames": [
-              { "name": "Anacardium spruceanum", "isSynonym": false }
-            ],
-            "aliases": [
-              "Cajamirim",
-              "Caju",
-              "Caju-da-mata",
-              "Cajuí",
-              "Cajuí-da-mata"
-            ],
+            "botanicalNames": [{ "name": "Anacardium spruceanum", "isSynonym": false }],
+            "aliases": ["Cajamirim", "Caju", "Caju-da-mata", "Cajuí", "Cajuí-da-mata"],
             "localNames": [
               { "country": "Brésil", "name": "Cajuaçu" },
               { "country": "Brésil", "name": "Cajamirim" },
@@ -24433,13 +24363,7 @@
               { "name": "Annona exsucca", "isSynonym": false },
               { "name": "Rollinia exsucca", "isSynonym": true }
             ],
-            "aliases": [
-              "Ata-brava",
-              "Beribarana",
-              "Embira-bobó",
-              "Envira",
-              "Envira-bobó"
-            ],
+            "aliases": ["Ata-brava", "Beribarana", "Embira-bobó", "Envira", "Envira-bobó"],
             "localNames": [
               { "country": "Brazil", "name": "Embira" },
               { "country": "Brazil", "name": "Ata-brava" },
@@ -24696,13 +24620,7 @@
               { "name": "Annona exsucca", "isSynonym": false },
               { "name": "Rollinia exsucca", "isSynonym": true }
             ],
-            "aliases": [
-              "Ata-brava",
-              "Beribarana",
-              "Embira-bobó",
-              "Envira",
-              "Envira-bobó"
-            ],
+            "aliases": ["Ata-brava", "Beribarana", "Embira-bobó", "Envira", "Envira-bobó"],
             "localNames": [
               { "country": "Brésil", "name": "Embira" },
               { "country": "Brésil", "name": "Ata-brava" },
@@ -24986,14 +24904,8 @@
             "displayName": "Pau-de-Jangada",
             "slug": "pau-de-jangada",
             "family": "Tiliaceae",
-            "botanicalNames": [
-              { "name": "Apeiba echinata", "isSynonym": false }
-            ],
-            "aliases": [
-              "Embira-pente-de-macaco",
-              "Envira-pente-de-macaco",
-              "Pente-de-macaco"
-            ],
+            "botanicalNames": [{ "name": "Apeiba echinata", "isSynonym": false }],
+            "aliases": ["Embira-pente-de-macaco", "Envira-pente-de-macaco", "Pente-de-macaco"],
             "localNames": [
               { "country": "Brazil", "name": "Pau-de-jangada" },
               { "country": "Brazil", "name": "Embira-pente-de-macaco" },
@@ -25221,14 +25133,8 @@
             "displayName": "Pau-de-Jangada",
             "slug": "pau-de-jangada",
             "family": "Tiliaceae",
-            "botanicalNames": [
-              { "name": "Apeiba echinata", "isSynonym": false }
-            ],
-            "aliases": [
-              "Embira-pente-de-macaco",
-              "Envira-pente-de-macaco",
-              "Pente-de-macaco"
-            ],
+            "botanicalNames": [{ "name": "Apeiba echinata", "isSynonym": false }],
+            "aliases": ["Embira-pente-de-macaco", "Envira-pente-de-macaco", "Pente-de-macaco"],
             "localNames": [
               { "country": "Brésil", "name": "Pau-de-jangada" },
               { "country": "Brésil", "name": "Embira-pente-de-macaco" },
@@ -25503,9 +25409,7 @@
             "displayName": "Peroba",
             "slug": "peroba",
             "family": "Apocynaceae",
-            "botanicalNames": [
-              { "name": "Aspidosperma macrocarpon", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Aspidosperma macrocarpon", "isSynonym": false }],
             "aliases": [
               "Balsinha",
               "Bucheira",
@@ -25724,9 +25628,7 @@
             "displayName": "Peroba",
             "slug": "peroba",
             "family": "Apocynaceae",
-            "botanicalNames": [
-              { "name": "Aspidosperma macrocarpon", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Aspidosperma macrocarpon", "isSynonym": false }],
             "aliases": [
               "Balsinha",
               "Bucheira",
@@ -25963,9 +25865,7 @@
             "displayName": "Muiracatiara",
             "slug": "muiracatiara",
             "family": "Anacardiaceae",
-            "botanicalNames": [
-              { "name": "Astronium ulei", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Astronium ulei", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Muiracatiara" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -26203,9 +26103,7 @@
             "displayName": "Muiracatiara",
             "slug": "muiracatiara",
             "family": "Anacardiaceae",
-            "botanicalNames": [
-              { "name": "Astronium ulei", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Astronium ulei", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Muiracatiara" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -27545,9 +27443,7 @@
             "displayName": "Janitá",
             "slug": "janita",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Brosimum alicastrum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Brosimum alicastrum", "isSynonym": false }],
             "aliases": ["Quebra-corrente"],
             "localNames": [
               { "country": "Brazil", "name": "Janitá" },
@@ -27779,9 +27675,7 @@
             "displayName": "Janitá",
             "slug": "janita",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Brosimum alicastrum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Brosimum alicastrum", "isSynonym": false }],
             "aliases": ["Quebra-corrente"],
             "localNames": [
               { "country": "Brésil", "name": "Janitá" },
@@ -28061,9 +27955,7 @@
             "displayName": "Mururé",
             "slug": "murure",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Brosimum gaudichaudii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Brosimum gaudichaudii", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Mururé" },
@@ -28249,9 +28141,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Turning — Surface finishing", "value": "Excellent" }
-              ]
+              "fields": [{ "label": "Turning — Surface finishing", "value": "Excellent" }]
             }
           ]
         },
@@ -28261,9 +28151,7 @@
             "displayName": "Mururé",
             "slug": "murure",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Brosimum gaudichaudii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Brosimum gaudichaudii", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Mururé" },
@@ -28449,9 +28337,7 @@
             {
               "id": "lpf-workability",
               "title": "Usinage",
-              "fields": [
-                { "label": "Tournage — État de surface", "value": "excellent" }
-              ]
+              "fields": [{ "label": "Tournage — État de surface", "value": "excellent" }]
             }
           ]
         }
@@ -28911,9 +28797,7 @@
             "displayName": "Taniboca",
             "slug": "taniboca",
             "family": "Combretaceae",
-            "botanicalNames": [
-              { "name": "Buchenavia cf viridiflora", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Buchenavia cf viridiflora", "isSynonym": false }],
             "aliases": ["Tanibuca"],
             "localNames": [
               { "country": "Brazil", "name": "Taniboca" },
@@ -29094,9 +28978,7 @@
             "displayName": "Taniboca",
             "slug": "taniboca",
             "family": "Combretaceae",
-            "botanicalNames": [
-              { "name": "Buchenavia cf viridiflora", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Buchenavia cf viridiflora", "isSynonym": false }],
             "aliases": ["Tanibuca"],
             "localNames": [
               { "country": "Brésil", "name": "Taniboca" },
@@ -30335,9 +30217,7 @@
             "displayName": "Camaçari",
             "slug": "camacari",
             "family": "Guttiferae",
-            "botanicalNames": [
-              { "name": "Caraipa densifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Caraipa densifolia", "isSynonym": false }],
             "aliases": [
               "Alfinim",
               "Amescuçu",
@@ -30574,9 +30454,7 @@
             "displayName": "Camaçari",
             "slug": "camacari",
             "family": "Guttiferae",
-            "botanicalNames": [
-              { "name": "Caraipa densifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Caraipa densifolia", "isSynonym": false }],
             "aliases": [
               "Alfinim",
               "Amescuçu",
@@ -30830,9 +30708,7 @@
             "displayName": "Tauari-Vermelho",
             "slug": "tauari-vermelho",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Cariniana micrantha", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cariniana micrantha", "isSynonym": false }],
             "aliases": [
               "Castanha-de-macaco",
               "Castanha-vermelha",
@@ -31051,9 +30927,7 @@
             "displayName": "Tauari-Vermelho",
             "slug": "tauari-vermelho",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Cariniana micrantha", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cariniana micrantha", "isSynonym": false }],
             "aliases": [
               "Castanha-de-macaco",
               "Castanha-vermelha",
@@ -31675,9 +31549,7 @@
             "displayName": "Canafístula",
             "slug": "canafistula",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Cassia fastuosa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cassia fastuosa", "isSynonym": false }],
             "aliases": ["Angico", "Baratinha", "Barbatimão", "Paricá"],
             "localNames": [
               { "country": "Brazil", "name": "Canafístula" },
@@ -31861,9 +31733,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Planing — Surface finishing", "value": "Good" }
-              ]
+              "fields": [{ "label": "Planing — Surface finishing", "value": "Good" }]
             }
           ]
         },
@@ -31873,9 +31743,7 @@
             "displayName": "Canafístula",
             "slug": "canafistula",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Cassia fastuosa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cassia fastuosa", "isSynonym": false }],
             "aliases": ["Angico", "Baratinha", "Barbatimão", "Paricá"],
             "localNames": [
               { "country": "Brésil", "name": "Canafístula" },
@@ -32059,9 +31927,7 @@
             {
               "id": "lpf-workability",
               "title": "Usinage",
-              "fields": [
-                { "label": "Rabotage — État de surface", "value": "bon" }
-              ]
+              "fields": [{ "label": "Rabotage — État de surface", "value": "bon" }]
             }
           ]
         }
@@ -32889,9 +32755,7 @@
             "displayName": "Cedrorana",
             "slug": "cedrorana",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Cedrelinga cateniformis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cedrelinga cateniformis", "isSynonym": false }],
             "aliases": [
               "Bandarra",
               "Cedrão",
@@ -33127,9 +32991,7 @@
             "displayName": "Cedrorana",
             "slug": "cedrorana",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Cedrelinga cateniformis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cedrelinga cateniformis", "isSynonym": false }],
             "aliases": [
               "Bandarra",
               "Cedrão",
@@ -33944,9 +33806,7 @@
             "displayName": "Maçarandubarana",
             "slug": "macarandubarana",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Chrysophyllum prieurii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Chrysophyllum prieurii", "isSynonym": false }],
             "aliases": [
               "Abiu-de-casca-fina",
               "Abiurana",
@@ -34139,9 +33999,7 @@
             "displayName": "Maçarandubarana",
             "slug": "macarandubarana",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Chrysophyllum prieurii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Chrysophyllum prieurii", "isSynonym": false }],
             "aliases": [
               "Abiu-de-casca-fina",
               "Abiurana",
@@ -34546,9 +34404,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Boring — Surface finishing", "value": "Regular" }
-              ]
+              "fields": [{ "label": "Boring — Surface finishing", "value": "Regular" }]
             }
           ]
         },
@@ -34774,9 +34630,7 @@
             "displayName": "Freijó",
             "slug": "freijo",
             "family": "Boraginaceae",
-            "botanicalNames": [
-              { "name": "Cordia bicolor", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cordia bicolor", "isSynonym": false }],
             "aliases": ["Chapéu-de-sol", "Freijó-branco", "Pau-de-jangada"],
             "localNames": [
               { "country": "Brazil", "name": "Freijó" },
@@ -35010,9 +34864,7 @@
             "displayName": "Freijó",
             "slug": "freijo",
             "family": "Boraginaceae",
-            "botanicalNames": [
-              { "name": "Cordia bicolor", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cordia bicolor", "isSynonym": false }],
             "aliases": ["Chapéu-de-sol", "Freijó-branco", "Pau-de-jangada"],
             "localNames": [
               { "country": "Brésil", "name": "Freijó" },
@@ -35280,9 +35132,7 @@
             "displayName": "Freijó",
             "slug": "freijo",
             "family": "Boraginaceae",
-            "botanicalNames": [
-              { "name": "Cordia sagotii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cordia sagotii", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Freijó" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -35522,9 +35372,7 @@
             "displayName": "Freijó",
             "slug": "freijo",
             "family": "Boraginaceae",
-            "botanicalNames": [
-              { "name": "Cordia sagotii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Cordia sagotii", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Freijó" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -36182,9 +36030,7 @@
             "displayName": "Castanha-de-Cutia",
             "slug": "castanha-de-cutia",
             "family": "Chrysobalanaceae",
-            "botanicalNames": [
-              { "name": "Couepia robusta", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Couepia robusta", "isSynonym": false }],
             "aliases": ["Abiurana"],
             "localNames": [
               { "country": "Brazil", "name": "Castanha-de-cutia" },
@@ -36381,9 +36227,7 @@
             "displayName": "Castanha-de-Cutia",
             "slug": "castanha-de-cutia",
             "family": "Chrysobalanaceae",
-            "botanicalNames": [
-              { "name": "Couepia robusta", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Couepia robusta", "isSynonym": false }],
             "aliases": ["Abiurana"],
             "localNames": [
               { "country": "Brésil", "name": "Castanha-de-cutia" },
@@ -36595,16 +36439,8 @@
             "displayName": "Tauari",
             "slug": "tauari",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Couratari guianensis", "isSynonym": false }
-            ],
-            "aliases": [
-              "Caçador",
-              "Cachimbeiro",
-              "Maou",
-              "Tauari-branco",
-              "Tauari-claro"
-            ],
+            "botanicalNames": [{ "name": "Couratari guianensis", "isSynonym": false }],
+            "aliases": ["Caçador", "Cachimbeiro", "Maou", "Tauari-branco", "Tauari-claro"],
             "localNames": [
               { "country": "Brazil", "name": "Tauari" },
               { "country": "Brazil", "name": "Caçador" },
@@ -36851,16 +36687,8 @@
             "displayName": "Tauari",
             "slug": "tauari",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Couratari guianensis", "isSynonym": false }
-            ],
-            "aliases": [
-              "Caçador",
-              "Cachimbeiro",
-              "Maou",
-              "Tauari-branco",
-              "Tauari-claro"
-            ],
+            "botanicalNames": [{ "name": "Couratari guianensis", "isSynonym": false }],
+            "aliases": ["Caçador", "Cachimbeiro", "Maou", "Tauari-branco", "Tauari-claro"],
             "localNames": [
               { "country": "Brésil", "name": "Tauari" },
               { "country": "Brésil", "name": "Caçador" },
@@ -37152,16 +36980,8 @@
             "displayName": "Tauari",
             "slug": "tauari",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Couratari oblongifolia", "isSynonym": false }
-            ],
-            "aliases": [
-              "Embirema",
-              "Imbirema",
-              "Tauari-amarelo",
-              "Tauari-branco",
-              "Tauari-morrão"
-            ],
+            "botanicalNames": [{ "name": "Couratari oblongifolia", "isSynonym": false }],
+            "aliases": ["Embirema", "Imbirema", "Tauari-amarelo", "Tauari-branco", "Tauari-morrão"],
             "localNames": [
               { "country": "Brazil", "name": "Tauari" },
               { "country": "Brazil", "name": "Embirema" },
@@ -37448,16 +37268,8 @@
             "displayName": "Tauari",
             "slug": "tauari",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Couratari oblongifolia", "isSynonym": false }
-            ],
-            "aliases": [
-              "Embirema",
-              "Imbirema",
-              "Tauari-amarelo",
-              "Tauari-branco",
-              "Tauari-morrão"
-            ],
+            "botanicalNames": [{ "name": "Couratari oblongifolia", "isSynonym": false }],
+            "aliases": ["Embirema", "Imbirema", "Tauari-amarelo", "Tauari-branco", "Tauari-morrão"],
             "localNames": [
               { "country": "Brésil", "name": "Tauari" },
               { "country": "Brésil", "name": "Embirema" },
@@ -37792,9 +37604,7 @@
             "displayName": "Tauari",
             "slug": "tauari",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Couratari stellata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Couratari stellata", "isSynonym": false }],
             "aliases": ["Tauari-duro", "Tauari-escuro", "Tauari-rosa"],
             "localNames": [
               { "country": "Brazil", "name": "Tauari" },
@@ -38040,9 +37850,7 @@
             "displayName": "Tauari",
             "slug": "tauari",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Couratari stellata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Couratari stellata", "isSynonym": false }],
             "aliases": ["Tauari-duro", "Tauari-escuro", "Tauari-rosa"],
             "localNames": [
               { "country": "Brésil", "name": "Tauari" },
@@ -38731,9 +38539,7 @@
             "displayName": "Embira-Preta",
             "slug": "embira-preta",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Diclinanona calycina", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Diclinanona calycina", "isSynonym": false }],
             "aliases": ["Envira-preta"],
             "localNames": [
               { "country": "Brazil", "name": "Embira-preta" },
@@ -38970,9 +38776,7 @@
             "displayName": "Embira-Preta",
             "slug": "embira-preta",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Diclinanona calycina", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Diclinanona calycina", "isSynonym": false }],
             "aliases": ["Envira-preta"],
             "localNames": [
               { "country": "Brésil", "name": "Embira-preta" },
@@ -39810,9 +39614,7 @@
             "displayName": "Pau-Branco",
             "slug": "pau-branco",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Drypetes variabilis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Drypetes variabilis", "isSynonym": false }],
             "aliases": ["Maparana"],
             "localNames": [
               { "country": "Brazil", "name": "Pau-branco" },
@@ -40061,9 +39863,7 @@
             "displayName": "Pau-Branco",
             "slug": "pau-branco",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Drypetes variabilis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Drypetes variabilis", "isSynonym": false }],
             "aliases": ["Maparana"],
             "localNames": [
               { "country": "Brésil", "name": "Pau-branco" },
@@ -40369,9 +40169,7 @@
             "displayName": "Uxi",
             "slug": "uxi",
             "family": "Humiriaceae",
-            "botanicalNames": [
-              { "name": "Endopleura uchi", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Endopleura uchi", "isSynonym": false }],
             "aliases": [
               "Axuá",
               "Cumatê",
@@ -40632,9 +40430,7 @@
             "displayName": "Uxi",
             "slug": "uxi",
             "family": "Humiriaceae",
-            "botanicalNames": [
-              { "name": "Endopleura uchi", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Endopleura uchi", "isSynonym": false }],
             "aliases": [
               "Axuá",
               "Cumatê",
@@ -40954,9 +40750,7 @@
             "displayName": "Sumaúma-da-Terra-Firme",
             "slug": "sumauma-da-terra-firme",
             "family": "bombacaceae",
-            "botanicalNames": [
-              { "name": "Eriotheca longipedicellata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Eriotheca longipedicellata", "isSynonym": false }],
             "aliases": [
               "Mamorana-da-terra-firme",
               "Munguba-grande-da-terra-firme",
@@ -41214,9 +41008,7 @@
             "displayName": "Sumaúma-da-Terra-Firme",
             "slug": "sumauma-da-terra-firme",
             "family": "bombacaceae",
-            "botanicalNames": [
-              { "name": "Eriotheca longipedicellata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Eriotheca longipedicellata", "isSynonym": false }],
             "aliases": [
               "Mamorana-da-terra-firme",
               "Munguba-grande-da-terra-firme",
@@ -43299,9 +43091,7 @@
             "displayName": "Figueira / Gameleira",
             "slug": "figueira-gameleira",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Ficus insipida", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Ficus insipida", "isSynonym": false }],
             "aliases": [
               "Apuí-açu",
               "Caxinguba",
@@ -43532,9 +43322,7 @@
             "displayName": "Figueira / Gameleira",
             "slug": "figueira-gameleira",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Ficus insipida", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Ficus insipida", "isSynonym": false }],
             "aliases": [
               "Apuí-açu",
               "Caxinguba",
@@ -43787,15 +43575,8 @@
             "displayName": "Glícia",
             "slug": "glicia",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Glycydendron amazonicum", "isSynonym": false }
-            ],
-            "aliases": [
-              "Fruta-de-anambé",
-              "Mirindiba-doce",
-              "Murapixi",
-              "Pau-de-casca-doce"
-            ],
+            "botanicalNames": [{ "name": "Glycydendron amazonicum", "isSynonym": false }],
+            "aliases": ["Fruta-de-anambé", "Mirindiba-doce", "Murapixi", "Pau-de-casca-doce"],
             "localNames": [
               { "country": "Brazil", "name": "Glícia" },
               { "country": "Brazil", "name": "Fruta-de-anambé" },
@@ -44058,15 +43839,8 @@
             "displayName": "Glícia",
             "slug": "glicia",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Glycydendron amazonicum", "isSynonym": false }
-            ],
-            "aliases": [
-              "Fruta-de-anambé",
-              "Mirindiba-doce",
-              "Murapixi",
-              "Pau-de-casca-doce"
-            ],
+            "botanicalNames": [{ "name": "Glycydendron amazonicum", "isSynonym": false }],
+            "aliases": ["Fruta-de-anambé", "Mirindiba-doce", "Murapixi", "Pau-de-casca-doce"],
             "localNames": [
               { "country": "Brésil", "name": "Glícia" },
               { "country": "Brésil", "name": "Fruta-de-anambé" },
@@ -44384,15 +44158,8 @@
             "displayName": "Embira-Preta",
             "slug": "embira-preta",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Guatteria olivacea", "isSynonym": false }
-            ],
-            "aliases": [
-              "Embira",
-              "Embira-branca",
-              "Envira-branca",
-              "Envira-preta"
-            ],
+            "botanicalNames": [{ "name": "Guatteria olivacea", "isSynonym": false }],
+            "aliases": ["Embira", "Embira-branca", "Envira-branca", "Envira-preta"],
             "localNames": [
               { "country": "Brazil", "name": "Embira-preta" },
               { "country": "Brazil", "name": "Embira" },
@@ -44631,15 +44398,8 @@
             "displayName": "Embira-Preta",
             "slug": "embira-preta",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Guatteria olivacea", "isSynonym": false }
-            ],
-            "aliases": [
-              "Embira",
-              "Embira-branca",
-              "Envira-branca",
-              "Envira-preta"
-            ],
+            "botanicalNames": [{ "name": "Guatteria olivacea", "isSynonym": false }],
+            "aliases": ["Embira", "Embira-branca", "Envira-branca", "Envira-preta"],
             "localNames": [
               { "country": "Brésil", "name": "Embira-preta" },
               { "country": "Brésil", "name": "Embira" },
@@ -44934,9 +44694,7 @@
             "displayName": "Embira-Preta",
             "slug": "embira-preta",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Guatteria procera", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Guatteria procera", "isSynonym": false }],
             "aliases": ["Envira-preta"],
             "localNames": [
               { "country": "Brazil", "name": "Embira-preta" },
@@ -45191,9 +44949,7 @@
             "displayName": "Embira-Preta",
             "slug": "embira-preta",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Guatteria procera", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Guatteria procera", "isSynonym": false }],
             "aliases": ["Envira-preta"],
             "localNames": [
               { "country": "Brésil", "name": "Embira-preta" },
@@ -45924,9 +45680,7 @@
             "displayName": "Jatobá / Jutaí-do-Campo",
             "slug": "jatoba-jutai-do-campo",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Hymenaea parvifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenaea parvifolia", "isSynonym": false }],
             "aliases": [
               "Comer-de-arara",
               "Jatobá",
@@ -46195,9 +45949,7 @@
             "displayName": "Jatobá / Jutaí-do-Campo",
             "slug": "jatoba-jutai-do-campo",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Hymenaea parvifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenaea parvifolia", "isSynonym": false }],
             "aliases": [
               "Comer-de-arara",
               "Jatobá",
@@ -46522,9 +46274,7 @@
             "displayName": "Angelim-Pedra",
             "slug": "angelim-pedra",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Hymenolobium modestum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenolobium modestum", "isSynonym": false }],
             "aliases": [
               "Angelim",
               "Angelim-comum",
@@ -46793,9 +46543,7 @@
             "displayName": "Angelim-Pedra",
             "slug": "angelim-pedra",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Hymenolobium modestum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenolobium modestum", "isSynonym": false }],
             "aliases": [
               "Angelim",
               "Angelim-comum",
@@ -47129,9 +46877,7 @@
             "displayName": "Angelim-Pedra",
             "slug": "angelim-pedra",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Hymenolobium nitidum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenolobium nitidum", "isSynonym": false }],
             "aliases": [
               "Angelim",
               "Angelim-da-mata",
@@ -47336,9 +47082,7 @@
             "displayName": "Angelim-Pedra",
             "slug": "angelim-pedra",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Hymenolobium nitidum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenolobium nitidum", "isSynonym": false }],
             "aliases": [
               "Angelim",
               "Angelim-da-mata",
@@ -47562,9 +47306,7 @@
             "displayName": "Angelim-Pedra",
             "slug": "angelim-pedra",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Hymenolobium pulcherrimum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenolobium pulcherrimum", "isSynonym": false }],
             "aliases": [
               "Angelim",
               "Angelim-amarelo",
@@ -47754,9 +47496,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Planing — Surface finishing", "value": "Excellent" }
-              ]
+              "fields": [{ "label": "Planing — Surface finishing", "value": "Excellent" }]
             }
           ]
         },
@@ -47766,9 +47506,7 @@
             "displayName": "Angelim-Pedra",
             "slug": "angelim-pedra",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Hymenolobium pulcherrimum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenolobium pulcherrimum", "isSynonym": false }],
             "aliases": [
               "Angelim",
               "Angelim-amarelo",
@@ -47958,9 +47696,7 @@
             {
               "id": "lpf-workability",
               "title": "Usinage",
-              "fields": [
-                { "label": "Rabotage — État de surface", "value": "excellent" }
-              ]
+              "fields": [{ "label": "Rabotage — État de surface", "value": "excellent" }]
             }
           ]
         }
@@ -47988,9 +47724,7 @@
             "displayName": "Angelim",
             "slug": "angelim",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Hymenolobium sp", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenolobium sp", "isSynonym": false }],
             "aliases": [
               "Angelim-amarelo",
               "Angelim-amargoso",
@@ -48207,9 +47941,7 @@
             "displayName": "Angelim",
             "slug": "angelim",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Hymenolobium sp", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hymenolobium sp", "isSynonym": false }],
             "aliases": [
               "Angelim-amarelo",
               "Angelim-amargoso",
@@ -48438,9 +48170,7 @@
             "displayName": "Ingá",
             "slug": "inga",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Inga paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Inga paraensis", "isSynonym": false }],
             "aliases": ["Ingá-vermelho", "Ingarana"],
             "localNames": [
               { "country": "Brazil", "name": "Ingá" },
@@ -48653,9 +48383,7 @@
             "displayName": "Ingá",
             "slug": "inga",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Inga paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Inga paraensis", "isSynonym": false }],
             "aliases": ["Ingá-vermelho", "Ingarana"],
             "localNames": [
               { "country": "Brésil", "name": "Ingá" },
@@ -49371,11 +49099,7 @@
             "euroclass": { "raw": "", "value": null },
             "notes": null
           },
-          "endUses": [
-            "construction lourde",
-            "charpente légère",
-            "articles tournés"
-          ],
+          "endUses": ["construction lourde", "charpente légère", "articles tournés"],
           "endUseNotes": [],
           "additionalDetails": [
             {
@@ -49461,9 +49185,7 @@
             "displayName": "Ucuubarana",
             "slug": "ucuubarana",
             "family": "Myristicaceae",
-            "botanicalNames": [
-              { "name": "Iryanthera grandis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Iryanthera grandis", "isSynonym": false }],
             "aliases": ["Pinã"],
             "localNames": [
               { "country": "Brazil", "name": "Ucuubarana" },
@@ -49709,9 +49431,7 @@
             "displayName": "Ucuubarana",
             "slug": "ucuubarana",
             "family": "Myristicaceae",
-            "botanicalNames": [
-              { "name": "Iryanthera grandis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Iryanthera grandis", "isSynonym": false }],
             "aliases": ["Pinã"],
             "localNames": [
               { "country": "Brésil", "name": "Ucuubarana" },
@@ -49993,9 +49713,7 @@
             "displayName": "Castanha-de-Arara",
             "slug": "castanha-de-arara",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Joannesia heveoides", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Joannesia heveoides", "isSynonym": false }],
             "aliases": [
               "Andá-açu",
               "Boleira",
@@ -50254,9 +49972,7 @@
             "displayName": "Castanha-de-Arara",
             "slug": "castanha-de-arara",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Joannesia heveoides", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Joannesia heveoides", "isSynonym": false }],
             "aliases": [
               "Andá-açu",
               "Boleira",
@@ -50559,9 +50275,7 @@
             "displayName": "Pau-Jacaré",
             "slug": "pau-jacare",
             "family": "Flacourtiaceae",
-            "botanicalNames": [
-              { "name": "Laetia procera", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Laetia procera", "isSynonym": false }],
             "aliases": ["Apijó", "Jacaré", "Paparaúba-da-serra", "Taxauá"],
             "localNames": [
               { "country": "Brazil", "name": "Pau-jacaré" },
@@ -50801,9 +50515,7 @@
             "displayName": "Pau-Jacaré",
             "slug": "pau-jacare",
             "family": "Flacourtiaceae",
-            "botanicalNames": [
-              { "name": "Laetia procera", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Laetia procera", "isSynonym": false }],
             "aliases": ["Apijó", "Jacaré", "Paparaúba-da-serra", "Taxauá"],
             "localNames": [
               { "country": "Brésil", "name": "Pau-jacaré" },
@@ -51081,9 +50793,7 @@
             "displayName": "Matamatá / Sapucaia-Amargosa",
             "slug": "matamata-sapucaia-amargosa",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Lecythis idatimon", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Lecythis idatimon", "isSynonym": false }],
             "aliases": [
               "MATAMATÁ / SAPUCAIA AMARGOSA",
               "Jatereua",
@@ -51362,9 +51072,7 @@
             "displayName": "Matamatá / Sapucaia-Amargosa",
             "slug": "matamata-sapucaia-amargosa",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Lecythis idatimon", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Lecythis idatimon", "isSynonym": false }],
             "aliases": [
               "MATAMATÁ / SAPUCAIA AMARGOSA",
               "Jatereua",
@@ -51700,9 +51408,7 @@
             "displayName": "Sapucaia / Sapucaia-Vermelha",
             "slug": "sapucaia-sapucaia-vermelha",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Lecythis pisonis subsp. usitata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Lecythis pisonis subsp. usitata", "isSynonym": false }],
             "aliases": [
               "SAPUCAIA / SAPUCAIA VERMELHA",
               "Árvore-de-cambuca",
@@ -52027,9 +51733,7 @@
             "displayName": "Sapucaia / Sapucaia-Vermelha",
             "slug": "sapucaia-sapucaia-vermelha",
             "family": "Lecythidaceae",
-            "botanicalNames": [
-              { "name": "Lecythis pisonis subsp. usitata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Lecythis pisonis subsp. usitata", "isSynonym": false }],
             "aliases": [
               "SAPUCAIA / SAPUCAIA VERMELHA",
               "Árvore-de-cambuca",
@@ -52422,9 +52126,7 @@
             "displayName": "Caraiperana",
             "slug": "caraiperana",
             "family": "Chrysobalanaceae",
-            "botanicalNames": [
-              { "name": "Licania gracilipes", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Licania gracilipes", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Caraiperana" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -52615,9 +52317,7 @@
             "displayName": "Caraiperana",
             "slug": "caraiperana",
             "family": "Chrysobalanaceae",
-            "botanicalNames": [
-              { "name": "Licania gracilipes", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Licania gracilipes", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Caraiperana" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -52827,9 +52527,7 @@
             "displayName": "Macucu-Branco",
             "slug": "macucu-branco",
             "family": "Chrysobalanaceae",
-            "botanicalNames": [
-              { "name": "Licania oblongifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Licania oblongifolia", "isSynonym": false }],
             "aliases": ["Macucu-chiador"],
             "localNames": [
               { "country": "Brazil", "name": "Macucu-branco" },
@@ -53031,9 +52729,7 @@
             "displayName": "Macucu-Branco",
             "slug": "macucu-branco",
             "family": "Chrysobalanaceae",
-            "botanicalNames": [
-              { "name": "Licania oblongifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Licania oblongifolia", "isSynonym": false }],
             "aliases": ["Macucu-chiador"],
             "localNames": [
               { "country": "Brésil", "name": "Macucu-branco" },
@@ -53248,9 +52944,7 @@
             "displayName": "Caraipé",
             "slug": "caraipe",
             "family": "Chrysobalanaceae",
-            "botanicalNames": [
-              { "name": "Licania octandra", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Licania octandra", "isSynonym": false }],
             "aliases": [
               "Caraiperana",
               "Caripé",
@@ -53509,9 +53203,7 @@
             "displayName": "Caraipé",
             "slug": "caraipe",
             "family": "Chrysobalanaceae",
-            "botanicalNames": [
-              { "name": "Licania octandra", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Licania octandra", "isSynonym": false }],
             "aliases": [
               "Caraiperana",
               "Caripé",
@@ -54401,9 +54093,7 @@
             "displayName": "Açoita-Cavalo",
             "slug": "acoita-cavalo",
             "family": "Tiliaceae",
-            "botanicalNames": [
-              { "name": "Lueheopsis duckeana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Lueheopsis duckeana", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Açoita-cavalo" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -54676,9 +54366,7 @@
             "displayName": "Açoita-Cavalo",
             "slug": "acoita-cavalo",
             "family": "Tiliaceae",
-            "botanicalNames": [
-              { "name": "Lueheopsis duckeana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Lueheopsis duckeana", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Açoita-cavalo" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -55000,9 +54688,7 @@
             "displayName": "Arapari",
             "slug": "arapari",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Macrolobium acacifolium", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Macrolobium acacifolium", "isSynonym": false }],
             "aliases": [
               "Arapari-branco",
               "Arapari-da-várzea",
@@ -55223,9 +54909,7 @@
             "displayName": "Arapari",
             "slug": "arapari",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Macrolobium acacifolium", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Macrolobium acacifolium", "isSynonym": false }],
             "aliases": [
               "Arapari-branco",
               "Arapari-da-várzea",
@@ -55462,9 +55146,7 @@
             "displayName": "Ararapari",
             "slug": "ararapari",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Macrolobium sp", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Macrolobium sp", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Ararapari" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -55659,9 +55341,7 @@
             "displayName": "Ararapari",
             "slug": "ararapari",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Macrolobium sp", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Macrolobium sp", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Ararapari" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -55872,9 +55552,7 @@
             "displayName": "Sorva",
             "slug": "sorva",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Malouetia duckei", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Malouetia duckei", "isSynonym": false }],
             "aliases": ["Tamanqueira-de-leite"],
             "localNames": [
               { "country": "Brazil", "name": "Sorva" },
@@ -56123,9 +55801,7 @@
             "displayName": "Sorva",
             "slug": "sorva",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Malouetia duckei", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Malouetia duckei", "isSynonym": false }],
             "aliases": ["Tamanqueira-de-leite"],
             "localNames": [
               { "country": "Brésil", "name": "Sorva" },
@@ -56832,9 +56508,7 @@
             "displayName": "Muiratinga",
             "slug": "muiratinga",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Maquira sclerophylla", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Maquira sclerophylla", "isSynonym": false }],
             "aliases": [
               "Cauchorana",
               "Miratinga",
@@ -57080,9 +56754,7 @@
             "displayName": "Muiratinga",
             "slug": "muiratinga",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Maquira sclerophylla", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Maquira sclerophylla", "isSynonym": false }],
             "aliases": [
               "Cauchorana",
               "Miratinga",
@@ -57371,9 +57043,7 @@
             "displayName": "Itaúba / Itaúba-Vermelha",
             "slug": "itauba-itauba-vermelha",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Mezilaurus itauba", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Mezilaurus itauba", "isSynonym": false }],
             "aliases": [
               "Cedro-pardo",
               "Itaúba",
@@ -57638,9 +57308,7 @@
             "displayName": "Itaúba / Itaúba-Vermelha",
             "slug": "itauba-itauba-vermelha",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Mezilaurus itauba", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Mezilaurus itauba", "isSynonym": false }],
             "aliases": [
               "Cedro-pardo",
               "Itaúba",
@@ -57938,9 +57606,7 @@
             "displayName": "Cauchorana",
             "slug": "cauchorana",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Micrandra minor", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Micrandra minor", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Cauchorana" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -58118,9 +57784,7 @@
             "displayName": "Cauchorana",
             "slug": "cauchorana",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Micrandra minor", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Micrandra minor", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Cauchorana" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -58316,9 +57980,7 @@
             "displayName": "Seringarana",
             "slug": "seringarana",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Micrandra rossiana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Micrandra rossiana", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Seringarana" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -58510,9 +58172,7 @@
             "displayName": "Seringarana",
             "slug": "seringarana",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Micrandra rossiana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Micrandra rossiana", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Seringarana" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -58723,9 +58383,7 @@
             "displayName": "Abiurana-Mangabarana",
             "slug": "abiurana-mangabarana",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Micropholis guyanensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Micropholis guyanensis", "isSynonym": false }],
             "aliases": [
               "Abiurana-balatarana",
               "Abiurana-branca",
@@ -58944,9 +58602,7 @@
             "displayName": "Abiurana-Mangabarana",
             "slug": "abiurana-mangabarana",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Micropholis guyanensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Micropholis guyanensis", "isSynonym": false }],
             "aliases": [
               "Abiurana-balatarana",
               "Abiurana-branca",
@@ -59181,9 +58837,7 @@
             "displayName": "Abiurana-Branca",
             "slug": "abiurana-branca",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Micropholis mensalis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Micropholis mensalis", "isSynonym": false }],
             "aliases": ["Abiurana-goiabinha"],
             "localNames": [
               { "country": "Brazil", "name": "Abiurana-branca" },
@@ -59377,9 +59031,7 @@
             "displayName": "Abiurana-Branca",
             "slug": "abiurana-branca",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Micropholis mensalis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Micropholis mensalis", "isSynonym": false }],
             "aliases": ["Abiurana-goiabinha"],
             "localNames": [
               { "country": "Brésil", "name": "Abiurana-branca" },
@@ -59592,9 +59244,7 @@
             "displayName": "Miraúba",
             "slug": "mirauba",
             "family": "Melastomataceae",
-            "botanicalNames": [
-              { "name": "Mouriri collocarpa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Mouriri collocarpa", "isSynonym": false }],
             "aliases": ["Miraúba-amarela", "Muiraúba-amarela"],
             "localNames": [
               { "country": "Brazil", "name": "Miraúba" },
@@ -59792,9 +59442,7 @@
             "displayName": "Miraúba",
             "slug": "mirauba",
             "family": "Melastomataceae",
-            "botanicalNames": [
-              { "name": "Mouriri collocarpa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Mouriri collocarpa", "isSynonym": false }],
             "aliases": ["Miraúba-amarela", "Muiraúba-amarela"],
             "localNames": [
               { "country": "Brésil", "name": "Miraúba" },
@@ -60007,9 +59655,7 @@
             "displayName": "Cabreúva-Parda",
             "slug": "cabreuva-parda",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Myrocarpus frondosus", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Myrocarpus frondosus", "isSynonym": false }],
             "aliases": [
               "Bálsamo",
               "Bálsamo-caboriba",
@@ -60293,9 +59939,7 @@
             "displayName": "Cabreúva-Parda",
             "slug": "cabreuva-parda",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Myrocarpus frondosus", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Myrocarpus frondosus", "isSynonym": false }],
             "aliases": [
               "Bálsamo",
               "Bálsamo-caboriba",
@@ -60601,9 +60245,7 @@
             "displayName": "Canela/Louro-Tamanco",
             "slug": "canela-louro-tamanco",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Nectandra cuspidata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Nectandra cuspidata", "isSynonym": false }],
             "aliases": [
               "Canela",
               "Canela-bosta",
@@ -60814,9 +60456,7 @@
             "displayName": "Canela/Louro-Tamanco",
             "slug": "canela-louro-tamanco",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Nectandra cuspidata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Nectandra cuspidata", "isSynonym": false }],
             "aliases": [
               "Canela",
               "Canela-bosta",
@@ -61464,9 +61104,7 @@
             "displayName": "Louro-Preto",
             "slug": "louro-preto",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Ocotea fragrantissima", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Ocotea fragrantissima", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Louro-preto" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -61658,9 +61296,7 @@
             "displayName": "Louro-Preto",
             "slug": "louro-preto",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Ocotea fragrantissima", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Ocotea fragrantissima", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Louro-preto" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -61871,9 +61507,7 @@
             "displayName": "Louro-Preto",
             "slug": "louro-preto",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Ocotea neesiana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Ocotea neesiana", "isSynonym": false }],
             "aliases": ["Louro", "Louro-canela"],
             "localNames": [
               { "country": "Brazil", "name": "Louro-preto" },
@@ -62120,9 +61754,7 @@
             "displayName": "Louro-Preto",
             "slug": "louro-preto",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Ocotea neesiana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Ocotea neesiana", "isSynonym": false }],
             "aliases": ["Louro", "Louro-canela"],
             "localNames": [
               { "country": "Brésil", "name": "Louro-preto" },
@@ -63147,9 +62779,7 @@
             "displayName": "Enbira-Preta",
             "slug": "enbira-preta",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Onychopetalum amazonicum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Onychopetalum amazonicum", "isSynonym": false }],
             "aliases": ["Embira-preta", "Envira-preta"],
             "localNames": [
               { "country": "Brazil", "name": "ENBIRA-PRETA" },
@@ -63409,9 +63039,7 @@
             "displayName": "Enbira-Preta",
             "slug": "enbira-preta",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Onychopetalum amazonicum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Onychopetalum amazonicum", "isSynonym": false }],
             "aliases": ["Embira-preta", "Envira-preta"],
             "localNames": [
               { "country": "Brésil", "name": "ENBIRA-PRETA" },
@@ -63726,9 +63354,7 @@
             "displayName": "Ucuubarana",
             "slug": "ucuubarana",
             "family": "Myristicaceae",
-            "botanicalNames": [
-              { "name": "Osteophloeum platyspermum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Osteophloeum platyspermum", "isSynonym": false }],
             "aliases": [
               "Arurá-branco",
               "Pajurá",
@@ -63938,9 +63564,7 @@
             "displayName": "Ucuubarana",
             "slug": "ucuubarana",
             "family": "Myristicaceae",
-            "botanicalNames": [
-              { "name": "Osteophloeum platyspermum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Osteophloeum platyspermum", "isSynonym": false }],
             "aliases": [
               "Arurá-branco",
               "Pajurá",
@@ -64162,9 +63786,7 @@
             "displayName": "Fava-Bolota / Visgueiro",
             "slug": "fava-bolota-visgueiro",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Parkia gigantocarpa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Parkia gigantocarpa", "isSynonym": false }],
             "aliases": [
               "Fava-atanã",
               "Fava-barriguda",
@@ -64374,9 +63996,7 @@
             "displayName": "Fava-Bolota / Visgueiro",
             "slug": "fava-bolota-visgueiro",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Parkia gigantocarpa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Parkia gigantocarpa", "isSynonym": false }],
             "aliases": [
               "Fava-atanã",
               "Fava-barriguda",
@@ -64616,9 +64236,7 @@
             "displayName": "Faveira / Visgueiro",
             "slug": "faveira-visgueiro",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Parkia paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Parkia paraensis", "isSynonym": false }],
             "aliases": [
               "Fava-arara-tucupi",
               "Favão",
@@ -64880,9 +64498,7 @@
             "displayName": "Faveira / Visgueiro",
             "slug": "faveira-visgueiro",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Parkia paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Parkia paraensis", "isSynonym": false }],
             "aliases": [
               "Fava-arara-tucupi",
               "Favão",
@@ -65196,9 +64812,7 @@
             "displayName": "Roxinho",
             "slug": "roxinho",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Parkia pendula", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Parkia pendula", "isSynonym": false }],
             "aliases": [
               "Angelim-saia",
               "Abacate",
@@ -65602,9 +65216,7 @@
             "displayName": "Roxinho",
             "slug": "roxinho",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Parkia pendula", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Parkia pendula", "isSynonym": false }],
             "aliases": [
               "Angelim-saia",
               "Abacate",
@@ -66480,9 +66092,7 @@
             "displayName": "Angico",
             "slug": "angico",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Peltogyne cf subsessilis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Peltogyne cf subsessilis", "isSynonym": false }],
             "aliases": ["Roxinho", "Pau-roxo"],
             "localNames": [
               { "country": "Brazil", "name": "Roxinho" },
@@ -66684,9 +66294,7 @@
             "displayName": "Angico",
             "slug": "angico",
             "family": "Mimosaceae",
-            "botanicalNames": [
-              { "name": "Peltogyne cf subsessilis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Peltogyne cf subsessilis", "isSynonym": false }],
             "aliases": ["Roxinho", "Pau-roxo"],
             "localNames": [
               { "country": "Brésil", "name": "Roxinho" },
@@ -66901,9 +66509,7 @@
             "displayName": "Rosadinho",
             "slug": "rosadinho",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Peltogyne paniculata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Peltogyne paniculata", "isSynonym": false }],
             "aliases": [
               "Roxinho",
               "Caatingueira",
@@ -67113,9 +66719,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Planing — Surface finishing", "value": "Good" }
-              ]
+              "fields": [{ "label": "Planing — Surface finishing", "value": "Good" }]
             }
           ]
         },
@@ -67125,9 +66729,7 @@
             "displayName": "Rosadinho",
             "slug": "rosadinho",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Peltogyne paniculata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Peltogyne paniculata", "isSynonym": false }],
             "aliases": [
               "Roxinho",
               "Caatingueira",
@@ -67337,9 +66939,7 @@
             {
               "id": "lpf-workability",
               "title": "Usinage",
-              "fields": [
-                { "label": "Rabotage — État de surface", "value": "bon" }
-              ]
+              "fields": [{ "label": "Rabotage — État de surface", "value": "bon" }]
             }
           ]
         }
@@ -67982,9 +67582,7 @@
             "displayName": "Abiurana",
             "slug": "abiurana",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria anomala", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria anomala", "isSynonym": false }],
             "aliases": [
               "Rosadinho",
               "Abiurana-balatinha",
@@ -68247,9 +67845,7 @@
             "displayName": "Abiurana",
             "slug": "abiurana",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria anomala", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria anomala", "isSynonym": false }],
             "aliases": [
               "Rosadinho",
               "Abiurana-balatinha",
@@ -68552,9 +68148,7 @@
             "displayName": "Abiurana",
             "slug": "abiurana",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria egregia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria egregia", "isSynonym": false }],
             "aliases": ["Abiu-pitomba"],
             "localNames": [{ "country": "Brazil", "name": "Abiu-pitomba" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -68802,9 +68396,7 @@
             "displayName": "Abiurana",
             "slug": "abiurana",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria egregia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria egregia", "isSynonym": false }],
             "aliases": ["Abiu-pitomba"],
             "localNames": [{ "country": "Brésil", "name": "Abiu-pitomba" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -69673,9 +69265,7 @@
             "displayName": "Tuturubá",
             "slug": "tuturuba",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria oblanceolata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria oblanceolata", "isSynonym": false }],
             "aliases": ["Abiurana-preta"],
             "localNames": [
               { "country": "Brazil", "name": "Tuturubá" },
@@ -69859,9 +69449,7 @@
             "displayName": "Tuturubá",
             "slug": "tuturuba",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria oblanceolata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria oblanceolata", "isSynonym": false }],
             "aliases": ["Abiurana-preta"],
             "localNames": [
               { "country": "Brésil", "name": "Tuturubá" },
@@ -70063,9 +69651,7 @@
             "displayName": "Maragonçalo",
             "slug": "maragoncalo",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria obscura", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria obscura", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Maragonçalo" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -70260,9 +69846,7 @@
             "displayName": "Maragonçalo",
             "slug": "maragoncalo",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria obscura", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria obscura", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Maragonçalo" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -70472,9 +70056,7 @@
             "displayName": "Abiu-Branco",
             "slug": "abiu-branco",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria oppositifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria oppositifolia", "isSynonym": false }],
             "aliases": ["Abiu-ucuubarana"],
             "localNames": [
               { "country": "Brazil", "name": "Abiu-branco" },
@@ -70704,9 +70286,7 @@
             "displayName": "Abiu-Branco",
             "slug": "abiu-branco",
             "family": "Sapotaceae",
-            "botanicalNames": [
-              { "name": "Pouteria oppositifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pouteria oppositifolia", "isSynonym": false }],
             "aliases": ["Abiu-ucuubarana"],
             "localNames": [
               { "country": "Brésil", "name": "Abiu-branco" },
@@ -71584,9 +71164,7 @@
             "displayName": "Breu",
             "slug": "breu",
             "family": "Burseraceae",
-            "botanicalNames": [
-              { "name": "Protium heptaphyllum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Protium heptaphyllum", "isSynonym": false }],
             "aliases": [
               "Almécega",
               "Almécega-brava",
@@ -71912,9 +71490,7 @@
             "displayName": "Breu",
             "slug": "breu",
             "family": "Burseraceae",
-            "botanicalNames": [
-              { "name": "Protium heptaphyllum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Protium heptaphyllum", "isSynonym": false }],
             "aliases": [
               "Almécega",
               "Almécega-brava",
@@ -72875,9 +72451,7 @@
             "displayName": "Breu-Preto",
             "slug": "breu-preto",
             "family": "Burseraceae",
-            "botanicalNames": [
-              { "name": "Protium tenuifolium", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Protium tenuifolium", "isSynonym": false }],
             "aliases": ["Breu"],
             "localNames": [
               { "country": "Brazil", "name": "Breu-preto" },
@@ -73122,9 +72696,7 @@
             "displayName": "Breu-Preto",
             "slug": "breu-preto",
             "family": "Burseraceae",
-            "botanicalNames": [
-              { "name": "Protium tenuifolium", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Protium tenuifolium", "isSynonym": false }],
             "aliases": ["Breu"],
             "localNames": [
               { "country": "Brésil", "name": "Breu-preto" },
@@ -73406,9 +72978,7 @@
             "displayName": "Embira-de-Preguiça",
             "slug": "embira-de-preguica",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Pterocarpus sp.", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pterocarpus sp.", "isSynonym": false }],
             "aliases": ["Envira-de-preguiça", "Saborana"],
             "localNames": [
               { "country": "Brazil", "name": "Embira-de-preguiça" },
@@ -73600,9 +73170,7 @@
             "displayName": "Embira-de-Preguiça",
             "slug": "embira-de-preguica",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Pterocarpus sp.", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Pterocarpus sp.", "isSynonym": false }],
             "aliases": ["Envira-de-preguiça", "Saborana"],
             "localNames": [
               { "country": "Brésil", "name": "Embira-de-preguiça" },
@@ -73816,9 +73384,7 @@
             "displayName": "Mandioqueira",
             "slug": "mandioqueira",
             "family": "Vochysiaceae",
-            "botanicalNames": [
-              { "name": "Qualea brevipedicellata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Qualea brevipedicellata", "isSynonym": false }],
             "aliases": ["Mandioqueira-áspera", "Quarubatinga"],
             "localNames": [
               { "country": "Brazil", "name": "Mandioqueira" },
@@ -74081,9 +73647,7 @@
             "displayName": "Mandioqueira",
             "slug": "mandioqueira",
             "family": "Vochysiaceae",
-            "botanicalNames": [
-              { "name": "Qualea brevipedicellata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Qualea brevipedicellata", "isSynonym": false }],
             "aliases": ["Mandioqueira-áspera", "Quarubatinga"],
             "localNames": [
               { "country": "Brésil", "name": "Mandioqueira" },
@@ -74917,9 +74481,7 @@
             "displayName": "Gogó-de-Guariba",
             "slug": "gogo-de-guariba",
             "family": "Apocynaceae",
-            "botanicalNames": [
-              { "name": "Rauvolfia paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Rauvolfia paraensis", "isSynonym": false }],
             "aliases": ["Peroba-d'água"],
             "localNames": [
               { "country": "Brazil", "name": "Gogó-de-guariba" },
@@ -75116,9 +74678,7 @@
             "displayName": "Gogó-de-Guariba",
             "slug": "gogo-de-guariba",
             "family": "Apocynaceae",
-            "botanicalNames": [
-              { "name": "Rauvolfia paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Rauvolfia paraensis", "isSynonym": false }],
             "aliases": ["Peroba-d'água"],
             "localNames": [
               { "country": "Brésil", "name": "Gogó-de-guariba" },
@@ -75331,9 +74891,7 @@
             "displayName": "Louro-Faia",
             "slug": "louro-faia",
             "family": "Proteaceae",
-            "botanicalNames": [
-              { "name": "Roupala montana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Roupala montana", "isSynonym": false }],
             "aliases": [
               "Canjica",
               "Carne-de-vaca",
@@ -75624,9 +75182,7 @@
             "displayName": "Louro-Faia",
             "slug": "louro-faia",
             "family": "Proteaceae",
-            "botanicalNames": [
-              { "name": "Roupala montana", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Roupala montana", "isSynonym": false }],
             "aliases": [
               "Canjica",
               "Carne-de-vaca",
@@ -76359,9 +75915,7 @@
             "displayName": "Burra-Leiteira",
             "slug": "burra-leiteira",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Sapium marmieri", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Sapium marmieri", "isSynonym": false }],
             "aliases": ["Leiteira", "Murupita", "Seringarana", "Seringueira"],
             "localNames": [
               { "country": "Brazil", "name": "Burra-leiteira" },
@@ -76558,9 +76112,7 @@
             "displayName": "Burra-Leiteira",
             "slug": "burra-leiteira",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Sapium marmieri", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Sapium marmieri", "isSynonym": false }],
             "aliases": ["Leiteira", "Murupita", "Seringarana", "Seringueira"],
             "localNames": [
               { "country": "Brésil", "name": "Burra-leiteira" },
@@ -77247,9 +76799,7 @@
             "displayName": "Urucurana",
             "slug": "urucurana",
             "family": "Elaeocarpaceae",
-            "botanicalNames": [
-              { "name": "Sloanea nitida", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Sloanea nitida", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Urucurana" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -77439,9 +76989,7 @@
             "displayName": "Urucurana",
             "slug": "urucurana",
             "family": "Elaeocarpaceae",
-            "botanicalNames": [
-              { "name": "Sloanea nitida", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Sloanea nitida", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Urucurana" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -78107,9 +77655,7 @@
             "displayName": "Axixá",
             "slug": "axixa",
             "family": "Sterculiaceae",
-            "botanicalNames": [
-              { "name": "Sterculia apeibophylla", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Sterculia apeibophylla", "isSynonym": false }],
             "aliases": ["Couro-de-sapo"],
             "localNames": [
               { "country": "Brazil", "name": "Axixá" },
@@ -78307,9 +77853,7 @@
             "displayName": "Axixá",
             "slug": "axixa",
             "family": "Sterculiaceae",
-            "botanicalNames": [
-              { "name": "Sterculia apeibophylla", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Sterculia apeibophylla", "isSynonym": false }],
             "aliases": ["Couro-de-sapo"],
             "localNames": [
               { "country": "Brésil", "name": "Axixá" },
@@ -78519,9 +78063,7 @@
             "displayName": "Fava-Branca",
             "slug": "fava-branca",
             "family": "Sterculiaceae",
-            "botanicalNames": [
-              { "name": "Stryphnodendron pulcherrimum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Stryphnodendron pulcherrimum", "isSynonym": false }],
             "aliases": [
               "Barbatimão",
               "Caubi",
@@ -78745,9 +78287,7 @@
             "displayName": "Fava-Branca",
             "slug": "fava-branca",
             "family": "Sterculiaceae",
-            "botanicalNames": [
-              { "name": "Stryphnodendron pulcherrimum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Stryphnodendron pulcherrimum", "isSynonym": false }],
             "aliases": [
               "Barbatimão",
               "Caubi",
@@ -78990,9 +78530,7 @@
             "displayName": "Urucurana",
             "slug": "urucurana",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Swartzia recurva", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Swartzia recurva", "isSynonym": false }],
             "aliases": ["Muirajibóia-amarela"],
             "localNames": [
               { "country": "Brazil", "name": "Urucurana" },
@@ -79173,9 +78711,7 @@
             "displayName": "Urucurana",
             "slug": "urucurana",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Swartzia recurva", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Swartzia recurva", "isSynonym": false }],
             "aliases": ["Muirajibóia-amarela"],
             "localNames": [
               { "country": "Brésil", "name": "Urucurana" },
@@ -79844,9 +79380,7 @@
             "displayName": "Taxi-Branco",
             "slug": "taxi-branco",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Tachigali cavipes", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Tachigali cavipes", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brazil", "name": "Taxi-branco" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -80039,9 +79573,7 @@
             "displayName": "Taxi-Branco",
             "slug": "taxi-branco",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Tachigali cavipes", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Tachigali cavipes", "isSynonym": false }],
             "aliases": [],
             "localNames": [{ "country": "Brésil", "name": "Taxi-branco" }],
             "commercialRestrictions": { "raw": "", "value": null },
@@ -80263,12 +79795,7 @@
               { "name": "Tachigali chrysophylla", "isSynonym": false },
               { "name": "Sclerolobium chrysophyllum", "isSynonym": true }
             ],
-            "aliases": [
-              "Taxi-amarelo",
-              "Taxi-folha-amarela",
-              "Taxi-vermelho",
-              "Taxirana"
-            ],
+            "aliases": ["Taxi-amarelo", "Taxi-folha-amarela", "Taxi-vermelho", "Taxirana"],
             "localNames": [
               { "country": "Brazil", "name": "Taxi-pitomba" },
               { "country": "Brazil", "name": "Taxi-amarelo" },
@@ -80562,12 +80089,7 @@
               { "name": "Tachigali chrysophylla", "isSynonym": false },
               { "name": "Sclerolobium chrysophyllum", "isSynonym": true }
             ],
-            "aliases": [
-              "Taxi-amarelo",
-              "Taxi-folha-amarela",
-              "Taxi-vermelho",
-              "Taxirana"
-            ],
+            "aliases": ["Taxi-amarelo", "Taxi-folha-amarela", "Taxi-vermelho", "Taxirana"],
             "localNames": [
               { "country": "Brésil", "name": "Taxi-pitomba" },
               { "country": "Brésil", "name": "Taxi-amarelo" },
@@ -81581,9 +81103,7 @@
             "displayName": "Taxi-Preto / Ziquita",
             "slug": "taxi-preto-ziquita",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Tachigali multijuga", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Tachigali multijuga", "isSynonym": false }],
             "aliases": ["Ingá-bravo", "Inguaçu", "Taxi-preto", "Ziquita"],
             "localNames": [
               { "country": "Brazil", "name": "TAXI-PRETO / ZIQUITA" },
@@ -81767,9 +81287,7 @@
             "displayName": "Taxi-Preto / Ziquita",
             "slug": "taxi-preto-ziquita",
             "family": "Caesalpiniaceae",
-            "botanicalNames": [
-              { "name": "Tachigali multijuga", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Tachigali multijuga", "isSynonym": false }],
             "aliases": ["Ingá-bravo", "Inguaçu", "Taxi-preto", "Ziquita"],
             "localNames": [
               { "country": "Brésil", "name": "TAXI-PRETO / ZIQUITA" },
@@ -81975,13 +81493,7 @@
               { "name": "Tachigali paraensis", "isSynonym": false },
               { "name": "Sclerolobium paraense", "isSynonym": true }
             ],
-            "aliases": [
-              "Pau-de-formiga",
-              "Pau-ponga",
-              "Taxi-branco",
-              "Taxi-preto",
-              "Taxirana"
-            ],
+            "aliases": ["Pau-de-formiga", "Pau-ponga", "Taxi-branco", "Taxi-preto", "Taxirana"],
             "localNames": [
               { "country": "Brazil", "name": "TAXI-PRETO / TAXIARANA" },
               { "country": "Brazil", "name": "Pau-de-formiga" },
@@ -82234,13 +81746,7 @@
               { "name": "Tachigali paraensis", "isSynonym": false },
               { "name": "Sclerolobium paraense", "isSynonym": true }
             ],
-            "aliases": [
-              "Pau-de-formiga",
-              "Pau-ponga",
-              "Taxi-branco",
-              "Taxi-preto",
-              "Taxirana"
-            ],
+            "aliases": ["Pau-de-formiga", "Pau-ponga", "Taxi-branco", "Taxi-preto", "Taxirana"],
             "localNames": [
               { "country": "Brésil", "name": "TAXI-PRETO / TAXIARANA" },
               { "country": "Brésil", "name": "Pau-de-formiga" },
@@ -83457,9 +82963,7 @@
             "displayName": "Tatapiririca",
             "slug": "tatapiririca",
             "family": "Anacardiaceae",
-            "botanicalNames": [
-              { "name": "Tapirira guianensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Tapirira guianensis", "isSynonym": false }],
             "aliases": [
               "Apiriri",
               "Aroeirana",
@@ -83800,9 +83304,7 @@
             "displayName": "Tatapiririca",
             "slug": "tatapiririca",
             "family": "Anacardiaceae",
-            "botanicalNames": [
-              { "name": "Tapirira guianensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Tapirira guianensis", "isSynonym": false }],
             "aliases": [
               "Apiriri",
               "Aroeirana",
@@ -84184,17 +83686,8 @@
             "displayName": "Tanimbuca",
             "slug": "tanimbuca",
             "family": "Combretaceae",
-            "botanicalNames": [
-              { "name": "Terminalia amazonia", "isSynonym": false }
-            ],
-            "aliases": [
-              "Capitão-amarelo",
-              "Cinzeiro",
-              "Cuia",
-              "Cuiarana",
-              "Mirindiba",
-              "Tanibuca"
-            ],
+            "botanicalNames": [{ "name": "Terminalia amazonia", "isSynonym": false }],
+            "aliases": ["Capitão-amarelo", "Cinzeiro", "Cuia", "Cuiarana", "Mirindiba", "Tanibuca"],
             "localNames": [
               { "country": "Brazil", "name": "Tanimbuca" },
               { "country": "Brazil", "name": "Capitão-amarelo" },
@@ -84441,17 +83934,8 @@
             "displayName": "Tanimbuca",
             "slug": "tanimbuca",
             "family": "Combretaceae",
-            "botanicalNames": [
-              { "name": "Terminalia amazonia", "isSynonym": false }
-            ],
-            "aliases": [
-              "Capitão-amarelo",
-              "Cinzeiro",
-              "Cuia",
-              "Cuiarana",
-              "Mirindiba",
-              "Tanibuca"
-            ],
+            "botanicalNames": [{ "name": "Terminalia amazonia", "isSynonym": false }],
+            "aliases": ["Capitão-amarelo", "Cinzeiro", "Cuia", "Cuiarana", "Mirindiba", "Tanibuca"],
             "localNames": [
               { "country": "Brésil", "name": "Tanimbuca" },
               { "country": "Brésil", "name": "Capitão-amarelo" },
@@ -84738,9 +84222,7 @@
             "displayName": "Cachaporra-do-Gentio",
             "slug": "cachaporra-do-gentio",
             "family": "Combretaceae",
-            "botanicalNames": [
-              { "name": "Terminalia cf argentea", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Terminalia cf argentea", "isSynonym": false }],
             "aliases": [
               "Capitão",
               "Capitão-do-campo",
@@ -84946,9 +84428,7 @@
             "displayName": "Cachaporra-do-Gentio",
             "slug": "cachaporra-do-gentio",
             "family": "Combretaceae",
-            "botanicalNames": [
-              { "name": "Terminalia cf argentea", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Terminalia cf argentea", "isSynonym": false }],
             "aliases": [
               "Capitão",
               "Capitão-do-campo",
@@ -85186,9 +84666,7 @@
             "displayName": "Amescla",
             "slug": "amescla",
             "family": "Burseraceae",
-            "botanicalNames": [
-              { "name": "Trattinnickia burserifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Trattinnickia burserifolia", "isSynonym": false }],
             "aliases": [
               "Almesclão",
               "Amesclão",
@@ -85474,9 +84952,7 @@
             "displayName": "Amescla",
             "slug": "amescla",
             "family": "Burseraceae",
-            "botanicalNames": [
-              { "name": "Trattinnickia burserifolia", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Trattinnickia burserifolia", "isSynonym": false }],
             "aliases": [
               "Almesclão",
               "Amesclão",
@@ -85802,9 +85278,7 @@
             "displayName": "Pracuúba-da-Terra-Firme",
             "slug": "pracuuba-da-terra-firme",
             "family": "Meliaceae",
-            "botanicalNames": [
-              { "name": "Trichilia lecointei", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Trichilia lecointei", "isSynonym": false }],
             "aliases": ["Cedro-bravo"],
             "localNames": [
               { "country": "Brazil", "name": "Pracuúba-da-terra-firme" },
@@ -86053,9 +85527,7 @@
             "displayName": "Pracuúba-da-Terra-Firme",
             "slug": "pracuuba-da-terra-firme",
             "family": "Meliaceae",
-            "botanicalNames": [
-              { "name": "Trichilia lecointei", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Trichilia lecointei", "isSynonym": false }],
             "aliases": ["Cedro-bravo"],
             "localNames": [
               { "country": "Brésil", "name": "Pracuúba-da-terra-firme" },
@@ -86364,9 +85836,7 @@
             "displayName": "Uxirana",
             "slug": "uxirana",
             "family": "Humiriaceae",
-            "botanicalNames": [
-              { "name": "Vantanea parviflora", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Vantanea parviflora", "isSynonym": false }],
             "aliases": ["Paruru"],
             "localNames": [
               { "country": "Brazil", "name": "Uxirana" },
@@ -86617,9 +86087,7 @@
             "displayName": "Uxirana",
             "slug": "uxirana",
             "family": "Humiriaceae",
-            "botanicalNames": [
-              { "name": "Vantanea parviflora", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Vantanea parviflora", "isSynonym": false }],
             "aliases": ["Paruru"],
             "localNames": [
               { "country": "Brésil", "name": "Uxirana" },
@@ -86944,9 +86412,7 @@
             "displayName": "Angelim-Amargoso",
             "slug": "angelim-amargoso",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Vatairea sericea", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Vatairea sericea", "isSynonym": false }],
             "aliases": [
               "Fava-amargosa",
               "Fava-bolacha",
@@ -87221,9 +86687,7 @@
             "displayName": "Angelim-Amargoso",
             "slug": "angelim-amargoso",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Vatairea sericea", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Vatairea sericea", "isSynonym": false }],
             "aliases": [
               "Fava-amargosa",
               "Fava-bolacha",
@@ -87553,9 +87017,7 @@
             "displayName": "Virola",
             "slug": "virola",
             "family": "Myristicaceae",
-            "botanicalNames": [
-              { "name": "Virola michelii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Virola michelii", "isSynonym": false }],
             "aliases": ["Ucuúba-da-terra-firme"],
             "localNames": [
               { "country": "Brazil", "name": "Virola" },
@@ -87801,9 +87263,7 @@
             "displayName": "Virola",
             "slug": "virola",
             "family": "Myristicaceae",
-            "botanicalNames": [
-              { "name": "Virola michelii", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Virola michelii", "isSynonym": false }],
             "aliases": ["Ucuúba-da-terra-firme"],
             "localNames": [
               { "country": "Brésil", "name": "Virola" },
@@ -88085,9 +87545,7 @@
             "displayName": "Ucuúba / Virola",
             "slug": "ucuuba-virola",
             "family": "Myristicaceae",
-            "botanicalNames": [
-              { "name": "Virola multicostata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Virola multicostata", "isSynonym": false }],
             "aliases": ["Ucuúba", "Virola"],
             "localNames": [
               { "country": "Brazil", "name": "UCUÚBA / VIROLA" },
@@ -88269,9 +87727,7 @@
             "displayName": "Ucuúba / Virola",
             "slug": "ucuuba-virola",
             "family": "Myristicaceae",
-            "botanicalNames": [
-              { "name": "Virola multicostata", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Virola multicostata", "isSynonym": false }],
             "aliases": ["Ucuúba", "Virola"],
             "localNames": [
               { "country": "Brésil", "name": "UCUÚBA / VIROLA" },
@@ -88997,16 +88453,8 @@
             "displayName": "Quaruba",
             "slug": "quaruba",
             "family": "Vochysiaceae",
-            "botanicalNames": [
-              { "name": "Vochysia ferruginea", "isSynonym": false }
-            ],
-            "aliases": [
-              "Cajarana",
-              "Cajazeira",
-              "Canjerana",
-              "Cedrona",
-              "Jutaí-mirim"
-            ],
+            "botanicalNames": [{ "name": "Vochysia ferruginea", "isSynonym": false }],
+            "aliases": ["Cajarana", "Cajazeira", "Canjerana", "Cedrona", "Jutaí-mirim"],
             "localNames": [
               { "country": "Brazil", "name": "Quaruba" },
               { "country": "Brazil", "name": "Cajarana" },
@@ -89204,16 +88652,8 @@
             "displayName": "Quaruba",
             "slug": "quaruba",
             "family": "Vochysiaceae",
-            "botanicalNames": [
-              { "name": "Vochysia ferruginea", "isSynonym": false }
-            ],
-            "aliases": [
-              "Cajarana",
-              "Cajazeira",
-              "Canjerana",
-              "Cedrona",
-              "Jutaí-mirim"
-            ],
+            "botanicalNames": [{ "name": "Vochysia ferruginea", "isSynonym": false }],
+            "aliases": ["Cajarana", "Cajazeira", "Canjerana", "Cedrona", "Jutaí-mirim"],
             "localNames": [
               { "country": "Brésil", "name": "Quaruba" },
               { "country": "Brésil", "name": "Cajarana" },
@@ -90047,9 +89487,7 @@
             "displayName": "Quaruba",
             "slug": "quaruba",
             "family": "Vochysiaceae",
-            "botanicalNames": [
-              { "name": "Vochysia maxima", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Vochysia maxima", "isSynonym": false }],
             "aliases": [
               "Cedrorana",
               "Guaruba",
@@ -90346,9 +89784,7 @@
             "displayName": "Quaruba",
             "slug": "quaruba",
             "family": "Vochysiaceae",
-            "botanicalNames": [
-              { "name": "Vochysia maxima", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Vochysia maxima", "isSynonym": false }],
             "aliases": [
               "Cedrorana",
               "Guaruba",
@@ -90709,9 +90145,7 @@
             "displayName": "Quaruba",
             "slug": "quaruba",
             "family": "Vochysiaceae",
-            "botanicalNames": [
-              { "name": "Vochysia obidensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Vochysia obidensis", "isSynonym": false }],
             "aliases": ["Quaruba-rosa"],
             "localNames": [
               { "country": "Brazil", "name": "Quaruba" },
@@ -90964,9 +90398,7 @@
             "displayName": "Quaruba",
             "slug": "quaruba",
             "family": "Vochysiaceae",
-            "botanicalNames": [
-              { "name": "Vochysia obidensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Vochysia obidensis", "isSynonym": false }],
             "aliases": ["Quaruba-rosa"],
             "localNames": [
               { "country": "Brésil", "name": "Quaruba" },
@@ -91273,9 +90705,7 @@
             "displayName": "Embira-Branca",
             "slug": "embira-branca",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Xylopia nitida", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Xylopia nitida", "isSynonym": false }],
             "aliases": ["Embira-cana", "Envira-branca", "Envira-cana"],
             "localNames": [
               { "country": "Brazil", "name": "Embira-branca" },
@@ -91458,10 +90888,7 @@
             "euroclass": { "raw": "", "value": null },
             "notes": null
           },
-          "endUses": [
-            "light carpentry",
-            "current furniture or furniture components"
-          ],
+          "endUses": ["light carpentry", "current furniture or furniture components"],
           "endUseNotes": [],
           "additionalDetails": [
             {
@@ -91527,9 +90954,7 @@
             "displayName": "Embira-Branca",
             "slug": "embira-branca",
             "family": "Annonaceae",
-            "botanicalNames": [
-              { "name": "Xylopia nitida", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Xylopia nitida", "isSynonym": false }],
             "aliases": ["Embira-cana", "Envira-branca", "Envira-cana"],
             "localNames": [
               { "country": "Brésil", "name": "Embira-branca" },
@@ -91712,10 +91137,7 @@
             "euroclass": { "raw": "", "value": null },
             "notes": null
           },
-          "endUses": [
-            "charpente légère",
-            "meuble courant ou éléments meublants"
-          ],
+          "endUses": ["charpente légère", "meuble courant ou éléments meublants"],
           "endUseNotes": [],
           "additionalDetails": [
             {
@@ -92673,9 +92095,7 @@
             "displayName": "Pau-Santo",
             "slug": "pau-santo",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Zollernia paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Zollernia paraensis", "isSynonym": false }],
             "aliases": [
               "Angélica",
               "Cabeça-de-negro",
@@ -92880,9 +92300,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Planing — Surface finishing", "value": "Good" }
-              ]
+              "fields": [{ "label": "Planing — Surface finishing", "value": "Good" }]
             }
           ]
         },
@@ -92892,9 +92310,7 @@
             "displayName": "Pau-Santo",
             "slug": "pau-santo",
             "family": "Fabaceae",
-            "botanicalNames": [
-              { "name": "Zollernia paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Zollernia paraensis", "isSynonym": false }],
             "aliases": [
               "Angélica",
               "Cabeça-de-negro",
@@ -93099,9 +92515,7 @@
             {
               "id": "lpf-workability",
               "title": "Usinage",
-              "fields": [
-                { "label": "Rabotage — État de surface", "value": "bon" }
-              ]
+              "fields": [{ "label": "Rabotage — État de surface", "value": "bon" }]
             }
           ]
         }
@@ -94126,9 +93540,7 @@
             "displayName": "Manil / Manni*",
             "slug": "manil-manni",
             "family": "Clusiaceae",
-            "botanicalNames": [
-              { "name": "Symphonia globulifera", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Symphonia globulifera", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Anani" },
@@ -94394,9 +93806,7 @@
             "displayName": "Manil",
             "slug": "manil",
             "family": "Clusiaceae",
-            "botanicalNames": [
-              { "name": "Symphonia globulifera", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Symphonia globulifera", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Anani" },
@@ -97207,9 +96617,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Planing — Surface finishing", "value": "Regular" }
-              ]
+              "fields": [{ "label": "Planing — Surface finishing", "value": "Regular" }]
             }
           ]
         },
@@ -98704,9 +98112,7 @@
             "displayName": "Muirapiranga / Bloodwood",
             "slug": "muirapiranga-bloodwood",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Brosimum rubescens", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Brosimum rubescens", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "CONDURU / PAU-VERMELHO" },
@@ -98934,9 +98340,7 @@
             "displayName": "Muirapiranga",
             "slug": "muirapiranga",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Brosimum rubescens", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Brosimum rubescens", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "CONDURU / PAU-VERMELHO" },
@@ -99213,9 +98617,7 @@
             "displayName": "Oiticica",
             "slug": "oiticica",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Clarisia racemosa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Clarisia racemosa", "isSynonym": false }],
             "aliases": [
               "Guariúba",
               "Bainha-de-espada",
@@ -99513,9 +98915,7 @@
             "displayName": "Oiticica",
             "slug": "oiticica",
             "family": "Moraceae",
-            "botanicalNames": [
-              { "name": "Clarisia racemosa", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Clarisia racemosa", "isSynonym": false }],
             "aliases": [
               "Guariúba",
               "Bainha-de-espada",
@@ -100767,9 +100167,7 @@
             "displayName": "Piquiarana",
             "slug": "piquiarana",
             "family": "Caryocaraceae",
-            "botanicalNames": [
-              { "name": "Caryocar glabrum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Caryocar glabrum", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Pequiarana" },
@@ -100977,9 +100375,7 @@
             "displayName": "Piquiarana",
             "slug": "piquiarana",
             "family": "Caryocaraceae",
-            "botanicalNames": [
-              { "name": "Caryocar glabrum", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Caryocar glabrum", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Pequiarana" },
@@ -101206,9 +100602,7 @@
             "displayName": "Preciosa",
             "slug": "preciosa",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Aniba canelilla", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Aniba canelilla", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Casca-preciosa" },
@@ -101449,9 +100843,7 @@
             "displayName": "Preciosa",
             "slug": "preciosa",
             "family": "Lauraceae",
-            "botanicalNames": [
-              { "name": "Aniba canelilla", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Aniba canelilla", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Casca-preciosa" },
@@ -101633,11 +101025,7 @@
             "euroclass": { "raw": "", "value": null },
             "notes": null
           },
-          "endUses": [
-            "construction lourde",
-            "charpente légère",
-            "articles tournés"
-          ],
+          "endUses": ["construction lourde", "charpente légère", "articles tournés"],
           "endUseNotes": [],
           "additionalDetails": [
             {
@@ -101763,9 +101151,7 @@
             "displayName": "Sandbox",
             "slug": "sandbox",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Hura crepitans", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hura crepitans", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Açacu" },
@@ -101988,9 +101374,7 @@
             "displayName": "Açacu",
             "slug": "acacu",
             "family": "Euphorbiaceae",
-            "botanicalNames": [
-              { "name": "Hura crepitans", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Hura crepitans", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Açacu" },
@@ -102452,9 +101836,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Planing — Surface finishing", "value": "Excellent" }
-              ]
+              "fields": [{ "label": "Planing — Surface finishing", "value": "Excellent" }]
             }
           ]
         },
@@ -102665,9 +102047,7 @@
             {
               "id": "lpf-workability",
               "title": "Usinage",
-              "fields": [
-                { "label": "Rabotage — État de surface", "value": "excellent" }
-              ]
+              "fields": [{ "label": "Rabotage — État de surface", "value": "excellent" }]
             }
           ]
         }
@@ -102895,10 +102275,7 @@
             "euroclass": { "raw": "", "value": null },
             "notes": null
           },
-          "endUses": [
-            "heavy construction",
-            "current furniture or furniture components"
-          ],
+          "endUses": ["heavy construction", "current furniture or furniture components"],
           "endUseNotes": [],
           "additionalDetails": [
             {
@@ -103173,10 +102550,7 @@
             "euroclass": { "raw": "", "value": null },
             "notes": null
           },
-          "endUses": [
-            "construction lourde",
-            "meuble courant ou éléments meublants"
-          ],
+          "endUses": ["construction lourde", "meuble courant ou éléments meublants"],
           "endUseNotes": [],
           "additionalDetails": [
             {
@@ -105719,9 +105093,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Planing — Surface finishing", "value": "Good" }
-              ]
+              "fields": [{ "label": "Planing — Surface finishing", "value": "Good" }]
             }
           ]
         },
@@ -105931,9 +105303,7 @@
             {
               "id": "lpf-workability",
               "title": "Usinage",
-              "fields": [
-                { "label": "Rabotage — État de surface", "value": "bon" }
-              ]
+              "fields": [{ "label": "Rabotage — État de surface", "value": "bon" }]
             }
           ]
         }
@@ -105967,9 +105337,7 @@
             "displayName": "Yellowheart",
             "slug": "yellowheart",
             "family": "Rutaceae",
-            "botanicalNames": [
-              { "name": "Euxylophora paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Euxylophora paraensis", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brazil", "name": "Pau-amarelo" },
@@ -106159,9 +105527,7 @@
             {
               "id": "lpf-workability",
               "title": "Workability",
-              "fields": [
-                { "label": "Planing — Surface finishing", "value": "Regular" }
-              ]
+              "fields": [{ "label": "Planing — Surface finishing", "value": "Regular" }]
             }
           ]
         },
@@ -106171,9 +105537,7 @@
             "displayName": "Pau Amarelo",
             "slug": "pau-amarelo",
             "family": "Rutaceae",
-            "botanicalNames": [
-              { "name": "Euxylophora paraensis", "isSynonym": false }
-            ],
+            "botanicalNames": [{ "name": "Euxylophora paraensis", "isSynonym": false }],
             "aliases": [],
             "localNames": [
               { "country": "Brésil", "name": "Pau-amarelo" },

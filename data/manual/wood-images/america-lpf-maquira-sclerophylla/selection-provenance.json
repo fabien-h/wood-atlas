@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-maquira-sclerophylla",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "a269cf8607440bcff41337bfe75cb915799153549e3d87d21a20280b5d30e2af",
+      "sourceWidth": 1891,
+      "sourceHeight": 1480,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

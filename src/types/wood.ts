@@ -2,6 +2,18 @@ export type OriginRegion = 'Africa' | 'America' | 'Asia' | 'Temperate' | 'Unknow
 
 export type SourceLanguage = 'en' | 'fr';
 
+export type ContinentCode = 'AF' | 'AN' | 'AS' | 'EU' | 'NA' | 'OC' | 'SA';
+
+export type TaxonomyRank =
+  'kingdom' | 'phylum' | 'clade' | 'class' | 'order' | 'family' | 'genus' | 'species';
+
+export interface TaxonomyNode {
+  id: number;
+  parentId: number | null;
+  rank: TaxonomyRank;
+  name: string;
+}
+
 export type AppLanguage =
   | 'ar'
   | 'bn'
@@ -95,7 +107,8 @@ export interface Identity {
   primaryName: string;
   displayName: string;
   slug: string;
-  family: string | null;
+  family?: string | null;
+  taxonomyId: number | null;
   botanicalNames: BotanicalName[];
   aliases: string[];
   localNames: LocalName[];
@@ -105,8 +118,10 @@ export interface Identity {
 
 export interface Origin {
   region: OriginRegion;
-  continent: string | null;
-  countries: string[];
+  continent?: string | null;
+  countries?: string[];
+  continentCodes: ContinentCode[];
+  countryCodes: string[];
 }
 
 export interface CitesStatus {
@@ -154,6 +169,7 @@ export interface NaturalDurability {
   dryWoodBorers: TextValue;
   termites: TextValue;
   treatability: TextValue;
+  sapwoodTreatability: TextValue;
   naturalUseClass: TextValue;
   coversUseClass5: TextValue;
   preservativeTreatment: {
@@ -254,6 +270,7 @@ export interface WoodRecord {
 export interface WoodDatabase {
   language: SourceLanguage;
   generatedAt: string;
+  taxonomy: TaxonomyNode[];
   source: {
     name: 'CIRAD Tropix';
     englishListing: string;

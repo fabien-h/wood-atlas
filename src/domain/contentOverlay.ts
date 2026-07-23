@@ -1,4 +1,6 @@
-import type { AppLanguage, WoodDatabase, WoodRecord } from '../types/wood';
+import { displayContinentNames, displayCountryNames } from '../i18n';
+import { identityFamily, recordTaxonomy } from './taxonomy';
+import type { AppLanguage, TaxonomyNode, WoodDatabase, WoodRecord } from '../types/wood';
 
 export const contentOverlayLanguages = [
   'ar',
@@ -38,7 +40,7 @@ export type ContentOverlayPath =
   | `appearance.notes.${ArrayIndex}`
   | 'physics.stability.value'
   | `physics.notes.${ArrayIndex}`
-  | `durability.${'fungi' | 'dryWoodBorers' | 'termites' | 'treatability' | 'naturalUseClass' | 'coversUseClass5'}.value`
+  | `durability.${'fungi' | 'dryWoodBorers' | 'termites' | 'treatability' | 'sapwoodTreatability' | 'naturalUseClass' | 'coversUseClass5'}.value`
   | `durability.preservativeTreatment.${'dryWoodBorer' | 'temporaryHumidification' | 'permanentHumidification'}.value`
   | `durability.preservativeTreatment.notes.${ArrayIndex}`
   | `durability.notes.${ArrayIndex}`
@@ -94,7 +96,7 @@ const indexedPathPatterns = [
   /^appearance\.(?:colourReference|sapwood|texture|grain|interlockedGrain)\.value$/,
   /^appearance\.notes\.\d+$/,
   /^physics\.notes\.\d+$/,
-  /^durability\.(?:fungi|dryWoodBorers|termites|treatability|naturalUseClass|coversUseClass5)\.value$/,
+  /^durability\.(?:fungi|dryWoodBorers|termites|treatability|sapwoodTreatability|naturalUseClass|coversUseClass5)\.value$/,
   /^durability\.preservativeTreatment\.(?:dryWoodBorer|temporaryHumidification|permanentHumidification)\.value$/,
   /^durability\.preservativeTreatment\.notes\.\d+$/,
   /^durability\.notes\.\d+$/,
@@ -222,23 +224,46 @@ export function applyContentOverlay(database: WoodDatabase, overlay: ContentOver
     }
   }
 
-  for (const record of localized.records) record.searchText = buildWoodSearchText(record);
+  for (const record of localized.records) {
+    record.searchText = buildWoodSearchText(record, {
+      taxonomy: localized.taxonomy,
+      locale: overlay.locale,
+    });
+  }
   return localized;
 }
 
-export function buildWoodSearchText(record: WoodRecord) {
+export function buildWoodSearchText(
+  record: WoodRecord,
+  {
+    taxonomy = [],
+    locale = 'en',
+  }: {
+    taxonomy?: readonly TaxonomyNode[];
+    locale?: string;
+  } = {},
+) {
+  const lineage = recordTaxonomy({ taxonomy: [...taxonomy] }, record);
+  const family = identityFamily({ taxonomy: [...taxonomy] }, record.identity);
+  const continentNames = displayContinentNames(record.origin.continentCodes, locale);
+  const countryNames = displayCountryNames(record.origin.countryCodes, locale);
   return [
     record.identity.displayName,
     record.identity.primaryName,
     ...record.identity.aliases,
-    record.identity.family,
+    family,
+    ...lineage.map((node) => node.name),
     ...record.identity.botanicalNames.map((item) => item.name),
     ...record.identity.localNames.flatMap((item) => [item.country, item.name]),
     record.identity.commercialRestrictions.value,
     ...record.identity.notes,
     record.origin.region,
     record.origin.continent,
-    ...record.origin.countries,
+    ...(record.origin.countries ?? []),
+    ...record.origin.continentCodes,
+    ...continentNames,
+    ...record.origin.countryCodes,
+    ...countryNames,
     record.cites.raw,
     record.log.sapwoodThickness.value,
     record.log.floats.value,
@@ -256,6 +281,7 @@ export function buildWoodSearchText(record: WoodRecord) {
     record.durability.dryWoodBorers.value,
     record.durability.termites.value,
     record.durability.treatability.value,
+    record.durability.sapwoodTreatability.value,
     record.durability.naturalUseClass.value,
     record.durability.coversUseClass5.value,
     ...record.durability.notes,

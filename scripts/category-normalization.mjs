@@ -8,6 +8,7 @@ export const CATEGORICAL_VALUE_SCOPES = new Set([
   'durability.dryWoodBorers.value',
   'durability.termites.value',
   'durability.treatability.value',
+  'durability.sapwoodTreatability.value',
   'durability.naturalUseClass.value',
   'durability.coversUseClass5.value',
   'durability.preservativeTreatment.dryWoodBorer.value',
@@ -36,6 +37,7 @@ const CATEGORICAL_TEXT_VALUE_PATHS = [
   'durability.dryWoodBorers',
   'durability.termites',
   'durability.treatability',
+  'durability.sapwoodTreatability',
   'durability.naturalUseClass',
   'durability.coversUseClass5',
   'durability.preservativeTreatment.dryWoodBorer',
@@ -184,6 +186,8 @@ const FRENCH_END_USE_ALIASES = new Map([
 ]);
 
 const ENGLISH_COLOUR_ALIASES = new Map([
+  ['black half quarter sawn', 'black'],
+  ['black half-quarter sawn', 'black'],
   ['black half-quartrer sawn', 'black'],
 ]);
 
@@ -211,7 +215,10 @@ export function isRemovedSourceCategory(scope, value) {
   if (scope === 'endUses[]') {
     return REMOVED_ENGLISH_END_USES.has(normalizeCategoryText(value, 'en'));
   }
-  if (scope === 'durability.treatability.value') {
+  if (
+    scope === 'durability.treatability.value' ||
+    scope === 'durability.sapwoodTreatability.value'
+  ) {
     return canonicalizeEnglishCategory(scope, normalizeCategoryText(value, 'en')) === null;
   }
   if (scope === 'durability.dryWoodBorers.value') {
@@ -242,7 +249,8 @@ export function normalizeWoodCategories(record, locale) {
         textValue.raw.trim(),
       );
     const recoverMissingTreatability =
-      recordPath === 'durability.treatability' &&
+      (recordPath === 'durability.treatability' ||
+        recordPath === 'durability.sapwoodTreatability') &&
       textValue.value == null &&
       typeof textValue.raw === 'string' &&
       textValue.raw.trim().length > 0;
@@ -326,7 +334,10 @@ function canonicalizeEnglishCategory(scope, normalized) {
       }[classCode] ?? normalized
     );
   }
-  if (scope === 'durability.treatability.value') {
+  if (
+    scope === 'durability.treatability.value' ||
+    scope === 'durability.sapwoodTreatability.value'
+  ) {
     return englishTreatabilityCategory(normalized);
   }
   if (scope === 'drying.casehardeningRisk.value') {
@@ -402,7 +413,10 @@ function canonicalizeFrenchCategory(scope, value) {
       }[classCode] ?? normalized
     );
   }
-  if (scope === 'durability.treatability.value') {
+  if (
+    scope === 'durability.treatability.value' ||
+    scope === 'durability.sapwoodTreatability.value'
+  ) {
     return frenchTreatabilityCategory(normalized);
   }
   if (scope === 'drying.rate.value' && normalized === 'normale à lente température (°c)') {
@@ -596,6 +610,7 @@ export function categoryEntries(record) {
     ['durability.dryWoodBorers.value', record.durability?.dryWoodBorers?.value],
     ['durability.termites.value', record.durability?.termites?.value],
     ['durability.treatability.value', record.durability?.treatability?.value],
+    ['durability.sapwoodTreatability.value', record.durability?.sapwoodTreatability?.value],
     ['durability.naturalUseClass.value', record.durability?.naturalUseClass?.value],
     ['durability.coversUseClass5.value', record.durability?.coversUseClass5?.value],
     [

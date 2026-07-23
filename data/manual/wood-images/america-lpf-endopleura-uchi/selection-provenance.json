@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-endopleura-uchi",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "707c1fcd821507d63cf1c6440be3d72ea36caf0983a2d61d67f3dec1bdad6d66",
+      "sourceWidth": 589,
+      "sourceHeight": 280,
+      "outputFile": "radial.jpg",
+      "outputWidth": 280,
+      "outputHeight": 280,
+      "matchedCandidate": null
+    }
+  ]
+}

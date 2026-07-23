@@ -184,13 +184,14 @@
   font-size: 0.8rem;
   border-bottom: 1px solid var(--line);
 }
-.kv span {
+.kv dt {
   min-width: 0;
   color: var(--muted);
   hyphens: auto;
   overflow-wrap: anywhere;
 }
-.kv strong {
+.kv dd {
+  margin: 0;
   font-weight: 640;
   white-space: pre-wrap;
 }
@@ -208,10 +209,13 @@
   line-height: 1.5;
   padding: 10px 25px;
 }
+.notes p,
+.note {
+  background: #f5f5f5;
+  color: #000;
+}
 .notes p {
   padding: 10px 25px;
-  background: #000;
-  color: #fff;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;

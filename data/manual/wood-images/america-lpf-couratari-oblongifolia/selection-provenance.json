@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-couratari-oblongifolia",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "44cc752c7f85dbf255834e48eb0c857bf17198c1ec55dd2c8e6a4d2aeb243166",
+      "sourceWidth": 1024,
+      "sourceHeight": 1024,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

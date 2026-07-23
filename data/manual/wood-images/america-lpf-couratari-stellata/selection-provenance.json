@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-lpf-couratari-stellata",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "de24592f42a5f642fb4ce696d8c85e9c19bd870a68466b8a4c388b3f62280350",
+      "sourceWidth": 590,
+      "sourceHeight": 308,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 308,
+      "outputHeight": 308,
+      "matchedCandidate": null
+    }
+  ]
+}

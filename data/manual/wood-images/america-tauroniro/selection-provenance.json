@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-tauroniro",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "6a1259f18dd525745b13ea0af0e599c91e3274559f968aea1e5853707db734fe",
+      "sourceWidth": 574,
+      "sourceHeight": 285,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 285,
+      "outputHeight": 285,
+      "matchedCandidate": null
+    }
+  ]
+}

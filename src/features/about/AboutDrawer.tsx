@@ -12,6 +12,7 @@ const BRAZILIAN_LPF_URL =
   'https://dados.florestal.gov.br/dataset/banco-de-dados-de-madeiras-brasileiras-do-lpf-sfb';
 const WOOD_DATABASE_URL = 'https://www.wood-database.com/wood-filter/';
 const IPT_WOOD_URL = 'https://madeiras.ipt.br/';
+const LIGNUMDATA_URL = 'https://lignumdata.ch/system/holzarten?locale=en';
 const OSU_DURABILITY_URL =
   'https://juniper.oregonstate.edu/bibliography/natural-durability-wood-worldwide-checklist-species';
 const CONTACT_EMAIL = 'fabien.huet@gmail.com';
@@ -70,6 +71,7 @@ export function AboutDrawer({
               <ExternalLinkRow href={IPT_WOOD_URL}>
                 São Paulo Institute for Technological Research (IPT)
               </ExternalLinkRow>
+              <ExternalLinkRow href={LIGNUMDATA_URL}>Lignumdata</ExternalLinkRow>
               <ExternalLinkRow href={OSU_DURABILITY_URL}>
                 Oregon State University — Worldwide Natural Durability Checklist
               </ExternalLinkRow>

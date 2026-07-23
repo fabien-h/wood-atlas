@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-rauli-coigue",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "cde09129eefe68b9b7c9e65652458c3081be58a39be6b6900dd4f6b6dd6ce0e3",
+      "sourceWidth": 1024,
+      "sourceHeight": 1024,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "15e8d4e5ce31c40975cba1d437160ad96d2ccbce34b933f9446f82c6da634d62",
+      "sourceWidth": 606,
+      "sourceHeight": 276,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 276,
+      "outputHeight": 276,
+      "matchedCandidate": null
+    }
+  ]
+}

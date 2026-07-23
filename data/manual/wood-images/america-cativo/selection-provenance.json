@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-cativo",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "9d8e8ed0461a2803831fa05f41248e2c2f6a225edf4897f64a4cde6d1218a743",
+      "sourceWidth": 591,
+      "sourceHeight": 281,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 281,
+      "outputHeight": 281,
+      "matchedCandidate": null
+    }
+  ]
+}

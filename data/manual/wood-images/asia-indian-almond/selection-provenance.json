@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-indian-almond",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "7f5d87153d9d6bc6e987ff9482c24926bb5489428c08197d585fed8ab8780c9e",
+      "sourceWidth": 3410,
+      "sourceHeight": 2043,
+      "outputFile": "radial.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

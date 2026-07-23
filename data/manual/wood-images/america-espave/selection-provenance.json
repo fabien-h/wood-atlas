@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "woodId": "america-espave",
+  "selections": [
+    {
+      "kind": "quarterSawn",
+      "selectedFilename": "1.jpg",
+      "sourceSha256": "e722e30182098bfd3d1f67cb1d1b6b2c5de1ef95c27ae1610f91a6c6e38ab2da",
+      "sourceWidth": 1156,
+      "sourceHeight": 507,
+      "outputFile": "radial.jpg",
+      "outputWidth": 507,
+      "outputHeight": 507,
+      "matchedCandidate": null
+    },
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "78b00daec7bb8e0beb4e99ba4ba660e052faf56e02873225c87d7ac78ebe82ac",
+      "sourceWidth": 628,
+      "sourceHeight": 297,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 297,
+      "outputHeight": 297,
+      "matchedCandidate": null
+    }
+  ]
+}

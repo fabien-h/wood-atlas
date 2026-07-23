@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-white-chuglam",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "39a60a30c0314eb93cb324438b7c9979c53ae7c81601f85a76cc82eca61a042c",
+      "sourceWidth": 3395,
+      "sourceHeight": 2001,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 800,
+      "outputHeight": 800,
+      "matchedCandidate": null
+    }
+  ]
+}

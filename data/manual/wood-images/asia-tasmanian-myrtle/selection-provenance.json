@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "woodId": "asia-tasmanian-myrtle",
+  "selections": [
+    {
+      "kind": "flatSawn",
+      "selectedFilename": "2.jpg",
+      "sourceSha256": "3d84c1ce393e0f9fac4ad8178395e35aa45a056fc035cf0162c0118ddaf293b9",
+      "sourceWidth": 598,
+      "sourceHeight": 292,
+      "outputFile": "tangential.jpg",
+      "outputWidth": 292,
+      "outputHeight": 292,
+      "matchedCandidate": null
+    }
+  ]
+}
