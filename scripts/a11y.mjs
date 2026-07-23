@@ -57,11 +57,12 @@ try {
       [4, publishedCoverage.fungi, 'fungal-durability classes'],
       [5, publishedCoverage.termites, 'termite-resistance classes'],
       [6, publishedCoverage.treatability, 'treatability classes'],
-      [7, publishedCoverage.hardness, 'hardness values'],
-      [8, publishedCoverage.density, 'density values'],
-      [9, publishedCoverage.radialShrinkage, 'radial-shrinkage values'],
-      [10, publishedCoverage.tangentialShrinkage, 'tangential-shrinkage values'],
-      [11, publishedCoverage.modulus, 'elasticity values'],
+      [7, publishedCoverage.monninHardness, 'Monnin-hardness values'],
+      [8, publishedCoverage.jankaHardness, 'Janka-hardness values'],
+      [9, publishedCoverage.density, 'density values'],
+      [10, publishedCoverage.radialShrinkage, 'radial-shrinkage values'],
+      [11, publishedCoverage.tangentialShrinkage, 'tangential-shrinkage values'],
+      [12, publishedCoverage.modulus, 'elasticity values'],
     ]) {
       const displayed = await countNonMissingCells(page, columnIndex);
       assert(
@@ -128,7 +129,7 @@ try {
         .locator('xpath=ancestor::tr');
       await row.waitFor();
       assert(
-        (await row.locator('td').nth(8).innerText()) === expectedDensity,
+        (await row.locator('td').nth(9).innerText()) === expectedDensity,
         `${woodName} has a nonnumeric density value in the main table`,
       );
     }
@@ -141,21 +142,65 @@ try {
     await abacatiranaRow.waitFor();
     const abacatiranaCells = await abacatiranaRow.locator('td').allTextContents();
     assert(
-      abacatiranaCells[7].trim() === '4,560.1 N',
-      `the main table hid Abacatirana's LPF Janka hardness: ${abacatiranaCells[7]}`,
+      abacatiranaCells[7].trim() === '-',
+      `the main table mixed Janka into the Monnin column: ${abacatiranaCells[7]}`,
     );
     assert(
-      abacatiranaCells[8].trim() === '0.62' &&
-        abacatiranaCells[9].trim() === '3.94 %' &&
-        abacatiranaCells[10].trim() === '6.59 %' &&
-        abacatiranaCells[11].trim() === '9,900',
-      `the main table hid Abacatirana's LPF physical data: ${JSON.stringify(abacatiranaCells.slice(8, 12))}`,
+      abacatiranaCells[8].trim() === '4,560 N',
+      `the main table hid Abacatirana's Janka hardness: ${abacatiranaCells[8]}`,
     );
     assert(
-      (await abacatiranaRow.locator('td').nth(7).getAttribute('title')) === 'Janka hardness',
-      'the main table does not identify the displayed hardness scale',
+      abacatiranaCells[9].trim() === '0.62' &&
+        abacatiranaCells[10].trim() === '3.94 %' &&
+        abacatiranaCells[11].trim() === '6.59 %' &&
+        abacatiranaCells[12].trim() === '9,900',
+      `the main table hid Abacatirana's LPF physical data: ${JSON.stringify(abacatiranaCells.slice(9, 13))}`,
     );
-    console.log('LPF measurements in the main table checked.');
+    await abacatiranaRow
+      .getByRole('button', { name: 'Open details for Abacatirana', exact: true })
+      .click();
+    const abacatiranaDialog = page.getByRole('dialog');
+    await abacatiranaDialog.waitFor();
+    assert(
+      (
+        await abacatiranaDialog
+          .getByText('Janka hardness', { exact: true })
+          .locator('xpath=following-sibling::dd')
+          .innerText()
+      ).trim() === '4,560 N',
+      'the detail drawer is missing Abacatirana Janka hardness',
+    );
+    await page.getByRole('button', { name: 'Close detail' }).click();
+    await abacatiranaDialog.waitFor({ state: 'hidden' });
+    console.log('LPF measurements and separated hardness scales checked.');
+
+    await page.goto(`${origin}/?lang=en&q=Lignumvitae`);
+    const lignumvitaeRow = page
+      .getByRole('button', { name: 'Open details for Lignumvitae', exact: true })
+      .locator('xpath=ancestor::tr');
+    await lignumvitaeRow.waitFor();
+    assert(
+      (await lignumvitaeRow.locator('td').nth(7).innerText()).trim() === '-' &&
+        (await lignumvitaeRow.locator('td').nth(8).innerText()).trim() === '20,017 N',
+      'the main table did not keep Lignumvitae Monnin and Janka hardness separate',
+    );
+    await lignumvitaeRow
+      .getByRole('button', { name: 'Open details for Lignumvitae', exact: true })
+      .click();
+    const lignumvitaeDialog = page.getByRole('dialog');
+    await lignumvitaeDialog.waitFor();
+    assert(
+      (
+        await lignumvitaeDialog
+          .getByText('Janka hardness', { exact: true })
+          .locator('xpath=following-sibling::dd')
+          .innerText()
+      ).trim() === '20,017 N',
+      'the detail drawer did not round Lignumvitae Janka hardness to whole newtons',
+    );
+    await page.getByRole('button', { name: 'Close detail' }).click();
+    await lignumvitaeDialog.waitFor({ state: 'hidden' });
+    console.log('Lignumvitae hardness presentation checked.');
 
     await page.goto(`${origin}/?lang=en&q=Northern%20red%20oak`);
     const northernRedOakRow = page
@@ -336,25 +381,42 @@ try {
     await page.goto(`${origin}/?lang=en`);
     await page.locator('tbody tr').first().waitFor();
 
-    const densityHeader = page.locator('thead th').nth(8);
+    const densityHeader = page.locator('thead th').nth(9);
     await densityHeader.getByRole('button').click();
     assert(
       (await densityHeader.getAttribute('aria-sort')) === 'ascending',
       'first sort click did not sort ascending',
     );
-    await assertNumericColumnOrder(page, 8, 'ascending', 'Density');
+    await assertNumericColumnOrder(page, 9, 'ascending', 'Density');
     await densityHeader.getByRole('button').click();
     assert(
       (await densityHeader.getAttribute('aria-sort')) === 'descending',
       'second sort click did not sort descending',
     );
-    await assertNumericColumnOrder(page, 8, 'descending', 'Density');
+    await assertNumericColumnOrder(page, 9, 'descending', 'Density');
     await densityHeader.getByRole('button').click();
     assert(
       (await densityHeader.getAttribute('aria-sort')) === 'none',
       'third sort click did not clear sorting',
     );
     assert(!new URL(page.url()).searchParams.has('sort'), 'cleared sorting remains in the URL');
+
+    for (const [columnIndex, label] of [
+      [7, 'Monnin hardness'],
+      [8, 'Janka hardness'],
+    ]) {
+      const hardnessHeader = page.locator('thead th').nth(columnIndex);
+      await hardnessHeader.getByRole('button').click();
+      await assertNumericColumnOrder(page, columnIndex, 'ascending', label);
+      await hardnessHeader.getByRole('button').click();
+      await assertNumericColumnOrder(page, columnIndex, 'descending', label);
+      await hardnessHeader.getByRole('button').click();
+      assert(
+        (await hardnessHeader.getAttribute('aria-sort')) === 'none',
+        `${label} third sort click did not clear sorting`,
+      );
+    }
+    console.log('Independent hardness sorting checked.');
 
     for (const [columnIndex, label] of [
       [3, 'Natural use class'],
@@ -724,10 +786,11 @@ async function auditPublishedLpfMeasurements() {
     termites: database.records.filter((record) => record.durability.termites.value !== null).length,
     treatability: database.records.filter((record) => record.durability.treatability.value !== null)
       .length,
-    hardness: database.records.filter(
-      (record) =>
-        record.physics.monninHardness.value !== null || record.physics.jankaHardness.value !== null,
+    monninHardness: database.records.filter(
+      (record) => record.physics.monninHardness.value !== null,
     ).length,
+    jankaHardness: database.records.filter((record) => record.physics.jankaHardness.value !== null)
+      .length,
     density: database.records.filter((record) => record.physics.specificGravity.value !== null)
       .length,
     radialShrinkage: database.records.filter(
@@ -868,7 +931,7 @@ async function assertNumericColumnOrder(page, columnIndex, direction, label) {
   }
   const numbers = values
     .slice(0, firstMissingIndex === -1 ? undefined : firstMissingIndex)
-    .map((value) => Number(value.replaceAll(',', '')));
+    .map((value) => Number(value.replaceAll(',', '').match(/^-?\d+(?:[.]\d+)?/u)?.[0]));
   assert(
     numbers.length > 0 && numbers.every(Number.isFinite),
     `${label} did not expose sortable numeric values`,

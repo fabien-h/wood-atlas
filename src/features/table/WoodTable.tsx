@@ -2,7 +2,6 @@ import { ArrowDown, ArrowUp, Check, ChevronRight } from 'lucide-react';
 import {
   commonName,
   formatMeasure,
-  preferredHardness,
   shortClass,
   type SortKey,
   type WoodSort,
@@ -45,7 +44,8 @@ export function WoodTable({
     ['fungi', copy.fungi],
     ['termites', copy.termites],
     ['treatability', copy.treatability],
-    ['hardness', copy.hardness],
+    ['monninHardness', copy.monninHardness],
+    ['jankaHardness', copy.jankaHardness],
     ['density', copy.density],
     ['radialShrinkage', copy.radial],
     ['tangentialShrinkage', copy.tangential],
@@ -96,7 +96,7 @@ export function WoodTable({
             <tr>
               <td
                 className={styles.status}
-                colSpan={12}
+                colSpan={13}
                 role={status === 'error' ? 'alert' : 'status'}
               >
                 {status === 'error' ? copy.loadError : copy.loadingWoods}
@@ -104,7 +104,7 @@ export function WoodTable({
             </tr>
           ) : woods.length === 0 ? (
             <tr>
-              <td className={styles.status} colSpan={12}>
+              <td className={styles.status} colSpan={13}>
                 {copy.noWoods}
               </td>
             </tr>
@@ -114,7 +114,6 @@ export function WoodTable({
               const thumbnail = wood.thumbnail;
               const name = commonName(wood);
               const family = identityFamily({ taxonomy }, wood.identity);
-              const hardness = preferredHardness(wood);
               return (
                 <tr
                   className={activeId === wood.id ? styles.activeRow : ''}
@@ -174,17 +173,8 @@ export function WoodTable({
                   <td>
                     {formatTableClass(wood.durability.treatability.value, copy, 'treatability')}
                   </td>
-                  <td
-                    title={
-                      hardness
-                        ? hardness.scale === 'monnin'
-                          ? copy.monninHardness
-                          : copy.jankaHardness
-                        : undefined
-                    }
-                  >
-                    {hardness ? formatMeasure(hardness.measure, undefined, copy) : '-'}
-                  </td>
+                  <td>{formatTableMeasure(wood.physics.monninHardness, undefined, copy)}</td>
+                  <td>{formatTableMeasure(wood.physics.jankaHardness, undefined, copy)}</td>
                   <td>{formatTableMeasure(wood.physics.specificGravity, undefined, copy)}</td>
                   <td>{formatTableMeasure(wood.physics.totalRadialShrinkage, '%', copy)}</td>
                   <td>{formatTableMeasure(wood.physics.totalTangentialShrinkage, '%', copy)}</td>

@@ -144,7 +144,7 @@ export function buildActiveFilterTags(filters: Filters, copy: Translation): Acti
   };
 
   addRange('density', copy.density);
-  addRange('hardness', copy.hardness);
+  addRange('hardness', copy.monninHardness);
   addRange('radialShrinkage', copy.radialShrinkageShort);
   addRange('tangentialShrinkage', copy.tangentialShrinkageShort);
   addRange('modulus', copy.elasticityMpa);

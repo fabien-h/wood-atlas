@@ -90,7 +90,7 @@
   z-index: 2;
   background: inherit;
 }
-.table tbody td:nth-child(n + 8):nth-child(-n + 12) {
+.table tbody td:nth-child(n + 8):nth-child(-n + 13) {
   font-size: 0.8rem;
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
@@ -198,7 +198,7 @@
 :global([dir='rtl']) .table tbody tr.activeRow .openIcon {
   transform: translateX(-2px) rotate(180deg);
 }
-:global([dir='rtl']) .table td:nth-child(n + 4):nth-child(-n + 12) {
+:global([dir='rtl']) .table td:nth-child(n + 4):nth-child(-n + 13) {
   direction: ltr;
   unicode-bidi: isolate;
 }

@@ -6,7 +6,8 @@ export type SortKey =
   | 'name'
   | 'region'
   | 'density'
-  | 'hardness'
+  | 'monninHardness'
+  | 'jankaHardness'
   | 'radialShrinkage'
   | 'tangentialShrinkage'
   | 'modulus'
@@ -23,10 +24,6 @@ export interface SearchIndexEntry {
   text: string;
   terms: string[];
 }
-export interface HardnessReading {
-  measure: NumericMeasure;
-  scale: 'monnin' | 'janka';
-}
 type ClassKind = 'fungi' | 'termites' | 'treatability' | 'naturalUseClass';
 interface ClassSortValue {
   type: 'class';
@@ -40,7 +37,8 @@ export const sortKeys: SortKey[] = [
   'name',
   'region',
   'density',
-  'hardness',
+  'monninHardness',
+  'jankaHardness',
   'radialShrinkage',
   'tangentialShrinkage',
   'modulus',
@@ -63,16 +61,6 @@ export function primaryGrainImage(wood: WoodRecord) {
 
 export function commonName(wood: WoodRecord) {
   return wood.identity.primaryName || wood.identity.displayName;
-}
-
-export function preferredHardness(wood: WoodRecord): HardnessReading | null {
-  if (wood.physics.monninHardness.value !== null) {
-    return { measure: wood.physics.monninHardness, scale: 'monnin' };
-  }
-  if (wood.physics.jankaHardness.value !== null) {
-    return { measure: wood.physics.jankaHardness, scale: 'janka' };
-  }
-  return null;
 }
 
 export function woodMatches(
@@ -111,7 +99,7 @@ export function woodMatches(
   if (filters.cites === 'not-listed' && wood.cites.listed !== false) return false;
   if (filters.cites === 'unknown' && wood.cites.listed !== null) return false;
   if (!rangeMatches(wood.physics.specificGravity.value, filters.density)) return false;
-  if (!rangeMatches(preferredHardness(wood)?.measure.value ?? null, filters.hardness)) return false;
+  if (!rangeMatches(wood.physics.monninHardness.value, filters.hardness)) return false;
   if (!rangeMatches(wood.physics.totalRadialShrinkage.value, filters.radialShrinkage)) return false;
   if (!rangeMatches(wood.physics.totalTangentialShrinkage.value, filters.tangentialShrinkage))
     return false;
@@ -154,11 +142,12 @@ export function formatMeasure(
   copy: Translation,
 ) {
   if (measure.value === null) return copy.unknown;
-  const formatted =
-    Math.abs(measure.value) >= 1000
-      ? measure.value.toLocaleString(copy.locale)
-      : formatNumber(measure.value, measure.value < 10 ? 2 : 1, copy);
   const displayedUnit = unit === null ? undefined : (unit ?? measure.unit);
+  const formatted = formatNumber(
+    measure.value,
+    displayedUnit === 'N' ? 0 : measure.value < 10 ? 2 : 1,
+    copy,
+  );
   return `${formatted}${displayedUnit ? ` ${displayedUnit}` : ''}`;
 }
 
@@ -337,8 +326,10 @@ function sortValue(wood: WoodRecord, key: SortKey) {
       return wood.origin.region;
     case 'density':
       return wood.physics.specificGravity.value;
-    case 'hardness':
-      return preferredHardness(wood)?.measure.value ?? null;
+    case 'monninHardness':
+      return wood.physics.monninHardness.value;
+    case 'jankaHardness':
+      return wood.physics.jankaHardness.value;
     case 'radialShrinkage':
       return wood.physics.totalRadialShrinkage.value;
     case 'tangentialShrinkage':

@@ -167,7 +167,7 @@ export function FilterDrawer({
               onChange={(density) => onChange({ ...filters, density })}
             />
             <RangeFilter
-              label={copy.hardness}
+              label={copy.monninHardness}
               value={filters.hardness}
               copy={copy}
               onChange={(hardness) => onChange({ ...filters, hardness })}

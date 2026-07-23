@@ -3,7 +3,6 @@ import {
   commonName,
   durabilityScore,
   formatMeasure,
-  preferredHardness,
   primaryGrainImage,
   winningIndexes,
 } from '../../domain/woods';
@@ -99,10 +98,10 @@ function compareRows(copy: Translation) {
       get: (wood: WoodRecord) => wood.physics.specificGravity,
     },
     {
-      label: copy.hardness,
+      label: copy.monninHardness,
       unit: undefined,
       better: 'high' as const,
-      get: (wood: WoodRecord) => preferredHardness(wood)?.measure ?? wood.physics.monninHardness,
+      get: (wood: WoodRecord) => wood.physics.monninHardness,
     },
     {
       label: copy.radialShrinkage,
